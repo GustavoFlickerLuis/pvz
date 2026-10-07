@@ -485,8 +485,9 @@ começo. Esse é o dilema da Parte 1.
 
 - **Treino:** parte das combinações de segmentos.
 - **Teste de generalização:** combinações que o agente **nunca viu**, montadas
-  com segmentos que ele conhece. Ex.: no treino, o "fim-blindados" só aparece
-  depois do "meio-misto"; no teste, aparece depois do "meio-rápidos-em-massa".
+  com segmentos que ele conhece. Ex.: no treino, a sequência "meio-misto +
+  fim-blindados" só aparece depois do "início-só-rápidos"; no teste, aparece
+  depois do "início-calmo" e do "início-cedo-apressado".
 - **Teste difícil (opcional):** uma classe de segmento inteira nunca vista.
 - **Vitrine:** 3 fases pré-montadas, bonitas de mostrar, usadas **só para
   avaliação e demonstração**.
