@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Ambiente virtual
+.venv/
+
+# PyCharm
+.idea/
+
+# Resultados de treino
+runs/
+checkpoints/
+*.pt
