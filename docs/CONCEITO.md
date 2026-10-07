@@ -491,6 +491,23 @@ começo. Esse é o dilema da Parte 1.
 - **Vitrine:** 3 fases pré-montadas, bonitas de mostrar, usadas **só para
   avaliação e demonstração**.
 
+**Divisão adotada** (`pvz/divisao.py`). As 6 fases de teste formam dois blocos
+de 3 no estilo quadrado latino: em cada bloco, cada classe de cada segmento
+aparece uma vez. O primeiro bloco é calmo+misto+blindados,
+cedo-apressado+uma-faixa-pesada+tudo-junto e só-rápidos+rápidos-em-massa+duas-ondas.
+O segundo é calmo+rápidos-em-massa+duas-ondas, cedo-apressado+misto+blindados e
+só-rápidos+uma-faixa-pesada+tudo-junto. Assim, cada classe aparece exatamente 2
+vezes no teste, e as 21 fases de treino ainda contêm as 9 classes e os 9 pares
+início+meio. Cada par perde só uma das suas 3 continuações. A vitrine são as 3
+fases do primeiro bloco, com sementes fixas 20000, 20001 e 20002. As sementes
+não se cruzam: treino de 0 a 9999, teste de 10000 a 19999, vitrine a partir de
+20000. **Verificação:** com 20 sementes por fase, os baselines têm a mesma taxa
+nos dois conjuntos (guloso 40% no treino e 44% no teste; Econ5 64% e 64%). O
+teste, portanto, não é mais fácil nem mais difícil que o treino, e uma diferença
+no agente treinado indica falta de generalização. Com só 5 sementes (30
+partidas no teste), a margem de erro é de ±18 pontos, larga demais para essa
+comparação.
+
 ### Currículo
 
 O agente começa treinando em fases fáceis (hordas menores) e a dificuldade sobe

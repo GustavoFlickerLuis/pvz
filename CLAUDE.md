@@ -19,19 +19,15 @@ a menos que o usuário diga outra coisa. As seções são:
 A versão 1 usava modelo substituto com algoritmo genético. Foi descartada a pedido do professor: o trabalho agora é de RL.
 
 ## Regras do jogo (CONCEITO 2.1–2.4)
-Os números ficam em `pvz/config.py` e já estão calibrados (ver Calibração).
-- **Gramado:** 5 faixas × 9 colunas. Os zumbis entram na coluna 8 e nunca trocam de faixa. A derrota acontece quando um zumbi cruza a coluna 0 (não há cortador de grama). A vitória, quando as ondas acabam e todos os zumbis morrem.
-- **Sol:** 100 no início, 25 do céu a cada 240 ticks e 25 por girassol a cada 120 ticks. A coleta é automática. O sol é compartilhado entre as faixas, e é isso que acopla o problema em 2D.
-- **Plantas** (custo / recarga / vida):
-  - Girassol: 50 / 50 / 300.
-  - Ervilha: 100 / 50 / 300; causa 20 de dano a cada 15 ticks.
-  - Repetidora: 200 / 50 / 300; dispara duas vezes.
-  - Batata: 50 / 200 / 4000.
-  - Mina: 25 / 200 / 300; arma em 150 ticks e causa 1800 de dano na célula.
-- **Regra-chave:** atiradores só acertam zumbis **à direita ou na própria célula**.
-- **Zumbis** (vida / ticks por coluna): comum 200/50, blindado 1100/70, rápido 150/25. Todos mordem 5 por tick.
+Os números (custos, vidas, dano, ticks, sol) **não ficam aqui**: a fonte é
+`pvz/config.py`, e a tabela legível está no CONCEITO 2.1. Os valores já estão calibrados
+(ver Calibração). As regras que importam para programar:
+- **Gramado:** 5 faixas × 9 colunas. Os zumbis entram pela direita e nunca trocam de faixa. A derrota acontece quando um zumbi cruza a coluna 0 (não há cortador de grama). A vitória, quando as ondas acabam e todos os zumbis morrem.
+- **Sol:** a coleta é automática. O sol é compartilhado entre as faixas, e é isso que acopla o problema em 2D.
+- **Recarga** por tipo de planta: sem ela, o agente encheria uma faixa no mesmo instante.
+- **Regra-chave:** atiradores só acertam zumbis **à direita ou na própria célula**. Zumbi que chega numa planta para e come; a mina só explode armada e na própria célula.
 - **Ordem fixa das operações no tick:** sol → spawn → plantas agem → zumbis bloqueados mordem → zumbis livres andam → remoção → checagem de fim. O dano é instantâneo (não há projétil).
-- **Decisão a cada k = 10 ticks.**
+- **Decisão a cada k ticks** (`K_TICKS`), com o simulador rodando sozinho entre decisões.
 - **Estado:** 20 canais × 5 × 9. O agente não vê os zumbis futuros; o canal 19 resume em quais faixas os zumbis vieram no segmento atual.
 - **Ações:** 226 (5 plantas × 45 células + esperar), com máscara (sol, recarga, célula ocupada). A máscara é usada no argmax, na exploração e no alvo (a máscara de s' vai para o replay).
 - **Recompensa:** dano do passo ÷ vida total da fase, mais +1 na vitória ou −1 na derrota. **Nunca recompensar meios** (sol coletado, plantas plantadas).
