@@ -16,7 +16,7 @@ SOL_INICIAL = 100
 SOL_CEU = 25
 INTERVALO_CEU = 240
 SOL_GIRASSOL = 25
-INTERVALO_GIRASSOL = 60
+INTERVALO_GIRASSOL = 120
 
 
 # ---------------------------------------------------------------- plantas

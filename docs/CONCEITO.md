@@ -225,9 +225,9 @@ Existem, sim, e vamos citá-los (seção 4.3). A resposta tem três partes:
 |---|---|---|
 | Sol inicial | 100 | uma vez, em t = 0 |
 | Céu | 25 | a cada 240 ticks |
-| Girassol | 25 | a cada 60 ticks, por girassol |
+| Girassol | 25 | a cada 120 ticks, por girassol |
 
-O céu é 4× mais lento que um girassol, de propósito: é o suficiente para o agente
+O céu é 2× mais lento que um girassol, de propósito: é o suficiente para o agente
 nunca ficar travado sem sol, mas não para vencer sem investir em girassóis. A
 coleta é automática.
 
@@ -304,7 +304,7 @@ rodar vários ambientes em paralelo. A GPU dá conta da rede; o gargalo será a 
 
 O agente decide a cada **k = 10 ticks**. Entre duas decisões, o simulador roda
 k ticks sozinho. k precisa ser bem menor que o intervalo de produção do girassol
-(60 ticks), para o agente nunca demorar muito a poder gastar um sol.
+(120 ticks), para o agente nunca demorar muito a poder gastar um sol.
 
 ### Estado
 
@@ -451,9 +451,35 @@ duração, composição e intensidade definidas:
 | **Meio** | Pressão crescente | misto, uma-faixa-pesada, rápidos-em-massa |
 | **Fim** | Onda grande | blindados, tudo-junto, duas-ondas |
 
-Cada classe define **o que** entra e **quando**; a semente sorteia **em qual
-faixa**. Com 3 classes por segmento, são 3 × 3 × 3 = **27 fases** diferentes,
-cada uma jogável com infinitas sementes.
+Cada classe é uma **distribuição**, não um roteiro fixo. Ela tem uma
+"personalidade" (que tipos de zumbi costumam entrar, em que ritmo, em que parte do
+segmento, se concentrados numa faixa), e a semente sorteia a partida concreta:
+
+| O que a semente sorteia | Variação em torno do valor da classe |
+|---|---|
+| Quantidade de zumbis | ±25% |
+| Tick de começo de cada fila de zumbis | ±100 ticks, sem sair do segmento |
+| Cada intervalo entre zumbis | ±30%, individualmente |
+| Composição | cada zumbi sorteado com as proporções da classe |
+| Faixa | uniforme (na "uma faixa pesada", a fila principal vai toda para uma faixa sorteada) |
+
+Assim, a mesma combinação de classes conta histórias diferentes a cada semente, e
+o agente não consegue decorar um calendário. A geração é determinística: mesmas
+classes, mesma semente e mesma dificuldade geram sempre a mesma fase. O sorteio
+depende também das classes, então fases diferentes não compartilham a sequência.
+
+A **intensidade** cresce ao longo da fase: cada segmento tem um peso (início 1,0,
+meio 2,0, fim 2,25) que, multiplicado pela dificuldade, aumenta o número de zumbis
+e comprime os intervalos, mantendo a duração do segmento.
+
+Com 3 classes por segmento, são 3 × 3 × 3 = **27 fases** diferentes, cada uma
+jogável com infinitas sementes.
+
+**Calibração atual** (27 fases × 5 sementes): aleatório 0% de vitórias, guloso
+38%; Econ(N), que planta N girassóis antes de defender, vence 25% com N = 3, 52%
+com 4, 67% com 5, 54% com 6 e 36% com 8. O melhor investimento fica no meio da
+curva: pouca economia não sustenta a defesa e muita economia não sobrevive ao
+começo. Esse é o dilema da Parte 1.
 
 ### Separação treino / teste — decidida antes de treinar
 

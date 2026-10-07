@@ -1,9 +1,11 @@
 """Hordas e fases (seção 2.6).
 
 Uma fase é uma sequência de segmentos (início, meio, fim). Cada classe de segmento
-define O QUE entra e QUANDO; a semente sorteia só EM QUAL FAIXA.
+é uma DISTRIBUIÇÃO com "personalidade" própria (o que costuma entrar, em que ritmo,
+onde); a semente sorteia a partida concreta: quantos zumbis, quando o segmento
+começa, os intervalos entre zumbis, a composição e as faixas.
 
-As classes abaixo são um primeiro rascunho, para ter o que testar.
+As classes abaixo ainda são um rascunho, para ter o que testar.
 """
 import itertools
 import random
@@ -12,6 +14,15 @@ from functools import cached_property
 
 from . import config as C
 from .config import BLINDADO, COMUM, RAPIDO
+
+# Intensidade de cada segmento (início, meio, fim), multiplicada pela `dificuldade`:
+# multiplica o número de zumbis e comprime o intervalo (o segmento mantém a duração).
+PESO_SEGMENTO = (1.0, 2.0, 2.25)
+
+# Variação sorteada pela semente em cada fila de zumbis
+VAR_QUANTIDADE = 0.25   # ±25% no número de zumbis
+VAR_INICIO = 100        # ±100 ticks no começo da fila
+VAR_INTERVALO = 0.30    # ±30% em cada intervalo, individualmente
 
 
 @dataclass(frozen=True)
@@ -34,72 +45,102 @@ class Fase:
 
 
 # ---------------------------------------------------------------- segmentos
-def _fila(rng, escala, n, inicio, intervalo, padrao, faixa=None):
-    """n zumbis a partir do tick `inicio`, um a cada `intervalo` ticks.
+@dataclass(frozen=True)
+class Fila:
+    """Valores médios de uma fila de zumbis, antes do sorteio e da escala.
 
-    `padrao` é repetido em ciclo (a composição não depende da semente).
-    `escala` (dificuldade) multiplica o número de zumbis e comprime o intervalo,
-    para o segmento manter a mesma duração.
+    `padrao` dá as proporções da composição (cada zumbi é sorteado dele).
+    `faixa_unica`: todos na mesma faixa, sorteada uma vez por segmento.
     """
-    n = max(1, round(n * escala))
-    intervalo = max(1, round(intervalo / escala))
+    n: int
+    inicio: int
+    intervalo: int
+    padrao: tuple
+    faixa_unica: bool = False
+
+
+@dataclass(frozen=True)
+class Classe:
+    duracao: int
+    filas: tuple
+
+
+def _sortear_fila(rng, fila, escala, duracao, faixa_unica):
+    """Lista de (tick relativo ao segmento, tipo, faixa), toda dentro de [0, duracao)."""
+    n = max(1, round(fila.n * escala * rng.uniform(1 - VAR_QUANTIDADE, 1 + VAR_QUANTIDADE)))
+    intervalo = fila.intervalo / escala
+    offsets, t = [], 0.0
+    for _ in range(n):
+        offsets.append(t)
+        t += intervalo * rng.uniform(1 - VAR_INTERVALO, 1 + VAR_INTERVALO)
+    ultimo = duracao - 1
+    if offsets[-1] > ultimo:                       # fila longa demais: comprime
+        offsets = [o * ultimo / offsets[-1] for o in offsets]
+    inicio = fila.inicio + rng.randint(-VAR_INICIO, VAR_INICIO)
+    inicio = min(max(0, inicio), ultimo - offsets[-1])   # não sai do segmento
     return [
-        (inicio + i * intervalo,
-         padrao[i % len(padrao)],
-         faixa if faixa is not None else rng.randrange(C.FAIXAS))
-        for i in range(n)
+        (int(inicio + o),
+         rng.choice(fila.padrao),
+         faixa_unica if fila.faixa_unica else rng.randrange(C.FAIXAS))
+        for o in offsets
     ]
 
 
-# Cada classe: (rng, escala) -> (lista de (tick relativo, tipo, faixa), duração do segmento)
+def sortear_segmento(rng, classe, escala):
+    faixa_unica = rng.randrange(C.FAIXAS)
+    lista = []
+    for fila in classe.filas:
+        lista += _sortear_fila(rng, fila, escala, classe.duracao, faixa_unica)
+    return lista
+
+
 INICIO = {
-    "calmo":          lambda rng, e: (_fila(rng, e, 4, 400, 120, [COMUM]), 900),
-    "cedo_apressado": lambda rng, e: (_fila(rng, e, 5, 200, 100, [COMUM]), 900),
-    "so_rapidos":     lambda rng, e: (_fila(rng, e, 4, 350, 130, [RAPIDO]), 900),
+    "calmo":          Classe(900, (Fila(4, 400, 120, (COMUM,)),)),
+    "cedo_apressado": Classe(900, (Fila(5, 200, 100, (COMUM,)),)),
+    "so_rapidos":     Classe(900, (Fila(4, 350, 130, (RAPIDO,)),)),
 }
 
-
-def _uma_faixa_pesada(rng, e):
-    faixa = rng.randrange(C.FAIXAS)
-    return (_fila(rng, e, 8, 0, 120, [COMUM], faixa=faixa)
-            + _fila(rng, e, 2, 300, 400, [COMUM])), 1200
-
-
 MEIO = {
-    "misto":            lambda rng, e: (_fila(rng, e, 10, 0, 110, [COMUM, COMUM, RAPIDO, COMUM, BLINDADO]), 1200),
-    "uma_faixa_pesada": _uma_faixa_pesada,
-    "rapidos_em_massa": lambda rng, e: (_fila(rng, e, 10, 100, 100, [RAPIDO]), 1200),
+    "misto":            Classe(1200, (Fila(10, 0, 110, (COMUM, COMUM, RAPIDO, COMUM, BLINDADO)),)),
+    "uma_faixa_pesada": Classe(1200, (Fila(8, 0, 120, (COMUM,), faixa_unica=True),
+                                      Fila(2, 300, 400, (COMUM,)))),
+    "rapidos_em_massa": Classe(1200, (Fila(10, 100, 100, (RAPIDO,)),)),
 }
 
 FIM = {
-    "blindados":  lambda rng, e: (_fila(rng, e, 12, 0, 60, [BLINDADO, COMUM, COMUM]), 900),
-    "tudo_junto": lambda rng, e: (_fila(rng, e, 15, 100, 30, [COMUM, RAPIDO, COMUM, BLINDADO, COMUM]), 900),
-    "duas_ondas": lambda rng, e: (_fila(rng, e, 8, 0, 35, [COMUM, COMUM, RAPIDO, BLINDADO])
-                                  + _fila(rng, e, 8, 500, 35, [COMUM, COMUM, RAPIDO, BLINDADO]), 900),
+    "blindados":  Classe(900, (Fila(12, 0, 60, (BLINDADO, COMUM, COMUM)),)),
+    "tudo_junto": Classe(900, (Fila(15, 100, 30, (COMUM, RAPIDO, COMUM, BLINDADO, COMUM)),)),
+    "duas_ondas": Classe(900, (Fila(8, 0, 35, (COMUM, COMUM, RAPIDO, BLINDADO)),
+                               Fila(8, 500, 35, (COMUM, COMUM, RAPIDO, BLINDADO)))),
 }
 
 SEGMENTOS = (INICIO, MEIO, FIM)
 
 
 # ---------------------------------------------------------------- fases
-def montar_fase(classes, semente=0, dificuldade=1.0):
+def montar_fase(classes, semente=0, dificuldade=1.0, pesos=PESO_SEGMENTO):
     """Monta uma fase a partir de 1 a 3 classes, na ordem início, meio, fim.
 
     `classes` pode ser uma tupla ("calmo", "misto", "blindados") ou uma string
     "calmo,misto,blindados". Fases com menos segmentos servem para o currículo.
+    Determinística: mesmas classes + semente + dificuldade + pesos = mesma fase.
     """
     if isinstance(classes, str):
         classes = [c.strip() for c in classes.replace("+", ",").split(",") if c.strip()]
     if not 1 <= len(classes) <= 3:
         raise ValueError("uma fase tem de 1 a 3 segmentos")
-    rng = random.Random(semente)
+    # O rng depende também das classes: sem isso, duas fases cujos segmentos anteriores
+    # consomem o mesmo número de sorteios teriam o resto da horda idêntico.
+    # (Semente em string é determinística, não depende de PYTHONHASHSEED.)
+    rng = random.Random(f"{semente}|{'+'.join(classes)}")
     spawns, inicio = [], 0
     for i, (nome, tabela) in enumerate(zip(classes, SEGMENTOS)):
         if nome not in tabela:
             raise ValueError(f"segmento {i} não tem a classe {nome!r}; opções: {sorted(tabela)}")
-        lista, duracao = tabela[nome](rng, dificuldade)
+        classe = tabela[nome]
+        lista = sortear_segmento(rng, classe, dificuldade * pesos[i])
         spawns += [Spawn(inicio + t, tipo, faixa, i) for t, tipo, faixa in lista]
-        inicio += duracao
+        inicio += classe.duracao
     spawns.sort(key=lambda s: s.tick)
     return Fase("+".join(classes), tuple(spawns), inicio)
 

@@ -6,7 +6,8 @@ import numpy as np
 
 from pvz import config as C
 from pvz.ambiente import ESPERAR, N_ACOES, N_CANAIS, Ambiente, codificar_acao
-from pvz.hordas import fase_manual, montar_fase, todas_as_fases
+from pvz.hordas import (MEIO, PESO_SEGMENTO, SEGMENTOS, VAR_QUANTIDADE, fase_manual,
+                        montar_fase, todas_as_fases)
 
 
 def ambiente_vazio():
@@ -40,12 +41,6 @@ class TestDeterminismo(unittest.TestCase):
         b, hb = partida_aleatoria("calmo,misto,blindados", 3, 7)
         self.assertEqual(ha, hb)
         self.assertEqual(a.tick, b.tick)
-
-    def test_semente_so_muda_faixas(self):
-        f1 = montar_fase("calmo,misto,blindados", 1)
-        f2 = montar_fase("calmo,misto,blindados", 2)
-        self.assertEqual([(s.tick, s.tipo) for s in f1.spawns], [(s.tick, s.tipo) for s in f2.spawns])
-        self.assertNotEqual([s.faixa for s in f1.spawns], [s.faixa for s in f2.spawns])
 
     def test_clonar_e_independente(self):
         amb, _ = partida_aleatoria("calmo", 0, 0)
@@ -219,6 +214,88 @@ class TestFases(unittest.TestCase):
             fase = montar_fase(f, 0)
             self.assertGreater(len(fase.spawns), 0)
             self.assertTrue(all(0 <= s.faixa < C.FAIXAS for s in fase.spawns))
+
+    def test_mesma_semente_mesma_fase(self):
+        for f in todas_as_fases():
+            self.assertEqual(montar_fase(f, 5, 1.3).spawns, montar_fase(f, 5, 1.3).spawns)
+
+    def test_forma_das_classes_nao_muda_a_fase(self):
+        """String, string com "+", tupla ou lista: a chave do rng é a mesma."""
+        for s in range(5):
+            ref = montar_fase(("calmo", "misto", "blindados"), s).spawns
+            for forma in ("calmo,misto,blindados", "calmo+misto+blindados",
+                          " calmo, misto ,blindados", ["calmo", "misto", "blindados"]):
+                self.assertEqual(montar_fase(forma, s).spawns, ref, forma)
+
+    def test_semente_muda_a_historia(self):
+        """A semente sorteia quantidade, ticks e composição, não só a faixa."""
+        fases = [montar_fase("calmo,misto,blindados", s) for s in range(10)]
+        self.assertGreater(len({len(f.spawns) for f in fases}), 1)
+        self.assertGreater(len({tuple(s.tick for s in f.spawns) for f in fases}), 1)
+        self.assertGreater(len({tuple(s.tipo for s in f.spawns) for f in fases}), 1)
+
+    def test_fases_diferentes_nao_compartilham_sorteio(self):
+        """calmo e so_rapidos têm o mesmo número de zumbis; o meio não pode sair igual."""
+        a = montar_fase("calmo,misto,blindados", 0)
+        b = montar_fase("so_rapidos,misto,blindados", 0)
+        meio = lambda f: [(s.tick, s.tipo, s.faixa) for s in f.spawns if s.segmento == 1]
+        self.assertNotEqual(meio(a), meio(b))
+
+    def _segmentos(self, f, semente, dificuldade=1.0):
+        """Para cada segmento: (classe, escala, início absoluto, spawns)."""
+        fase = montar_fase(f, semente, dificuldade)
+        inicio, saida = 0, []
+        for i, (nome, tabela) in enumerate(zip(f, SEGMENTOS)):
+            classe = tabela[nome]
+            spawns = [s for s in fase.spawns if s.segmento == i]
+            saida.append((classe, dificuldade * PESO_SEGMENTO[i], inicio, spawns))
+            inicio += classe.duracao
+        return saida
+
+    def test_spawns_dentro_do_segmento(self):
+        for f in todas_as_fases():
+            for semente in range(5):
+                for dificuldade in (0.5, 1.0, 2.0):
+                    for classe, _, inicio, spawns in self._segmentos(f, semente, dificuldade):
+                        for s in spawns:
+                            self.assertGreaterEqual(s.tick, inicio)
+                            self.assertLess(s.tick, inicio + classe.duracao)
+
+    def test_quantidade_e_composicao(self):
+        for f in todas_as_fases():
+            for semente in range(5):
+                for classe, escala, _, spawns in self._segmentos(f, semente):
+                    minimo = sum(max(1, round(q.n * escala * (1 - VAR_QUANTIDADE))) for q in classe.filas)
+                    maximo = sum(max(1, round(q.n * escala * (1 + VAR_QUANTIDADE))) for q in classe.filas)
+                    self.assertTrue(minimo <= len(spawns) <= maximo, (f, semente, len(spawns)))
+                    tipos = {t for q in classe.filas for t in q.padrao}
+                    self.assertTrue({s.tipo for s in spawns} <= tipos)
+
+    def test_composicao_segue_proporcoes(self):
+        """Em muitas sementes, a proporção de cada tipo se aproxima da do padrão."""
+        contagem, total = [0] * len(C.ZUMBIS), 0
+        for semente in range(200):
+            for s in montar_fase("calmo,misto", semente).spawns:
+                if s.segmento == 1:
+                    contagem[s.tipo] += 1
+                    total += 1
+        padrao = MEIO["misto"].filas[0].padrao
+        for tipo in set(padrao):
+            self.assertAlmostEqual(contagem[tipo] / total, padrao.count(tipo) / len(padrao), delta=0.04)
+
+    def test_uma_faixa_pesada_concentra(self):
+        fila = MEIO["uma_faixa_pesada"].filas[0]
+        for semente in range(20):
+            spawns = [s for s in montar_fase("calmo,uma_faixa_pesada", semente).spawns if s.segmento == 1]
+            maior = max(sum(s.faixa == f for s in spawns) for f in range(C.FAIXAS))
+            self.assertGreaterEqual(maior, round(fila.n * PESO_SEGMENTO[1] * (1 - VAR_QUANTIDADE)))
+
+    def test_pesos_por_argumento(self):
+        """Os pesos podem ser passados sem mexer no módulo, e o padrão não muda."""
+        leve = montar_fase("calmo,misto,blindados", 0, pesos=(1.0, 1.0, 1.0))
+        normal = montar_fase("calmo,misto,blindados", 0)
+        self.assertLess(len(leve.spawns), len(normal.spawns))
+        self.assertEqual(normal.spawns, montar_fase("calmo,misto,blindados", 0).spawns)
 
 
 if __name__ == "__main__":

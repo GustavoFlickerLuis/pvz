@@ -93,7 +93,7 @@ def cmd_avaliar(args):
     fases = todas_as_fases() if args.fase == "todas" else [args.fase]
     print(f"{len(fases)} fase(s) x {args.sementes} semente(s), dificuldade {args.dificuldade}\n")
     for nome in args.agentes:
-        vitorias, retornos, danos, ticks = [], [], [], []
+        vitorias, retornos, danos, ticks, sois = [], [], [], [], []
         por_fase = {}
         t0 = time.perf_counter()
         for fase in fases:
@@ -103,10 +103,12 @@ def cmd_avaliar(args):
                 retornos.append(ret)
                 danos.append(amb.info()["dano_frac"])
                 ticks.append(amb.tick)
+                sois.append(amb.sol)
                 por_fase.setdefault("+".join(fase) if not isinstance(fase, str) else fase, []).append(amb.venceu)
         print(f"{nome:10s} vitórias {sum(vitorias) / len(vitorias):6.1%}   "
               f"retorno {statistics.mean(retornos):+.3f} ± {statistics.pstdev(retornos):.3f}   "
-              f"dano {statistics.mean(danos):5.1%}   tick final médio {statistics.mean(ticks):6.0f}   "
+              f"dano {statistics.mean(danos):5.1%}   sol final {statistics.mean(sois):5.0f}   "
+              f"tick final médio {statistics.mean(ticks):6.0f}   "
               f"({time.perf_counter() - t0:.1f}s)")
         if args.por_fase:
             for f, v in por_fase.items():
