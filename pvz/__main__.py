@@ -3,6 +3,7 @@
     python -m pvz assistir --agente guloso --fase calmo,misto,blindados
     python -m pvz jogar --fase calmo,misto,blindados          (você joga)
     python -m pvz avaliar --sementes 3                        (baselines nas 27 fases)
+    python -m pvz avaliar --conjunto teste --sementes 5       (treino, teste ou vitrine)
     python -m pvz bench                                       (passos por segundo)
 """
 import argparse
@@ -12,6 +13,7 @@ import time
 from . import config as C
 from .agentes import AGENTES
 from .ambiente import ESPERAR, Ambiente, codificar_acao
+from .divisao import FASES_TESTE, FASES_TREINO, SEMENTES_TESTE, SEMENTES_TREINO, VITRINE
 from .hordas import todas_as_fases
 from .render import LEGENDA, desenhar
 
@@ -89,22 +91,39 @@ def cmd_jogar(args):
     print(f"retorno {retorno:+.3f}   info {amb.info()}")
 
 
+def partidas_do_conjunto(conjunto, n_sementes):
+    """Lista de (classes, semente) de um conjunto da divisão (pvz/divisao.py)."""
+    if conjunto == "vitrine":
+        return list(VITRINE)
+    fases, sementes = {
+        "treino": (FASES_TREINO, SEMENTES_TREINO),
+        "teste": (FASES_TESTE, SEMENTES_TESTE),
+        "todas": (todas_as_fases(), range(n_sementes)),
+    }[conjunto]
+    return [(f, s) for f in fases for s in sementes[:n_sementes]]
+
+
 def cmd_avaliar(args):
-    fases = todas_as_fases() if args.fase == "todas" else [args.fase]
-    print(f"{len(fases)} fase(s) x {args.sementes} semente(s), dificuldade {args.dificuldade}\n")
+    if args.fase != "todas":
+        partidas = [(args.fase, s) for s in range(args.sementes)]
+        print(f"fase {args.fase} x {args.sementes} semente(s), dificuldade {args.dificuldade}\n")
+    else:
+        partidas = partidas_do_conjunto(args.conjunto, args.sementes)
+        n_fases = len({tuple(f) for f, _ in partidas})
+        print(f"conjunto {args.conjunto}: {n_fases} fase(s), {len(partidas)} partida(s), "
+              f"dificuldade {args.dificuldade}\n")
     for nome in args.agentes:
         vitorias, retornos, danos, ticks, sois = [], [], [], [], []
         por_fase = {}
         t0 = time.perf_counter()
-        for fase in fases:
-            for s in range(args.sementes):
-                amb, ret = jogar_partida(AGENTES[nome](), fase, s, args.dificuldade)
-                vitorias.append(amb.venceu)
-                retornos.append(ret)
-                danos.append(amb.info()["dano_frac"])
-                ticks.append(amb.tick)
-                sois.append(amb.sol)
-                por_fase.setdefault("+".join(fase) if not isinstance(fase, str) else fase, []).append(amb.venceu)
+        for fase, s in partidas:
+            amb, ret = jogar_partida(AGENTES[nome](), fase, s, args.dificuldade)
+            vitorias.append(amb.venceu)
+            retornos.append(ret)
+            danos.append(amb.info()["dano_frac"])
+            ticks.append(amb.tick)
+            sois.append(amb.sol)
+            por_fase.setdefault("+".join(fase) if not isinstance(fase, str) else fase, []).append(amb.venceu)
         print(f"{nome:10s} vitórias {sum(vitorias) / len(vitorias):6.1%}   "
               f"retorno {statistics.mean(retornos):+.3f} ± {statistics.pstdev(retornos):.3f}   "
               f"dano {statistics.mean(danos):5.1%}   sol final {statistics.mean(sois):5.0f}   "
@@ -156,8 +175,10 @@ def main(argv=None):
 
     p = sub.add_parser("avaliar", help="taxa de vitória dos baselines")
     p.add_argument("--agentes", nargs="+", choices=AGENTES, default=list(AGENTES))
-    p.add_argument("--fase", default="todas", help='"todas" (27) ou início,meio,fim')
-    p.add_argument("--sementes", type=int, default=3)
+    p.add_argument("--fase", default="todas", help="uma fase início,meio,fim (ignora --conjunto)")
+    p.add_argument("--conjunto", choices=("treino", "teste", "vitrine", "todas"), default="todas",
+                   help="treino/teste usam as sementes reservadas de cada um; vitrine tem sementes fixas")
+    p.add_argument("--sementes", type=int, default=3, help="sementes por fase (ignorado na vitrine)")
     p.add_argument("--dificuldade", type=float, default=1.0)
     p.add_argument("--por-fase", action="store_true", help="mostra vitórias em cada fase")
     p.set_defaults(func=cmd_avaliar)

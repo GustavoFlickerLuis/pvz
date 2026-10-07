@@ -1,4 +1,5 @@
 """Testes das regras do simulador.  Rodar com:  python -m unittest -v"""
+import itertools
 import random
 import unittest
 
@@ -6,7 +7,8 @@ import numpy as np
 
 from pvz import config as C
 from pvz.ambiente import ESPERAR, N_ACOES, N_CANAIS, Ambiente, codificar_acao
-from pvz.hordas import (MEIO, PESO_SEGMENTO, SEGMENTOS, VAR_QUANTIDADE, fase_manual,
+from pvz.divisao import FASES_TESTE, FASES_TREINO, SEMENTES_TESTE, SEMENTES_TREINO, VITRINE
+from pvz.hordas import (INICIO, MEIO, PESO_SEGMENTO, SEGMENTOS, VAR_QUANTIDADE, fase_manual,
                         montar_fase, todas_as_fases)
 
 
@@ -296,6 +298,32 @@ class TestFases(unittest.TestCase):
         normal = montar_fase("calmo,misto,blindados", 0)
         self.assertLess(len(leve.spawns), len(normal.spawns))
         self.assertEqual(normal.spawns, montar_fase("calmo,misto,blindados", 0).spawns)
+
+
+class TestDivisao(unittest.TestCase):
+    def test_teste_e_treino_disjuntos_e_completos(self):
+        self.assertEqual(len(FASES_TESTE), 6)
+        self.assertEqual(len(FASES_TREINO), 21)
+        self.assertFalse(set(FASES_TESTE) & set(FASES_TREINO))
+        self.assertEqual(set(FASES_TESTE) | set(FASES_TREINO), set(todas_as_fases()))
+
+    def test_treino_ve_todas_as_classes_e_pares(self):
+        for i, tabela in enumerate(SEGMENTOS):
+            self.assertEqual({f[i] for f in FASES_TREINO}, set(tabela))
+        self.assertEqual({f[:2] for f in FASES_TREINO}, set(itertools.product(INICIO, MEIO)))
+
+    def test_cada_classe_duas_vezes_no_teste(self):
+        for i, tabela in enumerate(SEGMENTOS):
+            for nome in tabela:
+                self.assertEqual(sum(f[i] == nome for f in FASES_TESTE), 2, nome)
+
+    def test_vitrine_e_sementes(self):
+        self.assertEqual(len(VITRINE), 3)
+        for fase, semente in VITRINE:
+            self.assertIn(fase, FASES_TESTE)
+            self.assertNotIn(semente, SEMENTES_TREINO)
+            self.assertNotIn(semente, SEMENTES_TESTE)
+        self.assertFalse(set(SEMENTES_TREINO) & set(SEMENTES_TESTE))
 
 
 if __name__ == "__main__":
