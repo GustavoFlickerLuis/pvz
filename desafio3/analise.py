@@ -80,6 +80,21 @@ def varredura():
 
     FIGURAS.mkdir(exist_ok=True)
     fig, ax = plt.subplots(figsize=(8, 5))
+    desenhar_varredura(ax, por_otim)
+    fig.tight_layout()
+    fig.savefig(FIGURAS / "varredura_eta.png", dpi=120)
+    print(FIGURAS / "varredura_eta.png")
+
+
+def por_otimizador_varredura():
+    por_otim = {}
+    for e in sorted((e for e in ler() if e["etapa"] == "varredura_lr"),
+                    key=lambda e: (e["otimizador"], float(e["lr"]))):
+        por_otim.setdefault(e["otimizador"], []).append(e)
+    return por_otim
+
+
+def desenhar_varredura(ax, por_otim):
     for o, es in por_otim.items():
         lr = [float(e["lr"]) for e in es]
         v = [float(e["val_final"]) if e["status"] != "divergiu" else np.nan for e in es]
@@ -94,9 +109,6 @@ def varredura():
                  "(linhas pontilhadas: η que divergiram)", fontsize=10)
     ax.grid(alpha=0.3, which="both")
     ax.legend()
-    fig.tight_layout()
-    fig.savefig(FIGURAS / "varredura_eta.png", dpi=120)
-    print(FIGURAS / "varredura_eta.png")
 
 
 def agendas():
@@ -157,10 +169,17 @@ def confirmacao():
 
 
 def rho(log_a, log_b):
-    from .graficos import ler as ler_log, serie
     FIGURAS.mkdir(exist_ok=True)
     fig, eixos = plt.subplots(1, 2, figsize=(13, 4.5), sharey=True)
-    for ax, pasta in zip(eixos, (log_a, log_b)):
+    desenhar_rho(eixos, (log_a, log_b))
+    fig.tight_layout()
+    fig.savefig(FIGURAS / "rho_muon_adamw.png", dpi=120)
+    print(FIGURAS / "rho_muon_adamw.png")
+
+
+def desenhar_rho(eixos, logs):
+    from .graficos import ler as ler_log, serie
+    for ax, pasta in zip(eixos, logs):
         r, info = ler_log(Path(pasta))
         cfg = info["config"]
         for n in CAMADAS:
@@ -173,9 +192,6 @@ def rho(log_a, log_b):
         ax.axhline(1e-3, color="k", ls="--", lw=0.8)
     eixos[0].set_ylabel("ρ = ‖Δθ‖ / ‖θ‖ por camada")
     eixos[0].legend(fontsize=8)
-    fig.tight_layout()
-    fig.savefig(FIGURAS / "rho_muon_adamw.png", dpi=120)
-    print(FIGURAS / "rho_muon_adamw.png")
 
 
 def pasta_do_log(e):
@@ -245,7 +261,7 @@ def _ms(xs):
     return f"{xs.mean():.5f} ± {xs.std(ddof=1):.5f}"
 
 
-def tabelas():
+def tabelas(escrever=True):
     exps = ler()
     dados = {}
     for rotulo, filtro in CONFIGS:
@@ -308,8 +324,9 @@ def tabelas():
             veredito = ("empate" if abs(z) <= 2 else
                         ("finalista vence" if z > 0 else "extra vence"))
             out.append(f"| {re_} | {rf} | {a.mean() - b.mean():+.5f} | {z:+.2f} | {veredito} |")
-    TABELAS.write_text("\n".join(out) + "\n", encoding="utf-8")
-    print("\n".join(out))
+    if escrever:
+        TABELAS.write_text("\n".join(out) + "\n", encoding="utf-8")
+        print("\n".join(out))
     return dados
 
 
