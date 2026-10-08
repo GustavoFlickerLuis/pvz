@@ -101,6 +101,11 @@ coleta é permitido, mas o código que os chama continua preso a essa interface.
     que **nenhum código de treino carrega** (`carregar("teste")` recusa; só é lido no fim).
   - Receita atual (baseline): Adam, η = 1e-4, constante, wd 0, lote 256, clip 10,
     Huber δ = 1 só na ação tomada. Seleção pela Huber de validação no último passo.
+  - **Orçamento fixo: 10.000 passos (lote 256) em todas as comparações.** Na baseline de
+    20.000 passos, a validação chega a 1% do mínimo no passo ~10.500 e fica no ruído
+    (0,164–0,167); depois disso, só cresce a distância treino–validação.
+  - Hipóteses registradas antes das varreduras: `desafio3/hipoteses.md` (não editar as
+    previsões; o desfecho vai no fim do arquivo). Enunciado: `desafio3/enunciado.pdf`.
   - Alvo G = retorno de Monte Carlo. Mesma CNN, mesma saída e mesma Huber loss do DQN.
   - Grade: cada otimizador com o seu melhor LR × schedulers (warmup+cosseno, restarts,
     warmup+constante) × 3 sementes.
@@ -132,7 +137,7 @@ coleta é permitido, mas o código que os chama continua preso a essa interface.
 - `python -m pvz bench` (passos/segundo com o agente aleatório; depende das regras, então só compare medições feitas com as mesmas regras)
 - Testes: `python -m pytest tests`
 - Calibração: `python tools/calibrar.py --girassol 120 --pesos 1 2 2.25 --saida r.json` e `python tools/analisar.py r.json`
-- Desafio 3: `python -m desafio3.dados`; `python -m desafio3.treino --otimizador adam --lr 1e-4 --agenda constante --semente 0 --passos 20000 --etapa baseline [--rascunho]` (ou `--config x.json`); `python -m desafio3.graficos desafio3/logs/<id>`
+- Desafio 3: `python -m desafio3.dados`; `python -m desafio3.treino --otimizador adam --lr 1e-4 --agenda constante --semente 0 --passos 10000 --etapa baseline [--rascunho]` (ou `--config x.json`); `python -m desafio3.graficos desafio3/logs/<id>`
 - O treino recusa rodar com alterações não commitadas sem `--rascunho`. Rascunhos vão para `desafio3/logs/rascunho/` e não entram no `experimentos.csv`. O Muon (`desafio3/muon.py`) é parte do Pablo.
 
 ## Andamento

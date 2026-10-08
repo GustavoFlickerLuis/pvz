@@ -5,7 +5,7 @@ tomada. O laço é o mesmo para todos os otimizadores; eles e as agendas entram 
 registries (OTIMIZADORES, AGENDAS) e a instrumentação fica em Registro.
 
     python -m desafio3.treino --otimizador adam --lr 1e-4 --agenda constante --semente 0 \\
-        --passos 20000 --etapa baseline
+        --passos 10000 --etapa baseline
     python -m desafio3.treino --config cfg.json [--rascunho]
 
 Sem --rascunho, recusa rodar com alterações não commitadas (fora de desafio3/logs/ e
@@ -127,7 +127,7 @@ class Config:
     lr: float = 1e-4
     agenda: str = "constante"
     semente: int = 0
-    passos: int = 20_000
+    passos: int = 10_000         # orçamento fixo de todas as comparações (CLAUDE.md)
     etapa: str = "baseline"
     lote: int = 256
     weight_decay: float = None   # None: padrão do otimizador (0,01 no adamw, 0 nos outros)
