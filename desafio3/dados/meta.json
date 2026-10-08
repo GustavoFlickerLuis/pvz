@@ -16,8 +16,8 @@
       10020
     ]
   },
-  "commit": "8bcf5e9a1f058abafadf1b9850191a9c48890ad2",
-  "commit_sujo": true,
+  "commit": "3b69068a05dedfbe7e14b3e709ed45e3232b441b",
+  "commit_sujo": false,
   "fases": [
     "calmo,misto,blindados",
     "calmo,misto,tudo_junto",
@@ -59,7 +59,7 @@
         "max": 1.566377878189087
       },
       "hash": "99f67c2e5e84745043186d7dd9d0ba74b7b415510d4ea11aea7411d6dbd30bc8",
-      "tempo_s": 27.7
+      "tempo_s": 25.7
     },
     "val": {
       "amostras": 34608,
@@ -85,7 +85,7 @@
         "max": 1.499546766281128
       },
       "hash": "5f8d23c9e8c15d2f8797349be19da8e606952a56a2c5ebf2ad7577c22e8c962f",
-      "tempo_s": 2.5
+      "tempo_s": 2.4
     }
   }
 }
