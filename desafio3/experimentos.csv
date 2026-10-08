@@ -1,0 +1,4 @@
+id,data,commit,etapa,otimizador,lr,agenda,semente,passos,lote,weight_decay,val_final,val_min,passo_val_min,status,tempo_s
+20261008-132108-adam-lr0.0001-constante-s0,2026-10-08T13:21:08,dd99ebd,baseline,adam,0.0001,constante,0,10000,256,0.0,0.16670451382492849,0.1662781839286956,9750,ok,40.0
+20261008-132152-adam-lr0.0001-constante-s1,2026-10-08T13:21:52,dd99ebd,baseline,adam,0.0001,constante,1,10000,256,0.0,0.16727342927450392,0.16727342927450392,10000,ok,39.5
+20261008-132236-adam-lr0.0001-constante-s2,2026-10-08T13:22:36,dd99ebd,baseline,adam,0.0001,constante,2,10000,256,0.0,0.1678980714019338,0.16780982897119615,8250,ok,42.3
