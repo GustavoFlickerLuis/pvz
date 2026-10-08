@@ -59,5 +59,26 @@ então o passo efetivo fica bem abaixo de η.
 RMSprop, e muda nos SGDs (que não normalizam por √v).
 **Refuta:** a razão é a mesma em todos os otimizadores.
 
+## Acréscimos do passo 0 (antes das varreduras)
+
+### Critério de vitória
+A vence B se a diferença das médias de val_final (5 sementes cada) passar de 2 desvios-padrão
+combinados: |média_A − média_B| > 2·s_c, com s_c = √((s_A² + s_B²)/2) (desvio-padrão
+combinado de amostras do mesmo tamanho; s_A e s_B são os desvios amostrais, n − 1).
+O lado vencedor é o de menor val_final.
+
+### Validação dividida
+A partir daqui também se registram val_esperar (Huber só nas amostras de validação cuja
+ação foi ESPERAR, ~82%) e val_plantio (só nas demais, ~18%). A métrica de seleção
+continua sendo val_final.
+
+### H6. Se o Muon ganhar, o ganho aparece mais em val_plantio do que em val_esperar
+O sinal de plantio é raro: 18% das amostras, espalhadas em 225 células do mapa Q. O
+enunciado afirma que o Muon dá o mesmo tamanho de passo a todas as direções singulares,
+inclusive às raras, que o SGD e o Adam quase ignoram. **Confirma:** o Muon vence pelo
+critério acima, e a redução relativa de val_plantio (contra a baseline e contra o
+melhor não-Muon) é maior que a de val_esperar. **Refuta:** o Muon vence, mas o ganho
+relativo é igual ou maior em val_esperar. (Se o Muon não vencer, H6 não se aplica.)
+
 ## Desfecho
 (preencher depois das etapas 2–4, sem editar as hipóteses acima)

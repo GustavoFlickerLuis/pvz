@@ -32,6 +32,8 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
+from pvz.ambiente import ESPERAR
+
 from .dados import PASTA as PASTA_DADOS
 from .dados import carregar, commit_atual, hash_dataset
 from .modelo import CAMADAS, CONVS, CNN
@@ -40,7 +42,7 @@ RAIZ = Path(__file__).parent
 PASTA_LOGS = RAIZ / "logs"
 EXPERIMENTOS = RAIZ / "experimentos.csv"
 ETAPAS = ("baseline", "varredura_lr", "agendas", "confirmacao")
-WD_PADRAO = {"adamw": 0.01}
+WD_PADRAO = {"adamw": 0.01, "muon": 0.01}
 
 
 # ---------------------------------------------------------------- otimizadores
@@ -124,13 +126,14 @@ AGENDAS = {
 @dataclass
 class Config:
     otimizador: str = "adam"
-    lr: float = 1e-4
+    lr: float = 1e-4             # no muon, o η das matrizes
+    lr_adamw: float = None       # muon: η da parte AdamW (vieses e cabeças)
     agenda: str = "constante"
     semente: int = 0
     passos: int = 10_000         # orçamento fixo de todas as comparações (CLAUDE.md)
     etapa: str = "baseline"
     lote: int = 256
-    weight_decay: float = None   # None: padrão do otimizador (0,01 no adamw, 0 nos outros)
+    weight_decay: float = None   # None: padrão do otimizador (0,01 no adamw e no muon, 0 nos outros)
     momento: float = 0.9         # sgd e nesterov
     clip: float = 10.0           # norma global do gradiente
     delta_huber: float = 1.0
@@ -160,13 +163,25 @@ def perda_q(q, acao, alvo, delta):
 
 
 @torch.no_grad()
-def huber_medio(modelo, obs, acao, alvo, delta, bloco=8192):
-    soma = 0.0
+def huber_medio(modelo, obs, acao, alvo, delta, bloco=8192, grupo=None):
+    """Huber médio. Com `grupo` (bool por amostra), devolve (total, dentro, fora do grupo).
+
+    O total é sempre somado do mesmo jeito, para o val_final não mudar entre versões.
+    """
+    soma = soma_dentro = soma_fora = 0.0
     for i in range(0, len(alvo), bloco):
         q = modelo(obs[i:i + bloco].float())
         qa = q.gather(1, acao[i:i + bloco, None]).squeeze(1)
         soma += F.huber_loss(qa, alvo[i:i + bloco], delta=delta, reduction="sum").item()
-    return soma / len(alvo)
+        if grupo is not None:
+            perdas = F.huber_loss(qa, alvo[i:i + bloco], delta=delta, reduction="none")
+            g = grupo[i:i + bloco]
+            soma_dentro += (perdas * g).sum().item()
+            soma_fora += (perdas * ~g).sum().item()
+    if grupo is None:
+        return soma / len(alvo)
+    n = int(grupo.sum())
+    return soma / len(alvo), soma_dentro / n, soma_fora / (len(alvo) - n)
 
 
 # ---------------------------------------------------------------- instrumentação
@@ -180,8 +195,8 @@ class Registro:
     A cada k_registro passos: perda do lote; ‖g‖ global antes do corte e se houve
     corte; ‖g‖ por camada (antes do corte); ‖θ‖ global e por camada;
     ρ = ‖θ_{t+1} − θ_t‖ / ‖θ_t‖ global e por camada; η de cada otimizador.
-    A cada k_val passos (e depois do último): Huber de validação, Huber num lote fixo
-    do treino e, num lote fixo da validação, a fração de filtros mortos (nunca ativam)
+    A cada k_val passos (e depois do último): Huber de validação (total e separada
+    entre amostras com ação ESPERAR e de plantio), Huber num lote fixo do treino e, num lote fixo da validação, a fração de filtros mortos (nunca ativam)
     e de ativações zero de cada conv.
     """
 
@@ -196,8 +211,8 @@ class Registro:
         self.status = None
 
     def colunas(self):
-        c = ["passo", "perda_lote", "huber_treino", "huber_val", "norma_g", "cortou", "norma_theta",
-             "rho_global"]
+        c = ["passo", "perda_lote", "huber_treino", "huber_val", "huber_val_esperar",
+             "huber_val_plantio", "norma_g", "cortou", "norma_theta", "rho_global"]
         c += [f"g_{n}" for n in CAMADAS] + [f"theta_{n}" for n in CAMADAS]
         c += [f"rho_{n}" for n in CAMADAS] + [f"eta_{i}" for i in range(len(self.opts))]
         c += [f"mortos_{n}" for n in CONVS] + [f"zeros_{n}" for n in CONVS]
@@ -253,14 +268,15 @@ class Registro:
     @torch.no_grad()
     def _validar(self):
         d, delta = self.d, self.cfg.delta_huber
-        v = huber_medio(self.modelo, d["val_obs"], d["val_acao"], d["val_G"], delta)
-        self.linha["huber_val"] = v
+        v, v_esperar, v_plantio = huber_medio(self.modelo, d["val_obs"], d["val_acao"], d["val_G"],
+                                              delta, grupo=d["val_esperar"])
+        self.linha.update(huber_val=v, huber_val_esperar=v_esperar, huber_val_plantio=v_plantio)
         self.linha["huber_treino"] = huber_medio(self.modelo, d["fixo_treino_obs"],
                                                  d["fixo_treino_acao"], d["fixo_treino_G"], delta)
         for n, a in zip(CONVS, self.modelo.tronco(d["fixo_val_obs"].float())):
             self.linha[f"mortos_{n}"] = float(((a > 0).sum(dim=(0, 2, 3)) == 0).float().mean())
             self.linha[f"zeros_{n}"] = float((a == 0).float().mean())
-        self.val.append((self.t, v))
+        self.val.append((self.t, v, v_esperar, v_plantio))
 
     def _fechar_linha(self, passo):
         if self.linha:
@@ -269,14 +285,15 @@ class Registro:
         self.linha = {}
 
     def resultado(self):
-        passo_min, val_min = min(self.val, key=lambda pv: pv[1])
-        val_0, val_final = self.val[0][1], self.val[-1][1]
+        passo_min, val_min, *_ = min(self.val, key=lambda pv: pv[1])
+        val_0 = self.val[0][1]
+        _, val_final, val_esperar, val_plantio = self.val[-1]
         status = self.status
         if status is None:
             status = "divergiu" if not math.isfinite(val_final) else (
                 "estagnou" if val_final > 0.95 * val_0 else "ok")
-        return {"val_final": val_final, "val_min": val_min, "passo_val_min": passo_min,
-                "status": status}
+        return {"val_final": val_final, "val_esperar": val_esperar, "val_plantio": val_plantio,
+                "val_min": val_min, "passo_val_min": passo_min, "status": status}
 
     def salvar(self, caminho):
         colunas = self.colunas()
@@ -311,6 +328,7 @@ def preparar_dados(cfg, dev):
         d[f"{nome}_obs"] = gpu(sel(arr["obs"]))                    # float16
         d[f"{nome}_acao"] = gpu(sel(arr["acao"]), torch.long)
         d[f"{nome}_G"] = gpu(sel(arr["G"]))
+    d["val_esperar"] = d["val_acao"] == ESPERAR
     return d
 
 
@@ -369,10 +387,26 @@ def treinar(cfg):
     return registro, tempo, dev
 
 
+def anotar_experimento(linha):
+    """Acrescenta uma linha ao experimentos.csv. Se as colunas mudaram, reescreve o arquivo
+    com as colunas novas (vazias nas linhas antigas)."""
+    linhas, colunas = [], list(linha)
+    if EXPERIMENTOS.exists():
+        with open(EXPERIMENTOS, newline="", encoding="utf-8") as f:
+            leitor = csv.DictReader(f)
+            linhas = list(leitor)
+            colunas += [c for c in leitor.fieldnames if c not in colunas]
+    with open(EXPERIMENTOS, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=colunas, restval="")
+        w.writeheader()
+        w.writerows(linhas + [linha])
+
+
 def executar(cfg):
     agora = datetime.now()
     commit, sujo = commit_atual()
-    id_ = f"{agora:%Y%m%d-%H%M%S}-{cfg.otimizador}-lr{cfg.lr:g}-{cfg.agenda}-s{cfg.semente}"
+    aw = "" if cfg.lr_adamw is None else f"-aw{cfg.lr_adamw:g}"
+    id_ = f"{agora:%Y%m%d-%H%M%S}-{cfg.otimizador}-lr{cfg.lr:g}{aw}-{cfg.agenda}-s{cfg.semente}"
     pasta = PASTA_LOGS / ("rascunho" if cfg.rascunho else "") / id_
     registro, tempo, dev = treinar(cfg)
     res = {**registro.resultado(), "tempo_s": round(tempo, 1)}
@@ -388,16 +422,11 @@ def executar(cfg):
         json.dump(info, f, indent=2, ensure_ascii=False)
 
     if not cfg.rascunho:
-        linha = {"id": id_, "data": info["data"], "commit": commit[:7], "etapa": cfg.etapa,
-                 "otimizador": cfg.otimizador, "lr": cfg.lr, "agenda": cfg.agenda,
-                 "semente": cfg.semente, "passos": cfg.passos, "lote": cfg.lote,
-                 "weight_decay": cfg.weight_decay, **res}
-        novo = not EXPERIMENTOS.exists()
-        with open(EXPERIMENTOS, "a", newline="", encoding="utf-8") as f:
-            w = csv.DictWriter(f, fieldnames=list(linha))
-            if novo:
-                w.writeheader()
-            w.writerow(linha)
+        anotar_experimento({"id": id_, "data": info["data"], "commit": commit[:7],
+                            "etapa": cfg.etapa, "otimizador": cfg.otimizador, "lr": cfg.lr,
+                            "lr_adamw": "" if cfg.lr_adamw is None else cfg.lr_adamw,
+                            "agenda": cfg.agenda, "semente": cfg.semente, "passos": cfg.passos,
+                            "lote": cfg.lote, "weight_decay": cfg.weight_decay, **res})
     print(json.dumps({"pasta": str(pasta), **res}, ensure_ascii=False))
     return pasta, res
 
@@ -407,6 +436,7 @@ def main():
     p.add_argument("--config", help="json com campos da Config (os argumentos abaixo sobrepõem)")
     p.add_argument("--otimizador", choices=list(OTIMIZADORES))
     p.add_argument("--lr", type=float)
+    p.add_argument("--lr-adamw", type=float, help="muon: η da parte AdamW")
     p.add_argument("--agenda", choices=list(AGENDAS))
     p.add_argument("--semente", type=int)
     p.add_argument("--passos", type=int)
