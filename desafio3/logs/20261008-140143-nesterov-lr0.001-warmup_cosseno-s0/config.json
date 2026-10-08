@@ -1,0 +1,38 @@
+{
+  "id": "20261008-140143-nesterov-lr0.001-warmup_cosseno-s0",
+  "data": "2026-10-08T14:01:43",
+  "commit": "36e80183fed90387143bc03d3fcbb5feaeaab591",
+  "commit_sujo": true,
+  "hash_dataset": "ec7cd105259b1b5f",
+  "config": {
+    "otimizador": "nesterov",
+    "lr": 0.001,
+    "lr_adamw": null,
+    "agenda": "warmup_cosseno",
+    "semente": 0,
+    "passos": 10000,
+    "etapa": "varredura_lr",
+    "lote": 256,
+    "weight_decay": 0.0,
+    "momento": 0.9,
+    "clip": 10.0,
+    "delta_huber": 1.0,
+    "k_registro": 25,
+    "k_val": 250,
+    "lote_fixo": 1024,
+    "amostras": null,
+    "rascunho": false,
+    "dados": "C:\\Users\\gului\\Desktop\\PythonProject1\\desafio3\\dados"
+  },
+  "torch": "2.11.0+cu128",
+  "dispositivo": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "resultado": {
+    "val_final": 0.22968306697963622,
+    "val_esperar": 0.21755559415511408,
+    "val_plantio": 0.283891555161504,
+    "val_min": 0.22967038747617285,
+    "passo_val_min": 9750,
+    "status": "ok",
+    "tempo_s": 40.6
+  }
+}

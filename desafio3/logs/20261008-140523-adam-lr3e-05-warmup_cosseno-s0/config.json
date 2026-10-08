@@ -1,0 +1,38 @@
+{
+  "id": "20261008-140523-adam-lr3e-05-warmup_cosseno-s0",
+  "data": "2026-10-08T14:05:23",
+  "commit": "36e80183fed90387143bc03d3fcbb5feaeaab591",
+  "commit_sujo": true,
+  "hash_dataset": "ec7cd105259b1b5f",
+  "config": {
+    "otimizador": "adam",
+    "lr": 3e-05,
+    "lr_adamw": null,
+    "agenda": "warmup_cosseno",
+    "semente": 0,
+    "passos": 10000,
+    "etapa": "varredura_lr",
+    "lote": 256,
+    "weight_decay": 0.0,
+    "momento": 0.9,
+    "clip": 10.0,
+    "delta_huber": 1.0,
+    "k_registro": 25,
+    "k_val": 250,
+    "lote_fixo": 1024,
+    "amostras": null,
+    "rascunho": false,
+    "dados": "C:\\Users\\gului\\Desktop\\PythonProject1\\desafio3\\dados"
+  },
+  "torch": "2.11.0+cu128",
+  "dispositivo": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "resultado": {
+    "val_final": 0.18807223368947615,
+    "val_esperar": 0.18002865244596084,
+    "val_plantio": 0.22402615499699946,
+    "val_min": 0.18804462078374898,
+    "passo_val_min": 9250,
+    "status": "ok",
+    "tempo_s": 42.4
+  }
+}
