@@ -77,19 +77,30 @@ as metas estão no topo de `tools/calibrar.py`.
   forte que conseguirmos escrever, para a comparação com o agente valer alguma coisa.
 
 ## Plano de RL (CONCEITO 2.5, 2.7 e Parte 3)
-- **Algoritmo:** Double DQN com máscara, γ = 0,99, ε de 1,0 a 0,05, rede alvo. PPO com máscara fica de reserva.
+- **Algoritmo:** Double DQN com máscara, γ = 0,997, ε de 1,0 a 0,05, rede alvo. PPO com máscara fica de reserva.
 - **Rede principal:** uma CNN totalmente convolucional. O tronco tem três camadas conv 3×3. Uma conv 1×1 gera o mapa Q de 5×5×9, e um pooling global seguido de camada densa dá o Q(esperar). O baseline para ablação é um MLP.
 - **Análise de erros (2.7):** clonar o ambiente numa decisão, testar alternativas, jogar até o fim com o próprio agente e marcar como erro quando alguma alternativa é claramente melhor. O resultado é um limite inferior dos erros.
 - **Experimentos:** tudo roda com 3 sementes de treino. São seis: curvas de aprendizado; comparação com os baselines (aleatório, guloso e uma heurística humana); taxa e tipos de erro; generalização (vistas × inéditas); ablações (CNN × MLP e com × sem currículo); e mapas de comportamento.
 - **Fora de escopo:** visão computacional, o jogo real (só como bônus no fim), zumbis que trocam de faixa, voam ou cavam, e cliques para coletar sol.
-- **Pendente de decisão: γ = 0,997 em vez de 0,99.** Uma vitória leva ~300 decisões
-  (260 a 360). Com 0,99, o +1 da vitória chega ao primeiro passo com peso 0,99³⁰⁰ ≈ 0,05
-  (0,03 nas mais longas); com 0,997, ≈ 0,41.
-  Ainda não está no CONCEITO: se for adotado, atualizar a seção 2.5.
+- **γ = 0,997 (decidido; CONCEITO 2.5).** Uma vitória leva ~300 decisões (260 a 360).
+  Com 0,99, o +1 da vitória chega ao primeiro passo com peso 0,99³⁰⁰ ≈ 0,05 (0,03 nas
+  mais longas); com 0,997, ≈ 0,41.
+
+## Regra de acesso ao ambiente (RL e dados)
+Código de RL e de geração de dados **só usa `reset`, `step`, `observar` e `mascara`**
+do `Ambiente`. Nunca `amb.fase.spawns`, `amb.zumbis`, `amb.plantas`, `amb.venceu` etc.:
+`amb.fase.spawns` contém os zumbis futuros, e ler o estado interno vaza informação que
+o agente não tem. (Vitória/derrota se deduz da última recompensa.) A exceção são os
+baselines de `pvz/agentes.py`, que são regras escritas à mão. Usá-los como política de
+coleta é permitido, mas o código que os chama continua preso a essa interface.
 
 ## Desafio 3 (otimizadores)
 - **Etapa 1, proxy supervisionado** (barato, sem a instabilidade do RL):
-  - Dataset do Econ5 com 10–20% de ações aleatórias, **só nas fases e sementes de treino**.
+  - Dataset (`desafio3/dados.py`): Econ5 com 15% de ações aleatórias. Treino: FASES_TREINO ×
+    sementes 0–59; validação: FASES_TREINO × 100–109; teste: FASES_TESTE × 10000–10019,
+    que **nenhum código de treino carrega** (`carregar("teste")` recusa; só é lido no fim).
+  - Receita atual (baseline): Adam, η = 1e-4, constante, wd 0, lote 256, clip 10,
+    Huber δ = 1 só na ação tomada. Seleção pela Huber de validação no último passo.
   - Alvo G = retorno de Monte Carlo. Mesma CNN, mesma saída e mesma Huber loss do DQN.
   - Grade: cada otimizador com o seu melhor LR × schedulers (warmup+cosseno, restarts,
     warmup+constante) × 3 sementes.
@@ -107,7 +118,12 @@ as metas estão no topo de `tools/calibrar.py`.
 - `main.py`: atalho do PyCharm (roda `assistir` com o guloso).
 - `tests/test_ambiente.py`: testes do ambiente, das hordas e da divisão.
 - `tools/calibrar.py` e `tools/analisar.py`: calibração dos baselines (metas e uso no topo do arquivo).
-- `requirements.txt`: numpy e pytest.
+- `desafio3/dados.py`: gera o dataset em `desafio3/dados/` (arrays no .gitignore; `meta.json` versionado, com parâmetros, commit, tamanhos e hashes).
+- `desafio3/modelo.py`: a CNN (saída 226 = mapa (planta, faixa, coluna) achatado + esperar).
+- `desafio3/treino.py`: `Config`, registries `OTIMIZADORES` e `AGENDAS`, `Registro` (instrumentação) e o laço. Logs em `desafio3/logs/<id>/`, resumo em `desafio3/experimentos.csv`.
+- `desafio3/graficos.py`: painéis de perda, ‖g‖, ‖θ‖, η e ρ de um log.
+- `tests/test_desafio3.py`: índices da CNN, registries e agendas.
+- `requirements.txt`: torch (CUDA), numpy, pytest e matplotlib.
 
 ## Comandos
 - `python -m pvz assistir --agente guloso --fase calmo,misto,blindados`
@@ -116,13 +132,15 @@ as metas estão no topo de `tools/calibrar.py`.
 - `python -m pvz bench` (passos/segundo com o agente aleatório; depende das regras, então só compare medições feitas com as mesmas regras)
 - Testes: `python -m pytest tests`
 - Calibração: `python tools/calibrar.py --girassol 120 --pesos 1 2 2.25 --saida r.json` e `python tools/analisar.py r.json`
+- Desafio 3: `python -m desafio3.dados`; `python -m desafio3.treino --otimizador adam --lr 1e-4 --agenda constante --semente 0 --passos 20000 --etapa baseline [--rascunho]` (ou `--config x.json`); `python -m desafio3.graficos desafio3/logs/<id>`
+- O treino recusa rodar com alterações não commitadas sem `--rascunho`. Rascunhos vão para `desafio3/logs/rascunho/` e não entram no `experimentos.csv`. O Muon (`desafio3/muon.py`) é parte do Pablo.
 
 ## Andamento
 <!-- Atualize esta seção ao fim de cada sessão de trabalho: o que foi feito, o que falta. -->
 - [x] Simulador, hordas como distribuições, agentes `Aleatorio`, `Guloso` e `Econ(N)`, CLI e testes.
 - [x] Calibração (ver acima).
 - [x] Divisão treino/teste/vitrine.
-- [ ] Decidir γ (0,99 ou 0,997).
+- [x] Decidir γ: 0,997.
 - [ ] Revisar o conteúdo das classes de hordas (ainda são um primeiro rascunho); se mudar, recalibrar.
 - [ ] Escrever o baseline "heurística humana" (Parte 3, experimento 2), o mais forte possível.
 - [ ] Desafio 3: proxy supervisionado e DQN curto com os finalistas.

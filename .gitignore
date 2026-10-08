@@ -13,3 +13,8 @@ __pycache__/
 runs/
 checkpoints/
 *.pt
+
+# Desafio 3: arrays do dataset (o meta.json é versionado) e logs de rascunho
+desafio3/dados/*
+!desafio3/dados/meta.json
+desafio3/logs/rascunho/

@@ -413,8 +413,13 @@ A intuição: o valor de uma ação é a recompensa imediata mais o valor do mel
 que dá para fazer depois. É assim que a recompensa de vencer "escorre" para trás,
 passo a passo, até a decisão de plantar um girassol lá no começo.
 
-Hiperparâmetros iniciais: `γ = 0,99` (o agente enxerga ~100 decisões à frente,
-≈ 1000 ticks), ε decaindo de 1,0 a 0,05, rede alvo atualizada periodicamente.
+Hiperparâmetros iniciais: `γ = 0,997`, ε decaindo de 1,0 a 0,05, rede alvo
+atualizada periodicamente.
+
+Por que 0,997 e não 0,99: uma vitória leva ~300 decisões (260 a 360). Com 0,99, o
++1 da vitória chega à primeira decisão com peso 0,99³⁰⁰ ≈ 0,05 (0,03 nas partidas
+mais longas), quase nada para ensinar que o girassol do começo valeu a pena. Com
+0,997, chega com ≈ 0,41 (o horizonte efetivo passa de ~100 para ~330 decisões).
 
 Por que DQN: a ação é discreta, o simulador é barato de reiniciar e métodos
 off-policy se saíram melhor em ambientes parecidos (seção 4.3). PPO com máscara

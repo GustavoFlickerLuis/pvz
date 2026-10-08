@@ -76,7 +76,7 @@ class Guloso:
                 a = codificar_acao(C.ERVILHA, faixa, col)
                 if m[a]:
                     return a
-        return ESPERAR
+        return None
 
 
 class Econ(Guloso):

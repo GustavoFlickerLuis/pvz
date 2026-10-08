@@ -1,0 +1,91 @@
+{
+  "config": {
+    "agente": "econ5",
+    "epsilon": 0.15,
+    "gamma": 0.997,
+    "sementes_treino": [
+      0,
+      60
+    ],
+    "sementes_val": [
+      100,
+      110
+    ],
+    "sementes_teste": [
+      10000,
+      10020
+    ]
+  },
+  "commit": "8bcf5e9a1f058abafadf1b9850191a9c48890ad2",
+  "commit_sujo": true,
+  "fases": [
+    "calmo,misto,blindados",
+    "calmo,misto,tudo_junto",
+    "calmo,misto,duas_ondas",
+    "calmo,uma_faixa_pesada,blindados",
+    "calmo,uma_faixa_pesada,tudo_junto",
+    "calmo,uma_faixa_pesada,duas_ondas",
+    "calmo,rapidos_em_massa,blindados",
+    "calmo,rapidos_em_massa,tudo_junto",
+    "calmo,rapidos_em_massa,duas_ondas",
+    "cedo_apressado,misto,blindados",
+    "cedo_apressado,misto,tudo_junto",
+    "cedo_apressado,misto,duas_ondas",
+    "cedo_apressado,uma_faixa_pesada,blindados",
+    "cedo_apressado,uma_faixa_pesada,tudo_junto",
+    "cedo_apressado,uma_faixa_pesada,duas_ondas",
+    "cedo_apressado,rapidos_em_massa,blindados",
+    "cedo_apressado,rapidos_em_massa,tudo_junto",
+    "cedo_apressado,rapidos_em_massa,duas_ondas",
+    "so_rapidos,misto,blindados",
+    "so_rapidos,misto,tudo_junto",
+    "so_rapidos,misto,duas_ondas",
+    "so_rapidos,uma_faixa_pesada,blindados",
+    "so_rapidos,uma_faixa_pesada,tudo_junto",
+    "so_rapidos,uma_faixa_pesada,duas_ondas",
+    "so_rapidos,rapidos_em_massa,blindados",
+    "so_rapidos,rapidos_em_massa,tudo_junto",
+    "so_rapidos,rapidos_em_massa,duas_ondas"
+  ],
+  "conjuntos": {
+    "treino": {
+      "amostras": 210958,
+      "partidas": 1260,
+      "vitorias": 0.3055555555555556,
+      "G": {
+        "media": 0.3606124222278595,
+        "desvio": 0.9555163979530334,
+        "min": -1.0,
+        "max": 1.566377878189087
+      },
+      "hash": "99f67c2e5e84745043186d7dd9d0ba74b7b415510d4ea11aea7411d6dbd30bc8",
+      "tempo_s": 27.7
+    },
+    "val": {
+      "amostras": 34608,
+      "partidas": 210,
+      "vitorias": 0.2904761904761905,
+      "G": {
+        "media": 0.3219105899333954,
+        "desvio": 0.9605690836906433,
+        "min": -1.0,
+        "max": 1.5422379970550537
+      },
+      "hash": "73e0d4a766ca7f38e73449ee1de20be9e3d6b6478c9fdc10b49ab49dcaa13843",
+      "tempo_s": 4.4
+    },
+    "teste": {
+      "amostras": 19304,
+      "partidas": 120,
+      "vitorias": 0.3,
+      "G": {
+        "media": 0.3649117350578308,
+        "desvio": 0.9716356992721558,
+        "min": -1.0,
+        "max": 1.499546766281128
+      },
+      "hash": "5f8d23c9e8c15d2f8797349be19da8e606952a56a2c5ebf2ad7577c22e8c962f",
+      "tempo_s": 2.5
+    }
+  }
+}

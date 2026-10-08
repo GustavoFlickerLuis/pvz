@@ -1,4 +1,5 @@
 """Testes das regras do simulador.  Rodar com:  python -m unittest -v"""
+import hashlib
 import itertools
 import random
 import unittest
@@ -6,6 +7,7 @@ import unittest
 import numpy as np
 
 from pvz import config as C
+from pvz.agentes import Econ, Guloso
 from pvz.ambiente import ESPERAR, N_ACOES, N_CANAIS, Ambiente, codificar_acao
 from pvz.divisao import FASES_TESTE, FASES_TREINO, SEMENTES_TESTE, SEMENTES_TREINO, VITRINE
 from pvz.hordas import (INICIO, MEIO, PESO_SEGMENTO, SEGMENTOS, VAR_QUANTIDADE, fase_manual,
@@ -324,6 +326,29 @@ class TestDivisao(unittest.TestCase):
             self.assertNotIn(semente, SEMENTES_TREINO)
             self.assertNotIn(semente, SEMENTES_TESTE)
         self.assertFalse(set(SEMENTES_TREINO) & set(SEMENTES_TESTE))
+
+
+class TestAgentes(unittest.TestCase):
+    @staticmethod
+    def impressao(agente):
+        """Hash das ações do agente em 14 partidas (7 fases × 2 sementes)."""
+        h = hashlib.sha256()
+        for fase in todas_as_fases()[::4]:
+            for semente in (0, 1):
+                amb = Ambiente()
+                amb.reset(fase, semente)
+                fim = False
+                while not fim:
+                    a = agente.agir(amb)
+                    h.update(a.to_bytes(2, "little"))
+                    _, _, fim = amb.step(a)
+        return h.hexdigest()[:16]
+
+    def test_jogadas_nao_mudam(self):
+        # Valores gravados antes de Guloso._ervilha passar a devolver None.
+        # Mudar as regras do jogo ou dos agentes muda estes hashes.
+        self.assertEqual(self.impressao(Guloso()), "38376f9c6a6b707d")
+        self.assertEqual(self.impressao(Econ(5)), "182e2523db60775d")
 
 
 if __name__ == "__main__":
