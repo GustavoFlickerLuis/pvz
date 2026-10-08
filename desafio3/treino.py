@@ -34,6 +34,7 @@ import torch.nn.functional as F
 
 from pvz.ambiente import ESPERAR
 
+from . import muon
 from .dados import PASTA as PASTA_DADOS
 from .dados import carregar, commit_atual, hash_dataset
 from .modelo import CAMADAS, CONVS, CNN
@@ -64,17 +65,13 @@ def _rmsprop(modelo, cfg):
     return [torch.optim.RMSprop(modelo.parameters(), lr=cfg.lr, weight_decay=cfg.weight_decay)]
 
 
-def _muon(modelo, cfg):
-    raise NotImplementedError("desafio3/muon.py — parte do Pablo")
-
-
 OTIMIZADORES = {
     "sgd": _sgd,
     "nesterov": partial(_sgd, nesterov=True),
     "adam": _adam,
     "adamw": _adamw,
     "rmsprop": _rmsprop,
-    "muon": _muon,
+    "muon": muon.criar,   # devolve [Muon, AdamW]
 }
 
 

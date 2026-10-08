@@ -126,8 +126,9 @@ coleta é permitido, mas o código que os chama continua preso a essa interface.
 - `desafio3/dados.py`: gera o dataset em `desafio3/dados/` (arrays no .gitignore; `meta.json` versionado, com parâmetros, commit, tamanhos e hashes).
 - `desafio3/modelo.py`: a CNN (saída 226 = mapa (planta, faixa, coluna) achatado + esperar).
 - `desafio3/treino.py`: `Config`, registries `OTIMIZADORES` e `AGENDAS`, `Registro` (instrumentação) e o laço. Logs em `desafio3/logs/<id>/`, resumo em `desafio3/experimentos.csv`.
+- `desafio3/muon.py`: Muon próprio (Newton–Schulz com 5 iterações, momento Nesterov 0,95, kernels achatados em (C_out, C_in·k·k), wd desacoplado). Pesos de conv1–3 no Muon; vieses, `cabeca_q` e `cabeca_esperar` no AdamW (`--lr-adamw`). Mesma agenda nos dois.
 - `desafio3/graficos.py`: painéis de perda, ‖g‖, ‖θ‖, η e ρ de um log.
-- `tests/test_desafio3.py`: índices da CNN, registries e agendas.
+- `tests/test_desafio3.py`: índices da CNN, registries, agendas e Muon (valores singulares, divisão dos parâmetros, formato, determinismo).
 - `requirements.txt`: torch (CUDA), numpy, pytest e matplotlib.
 
 ## Comandos
@@ -138,7 +139,7 @@ coleta é permitido, mas o código que os chama continua preso a essa interface.
 - Testes: `python -m pytest tests`
 - Calibração: `python tools/calibrar.py --girassol 120 --pesos 1 2 2.25 --saida r.json` e `python tools/analisar.py r.json`
 - Desafio 3: `python -m desafio3.dados`; `python -m desafio3.treino --otimizador adam --lr 1e-4 --agenda constante --semente 0 --passos 10000 --etapa baseline [--rascunho]` (ou `--config x.json`); `python -m desafio3.graficos desafio3/logs/<id>`
-- O treino recusa rodar com alterações não commitadas sem `--rascunho`. Rascunhos vão para `desafio3/logs/rascunho/` e não entram no `experimentos.csv`. O Muon (`desafio3/muon.py`) é parte do Pablo.
+- O treino recusa rodar com alterações não commitadas sem `--rascunho`. Rascunhos vão para `desafio3/logs/rascunho/` e não entram no `experimentos.csv`.
 
 ## Andamento
 <!-- Atualize esta seção ao fim de cada sessão de trabalho: o que foi feito, o que falta. -->
