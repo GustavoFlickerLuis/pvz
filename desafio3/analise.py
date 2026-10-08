@@ -5,6 +5,7 @@
     python -m desafio3.analise confirmacao    # média ± desvio por combinação e veredito
     python -m desafio3.analise rho <log_muon> <log_adamw>   # ρ por camada lado a lado
     python -m desafio3.analise instavel       # execução com maior pico de ‖g‖ sem divergir
+    python -m desafio3.analise tabelas        # desafio3/tabelas.md (treino × val, velocidade, extras)
 
 Os gráficos vão para desafio3/figuras/.
 """
@@ -194,13 +195,131 @@ def instavel():
     print(f"maior pico de ‖g‖ sem divergir: {g:.2f} em {e['id']} ({e['etapa']})")
 
 
+# ---------------------------------------------------------------- tabelas finais (tabelas.md)
+TABELAS = Path(__file__).parent / "tabelas.md"
+ALVO_VELOCIDADE = 0.1676   # val_final médio da baseline (5 sementes), arredondado
+
+# (rótulo, filtro sobre a linha do experimentos.csv)
+CONFIGS = (
+    ("baseline: adam 1e-4 constante",
+     lambda e: e["etapa"] == "baseline" and e["val_esperar"] != ""),
+    ("sgd 3e-2 cosseno", lambda e: e["etapa"] == "confirmacao" and e["otimizador"] == "sgd"
+     and e["agenda"] == "cosseno"),
+    ("sgd 3e-2 warmup_cosseno", lambda e: e["etapa"] == "confirmacao" and e["otimizador"] == "sgd"
+     and e["agenda"] == "warmup_cosseno"),
+    ("rmsprop 3e-4 warmup_cosseno",
+     lambda e: e["etapa"] == "confirmacao" and e["otimizador"] == "rmsprop"),
+    ("adam 3e-4 warmup_cosseno (extra)",
+     lambda e: e["etapa"] == "extra" and e["otimizador"] == "adam"),
+    ("adamw 3e-4 warmup_cosseno (extra)",
+     lambda e: e["etapa"] == "extra" and e["otimizador"] == "adamw"),
+    ("muon 1e-3 warmup_cosseno", lambda e: e["etapa"] == "confirmacao" and e["otimizador"] == "muon"),
+    ("muon 1e-1 warmup_cosseno (1 semente)", lambda e: e["etapa"] == "varredura_lr"
+     and e["otimizador"] == "muon" and float(e["lr"]) == 0.1),
+)
+FINALISTAS = CONFIGS[1:4]
+EXTRAS = CONFIGS[4:6]
+
+
+def medir_execucao(e):
+    """Números de uma execução, lidos do registro.csv do log."""
+    with open(pasta_do_log(e) / "registro.csv", encoding="utf-8") as f:
+        val = [l for l in csv.DictReader(f) if l["huber_val"]]
+    passos = int(e["passos"])
+    ms = 1000 * float(e["tempo_s"]) / passos
+    atinge = next((int(l["passo"]) for l in val if float(l["huber_val"]) <= ALVO_VELOCIDADE), None)
+    return {
+        "huber_treino": float(val[-1]["huber_treino"]),
+        "val_final": float(e["val_final"]), "val_esperar": float(e["val_esperar"]),
+        "val_plantio": float(e["val_plantio"]),
+        "val_min": float(e["val_min"]), "passo_val_min": int(e["passo_val_min"]),
+        "semente": int(e["semente"]), "ms_passo": ms,
+        "passos_alvo": atinge, "s_alvo": None if atinge is None else atinge * ms / 1000,
+    }
+
+
+def _ms(xs):
+    xs = np.array(xs, dtype=float)
+    if len(xs) == 1:
+        return f"{xs[0]:.5f}"
+    return f"{xs.mean():.5f} ± {xs.std(ddof=1):.5f}"
+
+
+def tabelas():
+    exps = ler()
+    dados = {}
+    for rotulo, filtro in CONFIGS:
+        execs = sorted((medir_execucao(e) for e in exps if filtro(e)), key=lambda m: m["semente"])
+        assert execs, rotulo
+        dados[rotulo] = execs
+    base = dados[CONFIGS[0][0]]
+    media = lambda execs, k: float(np.mean([m[k] for m in execs]))
+    out = ["# Desafio 3 — tabelas finais",
+           "",
+           "Gerado por `python -m desafio3.analise tabelas` a partir do `experimentos.csv` e dos",
+           "logs. Média ± desvio amostral (n − 1) nas 5 sementes, exceto onde indicado. Todas as",
+           "execuções: 10.000 passos, lote 256, clip 10.",
+           "",
+           "## a) Treino × validação",
+           "",
+           "huber_treino: Huber no lote fixo do treino no fim. Δ: diferença da média contra a baseline",
+           "(negativo = melhor).",
+           "",
+           "| config | n | huber_treino | val_final | val_esperar | val_plantio | Δtreino | Δval | val_min | passo do val_min |",
+           "|---|---|---|---|---|---|---|---|---|---|"]
+    for rotulo, _ in CONFIGS:
+        x = dados[rotulo]
+        dt = media(x, "huber_treino") - media(base, "huber_treino")
+        dv = media(x, "val_final") - media(base, "val_final")
+        passos = ", ".join(str(m["passo_val_min"]) for m in x)
+        out.append(f"| {rotulo} | {len(x)} | {_ms([m['huber_treino'] for m in x])} | "
+                   f"{_ms([m['val_final'] for m in x])} | {_ms([m['val_esperar'] for m in x])} | "
+                   f"{_ms([m['val_plantio'] for m in x])} | {dt:+.5f} | {dv:+.5f} | "
+                   f"{_ms([m['val_min'] for m in x])} | {passos} |")
+    out += ["",
+            "## b) Velocidade (métrica secundária)",
+            "",
+            f"Primeiro passo em que a validação (medida a cada 250 passos) fica ≤ {ALVO_VELOCIDADE}",
+            "(val_final médio da baseline), por semente, ou \"nunca\". O tempo é passos × ms/passo.",
+            "Nas agendas que decaem, isso é medido dentro de uma execução de 10.000 passos, com η",
+            "ainda alto no meio dela, e por isso subestima a velocidade dessas agendas.",
+            "",
+            "| config | passos até o alvo (por semente) | ms/passo | segundos até o alvo (por semente) |",
+            "|---|---|---|---|"]
+    for rotulo, _ in CONFIGS:
+        x = dados[rotulo]
+        passos = ", ".join("nunca" if m["passos_alvo"] is None else str(m["passos_alvo"]) for m in x)
+        segs = ", ".join("—" if m["s_alvo"] is None else f"{m['s_alvo']:.1f}" for m in x)
+        out.append(f"| {rotulo} | {passos} | {media(x, 'ms_passo'):.2f} | {segs} |")
+    out += ["",
+            "## c) Extras × finalistas (critério de vitória)",
+            "",
+            "A vence B se |média_A − média_B| > 2·s_c, com s_c = √((s_A² + s_B²)/2), em val_final.",
+            "Os extras não mudam a vencedora: o protocolo terminou no passo 4.",
+            "",
+            "| extra | finalista | Δ média (extra − finalista) | Δ / s_c | veredito |",
+            "|---|---|---|---|---|"]
+    for re_, _ in EXTRAS:
+        for rf, _ in FINALISTAS:
+            a = np.array([m["val_final"] for m in dados[re_]])
+            b = np.array([m["val_final"] for m in dados[rf]])
+            sc = math.sqrt((a.std(ddof=1) ** 2 + b.std(ddof=1) ** 2) / 2)
+            z = (a.mean() - b.mean()) / sc
+            veredito = ("empate" if abs(z) <= 2 else
+                        ("finalista vence" if z > 0 else "extra vence"))
+            out.append(f"| {re_} | {rf} | {a.mean() - b.mean():+.5f} | {z:+.2f} | {veredito} |")
+    TABELAS.write_text("\n".join(out) + "\n", encoding="utf-8")
+    print("\n".join(out))
+    return dados
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    p.add_argument("comando", choices=("varredura", "agendas", "confirmacao", "rho", "instavel"))
+    p.add_argument("comando", choices=("varredura", "agendas", "confirmacao", "rho", "instavel", "tabelas"))
     p.add_argument("logs", nargs="*")
     a = p.parse_args()
     {"varredura": varredura, "agendas": agendas, "confirmacao": confirmacao,
-     "instavel": instavel}.get(a.comando, lambda: rho(*a.logs))()
+     "instavel": instavel, "tabelas": tabelas}.get(a.comando, lambda: rho(*a.logs))()
 
 
 if __name__ == "__main__":
