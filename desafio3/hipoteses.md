@@ -104,5 +104,10 @@ mesmas fases e sementes. A rede aprendeu o valor das jogadas *do Econ5* (com 15%
 ruído), não o das jogadas ótimas. Como 82% dos dados são "esperar", as jogadas raras
 estão mal estimadas, e o argmax vai atrás de erros otimistas ou espera quase sempre.
 
+## Vencedora declarada antes do teste
+Vencedora declarada antes do teste: SGD 3e-2 cosseno (melhor média de val_final no passo 4;
+desempate pela receita mais simples, sem warmup). Avaliadas no teste: vencedora, baseline e
+Muon 1e-3 warmup_cosseno.
+
 ## Desfecho
 (preencher depois das etapas 2–4, sem editar as hipóteses acima)
