@@ -88,5 +88,21 @@ warmup_cosseno) com as sementes 0–4. Motivo: o Muon é obrigatório, o painel 
 melhor com Muon" e a H6 precisa de barra de erro. Decidido depois do passo 3 e antes de
 rodar a confirmação.
 
+## Extras (além do protocolo), registrados antes de rodar
+O protocolo terminou no passo 4. Os extras abaixo **não mudam a vencedora**: se algum
+tiver média melhor, isso só é relatado.
+
+### E1. Adam 3e-4 e AdamW 3e-4 (warmup_cosseno, 5 sementes) empatam com as finalistas
+Na varredura (1 semente) eles ficaram a 0,0005–0,0013 do RMSprop, dentro da variação
+entre sementes vista no passo 4 (s ≈ 0,0014–0,0022). **Previsão:** pelo critério de
+vitória, nenhum dos dois vence nem perde para qualquer das 3 finalistas.
+
+### E2. A rede jogando (RedeGulosa) perde para o Econ5
+A RedeGulosa escolhe argmax_a Q(s, a) entre as ações válidas, usando só observar() e
+mascara(). **Previsão:** ela vence menos partidas que o Econ5 (sem aleatoriedade) nas
+mesmas fases e sementes. A rede aprendeu o valor das jogadas *do Econ5* (com 15% de
+ruído), não o das jogadas ótimas. Como 82% dos dados são "esperar", as jogadas raras
+estão mal estimadas, e o argmax vai atrás de erros otimistas ou espera quase sempre.
+
 ## Desfecho
 (preencher depois das etapas 2–4, sem editar as hipóteses acima)

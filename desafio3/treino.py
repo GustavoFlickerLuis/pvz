@@ -41,8 +41,9 @@ from .modelo import CAMADAS, CONVS, CNN
 
 RAIZ = Path(__file__).parent
 PASTA_LOGS = RAIZ / "logs"
+PASTA_PESOS = RAIZ / "pesos"   # no .gitignore
 EXPERIMENTOS = RAIZ / "experimentos.csv"
-ETAPAS = ("baseline", "varredura_lr", "agendas", "confirmacao")
+ETAPAS = ("baseline", "varredura_lr", "agendas", "confirmacao", "extra")
 WD_PADRAO = {"adamw": 0.01, "muon": 0.01}
 
 
@@ -139,6 +140,7 @@ class Config:
     lote_fixo: int = 1024        # amostras fixas para ReLUs mortas (val) e huber_treino
     amostras: int = None         # usa só um subconjunto do treino (verificação de sobreajuste)
     rascunho: bool = False
+    salvar_pesos: bool = False   # grava o state_dict final em desafio3/pesos/<id>.pt
     dados: str = str(PASTA_DADOS)
 
     def __post_init__(self):
@@ -381,7 +383,7 @@ def treinar(cfg):
     if dev.type == "cuda":
         torch.cuda.synchronize()
     tempo = time.time() - t0
-    return registro, tempo, dev
+    return registro, tempo, dev, modelo
 
 
 def anotar_experimento(linha):
@@ -405,7 +407,10 @@ def executar(cfg):
     aw = "" if cfg.lr_adamw is None else f"-aw{cfg.lr_adamw:g}"
     id_ = f"{agora:%Y%m%d-%H%M%S}-{cfg.otimizador}-lr{cfg.lr:g}{aw}-{cfg.agenda}-s{cfg.semente}"
     pasta = PASTA_LOGS / ("rascunho" if cfg.rascunho else "") / id_
-    registro, tempo, dev = treinar(cfg)
+    registro, tempo, dev, modelo = treinar(cfg)
+    if cfg.salvar_pesos:
+        PASTA_PESOS.mkdir(exist_ok=True)
+        torch.save(modelo.state_dict(), PASTA_PESOS / f"{id_}.pt")
     res = {**registro.resultado(), "tempo_s": round(tempo, 1)}
 
     pasta.mkdir(parents=True, exist_ok=True)
@@ -440,6 +445,7 @@ def main():
     p.add_argument("--etapa", choices=ETAPAS)
     p.add_argument("--amostras", type=int, help="usa só N amostras do treino")
     p.add_argument("--rascunho", action="store_true", default=None)
+    p.add_argument("--salvar-pesos", action="store_true", default=None)
     args = vars(p.parse_args())
     campos = {}
     caminho = args.pop("config")

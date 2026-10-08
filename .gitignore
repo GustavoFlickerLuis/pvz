@@ -18,3 +18,4 @@ checkpoints/
 desafio3/dados/*
 !desafio3/dados/meta.json
 desafio3/logs/rascunho/
+desafio3/pesos/

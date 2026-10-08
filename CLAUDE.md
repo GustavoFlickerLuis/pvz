@@ -94,23 +94,33 @@ o agente não tem. (Vitória/derrota se deduz da última recompensa.) A exceçã
 baselines de `pvz/agentes.py`, que são regras escritas à mão. Usá-los como política de
 coleta é permitido, mas o código que os chama continua preso a essa interface.
 
-## Desafio 3 (otimizadores)
-- **Etapa 1, proxy supervisionado** (barato, sem a instabilidade do RL):
-  - Dataset (`desafio3/dados.py`): Econ5 com 15% de ações aleatórias. Treino: FASES_TREINO ×
-    sementes 0–59; validação: FASES_TREINO × 100–109; teste: FASES_TESTE × 10000–10019,
-    que **nenhum código de treino carrega** (`carregar("teste")` recusa; só é lido no fim).
-  - Receita atual (baseline): Adam, η = 1e-4, constante, wd 0, lote 256, clip 10,
-    Huber δ = 1 só na ação tomada. Seleção pela Huber de validação no último passo.
-  - **Orçamento fixo: 10.000 passos (lote 256) em todas as comparações.** Na baseline de
-    20.000 passos, a validação chega a 1% do mínimo no passo ~10.500 e fica no ruído
-    (0,164–0,167); depois disso, só cresce a distância treino–validação.
-  - Hipóteses registradas antes das varreduras: `desafio3/hipoteses.md` (não editar as
-    previsões; o desfecho vai no fim do arquivo). Enunciado: `desafio3/enunciado.pdf`.
-  - Alvo G = retorno de Monte Carlo. Mesma CNN, mesma saída e mesma Huber loss do DQN.
-  - Grade: cada otimizador com o seu melhor LR × schedulers (warmup+cosseno, restarts,
-    warmup+constante) × 3 sementes.
-  - Medir a loss, as normas de pesos e gradientes por camada, ‖Δw‖/‖w‖ e as ReLUs mortas.
-- **Etapa 2:** DQN curto com os 2–3 finalistas, medindo a taxa de vitória.
+## Desafio 3 (otimizadores e agendas de η) — feito
+Enunciado em `desafio3/enunciado.pdf`, hipóteses e critério em `desafio3/hipoteses.md`
+(as previsões não se editam; os desfechos são escritos pelos autores).
+- **Problema-proxy (supervisionado):** regressão de Q(s, a) para o retorno de Monte Carlo
+  G (γ = 0,997), Huber δ = 1 só na ação tomada, com a CNN do CONCEITO 2.5. Dataset
+  (`desafio3/dados.py`): Econ5 com 15% de ações aleatórias. Treino: FASES_TREINO ×
+  sementes 0–59 (211 mil amostras); validação: FASES_TREINO × 100–109; teste:
+  FASES_TESTE × **10000–10019** (`carregar("teste")` recusa sem `permitir_teste=True`).
+  "Esperar" é 82% das ações.
+- **Regras fixas:** 10.000 passos, lote 256, clip 10 em todas as execuções. A seleção é
+  pela Huber de validação no último passo (val_final); também se registram val_esperar
+  e val_plantio. Baseline ("receita atual"): Adam η = 1e-4, constante, wd 0.
+- **Otimizadores:** sgd e nesterov (momento 0,9), adam, adamw (wd 0,01), rmsprop e um
+  **Muon próprio** (`desafio3/muon.py`). **Agendas:** constante, cosseno, warmup_cosseno
+  (warmup em 5%) e wsd (warmup 5%, decaimento linear nos últimos 20%).
+- **Protocolo:** varredura de η com warmup_cosseno e 1 semente (5 η por otimizador,
+  extensão na borda); agendas para os 2 melhores + Muon, com 1 semente; confirmação
+  das 3 melhores combinações (+ Muon, como extra) com **5 sementes**. Critério de
+  vitória: |Δ média| > 2 desvios-padrão combinados, s_c = √((s_A² + s_B²)/2).
+- **Resultado:** as 3 finalistas (sgd 3e-2 cosseno, sgd 3e-2 warmup_cosseno, rmsprop 3e-4
+  warmup_cosseno; val_final ≈ 0,1623) **empatam entre si e vencem a baseline**
+  (0,1676 ± 0,0008). O Muon (melhor η 1e-3) **perde para todos**, inclusive para a
+  baseline (0,1750). Nada divergiu, e o clip nunca chegou a cortar.
+- O DQN curto **não faz parte do desafio**: fica para o projeto.
+- **Sementes de teste:** o Desafio 3 já usou as sementes 10000–10019 das fases de teste.
+  O teste final do agente de RL do projeto deve usar **outras sementes da faixa de teste,
+  a partir de 10100**, para os dois testes serem independentes.
 
 ## Estrutura do código
 - `pvz/config.py`: todos os números do jogo.
@@ -127,6 +137,7 @@ coleta é permitido, mas o código que os chama continua preso a essa interface.
 - `desafio3/modelo.py`: a CNN (saída 226 = mapa (planta, faixa, coluna) achatado + esperar).
 - `desafio3/treino.py`: `Config`, registries `OTIMIZADORES` e `AGENDAS`, `Registro` (instrumentação) e o laço. Logs em `desafio3/logs/<id>/`, resumo em `desafio3/experimentos.csv`.
 - `desafio3/muon.py`: Muon próprio (Newton–Schulz com 5 iterações, momento Nesterov 0,95, kernels achatados em (C_out, C_in·k·k), wd desacoplado). Pesos de conv1–3 no Muon; vieses, `cabeca_q` e `cabeca_esperar` no AdamW (`--lr-adamw`). Mesma agenda nos dois.
+- `desafio3/analise.py`: tabelas do protocolo (`varredura`, `agendas`, `confirmacao`, `tabelas`) e figuras em `desafio3/figuras/`.
 - `desafio3/graficos.py`: painéis de perda, ‖g‖, ‖θ‖, η e ρ de um log.
 - `tests/test_desafio3.py`: índices da CNN, registries, agendas e Muon (valores singulares, divisão dos parâmetros, formato, determinismo).
 - `requirements.txt`: torch (CUDA), numpy, pytest e matplotlib.
@@ -149,6 +160,7 @@ coleta é permitido, mas o código que os chama continua preso a essa interface.
 - [x] Decidir γ: 0,997.
 - [ ] Revisar o conteúdo das classes de hordas (ainda são um primeiro rascunho); se mudar, recalibrar.
 - [ ] Escrever o baseline "heurística humana" (Parte 3, experimento 2), o mais forte possível.
-- [ ] Desafio 3: proxy supervisionado e DQN curto com os finalistas.
+- [x] Desafio 3: proxy supervisionado e protocolo completo (varredura, agendas, confirmação).
+- [ ] Desafio 3: extras, teste (uma vez), painel.pdf e slide.pdf.
 - [ ] Implementar o Double DQN com CNN, o replay com máscara e o currículo.
 - [ ] Implementar a análise de erros (2.7) e os experimentos da Parte 3.
