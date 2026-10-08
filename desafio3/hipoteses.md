@@ -80,5 +80,13 @@ critério acima, e a redução relativa de val_plantio (contra a baseline e cont
 melhor não-Muon) é maior que a de val_esperar. **Refuta:** o Muon vence, mas o ganho
 relativo é igual ou maior em val_esperar. (Se o Muon não vencer, H6 não se aplica.)
 
+### Confirmação: 4ª combinação extra
+Além das 3 exigidas pelo protocolo (as 3 melhores do passo 3: sgd 3e-2 warmup_cosseno,
+sgd 3e-2 cosseno e rmsprop 3e-4 warmup_cosseno), a confirmação inclui, **além das 3
+exigidas pelo protocolo**, o melhor Muon do passo 3 (η das matrizes 1e-3, AdamW 3e-4,
+warmup_cosseno) com as sementes 0–4. Motivo: o Muon é obrigatório, o painel pede "a
+melhor com Muon" e a H6 precisa de barra de erro. Decidido depois do passo 3 e antes de
+rodar a confirmação.
+
 ## Desfecho
 (preencher depois das etapas 2–4, sem editar as hipóteses acima)
