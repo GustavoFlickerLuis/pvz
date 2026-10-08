@@ -1,0 +1,38 @@
+{
+  "id": "20261008-142754-rmsprop-lr0.0003-constante-s0",
+  "data": "2026-10-08T14:27:54",
+  "commit": "d58112e61f5b309635a1aed0f7dd8f4b20c0a95c",
+  "commit_sujo": true,
+  "hash_dataset": "ec7cd105259b1b5f",
+  "config": {
+    "otimizador": "rmsprop",
+    "lr": 0.0003,
+    "lr_adamw": null,
+    "agenda": "constante",
+    "semente": 0,
+    "passos": 10000,
+    "etapa": "agendas",
+    "lote": 256,
+    "weight_decay": 0.0,
+    "momento": 0.9,
+    "clip": 10.0,
+    "delta_huber": 1.0,
+    "k_registro": 25,
+    "k_val": 250,
+    "lote_fixo": 1024,
+    "amostras": null,
+    "rascunho": false,
+    "dados": "C:\\Users\\gului\\Desktop\\PythonProject1\\desafio3\\dados"
+  },
+  "torch": "2.11.0+cu128",
+  "dispositivo": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "resultado": {
+    "val_final": 0.17786309413760004,
+    "val_esperar": 0.17494367839111424,
+    "val_plantio": 0.19091254967318264,
+    "val_min": 0.16425573037721136,
+    "passo_val_min": 2750,
+    "status": "ok",
+    "tempo_s": 42.9
+  }
+}
