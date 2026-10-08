@@ -1,0 +1,38 @@
+{
+  "id": "20261008-144429-adam-lr0.0001-constante-s3",
+  "data": "2026-10-08T14:44:29",
+  "commit": "0b9190edd5ef5c3c247c9c07b7beeb17c7c900f1",
+  "commit_sujo": false,
+  "hash_dataset": "ec7cd105259b1b5f",
+  "config": {
+    "otimizador": "adam",
+    "lr": 0.0001,
+    "lr_adamw": null,
+    "agenda": "constante",
+    "semente": 3,
+    "passos": 10000,
+    "etapa": "baseline",
+    "lote": 256,
+    "weight_decay": 0.0,
+    "momento": 0.9,
+    "clip": 10.0,
+    "delta_huber": 1.0,
+    "k_registro": 25,
+    "k_val": 250,
+    "lote_fixo": 1024,
+    "amostras": null,
+    "rascunho": false,
+    "dados": "C:\\Users\\gului\\Desktop\\PythonProject1\\desafio3\\dados"
+  },
+  "torch": "2.11.0+cu128",
+  "dispositivo": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "resultado": {
+    "val_final": 0.1670448737071721,
+    "val_esperar": 0.16209321463615148,
+    "val_plantio": 0.18917826542041116,
+    "val_min": 0.1666430218926305,
+    "passo_val_min": 9250,
+    "status": "ok",
+    "tempo_s": 50.6
+  }
+}
