@@ -138,6 +138,9 @@ Enunciado em `desafio3/enunciado.pdf`, hipóteses e critério em `desafio3/hipot
 - `desafio3/treino.py`: `Config`, registries `OTIMIZADORES` e `AGENDAS`, `Registro` (instrumentação) e o laço. Logs em `desafio3/logs/<id>/`, resumo em `desafio3/experimentos.csv`.
 - `desafio3/muon.py`: Muon próprio (Newton–Schulz com 5 iterações, momento Nesterov 0,95, kernels achatados em (C_out, C_in·k·k), wd desacoplado). Pesos de conv1–3 no Muon; vieses, `cabeca_q` e `cabeca_esperar` no AdamW (`--lr-adamw`). Mesma agenda nos dois.
 - `desafio3/analise.py`: tabelas do protocolo (`varredura`, `agendas`, `confirmacao`, `tabelas`) e figuras em `desafio3/figuras/`.
+- `desafio3/avaliar_teste.py`: avaliação no teste (já rodou; recusa rodar de novo). Confere antes que os retreinos (`--rascunho --salvar-pesos`) reproduzem o val_final.
+- `desafio3/painel.py`: gera `desafio3/painel.pdf`. Tabelas finais em `desafio3/tabelas.md`.
+- `desafio3/jogar.py`: extra fora do desafio: a rede do proxy jogando (RedeGulosa) × Econ5 e Guloso; resultado em `desafio3/rede_joga.md`. Os pesos (`desafio3/pesos/`) não são versionados.
 - `desafio3/graficos.py`: painéis de perda, ‖g‖, ‖θ‖, η e ρ de um log.
 - `tests/test_desafio3.py`: índices da CNN, registries, agendas e Muon (valores singulares, divisão dos parâmetros, formato, determinismo).
 - `requirements.txt`: torch (CUDA), numpy, pytest e matplotlib.
@@ -161,6 +164,7 @@ Enunciado em `desafio3/enunciado.pdf`, hipóteses e critério em `desafio3/hipot
 - [ ] Revisar o conteúdo das classes de hordas (ainda são um primeiro rascunho); se mudar, recalibrar.
 - [ ] Escrever o baseline "heurística humana" (Parte 3, experimento 2), o mais forte possível.
 - [x] Desafio 3: proxy supervisionado e protocolo completo (varredura, agendas, confirmação).
-- [ ] Desafio 3: extras, teste (uma vez), painel.pdf e slide.pdf.
+- [x] Desafio 3: extras, teste (avaliado uma vez: `desafio3/teste.csv`) e `painel.pdf`.
+- [ ] Desafio 3: `slide.pdf` (um slide) e os desfechos do `hipoteses.md` (escritos pelos autores). Entrega: 14/10/2026, 12h.
 - [ ] Implementar o Double DQN com CNN, o replay com máscara e o currículo.
 - [ ] Implementar a análise de erros (2.7) e os experimentos da Parte 3.
