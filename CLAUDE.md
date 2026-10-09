@@ -135,6 +135,12 @@ Double DQN com máscara (CONCEITO 2.5), branch `rl`. Relatório do lote 1 em `rl
   lote 256, 1 atualização a cada 4 passos a partir de 10k, alvo a cada 2.000 atualizações,
   ε de 1 a 0,05 em 40% do orçamento, exploração com "esperar" a 50%, Huber δ = 1, clip 10,
   ator (cópia da online na CPU) sincronizado a cada atualização. Orçamento: 400k passos.
+- **Exploração** (`--exploracao`; 4º campo da fila do `rodar.py`, `cnn1:nao:0:intencional`):
+  `uniforme` (padrão; a de sempre, bit a bit) ou `intencional`: a exploração sorteia um TIPO;
+  se ainda não dá para plantar, ele vira alvo (`Treino.alvo_tipo`; `alvo` é a rede alvo) e a
+  rede joga com a "máscara de reserva" (sem plantios que deixem sol < custo do alvo; sol lido
+  da observação) até ele ficar disponível ou 30 decisões passarem. O replay guarda a máscara
+  real. `exploracao.csv` por episódio, nos dois modos. Id com sufixo `-int` (ex.: `cnn1-s0-int`).
 - **Avaliação oficial:** gulosa, FASES_TREINO × sementes 300–302 (63 partidas) a cada 50k e
   × 300–319 (420) no fim. Treino nas sementes 1000–9999. Nunca nas fases de teste (assert).
 - **Arquiteturas** (`desafio3/modelo.py`, registry `ARQUITETURAS`; saída (B, 226) no índice de

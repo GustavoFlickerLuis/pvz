@@ -214,3 +214,11 @@ O mecanismo aparece nos sinais (semente 0, mediana em janelas de 50k passos):
 - **Resultados:** `rl/referencias.csv`, `rl/tabelas.md`, `rl/figuras/`, `rl/logs/` (as 9 execuções e
   as `teste-*`), `rl/STATUS.md` e `rl/rodar.log`.
 - **`.gitignore`:** ganhou `rl/logs/*/ckpt/`, `rl/logs/*/ckpt_tmp/` e `rl/PARAR`.
+
+## Lote 2a: exploração intencional
+
+Previsão: a cnn1 sem currículo com exploração intencional planta mais atiradores na
+política gulosa (ervilha + repetidora > 6% das ações) e vence mais que a baseline do
+lote 1 (9,2% ± 7,1, 420 partidas). Critério: |Δ| > 2 s_c. Risco: com alvo, o agente
+passa mais tempo sem gastar durante o treino (com Econ5 e ε = 0,05, as vitórias caem
+de 62% para 41%), o que pode tirar dados do fim das fases.
