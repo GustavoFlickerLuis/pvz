@@ -78,3 +78,11 @@ com k = 10.
 - Mais sementes na sanidade (só a 0 foi rodada) e a oscilação da política gulosa (talvez
   avaliar com mais partidas ou reduzir η no fim).
 - Nenhum merge feito (branch `ppo`, a partir da `diag`).
+
+## Fases completas
+
+Previsão (fases completas): o PPO nas 21 fases de treino, com k = 20 e uma semente, passa
+da baseline do DQN (9,2%) e chega a ≥ 25% nas 420 partidas finais. Regra: ≥ 25% → o PPO
+vira o caminho principal; < 15% → investigar (G4, dados) antes de mais sementes. Com uma
+semente, o resultado é indicativo, não conclusivo. Referências com k = 20: Econ5 65%,
+Guloso 52%.
