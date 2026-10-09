@@ -294,3 +294,124 @@ class TestLacoNovo:
                 assert np.array_equal(tr.replay.obs[k + i], obs[i].astype(np.float16))
                 assert np.array_equal(tr.replay.prox[k + i], obs[min(i + tr.cfg.n, T)].astype(np.float16))
             k += T
+
+
+# ---------------------------------------------------------------- exploração intencional
+import hashlib
+
+from pvz import config as C
+from pvz.ambiente import N_CELULAS
+from rl.dqn import CUSTOS, mascara_reserva, sol_da_obs
+
+
+def _acoes_cenario(tmp_path, **kw):
+    """4 episódios com atualizações e ε caindo até 0,05 no passo 400."""
+    tr = _treino(tmp_path, inicio=300, lote=32, eps_frac=0.004, **kw)
+    for s in (1, 2, 3, 4):
+        tr.jogar_episodio(FASES_TREINO[s], s)
+    return tr
+
+
+class TestExploracaoIntencional:
+    @pytest.mark.parametrize("arq, ref", [
+        ("cnn1", "2aacddc64f15088f0636036b5a2a47d9212b5ea8d491cc0c6a365d62bb832832"),
+        ("cnn2", "6e29469e167a86f1af01af885043f9ae3031e8d224e7c1a2491490fa692e359e")])
+    def test_a_uniforme_gera_as_mesmas_acoes_de_antes(self, tmp_path, arq, ref):
+        """Hashes das ações gravados com o código de antes da opção (commit 9c1756f)."""
+        tr = _acoes_cenario(tmp_path, arquitetura=arq)
+        assert tr.cfg.exploracao == "uniforme"
+        assert hashlib.sha256(tr.replay.acao[:tr.replay.tamanho].tobytes()).hexdigest() == ref
+
+    @pytest.mark.parametrize("arq", ["cnn1", "cnn2"])
+    def test_b_toda_acao_executada_e_valida(self, tmp_path, arq, monkeypatch):
+        tr = _treino(tmp_path, inicio=300, lote=32, eps_ini=0.6, eps_fim=0.6,
+                     exploracao="intencional", arquitetura=arq)
+        agir, vistas = tr.agir, []
+
+        def conferir(obs, mascara):
+            acao, expl = agir(obs, mascara)
+            assert mascara[acao]          # a máscara REAL (amb.mascara()), não a de reserva
+            vistas.append(acao)
+            return acao, expl
+        monkeypatch.setattr(tr, "agir", conferir)
+        for s in (1, 2, 3):
+            tr.jogar_episodio(FASES_TREINO[s], s)
+        assert len(vistas) == tr.passo > 300
+        e = tr.exploracao
+        assert sum(x["decisoes_com_alvo"] for x in e) > 0
+        assert sum(x["alvos_cumpridos"] for x in e) > 0
+
+    def test_c_com_eps_1_os_5_tipos_viram_alvo(self, tmp_path):
+        tr = _treino(tmp_path, exploracao="intencional")
+        assert tr.epsilon() == 1.0
+        for s in range(6):
+            tr.jogar_episodio(FASES_TREINO[s], s)
+        alvos = [sum(x[f"alvos_{p.nome}"] for x in tr.exploracao) for p in C.PLANTAS]
+        assert all(a > 0 for a in alvos), alvos
+        assert tr.alvo_tipo is None and tr.espera == 0       # zeram no fim do episódio
+
+    def test_d_reserva(self, tmp_path):
+        """Sol 150 e alvo repetidora (200): nenhum plantio; sol 250: só os de custo ≤ 50."""
+        assert list(CUSTOS) == [50, 100, 200, 50, 25]
+        todas = np.ones(N_ACOES, bool)
+        m = mascara_reserva(todas, 150, C.REPETIDORA)
+        assert not m[:ESPERAR].any() and m[ESPERAR]
+        m = mascara_reserva(todas, 250, C.REPETIDORA)
+        for t in range(5):
+            assert m[t * N_CELULAS:(t + 1) * N_CELULAS].all() == (CUSTOS[t] <= 50)
+            assert m[t * N_CELULAS:(t + 1) * N_CELULAS].any() == (CUSTOS[t] <= 50)
+        # e no ator: observação sintética, rede que só quer plantar (Q de esperar baixíssimo)
+        for formato, arq in (("v1", "cnn1"), ("v2", "cnn2")):
+            tr = _treino(tmp_path / formato, exploracao="intencional", arquitetura=arq)
+            tr.ator = lambda x: torch.cat([torch.rand(1, ESPERAR), torch.full((1, 1), -1e9)], 1)
+            amb = Ambiente(formato=formato)
+            amb.reset(FASES_TREINO[0], 0)
+            mascara = np.ones(N_ACOES, bool)
+            mascara[C.REPETIDORA * N_CELULAS:(C.REPETIDORA + 1) * N_CELULAS] = False
+            for sol, permitidos in ((150, set()), (250, {C.GIRASSOL, C.BATATA, C.MINA})):
+                amb.sol = sol
+                obs = amb.observar()
+                assert sol_da_obs(obs, formato) == sol
+                escolhidos = set()
+                for _ in range(20):
+                    tr.alvo_tipo, tr.espera = C.REPETIDORA, 0
+                    acao, expl = tr.agir(obs, mascara)
+                    assert not expl and tr.alvo_tipo == C.REPETIDORA
+                    escolhidos.add("esperar" if acao == ESPERAR else acao // N_CELULAS)
+                assert escolhidos == ({"esperar"} if not permitidos else permitidos), (formato, sol)
+
+    def test_e_timeout_libera_o_alvo(self, tmp_path):
+        tr = _treino(tmp_path, exploracao="intencional")
+        amb = Ambiente()
+        amb.reset(FASES_TREINO[0], 0)
+        amb.sol = 0
+        obs, mascara = amb.observar(), amb.mascara()
+        tr.alvo_tipo, tr.espera = C.REPETIDORA, 0
+        for i in range(tr.cfg.expl_espera_max):
+            assert tr.alvo_tipo == C.REPETIDORA
+            acao, expl = tr.agir(obs, mascara)
+            assert acao == ESPERAR and not expl
+        assert tr.alvo_tipo is None and tr.contagem["alvos_timeout"] == 1
+        assert tr.contagem["decisoes_com_alvo"] == tr.cfg.expl_espera_max
+
+    def test_alvo_disponivel_planta_e_libera(self, tmp_path):
+        tr = _treino(tmp_path, exploracao="intencional")
+        amb = Ambiente()
+        amb.reset(FASES_TREINO[0], 0)
+        amb.sol = 300
+        tr.alvo_tipo = C.REPETIDORA
+        acao, expl = tr.agir(amb.observar(), amb.mascara())
+        assert expl and acao // N_CELULAS == C.REPETIDORA and amb.mascara()[acao]
+        assert tr.alvo_tipo is None and tr.contagem["alvos_cumpridos"] == 1
+
+    def test_ids(self):
+        from rl.dqn import id_padrao
+        from rl.rodar import ler_fila
+        assert id_padrao("cnn1", "nao", 0) == "cnn1-s0"
+        assert id_padrao("cnn2", "sim", 1) == "cnn2-cur-s1"
+        assert id_padrao("cnn1", "nao", 2, exploracao="intencional") == "cnn1-s2-int"
+        assert id_padrao("cnn1", "nao", 0, "vencedora") == "vencedora-s0"
+        assert ler_fila(["cnn1:nao:0", "cnn2:sim:1:intencional"]) == \
+            [("cnn1", "nao", 0, "uniforme"), ("cnn2", "sim", 1, "intencional")]
+        with pytest.raises(SystemExit):
+            ler_fila(["cnn1:nao:0:outra"])
