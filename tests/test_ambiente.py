@@ -394,3 +394,31 @@ class TestCanais(unittest.TestCase):
         self.assertTrue(np.allclose(e[18], np.arange(9) / 8))                 # 18 coluna
         self.assertTrue(np.allclose(e[19][:, 0], [0, 0, 0, 0, 2 / SURGIDOS_REF]))   # 19
         self.assertTrue(np.all(e[19] == e[19][:, :1]))
+
+
+class TestFormatoV2(unittest.TestCase):
+    def test_padrao_nao_muda(self):
+        amb = Ambiente()
+        self.assertEqual(amb.reset(FASES_TREINO[0], 0).shape, (20, 5, 9))
+        self.assertEqual(amb.observar().shape, (20, 5, 9))
+
+    def test_v2_igual_ao_v1_mais_sol_e_mascara(self):
+        from pvz.ambiente import SOL_REF_V2, SOL_TETO_V2
+        amb = Ambiente(formato="v2")
+        e = amb.reset(FASES_TREINO[0], 0)
+        self.assertEqual(e.shape, (25, 5, 9))
+        ag, fim = Econ(5), False
+        for sol_extra in (0, 0, 3000):
+            amb.sol += sol_extra
+            v1, v2 = amb.observar("v1"), amb.observar()
+            self.assertTrue(np.array_equal(np.delete(v1, 11, 0), np.delete(v2[:20], 11, 0)))
+            self.assertTrue(np.all(v2[11] == np.float32(min(amb.sol / SOL_REF_V2, SOL_TETO_V2))))
+            self.assertTrue(np.array_equal(v2[20:].ravel().astype(bool), amb.mascara()[:ESPERAR]))
+            for _ in range(30):
+                if not fim:
+                    _, _, fim = amb.step(ag.agir(amb))
+        self.assertEqual(amb.observar()[11, 0, 0], SOL_TETO_V2)   # 3000+ de sol: no teto
+
+    def test_formato_invalido(self):
+        with self.assertRaises(ValueError):
+            Ambiente(formato="v3")

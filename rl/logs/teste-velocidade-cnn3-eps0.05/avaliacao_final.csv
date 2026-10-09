@@ -1,0 +1,22 @@
+fase,semente,vitoria,dano,decisoes
+calmo misto tudo_junto,300,False,0.0,97
+calmo misto duas_ondas,300,False,0.11188118811881198,160
+calmo uma_faixa_pesada blindados,300,False,0.03513513513513511,140
+calmo uma_faixa_pesada tudo_junto,300,False,0.015946843853820614,93
+calmo uma_faixa_pesada duas_ondas,300,False,0.010928961748633892,96
+calmo rapidos_em_massa blindados,300,False,0.013377926421404673,91
+calmo rapidos_em_massa tudo_junto,300,False,0.026755852842809347,109
+cedo_apressado misto tudo_junto,300,False,0.006980802792321161,86
+cedo_apressado misto duas_ondas,300,False,0.0,71
+cedo_apressado uma_faixa_pesada blindados,300,False,0.008888888888888835,66
+cedo_apressado uma_faixa_pesada duas_ondas,300,False,0.020253164556962022,91
+cedo_apressado rapidos_em_massa blindados,300,False,0.0,82
+cedo_apressado rapidos_em_massa tudo_junto,300,False,0.01985111662531014,112
+cedo_apressado rapidos_em_massa duas_ondas,300,False,0.0,79
+so_rapidos misto blindados,300,False,0.015126050420168013,73
+so_rapidos misto tudo_junto,300,False,0.0,74
+so_rapidos misto duas_ondas,300,False,0.007407407407407418,119
+so_rapidos uma_faixa_pesada blindados,300,False,0.010830324909747335,86
+so_rapidos uma_faixa_pesada duas_ondas,300,False,0.0,77
+so_rapidos rapidos_em_massa blindados,300,False,0.17654723127035832,189
+so_rapidos rapidos_em_massa tudo_junto,300,False,0.0652631578947368,140

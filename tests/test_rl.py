@@ -214,3 +214,83 @@ class TestTruncagem:
         assert passos == 6 and r == -1.0
         assert len(saida) == 6 and all(t[6] for t in saida)
         assert saida[0][2] == pytest.approx(-(G ** 5))
+
+
+# ---------------------------------------------------------------- arquiteturas e currículo (Etapa B)
+from pvz.divisao import FASES_TESTE
+from rl.dqn import CUR_PARTIDAS, NIVEIS, Curriculo, fases_do_nivel
+
+
+class TestCurriculo:
+    def test_niveis_so_geram_fases_de_treino(self):
+        tamanhos = []
+        for nivel, (seg, _) in enumerate(NIVEIS):
+            fases = fases_do_nivel(nivel)
+            tamanhos.append(len(fases))
+            assert all(len(f) == seg for f in fases)
+            assert all(any(t[:seg] == f for t in FASES_TREINO) for f in fases)   # prefixos do treino
+            assert not set(fases) & set(FASES_TESTE)
+        assert tamanhos == [3, 9, 21]
+        assert fases_do_nivel(2) == list(FASES_TREINO)
+
+    def test_sorteio_e_avaliacao(self):
+        cur = Curriculo(Config(curriculo="sim"))
+        rng = np.random.default_rng(0)
+        for nivel in range(3):
+            cur.nivel = nivel
+            sorteios = [cur.sortear(rng) for _ in range(5000)]
+            for fase, dif, n in sorteios:
+                assert fase in fases_do_nivel(n) and dif == NIVEIS[n][1] and n <= nivel
+                assert fase not in FASES_TESTE
+            atual = np.mean([n == nivel for _, _, n in sorteios])
+            assert atual == 1.0 if nivel == 0 else abs(atual - 0.8) < 0.02
+            if nivel == 2:   # os anteriores, sorteados por igual
+                assert abs(np.mean([n == 0 for _, _, n in sorteios]) - 0.1) < 0.015
+            if nivel < 2:
+                lista = cur.partidas()   # passa pelo assert de avaliar.partidas
+                assert len(lista) == CUR_PARTIDAS
+                assert {f for f, _ in lista} == set(fases_do_nivel(nivel))
+                assert all(400 <= s < 1000 for _, s in lista)
+
+    def test_quando_sobe(self):
+        cur = Curriculo(Config(curriculo="sim"))
+        assert cur.registrar(25_000, 0.49) == "" and cur.nivel == 0
+        assert cur.registrar(50_000, 0.50) == "vitorias" and (cur.nivel, cur.inicio_nivel) == (1, 50_000)
+        assert cur.registrar(175_000, 0.0) == ""
+        assert cur.registrar(200_000, 0.0) == "tempo" and cur.nivel == 2 and cur.ultimo
+        assert [h["nivel"] for h in cur.historico] == [1, 1, 2, 2]
+
+    def test_config(self):
+        with pytest.raises(ValueError):
+            Config(arquitetura="cnn2", receita="vencedora")
+        with pytest.raises(ValueError):
+            Config(curriculo="sim", fases="calmo")
+        with pytest.raises(ValueError):
+            Config(arquitetura="cnn9")
+        Config(arquitetura="cnn3", curriculo="sim")
+
+
+class TestLacoNovo:
+    @pytest.mark.parametrize("arq", ["cnn1d", "cnn2", "cnn3"])
+    def test_replay_no_formato_da_arquitetura(self, tmp_path, arq):
+        """O replay guarda 25 canais (v2), e o laço com currículo grava as transições certas,
+        na dificuldade do nível."""
+        tr = _treino(tmp_path, arquitetura=arq, curriculo="sim")
+        assert tr.replay.obs.shape[1:] == (25, 5, 9)
+        tr.curriculo.nivel = 1
+        rng = np.random.default_rng(3)
+        k = 0
+        for _ in range(4):
+            fase, dif, nivel = tr.curriculo.sortear(rng)
+            assert tr.jogar_episodio(fase, 11 + k, dif, nivel) == "fim"
+            ep = tr.episodios[-1]
+            assert (ep["nivel"], ep["dificuldade"]) == (nivel + 1, dif)
+            T = ep["decisoes"]
+            amb = Ambiente(formato="v2")
+            obs = [amb.reset(fase, ep["semente"], dif)]
+            for a in tr.replay.acao[k:k + T]:
+                obs.append(amb.step(int(a))[0])
+            for i in range(T):
+                assert np.array_equal(tr.replay.obs[k + i], obs[i].astype(np.float16))
+                assert np.array_equal(tr.replay.prox[k + i], obs[min(i + tr.cfg.n, T)].astype(np.float16))
+            k += T

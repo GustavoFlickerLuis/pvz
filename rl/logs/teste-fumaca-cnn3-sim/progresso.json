@@ -1,0 +1,26 @@
+{
+  "receita": "baseline",
+  "arquitetura": "cnn3",
+  "curriculo": "sim",
+  "nivel": 3,
+  "semente": 0,
+  "passo": 5000,
+  "orcamento": 5000,
+  "passos_por_s": 53.97212731345488,
+  "status": "terminado",
+  "atualizado": "2026-10-09T11:09:37",
+  "avaliacoes": [
+    [
+      0,
+      0.0
+    ],
+    [
+      2500,
+      0.0
+    ],
+    [
+      5000,
+      0.0
+    ]
+  ]
+}

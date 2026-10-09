@@ -1,0 +1,18 @@
+{
+  "receita": "baseline",
+  "arquitetura": "cnn2",
+  "curriculo": "nao",
+  "nivel": null,
+  "semente": 0,
+  "passo": 20000,
+  "orcamento": 20000,
+  "passos_por_s": 188.9647132060666,
+  "status": "terminado",
+  "atualizado": "2026-10-09T11:47:25",
+  "avaliacoes": [
+    [
+      0,
+      0.0
+    ]
+  ]
+}
