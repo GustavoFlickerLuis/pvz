@@ -24,3 +24,8 @@ desafio3/pesos/
 rl/logs/*/ckpt/
 rl/logs/*/ckpt_tmp/
 rl/PARAR
+
+# rl/diag: arrays dos dados de TD e das provas (os meta.json são versionados)
+rl/diag/dados/*
+!rl/diag/dados/*.json
+rl/diag/logs/*/pesos*.pt

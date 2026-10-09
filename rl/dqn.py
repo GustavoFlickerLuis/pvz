@@ -65,7 +65,8 @@ class Config:
     receita: str = "baseline"
     semente: int = 0
     passos: int = 1_000_000          # orçamento em passos de jogo (decisões)
-    gamma: float = 0.997
+    gamma: float = 0.997             # com k_ticks = 20, o par usado é γ = 0,994
+    k_ticks: int = C.K_TICKS         # ticks entre decisões (o Ambiente roda k sozinho)
     n: int = 10                      # retorno de n passos
     lote: int = 256
     replay: int = 100_000
@@ -517,12 +518,13 @@ class Treino:
     # -------------------------------------------------------------- avaliação
     def avaliar(self, sementes):
         lista = avaliar.partidas(range(*sementes), self.fases)
-        return avaliar.avaliar_rede(self.online, lista, self.dev, self.cfg.dificuldade)
+        return avaliar.avaliar_rede(self.online, lista, self.dev, self.cfg.dificuldade,
+                                    k=self.cfg.k_ticks)
 
     def avaliacao_curriculo(self):
         cur = self.curriculo
         nivel, dif = cur.nivel, NIVEIS[cur.nivel][1]
-        r = avaliar.avaliar_rede(self.online, cur.partidas(), self.dev, dif)
+        r = avaliar.avaliar_rede(self.online, cur.partidas(), self.dev, dif, k=self.cfg.k_ticks)
         motivo = cur.registrar(self.passo, r["vitorias"])
         print(f"[currículo] passo {self.passo}: nível {nivel + 1}, vitórias "
               f"{100 * r['vitorias']:.1f}% ({r['partidas']} partidas)"
@@ -544,7 +546,7 @@ class Treino:
         `nivel` (0 a 2) só com currículo."""
         c = self.cfg
         dificuldade = c.dificuldade if dificuldade is None else dificuldade
-        amb = Ambiente(formato=self.formato)
+        amb = Ambiente(k=c.k_ticks, formato=self.formato)
         obs = amb.reset(fase, semente, dificuldade)
         mascara = amb.mascara()
         self.npassos.limpar()
@@ -767,14 +769,17 @@ def executar(cfg, id_):
     return treino.rodar()
 
 
-def id_padrao(arquitetura, curriculo, semente, receita="baseline", exploracao="uniforme"):
-    """cnn2-cur-s0, cnn3-s1, cnn1-s0-int (intencional), ...; as receitas não baseline do
-    lote 1 ficam vencedora-s0 etc. A exploração uniforme não ganha sufixo."""
+def id_padrao(arquitetura, curriculo, semente, receita="baseline", exploracao="uniforme",
+              k_ticks=C.K_TICKS):
+    """cnn2-cur-s0, cnn3-s1, cnn1-s0-int (intencional), cnn1-s0-k20, ...; as receitas não
+    baseline do lote 1 ficam vencedora-s0 etc. A exploração uniforme e k = 10 não ganham
+    sufixo."""
     if receita != "baseline":
         base = f"{receita}-s{semente}"
     else:
         base = f"{arquitetura}{'-cur' if curriculo == 'sim' else ''}-s{semente}"
-    return base + ("-int" if exploracao == "intencional" else "")
+    return (base + (f"-k{k_ticks}" if k_ticks != C.K_TICKS else "")
+            + ("-int" if exploracao == "intencional" else ""))
 
 
 def main():
@@ -794,7 +799,7 @@ def main():
         p.add_argument("--" + f.name.replace("_", "-"), type=f.type)
     a = vars(p.parse_args())
     id_ = a.pop("id") or id_padrao(a["arquitetura"], a["curriculo"], a["semente"], a["receita"],
-                                   a["exploracao"])
+                                   a["exploracao"], a["k_ticks"] or C.K_TICKS)
     extra = json.loads(a.pop("json") or "{}")
     cfg = Config(**{k: v for k, v in a.items() if v is not None}, **extra)
     sys.exit(executar(cfg, id_))

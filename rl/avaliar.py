@@ -14,6 +14,7 @@ import numpy as np
 import torch
 
 from desafio3.modelo import formato_do_modelo
+from pvz import config as C
 from pvz.agentes import Econ, Guloso
 from pvz.ambiente import Ambiente
 from pvz.divisao import FASES_TESTE, FASES_TREINO
@@ -35,13 +36,13 @@ def _resumo(lista):
 
 
 @torch.no_grad()
-def avaliar_rede(modelo, lista, dev, dificuldade=1.0):
-    """Política gulosa em todas as partidas de `lista`, em paralelo."""
+def avaliar_rede(modelo, lista, dev, dificuldade=1.0, k=C.K_TICKS):
+    """Política gulosa em todas as partidas de `lista`, em paralelo, com k ticks por decisão."""
     modelo.eval()
     formato = formato_do_modelo(modelo)   # a observação no formato que a rede espera
     ambs, obs = [], []
     for fase, semente in lista:
-        a = Ambiente(formato=formato)
+        a = Ambiente(k=k, formato=formato)
         obs.append(a.reset(fase, semente, dificuldade))
         ambs.append(a)
     vivos = list(range(len(ambs)))
@@ -68,10 +69,10 @@ def avaliar_rede(modelo, lista, dev, dificuldade=1.0):
                     for i, (f, s) in enumerate(lista)])
 
 
-def avaliar_agente(agente, lista, dificuldade=1.0):
+def avaliar_agente(agente, lista, dificuldade=1.0, k=C.K_TICKS):
     res = []
     for fase, semente in lista:
-        amb = Ambiente()
+        amb = Ambiente(k=k)
         amb.reset(fase, semente, dificuldade)
         dano, n, fim = 0.0, 0, False
         while not fim:

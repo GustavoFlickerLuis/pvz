@@ -24,10 +24,10 @@ NOMES = ["esperar"] + [p.nome for p in C.PLANTAS]
 
 
 @torch.no_grad()
-def distribuicao(modelo, fmt="v1"):
+def distribuicao(modelo, fmt="v1", k=C.K_TICKS):
     cont, vit, dec = Counter(), 0, 0
     for fase, semente in partidas(range(300, 303)):
-        amb = Ambiente(formato=fmt)
+        amb = Ambiente(k=k, formato=fmt)
         obs, fim = amb.reset(fase, semente), False
         while not fim:
             q = modelo(torch.from_numpy(obs)[None])[0]
@@ -52,7 +52,8 @@ def main(ids):
         arq = cfg.get("arquitetura", "cnn1")   # o lote 1 não gravava a arquitetura
         m = criar(arq)
         m.load_state_dict(torch.load(pasta / "modelo.pt", map_location="cpu"))
-        d, v, dec = distribuicao(m.eval(), formato(arq))
+        # o k gravado na execução (o lote 1 não gravava: k = 10)
+        d, v, dec = distribuicao(m.eval(), formato(arq), cfg.get("k_ticks", C.K_TICKS))
         print(f"| {id_} | {100 * v:.1f}% | {dec:.0f} | "
               + " | ".join(f"{100 * d[k]:.1f}%" for k in NOMES) + " |", flush=True)
 

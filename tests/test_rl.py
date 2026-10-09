@@ -313,11 +313,16 @@ def _acoes_cenario(tmp_path, **kw):
 
 
 class TestExploracaoIntencional:
-    @pytest.mark.parametrize("arq, ref", [
-        ("cnn1", "2aacddc64f15088f0636036b5a2a47d9212b5ea8d491cc0c6a365d62bb832832"),
-        ("cnn2", "6e29469e167a86f1af01af885043f9ae3031e8d224e7c1a2491490fa692e359e")])
-    def test_a_uniforme_gera_as_mesmas_acoes_de_antes(self, tmp_path, arq, ref):
-        """Hashes das ações gravados com o código de antes da opção (commit 9c1756f)."""
+    # (GPU, CPU): as contas da atualização mudam com o dispositivo (na cnn1 coincidem)
+    REFS = {"cnn1": ("2aacddc64f15088f0636036b5a2a47d9212b5ea8d491cc0c6a365d62bb832832",) * 2,
+            "cnn2": ("6e29469e167a86f1af01af885043f9ae3031e8d224e7c1a2491490fa692e359e",
+                     "0b53d6382208e23cb4a775a7b4852a270e5f87ba05bd649b499ff02be33330b8")}
+
+    @pytest.mark.parametrize("arq", ["cnn1", "cnn2"])
+    def test_a_uniforme_gera_as_mesmas_acoes_de_antes(self, tmp_path, arq):
+        """Hashes das ações gravados com o código de antes da opção (commit 9c1756f; os da
+        CPU, com o código de antes do k configurável, commit 73279e8)."""
+        ref = self.REFS[arq][0 if torch.cuda.is_available() else 1]
         tr = _acoes_cenario(tmp_path, arquitetura=arq)
         assert tr.cfg.exploracao == "uniforme"
         assert hashlib.sha256(tr.replay.acao[:tr.replay.tamanho].tobytes()).hexdigest() == ref
@@ -415,3 +420,41 @@ class TestExploracaoIntencional:
             [("cnn1", "nao", 0, "uniforme"), ("cnn2", "sim", 1, "intencional")]
         with pytest.raises(SystemExit):
             ler_fila(["cnn1:nao:0:outra"])
+
+
+class TestK:
+    def test_k_padrao_e_ids(self):
+        from rl.dqn import id_padrao
+        assert Config().k_ticks == 10
+        assert id_padrao("cnn1", "nao", 0) == "cnn1-s0"
+        assert id_padrao("cnn1", "nao", 0, k_ticks=20) == "cnn1-s0-k20"
+        assert id_padrao("cnn1", "nao", 1, exploracao="intencional", k_ticks=20) == "cnn1-s1-k20-int"
+
+    def test_k20_treina_e_avalia_com_k20(self, tmp_path):
+        """Com k = 20, o episódio de treino e a avaliação rodam 20 ticks por decisão: a
+        mesma partida tem a metade das decisões da de k = 10 (com "esperar" sempre)."""
+        from rl import avaliar as av
+        tr = _treino(tmp_path, k_ticks=20, gamma=0.994, inicio=50, lote=16)
+        tr.jogar_episodio(FASES_TREINO[0], 5)
+        assert tr.atualizacoes > 0
+        decisoes = {}
+        for k in (10, 20):
+            amb, fim, n = Ambiente(k=k), False, 0
+            amb.reset(FASES_TREINO[0], 5)
+            while not fim:
+                _, _, fim = amb.step(ESPERAR)
+                n += 1
+            decisoes[k] = n
+        assert decisoes[20] == pytest.approx(decisoes[10] / 2, abs=1)
+        espera = lambda x: torch.cat([torch.zeros(len(x), ESPERAR), torch.ones(len(x), 1)], 1)
+        espera.eval = espera.train = lambda: None
+        import desafio3.modelo as dm
+        orig = dm.formato_do_modelo
+        av.formato_do_modelo = lambda m: "v1"
+        try:
+            r10 = av.avaliar_rede(espera, [(FASES_TREINO[0], 5)], "cpu")
+            r20 = av.avaliar_rede(espera, [(FASES_TREINO[0], 5)], "cpu", k=20)
+        finally:
+            av.formato_do_modelo = orig
+        assert (r10["decisoes"], r20["decisoes"]) == (decisoes[10], decisoes[20])
+
