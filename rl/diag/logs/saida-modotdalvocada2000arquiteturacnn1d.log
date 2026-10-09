@@ -1,0 +1,6 @@
+[td2000-cnn1d-s0] 0: viés ini +0.202 huber ini 0.3696 nota 67.6% (i 61.8, ii 70.0)
+[td2000-cnn1d-s0] 20000: viés ini -0.152 huber ini 0.2310 nota 73.7% (i 75.0, ii 73.2)
+[td2000-cnn1d-s0] 40000: viés ini +0.015 huber ini 0.2183 nota 74.6% (i 75.3, ii 74.3)
+[td2000-cnn1d-s0] 60000: viés ini +0.036 huber ini 0.2159 nota 74.0% (i 74.4, ii 73.9)
+[td2000-cnn1d-s0] 80000: viés ini +0.061 huber ini 0.2203 nota 73.9% (i 74.2, ii 73.9)
+[td2000-cnn1d-s0] 100000: viés ini +0.015 huber ini 0.2202 nota 71.2% (i 72.8, ii 70.6)

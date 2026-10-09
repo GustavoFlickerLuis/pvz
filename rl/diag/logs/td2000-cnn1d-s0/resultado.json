@@ -1,0 +1,39 @@
+{
+  "args": {
+    "modo": "td",
+    "alvo_cada": 2000,
+    "arquitetura": "cnn1d",
+    "semente": 0,
+    "atualizacoes": 100000,
+    "medir_cada": 5000,
+    "nota_cada": 20000,
+    "n": 10,
+    "lote": 256,
+    "lr": 0.0001,
+    "id": null
+  },
+  "final": {
+    "atualizacao": 100000,
+    "vies_ini": 0.014599661342799664,
+    "huber_ini": 0.22021090984344482,
+    "vies_meio": 0.025608977302908897,
+    "huber_meio": 0.14977283775806427,
+    "vies_fim": 0.012857694178819656,
+    "huber_fim": 0.11598531156778336,
+    "vies": 0.018736789003014565,
+    "huber": 0.1653105765581131,
+    "segundos": 616.0002527236938
+  },
+  "nota": {
+    "atualizacao": 100000,
+    "nota": 71.23505976095618,
+    "pares": 1255,
+    "nota_i": 72.75280898876404,
+    "pares_i": 356,
+    "nota_ii": 70.63403781979977,
+    "pares_ii": 899,
+    "arrependimento": 0.09979040175676346,
+    "arrependimento_econ5": 0.08915751427412033
+  },
+  "minutos": 10.3
+}
