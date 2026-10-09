@@ -13,6 +13,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
+from desafio3.modelo import formato_do_modelo
 from pvz.agentes import Econ, Guloso
 from pvz.ambiente import Ambiente
 from pvz.divisao import FASES_TESTE, FASES_TREINO
@@ -37,9 +38,10 @@ def _resumo(lista):
 def avaliar_rede(modelo, lista, dev, dificuldade=1.0):
     """Política gulosa em todas as partidas de `lista`, em paralelo."""
     modelo.eval()
+    formato = formato_do_modelo(modelo)   # a observação no formato que a rede espera
     ambs, obs = [], []
     for fase, semente in lista:
-        a = Ambiente()
+        a = Ambiente(formato=formato)
         obs.append(a.reset(fase, semente, dificuldade))
         ambs.append(a)
     vivos = list(range(len(ambs)))

@@ -1,6 +1,10 @@
-"""Double DQN com máscara (CONCEITO 2.5), retorno de n passos e receitas do proxy.
+"""Double DQN com máscara (CONCEITO 2.5), retorno de n passos, arquiteturas e currículo.
 
-    python -m rl.dqn --receita baseline --semente 0 --passos 600000 [--id baseline-s0]
+    python -m rl.dqn --arquitetura cnn2 --curriculo sim --semente 0 --passos 400000 [--id cnn2-cur-s0]
+    python -m rl.dqn --receita vencedora --semente 0 --passos 400000     # lote 1 (só cnn1)
+
+Arquiteturas: desafio3.modelo.ARQUITETURAS (cnn1, cnn1d, cnn2, cnn3). As novas só rodam
+com a receita baseline (adam 1e-4 constante, clip 10). Currículo: ver NIVEIS e Curriculo.
 
 Uma execução vive em rl/logs/<id>/: config.json, registro.csv (instrumentação, a cada
 50 atualizações), episodios.csv, avaliacoes.csv, velocidade.csv, progresso.json e, no
@@ -32,10 +36,10 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from desafio3.modelo import CNN
+from desafio3.modelo import ARQUITETURAS, criar, formato
 from desafio3.treino import AGENDAS, OTIMIZADORES, Registro, fixar_sementes, perda_q
 from desafio3.treino import Config as ConfigProxy
-from pvz.ambiente import ESPERAR, N_ACOES, N_CANAIS, Ambiente
+from pvz.ambiente import ESPERAR, FORMATOS, N_ACOES, N_CANAIS, Ambiente
 from pvz import config as C
 from pvz.divisao import FASES_TESTE, FASES_TREINO
 
@@ -80,10 +84,24 @@ class Config:
     fases: str = "treino"            # "treino" (FASES_TREINO) ou classes separadas por vírgula ("calmo")
     dificuldade: float = 1.0
     ckpt_minutos: float = 20.0
+    arquitetura: str = "cnn1"        # desafio3.modelo.ARQUITETURAS
+    curriculo: str = "nao"           # "sim": os níveis de NIVEIS (só com fases="treino")
+    cur_aval_cada: int = 25_000      # passos de jogo entre avaliações do nível atual
+    cur_limiar: float = 0.5          # vitórias na avaliação do nível para subir
+    cur_max_nivel: int = 150_000     # passos máximos num nível: depois sobe de qualquer jeito
+    cur_anteriores: float = 0.2      # depois de subir, fração de episódios dos níveis anteriores
 
     def __post_init__(self):
         if self.receita not in RECEITAS:
             raise ValueError(f"receita desconhecida: {self.receita}")
+        if self.arquitetura not in ARQUITETURAS:
+            raise ValueError(f"arquitetura desconhecida: {self.arquitetura}")
+        if self.arquitetura != "cnn1" and self.receita != "baseline":
+            raise ValueError("as CNNs novas só rodam com a receita baseline (adam 1e-4 constante)")
+        if self.curriculo not in ("nao", "sim"):
+            raise ValueError(f"curriculo deve ser nao ou sim: {self.curriculo}")
+        if self.curriculo == "sim" and (self.fases != "treino" or self.dificuldade != 1.0):
+            raise ValueError("o currículo só vale com fases=treino e dificuldade 1")
         self.aval_sementes = tuple(self.aval_sementes)
         self.aval_final_sementes = tuple(self.aval_final_sementes)
         self.sementes_treino = tuple(self.sementes_treino)
@@ -169,12 +187,13 @@ def alvo_double(q_online_prox, q_alvo_prox, mascara_prox, R, desconto, fim):
 
 
 class Replay:
-    """Memória circular. Observações em float16; guarda a máscara de s'."""
+    """Memória circular. Observações em float16, no formato da arquitetura (20 ou 25
+    canais); guarda a máscara de s'."""
 
     CAMPOS = ("obs", "prox", "acao", "R", "desconto", "fim", "mascara")
 
-    def __init__(self, capacidade):
-        forma = (capacidade, N_CANAIS, C.FAIXAS, C.COLUNAS)
+    def __init__(self, capacidade, canais=N_CANAIS):
+        forma = (capacidade, canais, C.FAIXAS, C.COLUNAS)
         self.obs = np.zeros(forma, np.float16)
         self.prox = np.zeros(forma, np.float16)
         self.acao = np.zeros(capacidade, np.int64)
@@ -205,6 +224,66 @@ class Replay:
             self.pos, self.tamanho = int(z["pos"]), int(z["tamanho"])
             for c in self.CAMPOS:
                 getattr(self, c)[:self.tamanho] = z[c]
+
+
+# ---------------------------------------------------------------- currículo
+# (segmentos, dificuldade) de cada nível. As fases de um nível são os prefixos distintos
+# das FASES_TREINO: nível 1 = os 3 inícios; 2 = os 9 pares início+meio; 3 = as 21 fases.
+NIVEIS = ((1, 0.5), (2, 0.75), (3, 1.0))
+CUR_PARTIDAS = 63        # por avaliação do nível: 3 × 21, 9 × 7 (o nível 3 não é avaliado)
+CUR_SEMENTES = 400       # sementes 400, 401, ... (fora das de treino, 1000–9999)
+
+
+def fases_do_nivel(nivel):
+    """`nivel` de 0 a 2."""
+    return list(dict.fromkeys(f[:NIVEIS[nivel][0]] for f in FASES_TREINO))
+
+
+class Curriculo:
+    """Nível atual e quando subir. A cada cfg.cur_aval_cada passos (enquanto não está no
+    último nível), avalia CUR_PARTIDAS partidas no nível atual; sobe com vitórias ≥
+    cur_limiar ou depois de cur_max_nivel passos no nível. Depois de subir, uma fração
+    cur_anteriores dos episódios vem de um nível anterior sorteado."""
+
+    def __init__(self, cfg):
+        self.cfg = cfg
+        self.nivel, self.inicio_nivel = 0, 0
+        self.historico = []
+
+    @property
+    def ultimo(self):
+        return self.nivel == len(NIVEIS) - 1
+
+    def sortear(self, rng):
+        """(fase, dificuldade, nível) do próximo episódio."""
+        nivel = self.nivel
+        if nivel > 0 and rng.random() < self.cfg.cur_anteriores:
+            nivel = int(rng.integers(nivel))
+        fases = fases_do_nivel(nivel)
+        return fases[rng.integers(len(fases))], NIVEIS[nivel][1], nivel
+
+    def partidas(self):
+        fases = fases_do_nivel(self.nivel)
+        n = CUR_PARTIDAS // len(fases)
+        return avaliar.partidas(range(CUR_SEMENTES, CUR_SEMENTES + n), fases)
+
+    def registrar(self, passo, vitorias):
+        """Resultado da avaliação do nível atual. Devolve o motivo da subida ("" se fica)."""
+        c = self.cfg
+        motivo = ("vitorias" if vitorias >= c.cur_limiar
+                  else "tempo" if passo - self.inicio_nivel >= c.cur_max_nivel else "")
+        self.historico.append({"passo": passo, "nivel": self.nivel + 1, "vitorias": vitorias,
+                               "subiu": motivo})
+        if motivo:
+            self.nivel, self.inicio_nivel = self.nivel + 1, passo
+        return motivo
+
+    def estado(self):
+        return {"nivel": self.nivel, "inicio_nivel": self.inicio_nivel,
+                "historico": self.historico}
+
+    def restaurar(self, e):
+        self.nivel, self.inicio_nivel, self.historico = e["nivel"], e["inicio_nivel"], e["historico"]
 
 
 class RegistroRL(Registro):
@@ -264,22 +343,24 @@ class Treino:
         torch.set_num_threads(1)   # inferência do ator na CPU: rápida e determinística
         self.rng = np.random.default_rng(cfg.semente)
         self.cproxy = cfg.proxy()
-        self.online = CNN().to(self.dev)
-        self.alvo = CNN().to(self.dev)
+        self.formato = formato(cfg.arquitetura)   # da observação: "v1" (20 canais) ou "v2" (25)
+        self.online = criar(cfg.arquitetura).to(self.dev)
+        self.alvo = criar(cfg.arquitetura).to(self.dev)
         self.alvo.load_state_dict(self.online.state_dict())
         self.alvo.requires_grad_(False)
         # cópia da online na CPU só para agir: uma inferência de 1 estado é ~2× mais rápida
         # na CPU do que na GPU (sem sincronização); é ressincronizada depois de cada atualização
-        self.ator = CNN().requires_grad_(False)
+        self.ator = criar(cfg.arquitetura).requires_grad_(False)
         self.sincronizar_ator()
         self.opts = OTIMIZADORES[self.cproxy.otimizador](self.online, self.cproxy)
         agenda, total = AGENDAS[self.cproxy.agenda], cfg.atualizacoes()
         self.scheds = [torch.optim.lr_scheduler.LambdaLR(o, lambda t: agenda(t, total))
                        for o in self.opts]
         self.registro = RegistroRL(self.online, self.opts, self.cproxy)
-        self.replay = Replay(cfg.replay)
+        self.replay = Replay(cfg.replay, FORMATOS[self.formato])
         self.npassos = NPassos(cfg.n, cfg.gamma)
-        self.fases = cfg.lista_fases()
+        self.fases = cfg.lista_fases()   # do treino sem currículo e da avaliação periódica oficial
+        self.curriculo = Curriculo(cfg) if cfg.curriculo == "sim" else None
         self.passo = 0          # passos de jogo
         self.atualizacoes = 0
         self.episodios = []     # por episódio
@@ -346,6 +427,16 @@ class Treino:
         lista = avaliar.partidas(range(*sementes), self.fases)
         return avaliar.avaliar_rede(self.online, lista, self.dev, self.cfg.dificuldade)
 
+    def avaliacao_curriculo(self):
+        cur = self.curriculo
+        nivel, dif = cur.nivel, NIVEIS[cur.nivel][1]
+        r = avaliar.avaliar_rede(self.online, cur.partidas(), self.dev, dif)
+        motivo = cur.registrar(self.passo, r["vitorias"])
+        print(f"[currículo] passo {self.passo}: nível {nivel + 1}, vitórias "
+              f"{100 * r['vitorias']:.1f}% ({r['partidas']} partidas)"
+              + (f"; sobe para o nível {cur.nivel + 1} ({motivo})" if motivo else ""), flush=True)
+        self.gravar_progresso()
+
     def avaliacao_periodica(self):
         r = self.avaliar(self.cfg.aval_sementes)
         self.avaliacoes.append({"passo": self.passo, "partidas": r["partidas"],
@@ -356,11 +447,13 @@ class Treino:
         self.gravar_progresso()
 
     # -------------------------------------------------------------- laço
-    def jogar_episodio(self, fase, semente):
-        """Um episódio de treino. Devolve "fim", "orcamento" (acabou no meio) ou "divergiu"."""
+    def jogar_episodio(self, fase, semente, dificuldade=None, nivel=None):
+        """Um episódio de treino. Devolve "fim", "orcamento" (acabou no meio) ou "divergiu".
+        `nivel` (0 a 2) só com currículo."""
         c = self.cfg
-        amb = Ambiente()
-        obs = amb.reset(fase, semente, c.dificuldade)
+        dificuldade = c.dificuldade if dificuldade is None else dificuldade
+        amb = Ambiente(formato=self.formato)
+        obs = amb.reset(fase, semente, dificuldade)
         mascara = amb.mascara()
         self.npassos.limpar()
         retorno, decisoes, fim = 0.0, 0, False
@@ -379,12 +472,17 @@ class Treino:
                     return "divergiu"
             if self.passo % c.aval_cada == 0:
                 self.avaliacao_periodica()
+            cur = self.curriculo
+            if cur and not cur.ultimo and self.passo % c.cur_aval_cada == 0:
+                self.avaliacao_curriculo()   # o novo nível vale a partir do próximo episódio
         if not fim:
             return "orcamento"   # o episódio não conta
-        self.episodios.append({"episodio": len(self.episodios), "passo_jogo": self.passo,
-                               "fase": "+".join(fase), "semente": semente,
-                               "retorno": retorno, "vitoria": int(r > 0),
-                               "decisoes": decisoes, "epsilon": self.epsilon()})
+        ep = {"episodio": len(self.episodios), "passo_jogo": self.passo,
+              "fase": "+".join(fase), "semente": semente, "retorno": retorno,
+              "vitoria": int(r > 0), "decisoes": decisoes, "epsilon": self.epsilon()}
+        if self.curriculo:
+            ep.update(nivel=nivel + 1, dificuldade=dificuldade)
+        self.episodios.append(ep)
         return "fim"
 
     def rodar(self):
@@ -393,9 +491,12 @@ class Treino:
         if self.passo == 0:
             self.avaliacao_periodica()
         while self.passo < c.passos:
-            fase = self.fases[self.rng.integers(len(self.fases))]
+            if self.curriculo:
+                fase, dificuldade, nivel = self.curriculo.sortear(self.rng)
+            else:   # o mesmo sorteio de ontem: a cnn1 sem currículo repete o lote 1
+                fase, dificuldade, nivel = self.fases[self.rng.integers(len(self.fases))], None, None
             semente = int(self.rng.integers(*c.sementes_treino))
-            saida = self.jogar_episodio(fase, semente)
+            saida = self.jogar_episodio(fase, semente, dificuldade, nivel)
             if saida == "divergiu":
                 self.status = "divergiu"
                 print(f"perda não finita no passo {self.passo}", flush=True)
@@ -435,8 +536,9 @@ class Treino:
         with open(self.pasta / "resultado.json", "w", encoding="utf-8") as f:
             json.dump(res, f, indent=2, ensure_ascii=False)
         self.gravar_progresso()
-        if self.ckpt.exists():
-            shutil.rmtree(self.ckpt)   # o replay ocupa centenas de MB
+        # checkpoint final (para estender o treino depois); o rl/rodar.py apaga os das
+        # execuções anteriores da mesma receita, porque o replay ocupa centenas de MB
+        self.salvar_ckpt()
         return 0 if self.status == "terminado" else 1
 
     # -------------------------------------------------------------- arquivos
@@ -444,7 +546,10 @@ class Treino:
         self.registro.salvar(self.pasta / "registro.csv")
         _escrever_csv(self.pasta / "episodios.csv", self.episodios,
                       ["episodio", "passo_jogo", "fase", "semente", "retorno", "vitoria",
-                       "decisoes", "epsilon"])
+                       "decisoes", "epsilon"] + (["nivel", "dificuldade"] if self.curriculo else []))
+        if self.curriculo:
+            _escrever_csv(self.pasta / "curriculo.csv", self.curriculo.historico,
+                          ["passo", "nivel", "vitorias", "subiu"])
         _escrever_csv(self.pasta / "avaliacoes.csv", self.avaliacoes,
                       ["passo", "partidas", "vitorias", "dano", "decisoes"])
         _escrever_csv(self.pasta / "velocidade.csv", self.velocidade,
@@ -453,7 +558,10 @@ class Treino:
     def gravar_progresso(self):
         dt = time.time() - self.inicio_proc
         pps = (self.passo - self.passo_proc) / dt if dt > 0 else 0.0
-        p = {"receita": self.cfg.receita, "semente": self.cfg.semente, "passo": self.passo,
+        p = {"receita": self.cfg.receita, "arquitetura": self.cfg.arquitetura,
+             "curriculo": self.cfg.curriculo,
+             "nivel": self.curriculo.nivel + 1 if self.curriculo else None,
+             "semente": self.cfg.semente, "passo": self.passo,
              "orcamento": self.cfg.passos, "passos_por_s": pps, "status": self.status,
              "atualizado": datetime.now().isoformat(timespec="seconds"),
              "avaliacoes": [(a["passo"], a["vitorias"]) for a in self.avaliacoes]}
@@ -481,6 +589,7 @@ class Treino:
             "passo": self.passo, "atualizacoes": self.atualizacoes,
             "episodios": self.episodios, "avaliacoes": self.avaliacoes,
             "velocidade": self.velocidade,
+            "curriculo": self.curriculo.estado() if self.curriculo else None,
             "rng_numpy": self.rng.bit_generator.state,
             "rng_python": random.getstate(), "rng_np_global": np.random.get_state(),
             "rng_torch": torch.get_rng_state(),
@@ -503,6 +612,8 @@ class Treino:
         self.passo, self.atualizacoes = e["passo"], e["atualizacoes"]
         self.episodios, self.avaliacoes = e["episodios"], e["avaliacoes"]
         self.velocidade = e["velocidade"]
+        if self.curriculo:
+            self.curriculo.restaurar(e["curriculo"])
         self.rng.bit_generator.state = e["rng_numpy"]
         random.setstate(e["rng_python"])
         np.random.set_state(e["rng_np_global"])
@@ -531,6 +642,7 @@ def executar(cfg, id_):
     else:
         with open(arq_cfg, "w", encoding="utf-8") as f:
             json.dump({"id": id_, "config": asdict(cfg), "receita": RECEITAS[cfg.receita],
+                       "parametros": sum(p.numel() for p in criar(cfg.arquitetura).parameters()),
                        "atualizacoes_total": cfg.atualizacoes(), "torch": torch.__version__,
                        "data": datetime.now().isoformat(timespec="seconds"),
                        "dispositivo": torch.cuda.get_device_name(0) if torch.cuda.is_available()
@@ -544,19 +656,29 @@ def executar(cfg, id_):
     return treino.rodar()
 
 
+def id_padrao(arquitetura, curriculo, semente, receita="baseline"):
+    """cnn2-cur-s0, cnn3-s1, ...; as receitas não baseline do lote 1 ficam vencedora-s0 etc."""
+    if receita != "baseline":
+        return f"{receita}-s{semente}"
+    return f"{arquitetura}{'-cur' if curriculo == 'sim' else ''}-s{semente}"
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8", line_buffering=True)
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    p.add_argument("--receita", choices=list(RECEITAS), required=True)
+    p.add_argument("--receita", choices=list(RECEITAS), default="baseline")
+    p.add_argument("--arquitetura", choices=list(ARQUITETURAS), default="cnn1")
+    p.add_argument("--curriculo", choices=("nao", "sim"), default="nao")
     p.add_argument("--semente", type=int, required=True)
     p.add_argument("--id")
     p.add_argument("--json", help="campos extras da Config, em JSON (testes)")
     for f in fields(Config):
-        if f.name in ("receita", "semente") or f.type not in (int, float, str):
+        if f.name in ("receita", "semente", "arquitetura", "curriculo") \
+                or f.type not in (int, float, str):
             continue
         p.add_argument("--" + f.name.replace("_", "-"), type=f.type)
     a = vars(p.parse_args())
-    id_ = a.pop("id") or f"{a['receita']}-s{a['semente']}"
+    id_ = a.pop("id") or id_padrao(a["arquitetura"], a["curriculo"], a["semente"], a["receita"])
     extra = json.loads(a.pop("json") or "{}")
     cfg = Config(**{k: v for k, v in a.items() if v is not None}, **extra)
     sys.exit(executar(cfg, id_))

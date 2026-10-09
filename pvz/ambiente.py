@@ -22,6 +22,14 @@ N_CANAIS = 20
 
 # Referências de normalização do estado
 SOL_REF = 1000
+
+# Formatos de observação. "v1" (padrão): os 20 canais da seção 2.3, com sol/1000.
+# "v2" (CNNs novas do rl/): os mesmos 20 canais, mas o sol em sol/200 com teto 5 (no
+# v1 o valor típico era ~0,05), e mais 5 canais com a máscara de plantio: o canal
+# 20 + t vale 1 em (f, c) se plantar o tipo t ali é válido agora (amb.mascara()).
+FORMATOS = {"v1": N_CANAIS, "v2": N_CANAIS + 5}
+SOL_REF_V2 = 200      # custo da repetidora, a planta mais cara
+SOL_TETO_V2 = 5.0     # 1000 de sol; acima disso a quantidade exata não muda a decisão
 VIDA_ZUMBI_REF = C.ZUMBIS[C.BLINDADO].vida
 SURGIDOS_REF = 10
 
@@ -78,9 +86,13 @@ class Zumbi:
 
 
 class Ambiente:
-    def __init__(self, k=C.K_TICKS, max_ticks=C.MAX_TICKS):
+    def __init__(self, k=C.K_TICKS, max_ticks=C.MAX_TICKS, formato="v1"):
+        """`formato`: o formato da observação devolvida por reset/step (ver FORMATOS)."""
+        if formato not in FORMATOS:
+            raise ValueError(f"formato desconhecido: {formato}")
         self.k = k
         self.max_ticks = max_ticks
+        self.formato = formato
         self.fase = None
 
     # ------------------------------------------------------------ interface de RL
@@ -145,9 +157,10 @@ class Ambiente:
                 and self.recargas[tipo] == 0
                 and self.grade[faixa][coluna] is None)
 
-    def observar(self):
-        """Tensor (20, 5, 9) descrito na seção 2.3."""
-        e = np.zeros((N_CANAIS, C.FAIXAS, C.COLUNAS), dtype=np.float32)
+    def observar(self, formato=None):
+        """Tensor (20, 5, 9) descrito na seção 2.3; (25, 5, 9) no formato "v2"."""
+        formato = formato or self.formato
+        e = np.zeros((FORMATOS[formato], C.FAIXAS, C.COLUNAS), dtype=np.float32)
         for p in self.plantas:
             e[p.tipo, p.faixa, p.coluna] = 1.0
             e[5, p.faixa, p.coluna] = p.vida / C.PLANTAS[p.tipo].vida
@@ -163,6 +176,9 @@ class Ambiente:
         e[17] = min(1.0, self.tick / max(1, self.fase.duracao))
         e[18] = np.arange(C.COLUNAS) / (C.COLUNAS - 1)
         e[19] = np.array(self.surgidos, dtype=np.float32)[:, None] / SURGIDOS_REF
+        if formato == "v2":
+            e[11] = min(self.sol / SOL_REF_V2, SOL_TETO_V2)
+            e[N_CANAIS:] = self.mascara()[:ESPERAR].reshape(N_PLANTAS, C.FAIXAS, C.COLUNAS)
         return e
 
     def clonar(self):

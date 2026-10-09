@@ -201,7 +201,9 @@ class Registro:
 
     def __init__(self, modelo, opts, cfg, dados):
         self.modelo, self.opts, self.cfg, self.d = modelo, opts, cfg, dados
-        self.camadas = {n: list(getattr(modelo, n).parameters()) for n in CAMADAS}
+        # as CNNs novas do rl/ declaram as próprias camadas; a CNN do proxy usa CAMADAS
+        self.nomes = getattr(modelo, "CAMADAS", CAMADAS)
+        self.camadas = {n: list(getattr(modelo, n).parameters()) for n in self.nomes}
         self.linhas = []
         self.t = 0
         self.linha = {}
@@ -212,8 +214,8 @@ class Registro:
     def colunas(self):
         c = ["passo", "perda_lote", "huber_treino", "huber_val", "huber_val_esperar",
              "huber_val_plantio", "norma_g", "cortou", "norma_theta", "rho_global"]
-        c += [f"g_{n}" for n in CAMADAS] + [f"theta_{n}" for n in CAMADAS]
-        c += [f"rho_{n}" for n in CAMADAS] + [f"eta_{i}" for i in range(len(self.opts))]
+        c += [f"g_{n}" for n in self.nomes] + [f"theta_{n}" for n in self.nomes]
+        c += [f"rho_{n}" for n in self.nomes] + [f"eta_{i}" for i in range(len(self.opts))]
         c += [f"mortos_{n}" for n in CONVS] + [f"zeros_{n}" for n in CONVS]
         return c
 
