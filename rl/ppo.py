@@ -56,6 +56,7 @@ class Config:
     aval_sementes: tuple = (300, 303)
     aval_final_sementes: tuple = (300, 320)
     ate: str = ""                  # "HH:MM": para de coletar nesse horário
+    aval_sorteio: bool = False     # avaliar também com sorteio (e contar as ações)
 
     def lista_fases(self):
         if self.fases == "treino":
@@ -106,6 +107,43 @@ def gae(r, v, fim, v_ult, gamma, lam):
         ult = delta + gamma * lam * nao_fim * ult
         adv[t] = ult
     return adv, adv + v
+
+
+@torch.no_grad()
+def avaliar_politica(pol, lista, dev, dificuldade, k, sorteio, semente=0):
+    """Joga as partidas de `lista` em lote: gulosa (argmax dos logits mascarados) ou com
+    sorteio (amostra da política; gerador semeado). Devolve vitórias, dano, decisões e a
+    contagem de ações por tipo (esperar e as 5 plantas)."""
+    pol.eval()
+    gen = torch.Generator(device=dev).manual_seed(semente)
+    ambs, obs = [], []
+    for fase, s in lista:
+        a = Ambiente(k=k, formato="v2")
+        obs.append(a.reset(fase, s, dificuldade))
+        ambs.append(a)
+    vivos, dano, venceu, dec = list(range(len(ambs))), [0.0] * len(ambs), [False] * len(ambs), [0] * len(ambs)
+    cont = np.zeros(6, np.int64)   # esperar, girassol, ervilha, repetidora, batata, mina
+    while vivos:
+        logits, _ = pol(torch.from_numpy(np.stack([obs[i] for i in vivos])).to(dev))
+        if sorteio:
+            acoes = torch.multinomial(torch.softmax(logits, 1), 1, generator=gen)[:, 0].tolist()
+        else:
+            acoes = logits.argmax(1).tolist()
+        seguem = []
+        for i, a in zip(vivos, acoes):
+            cont[0 if a == 225 else 1 + a // 45] += 1
+            obs[i], r, fim = ambs[i].step(a)
+            dec[i] += 1
+            dano[i] += r
+            if fim:
+                venceu[i] = r > 0
+                dano[i] -= 1.0 if venceu[i] else -1.0
+            else:
+                seguem.append(i)
+        vivos = seguem
+    pol.train()
+    return {"partidas": len(lista), "vitorias": float(np.mean(venceu)), "dano": float(np.mean(dano)),
+            "decisoes": float(np.mean(dec)), "acoes": (cont / cont.sum()).tolist()}
 
 
 class Partidas:
@@ -204,18 +242,31 @@ class Treino:
                     stats["perda_pi"].append(float(perda_pi))
         return {k: float(np.mean(v)) for k, v in stats.items()}
 
-    def avaliar(self, sementes):
+    def avaliar(self, sementes, sorteio=False):
         lista = avaliar.partidas(range(*sementes), self.cfg.lista_fases())
+        if self.cfg.aval_sorteio or sorteio:
+            return avaliar_politica(self.pol, lista, self.dev, self.cfg.dificuldade,
+                                    self.cfg.k_ticks, sorteio)
         return avaliar.avaliar_rede(Gulosa(self.pol), lista, self.dev, self.cfg.dificuldade,
                                     k=self.cfg.k_ticks, formato="v2")
 
-    def avaliacao(self):
-        r = self.avaliar(self.cfg.aval_sementes)
-        self.avaliacoes.append({"passo": self.passo, "partidas": r["partidas"],
-                                "vitorias": r["vitorias"], "dano": r["dano"]})
-        print(f"[aval] passo {self.passo}: vitórias {100 * r['vitorias']:.1f}% "
-              f"({r['partidas']} partidas), dano {r['dano']:.3f}", flush=True)
+    def avaliacao(self, sementes=None, final=False):
+        modos = (False, True) if self.cfg.aval_sorteio else (False,)
+        for sorteio in modos:
+            r = self.avaliar(sementes or self.cfg.aval_sementes, sorteio)
+            linha = {"passo": self.passo, "modo": "sorteio" if sorteio else "gulosa",
+                     "final": int(final), "partidas": r["partidas"], "vitorias": r["vitorias"],
+                     "dano": r["dano"], "decisoes": r.get("decisoes", "")}
+            for nome, f in zip(("esperar", "girassol", "ervilha", "repetidora", "batata", "mina"),
+                               r.get("acoes", [""] * 6)):
+                linha[f"acao_{nome}"] = f
+            self.avaliacoes.append(linha)
+            print(f"[{'final' if final else 'aval'}] passo {self.passo} {linha['modo']}: vitórias "
+                  f"{100 * r['vitorias']:.1f}% ({r['partidas']} partidas), dano {r['dano']:.3f}"
+                  + (f", ações {[round(100 * x, 1) for x in r['acoes']]}" if "acoes" in r else ""),
+                  flush=True)
         self.gravar()
+        return r
 
     def gravar(self):
         for nome, linhas in (("registro.csv", self.linhas), ("avaliacoes.csv", self.avaliacoes)):
@@ -257,8 +308,12 @@ class Treino:
             if self.passo >= prox_aval:
                 self.avaliacao()
                 prox_aval += c.aval_cada
-        r = self.avaliar(c.aval_final_sementes)
-        print(f"[final] vitórias {100 * r['vitorias']:.1f}% em {r['partidas']} partidas "
+        if c.aval_sorteio:
+            self.avaliacao(c.aval_final_sementes, final=True)
+            r = next(a for a in self.avaliacoes if a["final"] and a["modo"] == "gulosa")
+        else:
+            r = self.avaliar(c.aval_final_sementes)
+        print(f"[final] gulosa: vitórias {100 * r['vitorias']:.1f}% em {r['partidas']} partidas "
               f"(parou por {motivo}, passo {self.passo})", flush=True)
         self.gravar()
         torch.save(self.pol.state_dict(), self.pasta / "modelo.pt")
