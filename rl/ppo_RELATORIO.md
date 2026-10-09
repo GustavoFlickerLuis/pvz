@@ -86,3 +86,42 @@ da baseline do DQN (9,2%) e chega a ≥ 25% nas 420 partidas finais. Regra: ≥ 
 vira o caminho principal; < 15% → investigar (G4, dados) antes de mais sementes. Com uma
 semente, o resultado é indicativo, não conclusivo. Referências com k = 20: Econ5 65%,
 Guloso 52%.
+
+### Resultado (fases completas)
+
+21 FASES_TREINO, dificuldade 1, sementes de treino 1000–9999 (as do DQN), k = 20, γ = 0,994,
+os hiperparâmetros da sanidade, semente 0. Parou pelo **orçamento (2.000.896 passos)** em
+17,2 min (~1.940 passos/s), às 16h00. Nenhuma fase de teste usada.
+
+**Final, 420 partidas (FASES_TREINO × 300–319):**
+
+| política | vitórias (420) | dano | decisões/partida | esperar | girassol | ervilha | repetidora | batata | mina |
+|---|---|---|---|---|---|---|---|---|---|
+| gulosa | **81,7%** (IC 95% ≈ 77,7–85,1) | 0,894 | 200 | 48,8% | 18,6% | 12,8% | 6,0% | 5,8% | 8,1% |
+| com sorteio | 78,1% | 0,849 | 173 | 48,3% | 17,1% | 13,0% | 7,4% | 6,3% | 7,9% |
+
+Referências nas mesmas 420 partidas: Econ5 65,2% e Guloso 51,7% com k = 20
+(`tools/medir_k.md`); baseline do DQN (lote 1, k = 10) 9,2% ± 7,1.
+
+**Curva** (63 partidas, FASES_TREINO × 300–302):
+
+| passos | 0 | 252k | 502k | 752k | 1,00M | 1,25M | 1,50M | 1,75M | 2,00M |
+|---|---|---|---|---|---|---|---|---|---|
+| gulosa | 0% | 0% | 0% | 47,6% | 73,0% | 85,7% | 82,5% | 81,0% | 73,0% |
+| com sorteio | 0% | 0% | 1,6% | 20,6% | 58,7% | 69,8% | 68,3% | 76,2% | 73,0% |
+
+Até ~500k passos não vence nada (planta batata e mina e quase nenhum atirador, como o DQN);
+decola entre 500k e 750k, quando passa a plantar ervilha e repetidora. Do 1,25M em diante fica
+num patamar de ~75–85% (as avaliações de 63 partidas têm IC de ±10–12 pontos).
+
+**Previsão: confirmada.** 81,7% ≥ 25% (e acima da baseline do DQN, 9,2%). Pela regra combinada,
+**o PPO vira o caminho principal.** Com uma semente, o resultado é indicativo, não conclusivo.
+
+Cuidados na comparação com o DQN:
+- o DQN do lote 1 usou k = 10 e 400k passos; o PPO, k = 20 e 2M passos (~10× o tempo de jogo).
+  Aos 400k passos o PPO também estava em 0%. Uma parte da diferença pode ser orçamento e k,
+  não o algoritmo; o G0 (baseline longa do DQN) e um DQN com k = 20 separam isso;
+- uma semente só; falta repetir com mais sementes e avaliar no teste (sementes a partir de 10100).
+- O PPO passa o Econ5 (81,7% contra 65,2%) com uma política parecida na proporção de atiradores
+  (ervilha + repetidora ≈ 19% das ações) mas que também planta batata e mina (~14%), que o Econ5
+  nunca planta.

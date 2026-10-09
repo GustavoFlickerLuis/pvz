@@ -1,0 +1,118 @@
+[aval] passo 0 gulosa: vitórias 0.0% (63 partidas), dano 0.015, ações [66.3, 23.6, 0.0, 0.0, 0.0, 10.1]
+[aval] passo 0 sorteio: vitórias 0.0% (63 partidas), dano 0.014, ações [80.1, 6.3, 1.3, 0.0, 4.1, 8.3]
+atualização 10 passo 20480 vitórias(coleta) 0.0 entropia 0.928 kl 0.0003 cortada 0.002 perda_v 0.0015 2470 passos/s
+atualização 20 passo 40960 vitórias(coleta) 0.0 entropia 0.768 kl 0.0004 cortada 0.004 perda_v 0.0017 2796 passos/s
+atualização 30 passo 61440 vitórias(coleta) 0.0 entropia 1.030 kl 0.0011 cortada 0.016 perda_v 0.0016 2900 passos/s
+atualização 40 passo 81920 vitórias(coleta) 0.0 entropia 1.144 kl 0.0031 cortada 0.046 perda_v 0.0034 2946 passos/s
+atualização 50 passo 102400 vitórias(coleta) 0.0 entropia 1.209 kl 0.0011 cortada 0.011 perda_v 0.0032 2971 passos/s
+atualização 60 passo 122880 vitórias(coleta) 0.0 entropia 0.956 kl 0.0011 cortada 0.015 perda_v 0.0014 2985 passos/s
+atualização 70 passo 143360 vitórias(coleta) 0.0 entropia 1.088 kl 0.0019 cortada 0.025 perda_v 0.0018 2999 passos/s
+atualização 80 passo 163840 vitórias(coleta) 0.0 entropia 0.979 kl 0.0031 cortada 0.041 perda_v 0.0013 3007 passos/s
+atualização 90 passo 184320 vitórias(coleta) 0.0 entropia 0.887 kl 0.0026 cortada 0.034 perda_v 0.0017 3015 passos/s
+atualização 100 passo 204800 vitórias(coleta) 0.0 entropia 0.795 kl 0.0018 cortada 0.026 perda_v 0.0015 3026 passos/s
+atualização 110 passo 225280 vitórias(coleta) 0.0 entropia 0.704 kl 0.0011 cortada 0.018 perda_v 0.0013 3037 passos/s
+atualização 120 passo 245760 vitórias(coleta) 0.0 entropia 0.652 kl 0.0021 cortada 0.027 perda_v 0.0012 3040 passos/s
+[aval] passo 251904 gulosa: vitórias 0.0% (63 partidas), dano 0.023, ações [84.0, 2.4, 0.0, 0.0, 5.4, 8.2]
+[aval] passo 251904 sorteio: vitórias 0.0% (63 partidas), dano 0.018, ações [80.2, 5.6, 0.1, 0.0, 6.1, 8.0]
+atualização 130 passo 266240 vitórias(coleta) 0.0 entropia 0.595 kl 0.0015 cortada 0.018 perda_v 0.0017 3008 passos/s
+atualização 140 passo 286720 vitórias(coleta) 0.0 entropia 0.591 kl 0.0021 cortada 0.023 perda_v 0.0015 3013 passos/s
+atualização 150 passo 307200 vitórias(coleta) 0.0 entropia 0.535 kl 0.0019 cortada 0.028 perda_v 0.0010 3022 passos/s
+atualização 160 passo 327680 vitórias(coleta) 0.0 entropia 0.587 kl 0.0011 cortada 0.015 perda_v 0.0013 3027 passos/s
+atualização 170 passo 348160 vitórias(coleta) 0.0 entropia 0.642 kl 0.0008 cortada 0.008 perda_v 0.0011 3029 passos/s
+atualização 180 passo 368640 vitórias(coleta) 0.0 entropia 0.593 kl 0.0007 cortada 0.010 perda_v 0.0012 3031 passos/s
+atualização 190 passo 389120 vitórias(coleta) 0.0 entropia 0.588 kl 0.0018 cortada 0.026 perda_v 0.0010 3029 passos/s
+atualização 200 passo 409600 vitórias(coleta) 0.0 entropia 0.681 kl 0.0014 cortada 0.019 perda_v 0.0014 3029 passos/s
+atualização 210 passo 430080 vitórias(coleta) 0.0 entropia 0.754 kl 0.0027 cortada 0.032 perda_v 0.0015 3023 passos/s
+atualização 220 passo 450560 vitórias(coleta) 0.0 entropia 0.795 kl 0.0020 cortada 0.026 perda_v 0.0015 3018 passos/s
+atualização 230 passo 471040 vitórias(coleta) 0.0 entropia 0.949 kl 0.0032 cortada 0.043 perda_v 0.0016 3009 passos/s
+atualização 240 passo 491520 vitórias(coleta) 0.0 entropia 0.877 kl 0.0036 cortada 0.049 perda_v 0.0023 3002 passos/s
+[aval] passo 501760 gulosa: vitórias 0.0% (63 partidas), dano 0.129, ações [60.5, 19.6, 5.5, 0.4, 5.9, 7.9]
+[aval] passo 501760 sorteio: vitórias 1.6% (63 partidas), dano 0.081, ações [60.0, 19.6, 5.3, 0.4, 6.0, 8.7]
+atualização 250 passo 512000 vitórias(coleta) 0.0 entropia 0.786 kl 0.0022 cortada 0.025 perda_v 0.0038 2922 passos/s
+atualização 260 passo 532480 vitórias(coleta) 0.0 entropia 0.817 kl 0.0025 cortada 0.029 perda_v 0.0038 2911 passos/s
+atualização 270 passo 552960 vitórias(coleta) 0.0 entropia 0.688 kl 0.0026 cortada 0.020 perda_v 0.0038 2897 passos/s
+atualização 280 passo 573440 vitórias(coleta) 0.0 entropia 0.743 kl 0.0020 cortada 0.025 perda_v 0.0085 2881 passos/s
+atualização 290 passo 593920 vitórias(coleta) 0.13636363636363635 entropia 0.774 kl 0.0030 cortada 0.032 perda_v 0.0191 2862 passos/s
+atualização 300 passo 614400 vitórias(coleta) 0.045454545454545456 entropia 0.734 kl 0.0026 cortada 0.031 perda_v 0.0248 2843 passos/s
+atualização 310 passo 634880 vitórias(coleta) 0.17647058823529413 entropia 0.588 kl 0.0039 cortada 0.021 perda_v 0.0234 2810 passos/s
+atualização 320 passo 655360 vitórias(coleta) 0.25 entropia 0.634 kl 0.0012 cortada 0.013 perda_v 0.0214 2779 passos/s
+atualização 330 passo 675840 vitórias(coleta) 0.21428571428571427 entropia 0.590 kl 0.0031 cortada 0.033 perda_v 0.0279 2755 passos/s
+atualização 340 passo 696320 vitórias(coleta) 0.3 entropia 0.504 kl 0.0015 cortada 0.016 perda_v 0.0179 2733 passos/s
+atualização 350 passo 716800 vitórias(coleta) 0.18181818181818182 entropia 0.765 kl 0.0030 cortada 0.032 perda_v 0.0313 2716 passos/s
+atualização 360 passo 737280 vitórias(coleta) 0.4 entropia 0.661 kl 0.0054 cortada 0.046 perda_v 0.0356 2700 passos/s
+[aval] passo 751616 gulosa: vitórias 47.6% (63 partidas), dano 0.678, ações [46.0, 25.1, 13.6, 3.3, 4.7, 7.3]
+[aval] passo 751616 sorteio: vitórias 20.6% (63 partidas), dano 0.433, ações [48.8, 22.3, 12.4, 3.0, 5.7, 7.8]
+atualização 370 passo 757760 vitórias(coleta) 0.4 entropia 0.670 kl 0.0020 cortada 0.024 perda_v 0.0308 2612 passos/s
+atualização 380 passo 778240 vitórias(coleta) 0.3333333333333333 entropia 0.706 kl 0.0028 cortada 0.032 perda_v 0.0262 2602 passos/s
+atualização 390 passo 798720 vitórias(coleta) 0.3333333333333333 entropia 0.641 kl 0.0020 cortada 0.021 perda_v 0.0358 2590 passos/s
+atualização 400 passo 819200 vitórias(coleta) 0.5 entropia 0.468 kl 0.0035 cortada 0.039 perda_v 0.0200 2550 passos/s
+atualização 410 passo 839680 vitórias(coleta) 0.5555555555555556 entropia 0.711 kl 0.0048 cortada 0.039 perda_v 0.0460 2488 passos/s
+atualização 420 passo 860160 vitórias(coleta) 0.5 entropia 0.620 kl 0.0035 cortada 0.036 perda_v 0.0353 2429 passos/s
+atualização 430 passo 880640 vitórias(coleta) 0.3333333333333333 entropia 0.697 kl 0.0021 cortada 0.025 perda_v 0.0386 2421 passos/s
+atualização 440 passo 901120 vitórias(coleta) 0.5384615384615384 entropia 0.675 kl 0.0021 cortada 0.022 perda_v 0.0226 2411 passos/s
+atualização 450 passo 921600 vitórias(coleta) 0.7333333333333333 entropia 0.707 kl 0.0027 cortada 0.030 perda_v 0.0236 2401 passos/s
+atualização 460 passo 942080 vitórias(coleta) 0.4375 entropia 0.737 kl 0.0059 cortada 0.062 perda_v 0.0470 2394 passos/s
+atualização 470 passo 962560 vitórias(coleta) 0.35294117647058826 entropia 0.799 kl 0.0044 cortada 0.051 perda_v 0.0577 2389 passos/s
+atualização 480 passo 983040 vitórias(coleta) 0.6363636363636364 entropia 0.755 kl 0.0071 cortada 0.073 perda_v 0.0224 2380 passos/s
+[aval] passo 1001472 gulosa: vitórias 73.0% (63 partidas), dano 0.850, ações [44.1, 21.9, 13.0, 6.7, 6.0, 8.2]
+[aval] passo 1001472 sorteio: vitórias 58.7% (63 partidas), dano 0.703, ações [45.0, 21.8, 13.4, 5.6, 6.0, 8.1]
+atualização 490 passo 1003520 vitórias(coleta) 0.5625 entropia 0.773 kl 0.0035 cortada 0.037 perda_v 0.0276 2328 passos/s
+atualização 500 passo 1024000 vitórias(coleta) 0.5 entropia 0.724 kl 0.0039 cortada 0.043 perda_v 0.0253 2322 passos/s
+atualização 510 passo 1044480 vitórias(coleta) 0.6470588235294118 entropia 0.632 kl 0.0037 cortada 0.039 perda_v 0.0319 2315 passos/s
+atualização 520 passo 1064960 vitórias(coleta) 0.75 entropia 0.745 kl 0.0044 cortada 0.046 perda_v 0.0314 2312 passos/s
+atualização 530 passo 1085440 vitórias(coleta) 0.6 entropia 0.808 kl 0.0050 cortada 0.054 perda_v 0.0291 2309 passos/s
+atualização 540 passo 1105920 vitórias(coleta) 0.7692307692307693 entropia 0.724 kl 0.0032 cortada 0.037 perda_v 0.0155 2305 passos/s
+atualização 550 passo 1126400 vitórias(coleta) 0.6923076923076923 entropia 0.909 kl 0.0040 cortada 0.042 perda_v 0.0197 2303 passos/s
+atualização 560 passo 1146880 vitórias(coleta) 0.5 entropia 0.893 kl 0.0035 cortada 0.040 perda_v 0.0239 2299 passos/s
+atualização 570 passo 1167360 vitórias(coleta) 0.4444444444444444 entropia 0.855 kl 0.0037 cortada 0.045 perda_v 0.0242 2296 passos/s
+atualização 580 passo 1187840 vitórias(coleta) 0.7272727272727273 entropia 0.776 kl 0.0041 cortada 0.044 perda_v 0.0213 2294 passos/s
+atualização 590 passo 1208320 vitórias(coleta) 0.8181818181818182 entropia 0.820 kl 0.0048 cortada 0.049 perda_v 0.0145 2291 passos/s
+atualização 600 passo 1228800 vitórias(coleta) 0.75 entropia 0.878 kl 0.0041 cortada 0.046 perda_v 0.0174 2288 passos/s
+atualização 610 passo 1249280 vitórias(coleta) 0.9 entropia 1.032 kl 0.0068 cortada 0.068 perda_v 0.0122 2284 passos/s
+[aval] passo 1251328 gulosa: vitórias 85.7% (63 partidas), dano 0.876, ações [52.7, 14.1, 14.2, 4.4, 5.4, 9.3]
+[aval] passo 1251328 sorteio: vitórias 69.8% (63 partidas), dano 0.735, ações [49.1, 17.4, 13.2, 6.0, 6.0, 8.3]
+atualização 620 passo 1269760 vitórias(coleta) 0.875 entropia 0.829 kl 0.0048 cortada 0.062 perda_v 0.0127 2256 passos/s
+atualização 630 passo 1290240 vitórias(coleta) 0.6428571428571429 entropia 0.837 kl 0.0035 cortada 0.039 perda_v 0.0315 2253 passos/s
+atualização 640 passo 1310720 vitórias(coleta) 0.8571428571428571 entropia 0.763 kl 0.0038 cortada 0.038 perda_v 0.0137 2249 passos/s
+atualização 650 passo 1331200 vitórias(coleta) 0.7142857142857143 entropia 0.759 kl 0.0034 cortada 0.037 perda_v 0.0370 2247 passos/s
+atualização 660 passo 1351680 vitórias(coleta) 0.9090909090909091 entropia 0.840 kl 0.0040 cortada 0.050 perda_v 0.0142 2244 passos/s
+atualização 670 passo 1372160 vitórias(coleta) 0.7692307692307693 entropia 0.854 kl 0.0025 cortada 0.027 perda_v 0.0170 2230 passos/s
+atualização 680 passo 1392640 vitórias(coleta) 0.4666666666666667 entropia 0.726 kl 0.0035 cortada 0.039 perda_v 0.0368 2203 passos/s
+atualização 690 passo 1413120 vitórias(coleta) 0.7333333333333333 entropia 0.796 kl 0.0032 cortada 0.037 perda_v 0.0274 2178 passos/s
+atualização 700 passo 1433600 vitórias(coleta) 0.5714285714285714 entropia 0.782 kl 0.0047 cortada 0.052 perda_v 0.0342 2175 passos/s
+atualização 710 passo 1454080 vitórias(coleta) 0.8888888888888888 entropia 0.691 kl 0.0030 cortada 0.034 perda_v 0.0074 2172 passos/s
+atualização 720 passo 1474560 vitórias(coleta) 0.7333333333333333 entropia 0.640 kl 0.0037 cortada 0.034 perda_v 0.0202 2169 passos/s
+atualização 730 passo 1495040 vitórias(coleta) 0.8461538461538461 entropia 0.562 kl 0.0030 cortada 0.029 perda_v 0.0201 2166 passos/s
+[aval] passo 1501184 gulosa: vitórias 82.5% (63 partidas), dano 0.899, ações [49.7, 14.9, 12.9, 8.8, 6.1, 7.5]
+[aval] passo 1501184 sorteio: vitórias 68.3% (63 partidas), dano 0.734, ações [48.3, 16.6, 12.8, 7.9, 6.2, 8.3]
+atualização 740 passo 1515520 vitórias(coleta) 0.5789473684210527 entropia 0.539 kl 0.0025 cortada 0.031 perda_v 0.0392 2138 passos/s
+atualização 750 passo 1536000 vitórias(coleta) 0.8461538461538461 entropia 0.572 kl 0.0018 cortada 0.021 perda_v 0.0069 2137 passos/s
+atualização 760 passo 1556480 vitórias(coleta) 0.3125 entropia 0.539 kl 0.0036 cortada 0.037 perda_v 0.0461 2137 passos/s
+atualização 770 passo 1576960 vitórias(coleta) 0.7777777777777778 entropia 0.438 kl 0.0035 cortada 0.035 perda_v 0.0184 2136 passos/s
+atualização 780 passo 1597440 vitórias(coleta) 0.8333333333333334 entropia 0.675 kl 0.0042 cortada 0.045 perda_v 0.0124 2127 passos/s
+atualização 790 passo 1617920 vitórias(coleta) 0.6923076923076923 entropia 0.604 kl 0.0049 cortada 0.047 perda_v 0.0170 2105 passos/s
+atualização 800 passo 1638400 vitórias(coleta) 0.5714285714285714 entropia 0.682 kl 0.0031 cortada 0.034 perda_v 0.0340 2089 passos/s
+atualização 810 passo 1658880 vitórias(coleta) 0.625 entropia 0.592 kl 0.0053 cortada 0.038 perda_v 0.0268 2075 passos/s
+atualização 820 passo 1679360 vitórias(coleta) 0.75 entropia 0.653 kl 0.0041 cortada 0.043 perda_v 0.0204 2075 passos/s
+atualização 830 passo 1699840 vitórias(coleta) 0.6 entropia 0.656 kl 0.0055 cortada 0.045 perda_v 0.0248 2075 passos/s
+atualização 840 passo 1720320 vitórias(coleta) 0.8 entropia 0.687 kl 0.0029 cortada 0.034 perda_v 0.0186 2075 passos/s
+atualização 850 passo 1740800 vitórias(coleta) 0.6666666666666666 entropia 0.654 kl 0.0047 cortada 0.045 perda_v 0.0235 2076 passos/s
+[aval] passo 1751040 gulosa: vitórias 81.0% (63 partidas), dano 0.879, ações [44.5, 18.5, 12.4, 11.5, 5.1, 8.0]
+[aval] passo 1751040 sorteio: vitórias 76.2% (63 partidas), dano 0.800, ações [47.3, 17.7, 11.9, 9.6, 5.5, 8.0]
+atualização 860 passo 1761280 vitórias(coleta) 0.9 entropia 0.704 kl 0.0023 cortada 0.024 perda_v 0.0100 2061 passos/s
+atualização 870 passo 1781760 vitórias(coleta) 0.7647058823529411 entropia 0.689 kl 0.0034 cortada 0.037 perda_v 0.0302 2061 passos/s
+atualização 880 passo 1802240 vitórias(coleta) 0.6470588235294118 entropia 0.558 kl 0.0027 cortada 0.031 perda_v 0.0214 2062 passos/s
+atualização 890 passo 1822720 vitórias(coleta) 0.5714285714285714 entropia 0.550 kl 0.0055 cortada 0.053 perda_v 0.0345 2062 passos/s
+atualização 900 passo 1843200 vitórias(coleta) 0.6363636363636364 entropia 0.546 kl 0.0048 cortada 0.035 perda_v 0.0178 2062 passos/s
+atualização 910 passo 1863680 vitórias(coleta) 0.625 entropia 0.599 kl 0.0031 cortada 0.038 perda_v 0.0127 2062 passos/s
+atualização 920 passo 1884160 vitórias(coleta) 0.9166666666666666 entropia 0.639 kl 0.0036 cortada 0.039 perda_v 0.0136 2063 passos/s
+atualização 930 passo 1904640 vitórias(coleta) 0.7777777777777778 entropia 0.661 kl 0.0057 cortada 0.054 perda_v 0.0108 2064 passos/s
+atualização 940 passo 1925120 vitórias(coleta) 0.9285714285714286 entropia 0.726 kl 0.0026 cortada 0.031 perda_v 0.0050 2063 passos/s
+atualização 950 passo 1945600 vitórias(coleta) 0.7692307692307693 entropia 0.677 kl 0.0039 cortada 0.040 perda_v 0.0161 2064 passos/s
+atualização 960 passo 1966080 vitórias(coleta) 0.8 entropia 0.717 kl 0.0041 cortada 0.045 perda_v 0.0157 2064 passos/s
+atualização 970 passo 1986560 vitórias(coleta) 0.35294117647058826 entropia 0.600 kl 0.0022 cortada 0.022 perda_v 0.0359 2064 passos/s
+[aval] passo 2000896 gulosa: vitórias 73.0% (63 partidas), dano 0.849, ações [49.0, 16.8, 13.5, 6.3, 6.5, 7.8]
+[aval] passo 2000896 sorteio: vitórias 73.0% (63 partidas), dano 0.785, ações [48.4, 17.3, 13.0, 6.7, 6.3, 8.3]
+[final] passo 2000896 gulosa: vitórias 81.7% (420 partidas), dano 0.894, ações [48.8, 18.6, 12.8, 6.0, 5.8, 8.1]
+[final] passo 2000896 sorteio: vitórias 78.1% (420 partidas), dano 0.849, ações [48.3, 17.1, 13.0, 7.4, 6.3, 7.9]
+[final] gulosa: vitórias 81.7% em 420 partidas (parou por orçamento, passo 2000896)
