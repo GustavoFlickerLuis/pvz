@@ -1,0 +1,27 @@
+{
+  "receita": "muon",
+  "semente": 0,
+  "passo": 3000,
+  "orcamento": 3000,
+  "passos_por_s": 157.87349204855556,
+  "status": "terminado",
+  "atualizado": "2026-10-08T18:54:45",
+  "avaliacoes": [
+    [
+      0,
+      0.0
+    ],
+    [
+      1000,
+      0.0
+    ],
+    [
+      2000,
+      0.0
+    ],
+    [
+      3000,
+      0.0
+    ]
+  ]
+}

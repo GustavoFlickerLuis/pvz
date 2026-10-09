@@ -1,0 +1,47 @@
+{
+  "id": "teste-retomada-vencedora-A",
+  "config": {
+    "receita": "vencedora",
+    "semente": 0,
+    "passos": 3000,
+    "gamma": 0.997,
+    "n": 10,
+    "lote": 256,
+    "replay": 100000,
+    "inicio": 500,
+    "freq_atualizacao": 4,
+    "alvo_cada": 100,
+    "eps_ini": 1.0,
+    "eps_fim": 0.05,
+    "eps_frac": 0.4,
+    "p_esperar": 0.5,
+    "clip": 10.0,
+    "delta_huber": 1.0,
+    "k_registro": 50,
+    "aval_cada": 1000,
+    "aval_sementes": [
+      300,
+      303
+    ],
+    "aval_final_sementes": [
+      300,
+      320
+    ],
+    "sementes_treino": [
+      1000,
+      10000
+    ],
+    "fases": "treino",
+    "dificuldade": 1.0,
+    "ckpt_minutos": 20.0
+  },
+  "receita": {
+    "otimizador": "sgd",
+    "lr": 0.03,
+    "agenda": "cosseno"
+  },
+  "atualizacoes_total": 626,
+  "torch": "2.11.0+cu128",
+  "data": "2026-10-08T18:55:10",
+  "dispositivo": "NVIDIA GeForce RTX 3050 Laptop GPU"
+}

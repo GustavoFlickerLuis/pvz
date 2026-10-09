@@ -1,0 +1,23 @@
+{
+  "receita": "baseline",
+  "semente": 0,
+  "passo": 20000,
+  "orcamento": 20000,
+  "passos_por_s": 442.4352499851715,
+  "status": "terminado",
+  "atualizado": "2026-10-08T18:30:17",
+  "avaliacoes": [
+    [
+      0,
+      0.0
+    ],
+    [
+      10000,
+      0.0
+    ],
+    [
+      20000,
+      0.0
+    ]
+  ]
+}

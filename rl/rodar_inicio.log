@@ -1,0 +1,8 @@
+[08/10 18:56:05] baseline-s0: começando
+[aval] passo 0: vitórias 0.0% (63 partidas), dano 0.014
+episódio 100 passo 8495 ε 0.950 vitórias(100) 0.00
+episódio 200 passo 16872 ε 0.900 vitórias(100) 0.00
+episódio 300 passo 25179 ε 0.850 vitórias(100) 0.00
+[ckpt] passo 28083 (0.2 s)
+rl/PARAR encontrado: checkpoint no passo 28083; saindo
+[08/10 18:57:04] baseline-s0: parado por rl/PARAR; fila interrompida (chame de novo para retomar)

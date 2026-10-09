@@ -19,3 +19,8 @@ desafio3/dados/*
 !desafio3/dados/meta.json
 desafio3/logs/rascunho/
 desafio3/pesos/
+
+# rl/: checkpoints (rede, otimizadores, replay) e o arquivo de parada
+rl/logs/*/ckpt/
+rl/logs/*/ckpt_tmp/
+rl/PARAR

@@ -1,0 +1,27 @@
+{
+  "receita": "vencedora",
+  "semente": 0,
+  "passo": 3000,
+  "orcamento": 3000,
+  "passos_por_s": 237.13015769730853,
+  "status": "terminado",
+  "atualizado": "2026-10-08T18:55:43",
+  "avaliacoes": [
+    [
+      0,
+      0.0
+    ],
+    [
+      1000,
+      0.0
+    ],
+    [
+      2000,
+      0.0
+    ],
+    [
+      3000,
+      0.0
+    ]
+  ]
+}
