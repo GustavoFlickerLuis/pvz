@@ -356,6 +356,37 @@ class Treino:
         self.gravar_progresso()
 
     # -------------------------------------------------------------- laço
+    def jogar_episodio(self, fase, semente):
+        """Um episódio de treino. Devolve "fim", "orcamento" (acabou no meio) ou "divergiu"."""
+        c = self.cfg
+        amb = Ambiente()
+        obs = amb.reset(fase, semente, c.dificuldade)
+        mascara = amb.mascara()
+        self.npassos.limpar()
+        retorno, decisoes, fim = 0.0, 0, False
+        while not fim and self.passo < c.passos:
+            acao = self.agir(obs, mascara)
+            obs_p, r, fim = amb.step(acao)
+            mascara_p = amb.mascara()
+            for t in self.npassos.adicionar(obs, acao, r, obs_p, mascara_p, fim):
+                self.replay.guardar(t)
+            obs, mascara = obs_p, mascara_p
+            retorno += r
+            decisoes += 1
+            self.passo += 1
+            if self.passo >= c.inicio and self.passo % c.freq_atualizacao == 0:
+                if not self.atualizar():
+                    return "divergiu"
+            if self.passo % c.aval_cada == 0:
+                self.avaliacao_periodica()
+        if not fim:
+            return "orcamento"   # o episódio não conta
+        self.episodios.append({"episodio": len(self.episodios), "passo_jogo": self.passo,
+                               "fase": "+".join(fase), "semente": semente,
+                               "retorno": retorno, "vitoria": int(r > 0),
+                               "decisoes": decisoes, "epsilon": self.epsilon()})
+        return "fim"
+
     def rodar(self):
         c = self.cfg
         ultimo_ckpt = time.time()
@@ -364,34 +395,13 @@ class Treino:
         while self.passo < c.passos:
             fase = self.fases[self.rng.integers(len(self.fases))]
             semente = int(self.rng.integers(*c.sementes_treino))
-            amb = Ambiente()
-            obs = amb.reset(fase, semente, c.dificuldade)
-            mascara = amb.mascara()
-            self.npassos.limpar()
-            retorno, decisoes, fim = 0.0, 0, False
-            while not fim and self.passo < c.passos:
-                acao = self.agir(obs, mascara)
-                obs_p, r, fim = amb.step(acao)
-                mascara_p = amb.mascara()
-                for t in self.npassos.adicionar(obs, acao, r, obs_p, mascara_p, fim):
-                    self.replay.guardar(t)
-                obs, mascara = obs_p, mascara_p
-                retorno += r
-                decisoes += 1
-                self.passo += 1
-                if self.passo >= c.inicio and self.passo % c.freq_atualizacao == 0:
-                    if not self.atualizar():
-                        self.status = "divergiu"
-                        print(f"perda não finita no passo {self.passo}", flush=True)
-                        return self.terminar()
-                if self.passo % c.aval_cada == 0:
-                    self.avaliacao_periodica()
-            if not fim:
-                break   # orçamento acabou no meio do episódio: ele não conta
-            self.episodios.append({"episodio": len(self.episodios), "passo_jogo": self.passo,
-                                   "fase": "+".join(fase), "semente": semente,
-                                   "retorno": retorno, "vitoria": int(r > 0),
-                                   "decisoes": decisoes, "epsilon": self.epsilon()})
+            saida = self.jogar_episodio(fase, semente)
+            if saida == "divergiu":
+                self.status = "divergiu"
+                print(f"perda não finita no passo {self.passo}", flush=True)
+                return self.terminar()
+            if saida == "orcamento":
+                break
             if len(self.episodios) % 100 == 0:
                 ult = self.episodios[-100:]
                 print(f"episódio {len(self.episodios)} passo {self.passo} ε {self.epsilon():.3f} "

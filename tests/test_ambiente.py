@@ -353,3 +353,44 @@ class TestAgentes(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestCanais(unittest.TestCase):
+    def test_os_20_canais_do_conceito_2_3(self):
+        """Cada canal da tabela do CONCEITO 2.3 num tabuleiro montado à mão."""
+        from pvz.ambiente import SOL_REF, SURGIDOS_REF, VIDA_ZUMBI_REF
+        amb = Ambiente()
+        amb.reset(fase_manual([(0, C.RAPIDO, 4), (0, C.RAPIDO, 4), (5_000, C.COMUM, 0)]))
+        amb._tick()                                       # surgem os 2 rápidos na faixa 4
+        g = amb._colocar(C.GIRASSOL, 0, 0)
+        g.vida = 150
+        amb._colocar(C.ERVILHA, 1, 1)
+        amb._colocar(C.REPETIDORA, 2, 2)
+        amb._colocar(C.BATATA, 3, 3)
+        m = amb._colocar(C.MINA, 4, 4)
+        m.timer = 0                                       # armada
+        amb._colocar(C.MINA, 0, 5)                        # desarmada
+        amb._adicionar_zumbi(C.COMUM, 1, 6.5)
+        b = amb._adicionar_zumbi(C.BLINDADO, 1, 6.2)
+        b.vida = 550
+        amb.sol = 375
+        amb.recargas = [10, 0, 25, 200, 50]
+        e = amb.observar()
+        self.assertEqual(e.shape, (20, 5, 9))
+        for tipo, (f, c) in enumerate([(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]):
+            self.assertEqual(e[tipo, f, c], 1.0)
+            self.assertEqual(e[tipo].sum(), 2.0 if tipo == C.MINA else 1.0)   # 0–4 one-hot
+        self.assertEqual(e[5, 0, 0], 0.5)                                    # 5 vida
+        self.assertEqual(e[5, 3, 3], 1.0)
+        self.assertEqual((e[6, 4, 4], e[6, 0, 5], e[6].sum()), (1.0, 0.0, 1.0))   # 6 mina armada
+        self.assertEqual((e[7, 1, 6], e[8, 1, 6], e[7].sum(), e[8].sum()), (1.0, 1.0, 1.0, 1.0))
+        self.assertEqual((e[9, 4, 8], e[9].sum()), (2.0, 2.0))                # 7–9 contagem
+        self.assertAlmostEqual(e[10, 1, 6], (200 + 550) / VIDA_ZUMBI_REF, places=6)   # 10
+        self.assertAlmostEqual(e[10, 4, 8], 300 / VIDA_ZUMBI_REF, places=6)
+        self.assertTrue(np.all(e[11] == np.float32(375 / SOL_REF)))           # 11 sol
+        for tipo, r in enumerate([10, 0, 25, 200, 50]):                       # 12–16 recargas
+            self.assertTrue(np.all(e[12 + tipo] == np.float32(r / C.PLANTAS[tipo].recarga)))
+        self.assertTrue(np.all(e[17] == np.float32(1 / amb.fase.duracao)))   # 17 progresso
+        self.assertTrue(np.allclose(e[18], np.arange(9) / 8))                 # 18 coluna
+        self.assertTrue(np.allclose(e[19][:, 0], [0, 0, 0, 0, 2 / SURGIDOS_REF]))   # 19
+        self.assertTrue(np.all(e[19] == e[19][:, :1]))
