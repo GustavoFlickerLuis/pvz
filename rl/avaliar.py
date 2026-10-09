@@ -36,10 +36,10 @@ def _resumo(lista):
 
 
 @torch.no_grad()
-def avaliar_rede(modelo, lista, dev, dificuldade=1.0, k=C.K_TICKS):
+def avaliar_rede(modelo, lista, dev, dificuldade=1.0, k=C.K_TICKS, formato=None):
     """Política gulosa em todas as partidas de `lista`, em paralelo, com k ticks por decisão."""
     modelo.eval()
-    formato = formato_do_modelo(modelo)   # a observação no formato que a rede espera
+    formato = formato or formato_do_modelo(modelo)   # a observação no formato que a rede espera
     ambs, obs = [], []
     for fase, semente in lista:
         a = Ambiente(k=k, formato=formato)
