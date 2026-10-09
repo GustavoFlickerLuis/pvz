@@ -122,9 +122,58 @@ Enunciado em `desafio3/enunciado.pdf`, hipóteses e critério em `desafio3/hipot
   O teste final do agente de RL do projeto deve usar **outras sementes da faixa de teste,
   a partir de 10100**, para os dois testes serem independentes.
 
+## rl/ (DQN)
+Double DQN com máscara (CONCEITO 2.5), branch `rl`. Relatório do lote 1 em `rl/RELATORIO.md`.
+- **Estrutura:** `rl/dqn.py` (`Config`, `NPassos`, `alvo_double`, `Replay`, `Curriculo`, `Treino`,
+  CLI); `rl/avaliar.py` (avaliação gulosa em lote; `referencias` → `rl/referencias.csv`);
+  `rl/rodar.py` (fila em processos, parar/retomar); `rl/status.py` (`rl/STATUS.md`, fila em
+  `rl/fila.json`); `rl/acoes.py` (distribuição de ações); `rl/relatorio.py` (tabelas e
+  figuras do lote 1); `rl/teste_retomada.py`; testes em `tests/test_rl.py` e
+  `tests/test_arquiteturas.py`. Logs em `rl/logs/<id>/` (config, registro, episódios,
+  avaliações, curriculo.csv, resultado.json); checkpoints em `rl/logs/<id>/ckpt/` (no .gitignore).
+- **Fixo:** γ = 0,997, retorno de n = 10 passos, replay 100k (obs em float16 + máscara de s'),
+  lote 256, 1 atualização a cada 4 passos a partir de 10k, alvo a cada 2.000 atualizações,
+  ε de 1 a 0,05 em 40% do orçamento, exploração com "esperar" a 50%, Huber δ = 1, clip 10,
+  ator (cópia da online na CPU) sincronizado a cada atualização. Orçamento: 400k passos.
+- **Avaliação oficial:** gulosa, FASES_TREINO × sementes 300–302 (63 partidas) a cada 50k e
+  × 300–319 (420) no fim. Treino nas sementes 1000–9999. Nunca nas fases de teste (assert).
+- **Arquiteturas** (`desafio3/modelo.py`, registry `ARQUITETURAS`; saída (B, 226) no índice de
+  `codificar_acao`):
+  - `cnn1`: a CNN do proxy, intacta (bit a bit), observação "v1" (20 canais, sol/1000).
+  - `cnn1d`: o tronco da cnn1 com a entrada "v2" e a cabeça dueling (isola entrada + dueling).
+  - `cnn2`: conv1 → conv2 → contexto (concat de h, média/máx da faixa, máx à direita e à
+    esquerda na faixa, média/máx globais → conv 1×1 → 64) → conv3 → dueling.
+  - `cnn3`: conv de entrada + 4 blocos residuais (8 convs 3×3 de 64) → dueling.
+  - Observação "v2" (`Ambiente(formato="v2")`): os 20 canais com sol/200 (teto 5) + 5 canais
+    com a máscara de plantio. Dueling: Q = V + A − média de A nas ações válidas (a máscara
+    sai dos canais 20–24 da entrada). As novas só rodam com a receita baseline (adam 1e-4).
+- **Currículo** (`--curriculo sim`): nível 1 = só o início das fases de treino, dificuldade
+  0,5; 2 = início+meio, 0,75; 3 = as 21 fases, 1,0. A cada 25k passos avalia 63 partidas do
+  nível (sementes 400+); sobe com ≥ 50% ou depois de 150k passos no nível; depois de subir,
+  20% dos episódios vêm de um nível anterior. A avaliação oficial continua nas fases completas.
+- **Comandos:** `python -m rl.dqn --arquitetura cnn2 --curriculo sim --semente 0 --passos 400000`;
+  `python -m rl.rodar` (lote 2: 7 receitas × 3 sementes) ou `python -m rl.rodar --fila
+  cnn2:sim:0 cnn3:nao:1`; parar: criar `rl/PARAR` (para no fim do episódio, com checkpoint);
+  retomar: chamar de novo. `python -m rl.teste_retomada --arquitetura cnn3 --curriculo sim`.
+  Cada execução termina gravando um checkpoint; o `rodar.py` só mantém o da última semente
+  de cada receita. **O `rl/PARAR` é global:** não rode o teste de retomada junto com treinos.
+- **Já rodado:** lote 1 (9 execuções: baseline / vencedora / muon × 3 sementes, cnn1, 400k).
+  Baseline 9,2% ± 7,1 de vitórias (420 partidas), vencedora 0%, Muon 0,1%; Econ5 67%, Guloso
+  41%. A `cnn1` sem currículo é exatamente a baseline do lote 1 (mesmos sorteios; a config da
+  retomada-A reproduz os CSVs byte a byte), por isso fica fora do LOTE2.
+- **Lote 2 (não rodado):** `python -m rl.rodar` = 21 execuções (cnn1d, cnn2 e cnn3 com
+  e sem currículo, e cnn1 com currículo; × 3 sementes). Medido em 09/10 (RTX 3050 Laptop,
+  máquina livre; passos/s com treino ligado, ε = 0,05 / ε = 1): cnn1 485 / 597, cnn1d
+  402 / 494, cnn2 176 / 205, cnn3 184 / 222. Parâmetros: 85.830 / 88.775 / 117.511 /
+  310.343. Inferência de 1 estado na CPU: 0,22 / 0,30 / 0,62 / 0,75 ms. Estimativa para
+  400k passos: cnn1 ~15 min, cnn1d ~17, cnn2 ~38, cnn3 ~37 (o modelo dá 15 min para a
+  cnn1, que ontem levou 19–23; com essa correção, ×1,4). Lote 2 inteiro: ~10 a 14 h.
+  Sanidade (só "calmo", dificuldade 0,5, 100k passos, 200 partidas): cnn1 94%, cnn1d 100%,
+  cnn3 95%, cnn2 67% / 93,5% / 92,5% (sementes 0 / 1 / 2).
+
 ## Estrutura do código
 - `pvz/config.py`: todos os números do jogo.
-- `pvz/ambiente.py`: simulador determinístico com `reset`/`step`, máscara, observação em 20 canais, `clonar()` (para a análise de erros) e `info()`.
+- `pvz/ambiente.py`: simulador determinístico com `reset`/`step`, máscara, observação em 20 canais (formato "v1", padrão; "v2" com 25 canais para as CNNs novas do rl/), `clonar()` (para a análise de erros) e `info()`.
 - `pvz/hordas.py`: classes de segmento (`Classe`/`Fila`), `PESO_SEGMENTO`, `montar_fase(classes, semente, dificuldade, pesos)`, `todas_as_fases()` e `fase_manual()` (para testes).
 - `pvz/divisao.py`: `FASES_TREINO`, `FASES_TESTE`, `VITRINE`, `SEMENTES_TREINO` e `SEMENTES_TESTE`.
 - `pvz/agentes.py`: `Aleatorio`, `Guloso` e `Econ(N)` (no CLI: `econ3`, `econ4`, `econ5`, `econ6`, `econ8`).
@@ -134,7 +183,7 @@ Enunciado em `desafio3/enunciado.pdf`, hipóteses e critério em `desafio3/hipot
 - `tests/test_ambiente.py`: testes do ambiente, das hordas e da divisão.
 - `tools/calibrar.py` e `tools/analisar.py`: calibração dos baselines (metas e uso no topo do arquivo).
 - `desafio3/dados.py`: gera o dataset em `desafio3/dados/` (arrays no .gitignore; `meta.json` versionado, com parâmetros, commit, tamanhos e hashes).
-- `desafio3/modelo.py`: a CNN (saída 226 = mapa (planta, faixa, coluna) achatado + esperar).
+- `desafio3/modelo.py`: a CNN (saída 226 = mapa (planta, faixa, coluna) achatado + esperar) e, para o rl/, `CNN1D`, `CNN2`, `CNN3` e o registry `ARQUITETURAS`.
 - `desafio3/treino.py`: `Config`, registries `OTIMIZADORES` e `AGENDAS`, `Registro` (instrumentação) e o laço. Logs em `desafio3/logs/<id>/`, resumo em `desafio3/experimentos.csv`.
 - `desafio3/muon.py`: Muon próprio (Newton–Schulz com 5 iterações, momento Nesterov 0,95, kernels achatados em (C_out, C_in·k·k), wd desacoplado). Pesos de conv1–3 no Muon; vieses, `cabeca_q` e `cabeca_esperar` no AdamW (`--lr-adamw`). Mesma agenda nos dois.
 - `desafio3/analise.py`: tabelas do protocolo (`varredura`, `agendas`, `confirmacao`, `tabelas`) e figuras em `desafio3/figuras/`.
@@ -166,5 +215,8 @@ Enunciado em `desafio3/enunciado.pdf`, hipóteses e critério em `desafio3/hipot
 - [x] Desafio 3: proxy supervisionado e protocolo completo (varredura, agendas, confirmação).
 - [x] Desafio 3: extras, teste (avaliado uma vez: `desafio3/teste.csv`) e `painel.pdf`.
 - [ ] Desafio 3: `slide.pdf` (um slide) e os desfechos do `hipoteses.md` (escritos pelos autores). Entrega: 14/10/2026, 12h.
-- [ ] Implementar o Double DQN com CNN, o replay com máscara e o currículo.
+- [x] Implementar o Double DQN com CNN, o replay com máscara e o currículo (`rl/`, lote 1 rodado).
+- [x] Arquiteturas cnn1d, cnn2 e cnn3, observação "v2" e currículo (testados; branch `rl`).
+- [ ] Rodar o lote 2 (`python -m rl.rodar`) e comparar arquiteturas × currículo.
+- [ ] MLP de ablação (Parte 3) e avaliação no teste com sementes a partir de 10100.
 - [ ] Implementar a análise de erros (2.7) e os experimentos da Parte 3.
