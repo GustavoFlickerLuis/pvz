@@ -1,7 +1,7 @@
 """Teste 3: a retomada do checkpoint é exata.
 
     python -m rl.teste_retomada [receita]                     # lote 1: baseline, vencedora, muon
-    python -m rl.teste_retomada --arquitetura cnn2 [--curriculo sim]
+    python -m rl.teste_retomada --arquitetura cnn2 [--curriculo sim] [--exploracao intencional]
 
 A: 3.000 passos direto. B: a mesma config, mas cria rl/PARAR assim que B grava o
 progresso da avaliação do passo 1.000 (o treino para no fim do episódio seguinte) e
@@ -26,18 +26,20 @@ ARGS = ["--semente", "0", "--passos", "3000", "--inicio", "500", "--alvo-cada", 
 ARGS_CURRICULO = ["--cur-aval-cada", "500", "--cur-max-nivel", "1000"]
 
 
-def comando(id_, receita, arquitetura, curriculo):
+def comando(id_, receita, arquitetura, curriculo, exploracao):
     extra = ARGS_CURRICULO if curriculo == "sim" else []
     return [sys.executable, "-m", "rl.dqn", "--id", id_, "--receita", receita,
-            "--arquitetura", arquitetura, "--curriculo", curriculo] + ARGS + extra
+            "--arquitetura", arquitetura, "--curriculo", curriculo,
+            "--exploracao", exploracao] + ARGS + extra
 
 
-def main(receita="baseline", arquitetura="cnn1", curriculo="nao"):
+def main(receita="baseline", arquitetura="cnn1", curriculo="nao", exploracao="uniforme"):
     sys.stdout.reconfigure(encoding="utf-8")
     nome = receita if arquitetura == "cnn1" and curriculo == "nao" else \
         f"{arquitetura}{'-cur' if curriculo == 'sim' else ''}"
+    nome += "-int" if exploracao == "intencional" else ""
     a, b = f"teste-retomada-{nome}-A", f"teste-retomada-{nome}-B"
-    cmd = lambda id_: comando(id_, receita, arquitetura, curriculo)
+    cmd = lambda id_: comando(id_, receita, arquitetura, curriculo, exploracao)
     for id_ in (a, b):
         shutil.rmtree(PASTA_LOGS / id_, ignore_errors=True)
     ARQ_PARAR.unlink(missing_ok=True)
@@ -61,6 +63,7 @@ def main(receita="baseline", arquitetura="cnn1", curriculo="nao"):
     arqs = ["registro.csv", "episodios.csv", "avaliacoes.csv", "avaliacao_final.csv"]
     if curriculo == "sim":
         arqs.append("curriculo.csv")
+    arqs.append("exploracao.csv")
     for arq in arqs:
         igual = filecmp.cmp(PASTA_LOGS / a / arq, PASTA_LOGS / b / arq, shallow=False)
         print(f"{arq}: {'idêntico' if igual else 'DIFERENTE'}")
@@ -78,4 +81,5 @@ if __name__ == "__main__":
     p.add_argument("receita", nargs="?", default="baseline")
     p.add_argument("--arquitetura", default="cnn1")
     p.add_argument("--curriculo", default="nao")
+    p.add_argument("--exploracao", default="uniforme")
     sys.exit(0 if main(**vars(p.parse_args())) else 1)

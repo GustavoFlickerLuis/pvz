@@ -2,6 +2,7 @@
 
     python -m rl.rodar                                # o LOTE2 inteiro; saída em rl/rodar.log
     python -m rl.rodar --fila cnn2:sim:0 cnn3:nao:1   # só estas, nesta ordem
+    python -m rl.rodar --fila cnn1:nao:0:intencional  # 4º campo opcional: a exploração
     python -m rl.rodar --passos 400000                # orçamento por execução (padrão: ORCAMENTO)
 
 Todas com a receita baseline (adam 1e-4 constante, clip 10). Ao ser chamado de novo, pula
@@ -30,8 +31,9 @@ ORCAMENTO = 400_000   # passos de jogo por execução (cálculo em rl/RELATORIO.
 # Lote 2: 4 arquiteturas × com e sem currículo × 3 sementes, na ordem semente → arquitetura.
 # A cnn1 sem currículo é a baseline do lote 1 (mesma rede, receita, sorteios e sementes:
 # baseline-s0..s2 em rl/logs/), por isso fica fora; dá para pedir com --fila cnn1:nao:0.
-LOTE2 = [(a, c, s) for s in range(3) for a in ("cnn1d", "cnn2", "cnn3", "cnn1")
+LOTE2 = [(a, c, s, "uniforme") for s in range(3) for a in ("cnn1d", "cnn2", "cnn3", "cnn1")
          for c in ("nao", "sim") if (a, c) != ("cnn1", "nao")]
+EXPLORACOES = ("uniforme", "intencional")
 
 
 def log(msg):
@@ -41,21 +43,28 @@ def log(msg):
 def ler_fila(itens):
     fila = []
     for it in itens:
-        a, c, s = it.split(":")
-        if a not in ARQUITETURAS or c not in ("nao", "sim"):
-            raise SystemExit(f"item inválido: {it} (arquitetura:nao|sim:semente)")
-        fila.append((a, c, int(s)))
+        partes = it.split(":")
+        if len(partes) == 3:
+            partes.append("uniforme")
+        if len(partes) != 4:
+            raise SystemExit(f"item inválido: {it} (arquitetura:nao|sim:semente[:exploração])")
+        a, c, s, e = partes
+        if a not in ARQUITETURAS or c not in ("nao", "sim") or e not in EXPLORACOES:
+            raise SystemExit(f"item inválido: {it} (arquitetura:nao|sim:semente[:exploração])")
+        fila.append((a, c, int(s), e))
     return fila
 
 
-def apagar_ckpts_anteriores(fila, arq, cur, semente):
-    """Apaga o checkpoint das execuções terminadas da mesma receita, menos a desta semente."""
-    for a, c, s in fila:
-        if (a, c) == (arq, cur) and s != semente:
-            pasta = PASTA_LOGS / id_padrao(a, c, s)
+def apagar_ckpts_anteriores(fila, arq, cur, semente, expl):
+    """Apaga o checkpoint das execuções terminadas da mesma receita (arquitetura, currículo,
+    exploração), menos a desta semente."""
+    for a, c, s, e in fila:
+        if (a, c, e) == (arq, cur, expl) and s != semente:
+            pasta = PASTA_LOGS / id_padrao(a, c, s, exploracao=e)
             if (pasta / "resultado.json").exists() and (pasta / "ckpt").exists():
                 shutil.rmtree(pasta / "ckpt")
-                log(f"{pasta.name}: checkpoint apagado (fica o de {id_padrao(arq, cur, semente)})")
+                log(f"{pasta.name}: checkpoint apagado "
+                    f"(fica o de {id_padrao(arq, cur, semente, exploracao=expl)})")
 
 
 def main():
@@ -65,19 +74,20 @@ def main():
     p.add_argument("--passos", type=int, default=ORCAMENTO)
     a = p.parse_args()
     fila = ler_fila(a.fila) if a.fila else LOTE2
-    ids = [id_padrao(*f) for f in fila]
+    ids = [id_padrao(a_, c, s, exploracao=e) for a_, c, s, e in fila]
     status.ARQ_FILA.write_text(json.dumps({"ids": ids}, indent=1), encoding="utf-8")
     if ARQ_PARAR.exists():
         ARQ_PARAR.unlink()
         log("rl/PARAR antigo apagado")
-    for (arq, cur, semente), id_ in zip(fila, ids):
+    for (arq, cur, semente, expl), id_ in zip(fila, ids):
         if (PASTA_LOGS / id_ / "resultado.json").exists():
             log(f"{id_}: já terminou, pulando")
             continue
         retoma = (PASTA_LOGS / id_ / "ckpt" / "estado.pt").exists()
         log(f"{id_}: {'retomando do checkpoint' if retoma else 'começando'}")
         cmd = [sys.executable, "-u", "-m", "rl.dqn", "--arquitetura", arq, "--curriculo", cur,
-               "--semente", str(semente), "--passos", str(a.passos), "--id", id_]
+               "--exploracao", expl, "--semente", str(semente), "--passos", str(a.passos),
+               "--id", id_]
         codigo = subprocess.run(cmd).returncode
         status.escrever()
         if codigo == CODIGO_PARADO:
@@ -87,7 +97,7 @@ def main():
             log(f"{id_}: saiu com código {codigo}; seguindo para a próxima")
             continue
         log(f"{id_}: terminado")
-        apagar_ckpts_anteriores(fila, arq, cur, semente)
+        apagar_ckpts_anteriores(fila, arq, cur, semente, expl)
     log("fila completa")
     status.escrever()
 

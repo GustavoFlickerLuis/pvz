@@ -5,6 +5,7 @@
 
 Arquiteturas: desafio3.modelo.ARQUITETURAS (cnn1, cnn1d, cnn2, cnn3). As novas só rodam
 com a receita baseline (adam 1e-4 constante, clip 10). Currículo: ver NIVEIS e Curriculo.
+Exploração: --exploracao uniforme (padrão, a de sempre) ou intencional (ver Treino.agir).
 
 Uma execução vive em rl/logs/<id>/: config.json, registro.csv (instrumentação, a cada
 50 atualizações), episodios.csv, avaliacoes.csv, velocidade.csv, progresso.json e, no
@@ -39,7 +40,8 @@ import torch
 from desafio3.modelo import ARQUITETURAS, criar, formato
 from desafio3.treino import AGENDAS, OTIMIZADORES, Registro, fixar_sementes, perda_q
 from desafio3.treino import Config as ConfigProxy
-from pvz.ambiente import ESPERAR, FORMATOS, N_ACOES, N_CANAIS, Ambiente
+from pvz.ambiente import (ESPERAR, FORMATOS, N_ACOES, N_CANAIS, N_CELULAS, N_PLANTAS, SOL_REF,
+                          SOL_REF_V2, Ambiente, decodificar_acao)
 from pvz import config as C
 from pvz.divisao import FASES_TESTE, FASES_TREINO
 
@@ -90,6 +92,8 @@ class Config:
     cur_limiar: float = 0.5          # vitórias na avaliação do nível para subir
     cur_max_nivel: int = 150_000     # passos máximos num nível: depois sobe de qualquer jeito
     cur_anteriores: float = 0.2      # depois de subir, fração de episódios dos níveis anteriores
+    exploracao: str = "uniforme"     # "uniforme" (a de sempre) ou "intencional" (ver Treino.agir)
+    expl_espera_max: int = 30        # intencional: decisões esperando um alvo antes de abandoná-lo
 
     def __post_init__(self):
         if self.receita not in RECEITAS:
@@ -102,6 +106,8 @@ class Config:
             raise ValueError(f"curriculo deve ser nao ou sim: {self.curriculo}")
         if self.curriculo == "sim" and (self.fases != "treino" or self.dificuldade != 1.0):
             raise ValueError("o currículo só vale com fases=treino e dificuldade 1")
+        if self.exploracao not in ("uniforme", "intencional"):
+            raise ValueError(f"exploracao deve ser uniforme ou intencional: {self.exploracao}")
         self.aval_sementes = tuple(self.aval_sementes)
         self.aval_final_sementes = tuple(self.aval_final_sementes)
         self.sementes_treino = tuple(self.sementes_treino)
@@ -173,6 +179,37 @@ def explorar(mascara, rng, p_esperar):
     if len(validas) == 0:
         return ESPERAR
     return int(validas[rng.integers(len(validas))])
+
+
+# ---------------------------------------------------------------- exploração intencional
+SOL_ESCALA = {"v1": SOL_REF, "v2": SOL_REF_V2}   # canal 11 = sol / escala (no v2, com teto 5)
+CUSTOS = np.array([p.custo for p in C.PLANTAS])
+
+
+def sol_da_obs(obs, formato):
+    """O sol atual lido do canal 11 da observação (nunca de amb.sol). No v2 o canal satura
+    em 1000 de sol, o que não muda nenhuma reserva: o custo máximo é 200."""
+    return int(round(float(obs[11, 0, 0]) * SOL_ESCALA[formato]))
+
+
+def disponivel(mascara, tipo):
+    """O tipo pode ser plantado agora em alguma célula."""
+    return bool(mascara[tipo * N_CELULAS:(tipo + 1) * N_CELULAS].any())
+
+
+def celula_uniforme(mascara, tipo, rng):
+    validas = np.flatnonzero(mascara[tipo * N_CELULAS:(tipo + 1) * N_CELULAS])
+    return tipo * N_CELULAS + int(validas[rng.integers(len(validas))])
+
+
+def mascara_reserva(mascara, sol, alvo):
+    """A máscara sem as ações de plantio do tipo j com sol − custo_j < custo do alvo: o que
+    sobra não atrasa o alvo. "Esperar" continua valendo."""
+    m = mascara.copy()
+    for j in range(N_PLANTAS):
+        if sol - CUSTOS[j] < CUSTOS[alvo]:
+            m[j * N_CELULAS:(j + 1) * N_CELULAS] = False
+    return m
 
 
 def argmax_mascarado(q, mascara):
@@ -366,6 +403,11 @@ class Treino:
         self.episodios = []     # por episódio
         self.avaliacoes = []    # (passo, vitórias, dano)
         self.velocidade = []
+        self.exploracao = []    # por episódio: exploracao.csv
+        # exploração intencional: o tipo que se está juntando sol para plantar (alvo_tipo;
+        # "alvo" já é a rede alvo) e há quantas decisões; zeram no começo e no fim do episódio
+        self.alvo_tipo, self.espera = None, 0
+        self.contagem = self._contagem_vazia()
         self.status = "rodando"
         self.inicio_proc = time.time()
         self.passo_proc = 0     # passo no início deste processo (para passos/s)
@@ -382,11 +424,61 @@ class Treino:
             a.copy_(p)
 
     @torch.no_grad()
-    def agir(self, obs, mascara):
-        if self.rng.random() < self.epsilon():
-            return explorar(mascara, self.rng, self.cfg.p_esperar)
+    def _gulosa(self, obs, mascara):
         q = self.ator(torch.from_numpy(obs)[None])[0]
         return int(argmax_mascarado(q, torch.from_numpy(mascara)))
+
+    def agir(self, obs, mascara):
+        """Devolve (ação, exploratória?)."""
+        if self.cfg.exploracao == "intencional":
+            return self._agir_intencional(obs, mascara)
+        if self.rng.random() < self.epsilon():
+            return explorar(mascara, self.rng, self.cfg.p_esperar), True
+        return self._gulosa(obs, mascara), False
+
+    def _agir_intencional(self, obs, mascara):
+        """Exploração "intencional": a exploração escolhe um TIPO e, se ele ainda não dá
+        para plantar (sem sol ou em recarga), vira um alvo: até ele ficar disponível, a rede
+        joga com a máscara de reserva (não gasta o sol que o alvo precisa). Desiste depois de
+        expl_espera_max decisões. A máscara de reserva só muda a escolha do ator; o replay
+        guarda a máscara verdadeira."""
+        c, k = self.cfg, self.contagem
+        if self.alvo_tipo is None:
+            if self.rng.random() >= self.epsilon():
+                return self._gulosa(obs, mascara), False
+            if self.rng.random() < c.p_esperar:
+                return ESPERAR, True
+            tipo = int(self.rng.integers(N_PLANTAS))
+            if disponivel(mascara, tipo):
+                return celula_uniforme(mascara, tipo, self.rng), True
+            self.alvo_tipo, self.espera = tipo, 0
+            k["alvos"][tipo] += 1
+        k["decisoes_com_alvo"] += 1
+        if disponivel(mascara, self.alvo_tipo):
+            acao = celula_uniforme(mascara, self.alvo_tipo, self.rng)
+            self.alvo_tipo = None
+            k["alvos_cumpridos"] += 1
+            return acao, True
+        reserva = mascara_reserva(mascara, sol_da_obs(obs, self.formato), self.alvo_tipo)
+        acao = self._gulosa(obs, reserva)
+        self.espera += 1
+        if self.espera >= c.expl_espera_max:
+            self.alvo_tipo = None
+            k["alvos_timeout"] += 1
+        return acao, False
+
+    @staticmethod
+    def _contagem_vazia():
+        return {"expl": [0] * N_PLANTAS, "gulosos": [0] * N_PLANTAS, "esperar_expl": 0,
+                "alvos": [0] * N_PLANTAS, "decisoes_com_alvo": 0, "alvos_cumpridos": 0,
+                "alvos_timeout": 0}
+
+    def _contar(self, acao, exploratoria):
+        if acao == ESPERAR:
+            self.contagem["esperar_expl"] += exploratoria
+            return
+        tipo = decodificar_acao(acao)[0]
+        self.contagem["expl" if exploratoria else "gulosos"][tipo] += 1
 
     # -------------------------------------------------------------- atualização
     def atualizar(self):
@@ -456,9 +548,12 @@ class Treino:
         obs = amb.reset(fase, semente, dificuldade)
         mascara = amb.mascara()
         self.npassos.limpar()
+        self.alvo_tipo, self.espera = None, 0
+        self.contagem = self._contagem_vazia()
         retorno, decisoes, fim = 0.0, 0, False
         while not fim and self.passo < c.passos:
-            acao = self.agir(obs, mascara)
+            acao, exploratoria = self.agir(obs, mascara)
+            self._contar(acao, exploratoria)
             obs_p, r, fim = amb.step(acao)
             mascara_p = amb.mascara()
             for t in self.npassos.adicionar(obs, acao, r, obs_p, mascara_p, fim):
@@ -483,6 +578,14 @@ class Treino:
         if self.curriculo:
             ep.update(nivel=nivel + 1, dificuldade=dificuldade)
         self.episodios.append(ep)
+        k = self.contagem
+        linha = {"episodio": ep["episodio"], "passo_jogo": self.passo, "epsilon": ep["epsilon"]}
+        for nome_k in ("expl", "gulosos", "alvos"):
+            linha.update({f"{nome_k}_{p.nome}": k[nome_k][i] for i, p in enumerate(C.PLANTAS)})
+        linha.update({x: k[x] for x in ("esperar_expl", "decisoes_com_alvo", "alvos_cumpridos",
+                                        "alvos_timeout")})
+        self.exploracao.append(linha)
+        self.alvo_tipo, self.espera = None, 0
         return "fim"
 
     def rodar(self):
@@ -550,6 +653,11 @@ class Treino:
         if self.curriculo:
             _escrever_csv(self.pasta / "curriculo.csv", self.curriculo.historico,
                           ["passo", "nivel", "vitorias", "subiu"])
+        nomes = [p.nome for p in C.PLANTAS]
+        _escrever_csv(self.pasta / "exploracao.csv", self.exploracao,
+                      ["episodio", "passo_jogo", "epsilon"]
+                      + [f"{x}_{n}" for x in ("expl", "gulosos", "alvos") for n in nomes]
+                      + ["esperar_expl", "decisoes_com_alvo", "alvos_cumpridos", "alvos_timeout"])
         _escrever_csv(self.pasta / "avaliacoes.csv", self.avaliacoes,
                       ["passo", "partidas", "vitorias", "dano", "decisoes"])
         _escrever_csv(self.pasta / "velocidade.csv", self.velocidade,
@@ -559,7 +667,7 @@ class Treino:
         dt = time.time() - self.inicio_proc
         pps = (self.passo - self.passo_proc) / dt if dt > 0 else 0.0
         p = {"receita": self.cfg.receita, "arquitetura": self.cfg.arquitetura,
-             "curriculo": self.cfg.curriculo,
+             "curriculo": self.cfg.curriculo, "exploracao": self.cfg.exploracao,
              "nivel": self.curriculo.nivel + 1 if self.curriculo else None,
              "semente": self.cfg.semente, "passo": self.passo,
              "orcamento": self.cfg.passos, "passos_por_s": pps, "status": self.status,
@@ -590,6 +698,7 @@ class Treino:
             "episodios": self.episodios, "avaliacoes": self.avaliacoes,
             "velocidade": self.velocidade,
             "curriculo": self.curriculo.estado() if self.curriculo else None,
+            "exploracao": self.exploracao, "alvo_tipo": self.alvo_tipo, "espera": self.espera,
             "rng_numpy": self.rng.bit_generator.state,
             "rng_python": random.getstate(), "rng_np_global": np.random.get_state(),
             "rng_torch": torch.get_rng_state(),
@@ -614,6 +723,8 @@ class Treino:
         self.velocidade = e["velocidade"]
         if self.curriculo:
             self.curriculo.restaurar(e["curriculo"])
+        self.exploracao = e.get("exploracao", [])
+        self.alvo_tipo, self.espera = e.get("alvo_tipo"), e.get("espera", 0)
         self.rng.bit_generator.state = e["rng_numpy"]
         random.setstate(e["rng_python"])
         np.random.set_state(e["rng_np_global"])
@@ -656,11 +767,14 @@ def executar(cfg, id_):
     return treino.rodar()
 
 
-def id_padrao(arquitetura, curriculo, semente, receita="baseline"):
-    """cnn2-cur-s0, cnn3-s1, ...; as receitas não baseline do lote 1 ficam vencedora-s0 etc."""
+def id_padrao(arquitetura, curriculo, semente, receita="baseline", exploracao="uniforme"):
+    """cnn2-cur-s0, cnn3-s1, cnn1-s0-int (intencional), ...; as receitas não baseline do
+    lote 1 ficam vencedora-s0 etc. A exploração uniforme não ganha sufixo."""
     if receita != "baseline":
-        return f"{receita}-s{semente}"
-    return f"{arquitetura}{'-cur' if curriculo == 'sim' else ''}-s{semente}"
+        base = f"{receita}-s{semente}"
+    else:
+        base = f"{arquitetura}{'-cur' if curriculo == 'sim' else ''}-s{semente}"
+    return base + ("-int" if exploracao == "intencional" else "")
 
 
 def main():
@@ -669,16 +783,18 @@ def main():
     p.add_argument("--receita", choices=list(RECEITAS), default="baseline")
     p.add_argument("--arquitetura", choices=list(ARQUITETURAS), default="cnn1")
     p.add_argument("--curriculo", choices=("nao", "sim"), default="nao")
+    p.add_argument("--exploracao", choices=("uniforme", "intencional"), default="uniforme")
     p.add_argument("--semente", type=int, required=True)
     p.add_argument("--id")
     p.add_argument("--json", help="campos extras da Config, em JSON (testes)")
     for f in fields(Config):
-        if f.name in ("receita", "semente", "arquitetura", "curriculo") \
+        if f.name in ("receita", "semente", "arquitetura", "curriculo", "exploracao") \
                 or f.type not in (int, float, str):
             continue
         p.add_argument("--" + f.name.replace("_", "-"), type=f.type)
     a = vars(p.parse_args())
-    id_ = a.pop("id") or id_padrao(a["arquitetura"], a["curriculo"], a["semente"], a["receita"])
+    id_ = a.pop("id") or id_padrao(a["arquitetura"], a["curriculo"], a["semente"], a["receita"],
+                                   a["exploracao"])
     extra = json.loads(a.pop("json") or "{}")
     cfg = Config(**{k: v for k, v in a.items() if v is not None}, **extra)
     sys.exit(executar(cfg, id_))
