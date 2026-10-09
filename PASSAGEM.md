@@ -154,8 +154,9 @@ treino de RL com a cnn1d, k = 20 (γ = 0,994), 3 sementes.**
 - `rl/diag/`: PLANO.md, PREVISOES.md, RELATORIO.md, dados de TD, provas, nota(), td.py.
 - `tools/medir_k.md`: baselines por k.
 - `rl/RELATORIO.md`: lote 1 e lote 2a.
-- **Pesos do PPO que fez 81,7%:** `rl/logs/ppo-fases-s0/modelo.pt` não vai para o Git (`*.pt` no
-  .gitignore); o Gustavo mandou o arquivo à parte. Coloque-o nesse caminho para avaliar sem retreinar.
+- **Pesos do PPO** (81,7% nas fases completas; 98% na sanidade): `rl/logs/ppo-fases-s0/modelo.pt` e
+  `rl/logs/ppo-sanidade/modelo.pt`, no Git apesar do `*.pt` no .gitignore (adicionados com força).
+- Os logs brutos das sementes 0 e 1 do lote 2a ficaram só na máquina do Gustavo; os números estão aqui (1,3% ± 1,1).
 - Checkpoints e arrays de dados **não estão no Git**: os scripts regeneram os dados; os checkpoints
   dos lotes 1 e 2a ficaram na máquina do Gustavo.
 
