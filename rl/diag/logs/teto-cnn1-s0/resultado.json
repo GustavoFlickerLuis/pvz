@@ -1,0 +1,32 @@
+{
+  "args": {
+    "arquitetura": "cnn1",
+    "semente": 0,
+    "atualizacoes": 20000,
+    "lote": 128,
+    "medir_cada": 500
+  },
+  "parada": 2500,
+  "huber_fora": 0.14328409731388092,
+  "nota": {
+    "nota": 65.57768924302789,
+    "pares": 1255,
+    "nota_i": 64.8876404494382,
+    "pares_i": 356,
+    "nota_ii": 65.85094549499443,
+    "pares_ii": 899,
+    "arrependimento": 0.11865536868572235,
+    "arrependimento_econ5": 0.08915751427412033
+  },
+  "nota_nos_estados_de_treino": {
+    "nota": 65.25290606346215,
+    "pares": 3183,
+    "nota_i": 63.45957011258956,
+    "pares_i": 977,
+    "nota_ii": 66.04714415231187,
+    "pares_ii": 2206,
+    "arrependimento": 0.11837835609912872,
+    "arrependimento_econ5": 0.12406919151544571
+  },
+  "minutos": 26.3
+}

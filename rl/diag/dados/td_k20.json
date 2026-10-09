@@ -1,0 +1,32 @@
+{
+  "k": 20,
+  "gamma": 0.994,
+  "beta": "econ5 + 15% aleatórias",
+  "commit": [
+    "bc57de52cc9dc374aed58272714de3940ddf3df4",
+    true
+  ],
+  "treino": {
+    "sementes": [
+      0,
+      60
+    ],
+    "transicoes": 111262,
+    "episodios": 1260,
+    "vitorias": 0.34444444444444444,
+    "esperar": 0.682470205460984,
+    "sha256": "3b833242a34941cf3168851fd9422f4af25143fae09d4992dbb51127a12953e9"
+  },
+  "val": {
+    "sementes": [
+      100,
+      110
+    ],
+    "transicoes": 18557,
+    "episodios": 210,
+    "vitorias": 0.30952380952380953,
+    "esperar": 0.6781807404214043,
+    "sha256": "027fe9edc16473a5821cea254e7a41ccd6440b786eeef78d9256d914be9cc6eb"
+  },
+  "segundos": 23.6
+}

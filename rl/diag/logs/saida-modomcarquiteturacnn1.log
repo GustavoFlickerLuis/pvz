@@ -1,0 +1,6 @@
+[mc-cnn1-s0] 0: viés ini +0.186 huber ini 0.3658 nota 40.4% (i 36.8, ii 41.8)
+[mc-cnn1-s0] 20000: viés ini +0.096 huber ini 0.2308 nota 66.1% (i 68.0, ii 65.3)
+[mc-cnn1-s0] 40000: viés ini +0.048 huber ini 0.2282 nota 67.7% (i 67.7, ii 67.7)
+[mc-cnn1-s0] 60000: viés ini +0.000 huber ini 0.2272 nota 66.5% (i 66.3, ii 66.5)
+[mc-cnn1-s0] 80000: viés ini +0.135 huber ini 0.2409 nota 66.6% (i 68.0, ii 66.1)
+[mc-cnn1-s0] 100000: viés ini +0.019 huber ini 0.2372 nota 63.4% (i 62.9, ii 63.6)
