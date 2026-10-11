@@ -57,6 +57,7 @@ class Config:
     aval_final_sementes: tuple = (300, 320)
     ate: str = ""                  # "HH:MM": para de coletar nesse horário
     aval_sorteio: bool = False     # avaliar também com sorteio (e contar as ações)
+    continuar: bool = False        # retoma do ckpt.pt da mesma pasta, se existir
 
     def lista_fases(self):
         if self.fases == "treino":
@@ -186,7 +187,32 @@ class Treino:
         self.partidas = Partidas(cfg, self.rng)
         self.gen = torch.Generator(device=self.dev).manual_seed(cfg.semente)
         self.passo, self.linhas, self.avaliacoes = 0, [], []
+        self.melhor = -1.0          # melhor vitória gulosa vista nas avaliações periódicas
         self.t0 = time.time()
+
+    # ---------------- checkpoint: parar e retomar (PASSAGEM 5.2.1)
+    def salvar_ckpt(self):
+        torch.save({"pol": self.pol.state_dict(), "opt": self.opt.state_dict(),
+                    "passo": self.passo, "melhor": self.melhor,
+                    "linhas": self.linhas, "avaliacoes": self.avaliacoes,
+                    "rng": self.rng.bit_generator.state, "gen": self.gen.get_state()},
+                   self.pasta / "ckpt.pt")
+
+    def carregar_ckpt(self):
+        """Retoma de onde parou. Devolve False se não houver checkpoint."""
+        caminho = self.pasta / "ckpt.pt"
+        if not caminho.exists():
+            return False
+        c = torch.load(caminho, map_location=self.dev, weights_only=False)
+        self.pol.load_state_dict(c["pol"])
+        self.opt.load_state_dict(c["opt"])
+        self.passo, self.melhor = c["passo"], c["melhor"]
+        self.linhas, self.avaliacoes = c["linhas"], c["avaliacoes"]
+        self.rng.bit_generator.state = c["rng"]
+        self.gen.set_state(c["gen"])
+        self.partidas = Partidas(self.cfg, self.rng)   # as 16 partidas em voo recomeçam
+        print(f"retomando de {caminho} no passo {self.passo}", flush=True)
+        return True
 
     @torch.no_grad()
     def coletar(self):
@@ -261,6 +287,9 @@ class Treino:
                                r.get("acoes", [""] * 6)):
                 linha[f"acao_{nome}"] = f
             self.avaliacoes.append(linha)
+            if not final and not sorteio and r["vitorias"] > self.melhor:
+                self.melhor = r["vitorias"]
+                torch.save(self.pol.state_dict(), self.pasta / "melhor.pt")
             print(f"[{'final' if final else 'aval'}] passo {self.passo} {linha['modo']}: vitórias "
                   f"{100 * r['vitorias']:.1f}% ({r['partidas']} partidas), dano {r['dano']:.3f}"
                   + (f", ações {[round(100 * x, 1) for x in r['acoes']]}" if "acoes" in r else ""),
@@ -285,8 +314,10 @@ class Treino:
 
     def rodar(self):
         c = self.cfg
-        self.avaliacao()
-        prox_aval = c.aval_cada
+        retomou = c.continuar and self.carregar_ckpt()
+        if not retomou:
+            self.avaliacao()
+        prox_aval = (self.passo // c.aval_cada + 1) * c.aval_cada
         motivo = "orçamento"
         while self.passo < c.passos:
             if self.acabou_o_tempo():
@@ -317,7 +348,9 @@ class Treino:
               f"(parou por {motivo}, passo {self.passo})", flush=True)
         self.gravar()
         torch.save(self.pol.state_dict(), self.pasta / "modelo.pt")
+        self.salvar_ckpt()
         res = {"passos": self.passo, "motivo": motivo, "vitorias_final": r["vitorias"],
+               "melhor_periodica": self.melhor,
                "dano_final": r["dano"], "partidas_final": r["partidas"],
                "minutos": round((time.time() - self.t0) / 60, 1),
                "passos_por_s": self.passo / (time.time() - self.t0)}
@@ -335,6 +368,8 @@ def main():
     for nome, tipo in (("semente", int), ("passos", int), ("envs", int), ("rollout", int),
                        ("fases", str), ("dificuldade", float), ("aval_cada", int), ("ate", str)):
         p.add_argument("--" + nome.replace("_", "-"), type=tipo)
+    p.add_argument("--continuar", action="store_true", default=None,
+                   help="retoma do ckpt.pt da pasta do log")
     a = vars(p.parse_args())
     id_, extra = a.pop("id"), json.loads(a.pop("json") or "{}")
     cfg = Config(**{k: v for k, v in a.items() if v is not None}, **extra)

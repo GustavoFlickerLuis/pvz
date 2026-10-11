@@ -125,3 +125,24 @@ Cuidados na comparação com o DQN:
 - O PPO passa o Econ5 (81,7% contra 65,2%) com uma política parecida na proporção de atiradores
   (ervilha + repetidora ≈ 19% das ações) mas que também planta batata e mina (~14%), que o Econ5
   nunca planta.
+
+## Três sementes em CPU (previsão escrita antes de rodar — 10/10/2026)
+
+A semente 0 rodou em CUDA, na máquina do Gustavo. Para a média ± desvio não misturar
+backends, as **três** sementes são refeitas no mesmo pipeline (CPU, 8 threads, torch 2.14.1),
+com `--passos 2000000 --aval-cada 250000`. Ids: `ppo-fases-s0-cpu`, `ppo-fases-s1`,
+`ppo-fases-s2`. O log original em CUDA (`ppo-fases-s0`) é preservado.
+
+**Previsão (antes de rodar):**
+
+1. As três sementes passam do Econ5 (65,2%) na avaliação final de 420 partidas.
+2. A semente 0 em CPU reproduz, dentro da variação entre sementes, os 81,7% obtidos em CUDA.
+   Se ela ficar muito abaixo, a diferença é de backend ou o 81,7% foi sorte de uma execução —
+   e isso precisa aparecer no relatório antes de qualquer conclusão.
+3. O desvio-padrão entre as três fica abaixo de 10 pontos percentuais (o DQN variou de
+   1,4% a 15,5%, com média 9,2% ± 7,1).
+
+**Refuta:** qualquer semente abaixo de 65,2%, ou desvio acima de 10 pontos.
+
+### Desfecho
+(preencher depois das três execuções, sem editar a previsão acima)
