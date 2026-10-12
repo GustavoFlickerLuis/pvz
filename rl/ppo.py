@@ -25,12 +25,23 @@ import torch
 from torch import nn
 
 from desafio3.modelo import CNN1D, mascara_da_entrada
+from desafio3.treino import AGENDAS, OTIMIZADORES
+from desafio3.treino import Config as ConfigProxy
 from pvz.ambiente import Ambiente
 from pvz.divisao import FASES_TESTE, FASES_TREINO
 
 from . import avaliar
 
 PASTA_LOGS = Path(__file__).parent / "logs"
+
+# As receitas vêm do proxy supervisionado (desafio3/tabelas.md). "atual" é o que o PPO
+# usava antes de existir esta opção: Adam 2,5e-4 constante.
+RECEITAS = {
+    "atual":     dict(otimizador="adam",    lr=2.5e-4, agenda="constante"),
+    "vencedora": dict(otimizador="sgd",     lr=3e-2,   agenda="cosseno"),
+    "rmsprop":   dict(otimizador="rmsprop", lr=3e-4,   agenda="warmup_cosseno"),
+    "muon":      dict(otimizador="muon",    lr=1e-3, lr_adamw=3e-4, agenda="warmup_cosseno"),
+}
 
 
 @dataclass
@@ -58,6 +69,18 @@ class Config:
     ate: str = ""                  # "HH:MM": para de coletar nesse horário
     aval_sorteio: bool = False     # avaliar também com sorteio (e contar as ações)
     continuar: bool = False        # retoma do ckpt.pt da mesma pasta, se existir
+    receita: str = "atual"         # otimizador + agenda (RECEITAS); "atual" = Adam 2,5e-4 constante
+
+    def atualizacoes(self):
+        """Passos do otimizador no orçamento todo (para a agenda saber o total)."""
+        coletas = self.passos // (self.envs * self.rollout)
+        por_coleta = self.epocas * -(-(self.envs * self.rollout) // self.minilote)
+        return max(1, coletas * por_coleta)
+
+    def proxy(self):
+        """Config do desafio3 com a receita: alimenta OTIMIZADORES e AGENDAS."""
+        return ConfigProxy(**RECEITAS[self.receita], semente=self.semente,
+                           passos=self.atualizacoes(), k_val=10 ** 12, rascunho=True)
 
     def lista_fases(self):
         if self.fases == "treino":
@@ -183,7 +206,13 @@ class Treino:
         torch.set_num_threads(1)
         self.rng = np.random.default_rng(cfg.semente)
         self.pol = Politica().to(self.dev)
-        self.opt = torch.optim.Adam(self.pol.parameters(), lr=cfg.lr, eps=1e-5)
+        # a receita vem do proxy; self.pol.rede tem os mesmos parâmetros de self.pol e
+        # expõe conv1..conv3, que é o que o Muon precisa para separar as matrizes
+        cp = cfg.proxy()
+        self.opts = OTIMIZADORES[cp.otimizador](self.pol.rede, cp)
+        agenda = AGENDAS[cp.agenda]
+        self.scheds = [torch.optim.lr_scheduler.LambdaLR(o, lambda t: agenda(t, cp.passos))
+                       for o in self.opts]
         self.partidas = Partidas(cfg, self.rng)
         self.gen = torch.Generator(device=self.dev).manual_seed(cfg.semente)
         self.passo, self.linhas, self.avaliacoes = 0, [], []
@@ -192,7 +221,8 @@ class Treino:
 
     # ---------------- checkpoint: parar e retomar (PASSAGEM 5.2.1)
     def salvar_ckpt(self):
-        torch.save({"pol": self.pol.state_dict(), "opt": self.opt.state_dict(),
+        torch.save({"pol": self.pol.state_dict(), "opt": [o.state_dict() for o in self.opts],
+                    "sched": [s.state_dict() for s in self.scheds],
                     "passo": self.passo, "melhor": self.melhor,
                     "linhas": self.linhas, "avaliacoes": self.avaliacoes,
                     "rng": self.rng.bit_generator.state, "gen": self.gen.get_state()},
@@ -205,7 +235,8 @@ class Treino:
             return False
         c = torch.load(caminho, map_location=self.dev, weights_only=False)
         self.pol.load_state_dict(c["pol"])
-        self.opt.load_state_dict(c["opt"])
+        for o, e in zip(self.opts, c["opt"]): o.load_state_dict(e)
+        for s, e in zip(self.scheds, c.get("sched", [])): s.load_state_dict(e)
         self.passo, self.melhor = c["passo"], c["melhor"]
         self.linhas, self.avaliacoes = c["linhas"], c["avaliacoes"]
         self.rng.bit_generator.state = c["rng"]
@@ -255,10 +286,11 @@ class Treino:
                 perda_v = 0.5 * (v - ret[idx]).pow(2).mean()
                 ent = dist.entropy().mean()
                 perda = perda_pi + c.coef_v * perda_v - c.coef_ent * ent
-                self.opt.zero_grad(set_to_none=True)
+                for o in self.opts: o.zero_grad(set_to_none=True)
                 perda.backward()
                 nn.utils.clip_grad_norm_(self.pol.parameters(), c.max_norma)
-                self.opt.step()
+                for o in self.opts: o.step()
+                for s in self.scheds: s.step()
                 with torch.no_grad():
                     log_r = lp - LP[idx]
                     stats["kl"].append(float(((razao - 1) - log_r).mean()))
@@ -370,6 +402,8 @@ def main():
         p.add_argument("--" + nome.replace("_", "-"), type=tipo)
     p.add_argument("--continuar", action="store_true", default=None,
                    help="retoma do ckpt.pt da pasta do log")
+    p.add_argument("--receita", choices=list(RECEITAS),
+                   help="otimizador + agenda vindos do proxy (padrão: atual)")
     a = vars(p.parse_args())
     id_, extra = a.pop("id"), json.loads(a.pop("json") or "{}")
     cfg = Config(**{k: v for k, v in a.items() if v is not None}, **extra)

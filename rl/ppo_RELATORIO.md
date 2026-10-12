@@ -146,3 +146,79 @@ com `--passos 2000000 --aval-cada 250000`. Ids: `ppo-fases-s0-cpu`, `ppo-fases-s
 
 ### Desfecho
 (preencher depois das três execuções, sem editar a previsão acima)
+
+---
+
+## Índice das execuções de 10–12/10/2026 (só os fatos; o desfecho fica acima, em branco)
+
+Tudo rodado numa máquina sem CUDA: PPO em **CPU** (8 núcleos, `set_num_threads(4)` na
+cópia local; o arquivo versionado segue com 1) e DQN em **MPS**. Backend diferente do
+`ppo-fases-s0` original, que rodou em CUDA — por isso a semente 0 foi refeita como
+`ppo-fases-s0-cpu`, para as sementes serem comparáveis entre si.
+
+### 1. Oito sementes a 2M passos (`ppo-fases-s0-cpu`, `s1`…`s7`)
+
+| s0-cpu | s1 | s2 | s3 | s4 | s5 | s6 | s7 |
+|---|---|---|---|---|---|---|---|
+| 60,5% | 17,1% | 94,0% | 4,0% | 11,9% | 56,2% | 88,6% | 71,7% |
+
+Média **50,5% ± 35,2** (420 partidas cada). Três das oito passam do Econ5 (65,2%).
+O `ppo-fases-s0` original em CUDA deu 81,7%, o 2º melhor valor das oito.
+
+### 2. Três sementes a 4M passos (`-4M`)
+
+| semente | 2M | 4M |
+|---|---|---|
+| s0-cpu | 60,5% | **94,0%** |
+| s1 | 17,1% | **86,4%** |
+| s3 | 4,0% | **56,7%** |
+
+Nas três, a curva ainda subia no último ponto medido. Como o PPO não tem agenda de η
+(lr constante), uma execução de 4M reproduz os primeiros 2M da de 2M com a mesma
+semente — então são continuações, não execuções independentes.
+
+### 3. DQN comparável (`dqn-cnn1d-k20-4M-s0`)
+
+Mesma rede (cnn1d), mesmo k (20), mesmo γ (0,994) e mesmo orçamento (4M) do PPO.
+
+```
+final (420 partidas)  49,3%
+pico na curva         79,4% no passo 1,75M
+velocidade            131 passos/s  (o PPO faz ~1.000 na mesma máquina)
+```
+
+Referência: o lote 1 (k=10, 400k) deu 9,2% ± 7,1.
+
+### 4. Receitas de otimizador no PPO, 4M, 1 semente (`ppo-rec-*`)
+
+Mecanismo `RECEITAS` portado do `rl/dqn.py`, reaproveitando `OTIMIZADORES` e `AGENDAS`
+do `desafio3/treino.py`. Curva de vitórias (63 partidas por ponto):
+
+| receita | 0,5M | 1M | 1,5M | 2M | 2,5M | 3M | 3,5M | 4M | final (420) | cruza 65,2% |
+|---|---|---|---|---|---|---|---|---|---|---|
+| atual (adam 2,5e-4 const) | 2% | 0% | 8% | 60% | 87% | 89% | 89% | 92% | 94,0% | 2,5M |
+| vencedora (sgd 3e-2 cos) | 0% | 27% | 81% | 92% | 97% | 95% | 95% | 97% | 93,8% | **1,5M** |
+| rmsprop 3e-4 wc | 0% | 0% | 44% | 84% | 98% | 97% | 97% | 95% | 93,6% | 2,0M |
+| muon 1e-3 wc | 11% | 27% | 62% | 87% | 87% | 92% | 97% | 95% | 93,1% | 2,0M |
+
+As quatro terminam entre 93,1% e 94,0% (faixa de 0,9 ponto). Nenhuma divergiu.
+**Uma semente por receita** — e a seção 1 mediu ±35 pontos de variação entre sementes
+a 2M, então a diferença de velocidade não tem barra de erro.
+
+### 5. Mudanças no `rl/ppo.py`
+
+- `salvar_ckpt` / `carregar_ckpt` e a flag `--continuar` (item 5.2.1 do `PASSAGEM.md`).
+- `melhor.pt`, salvo quando a avaliação periódica gulosa melhora.
+- `RECEITAS` e `--receita` (`atual`, `vencedora`, `rmsprop`, `muon`), com a agenda
+  recebendo o total de passos do otimizador (`Config.atualizacoes()`), não de jogo.
+- `tests/test_ppo.py` continua com 4 testes passando.
+
+### 6. O que falta rodar
+
+1. Mais sementes das receitas, para dar barra de erro à diferença de velocidade:
+   `python -m rl.ppo --id ppo-rec-vencedora-4M-s1 --receita vencedora --semente 1 --passos 4000000 --aval-cada 250000`
+2. DQN × 3 receitas em k=20 e 4M (o lote 1 comparou receitas a k=10 e 400k, quando o
+   DQN marcava 9,2% — comparação dominada por ruído). Em CPU/MPS são ~8h por execução;
+   em CUDA, ~2,8h.
+3. Generalização do PPO nas fases de **teste**, sementes a partir de 10100 (item 5.2.3).
+4. s3 a 6M: a 4M ela estava em 56,7% e ainda subindo.

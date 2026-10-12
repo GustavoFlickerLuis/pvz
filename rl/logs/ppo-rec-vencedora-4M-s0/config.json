@@ -1,0 +1,38 @@
+{
+  "id": "ppo-rec-vencedora-4M-s0",
+  "config": {
+    "semente": 0,
+    "passos": 4000000,
+    "k_ticks": 20,
+    "gamma": 0.994,
+    "lam": 0.95,
+    "envs": 16,
+    "rollout": 128,
+    "epocas": 4,
+    "minilote": 512,
+    "lr": 0.00025,
+    "clip": 0.2,
+    "coef_v": 0.5,
+    "coef_ent": 0.01,
+    "max_norma": 0.5,
+    "fases": "treino",
+    "dificuldade": 1.0,
+    "sementes_treino": [
+      1000,
+      10000
+    ],
+    "aval_cada": 250000,
+    "aval_sementes": [
+      300,
+      303
+    ],
+    "aval_final_sementes": [
+      300,
+      320
+    ],
+    "ate": "",
+    "aval_sorteio": false,
+    "continuar": false,
+    "receita": "vencedora"
+  }
+}
