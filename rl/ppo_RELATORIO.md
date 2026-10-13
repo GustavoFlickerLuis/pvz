@@ -222,3 +222,19 @@ a 2M, então a diferença de velocidade não tem barra de erro.
    em CUDA, ~2,8h.
 3. Generalização do PPO nas fases de **teste**, sementes a partir de 10100 (item 5.2.3).
 4. s3 a 6M: a 4M ela estava em 56,7% e ainda subindo.
+
+---
+
+## DQN comparável (3 sementes, 2M)
+
+Escrito em 12/10/2026, antes de rodar. Receita baseline do DQN (Adam 1e-4 constante), cnn1d,
+k = 20, γ = 0,994, exploração uniforme, sem currículo, 2M passos, sementes 0, 1 e 2, em
+sequência na RTX 3050 (CUDA). Ids `dqn-cnn1d-k20-2M-s0`…`s2`. O `rl/dqn.py` passa a guardar
+`melhor.pt` (a melhor avaliação periódica gulosa, 63 partidas a cada 50k), como o PPO.
+
+Previsão: com k = 20 e 2M passos, o DQN fica abaixo do PPO nas mesmas sementes (0–2) e
+no mesmo orçamento. Critério: |Δ| > 2 s_c. Com a variância observada no PPO (±35 pontos),
+o resultado mais provável é empate formal. Por isso também se reportam: em quantas
+sementes cada algoritmo passa do Econ5 (65,2%) e o tempo de relógio de cada um.
+
+### Desfecho

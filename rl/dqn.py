@@ -533,6 +533,9 @@ class Treino:
 
     def avaliacao_periodica(self):
         r = self.avaliar(self.cfg.aval_sementes)
+        # melhor.pt (como no PPO): a política oscila, então guarda a melhor das periódicas
+        if r["vitorias"] > max((a["vitorias"] for a in self.avaliacoes), default=-1.0):
+            torch.save(self.online.state_dict(), self.pasta / "melhor.pt")
         self.avaliacoes.append({"passo": self.passo, "partidas": r["partidas"],
                                 "vitorias": r["vitorias"], "dano": r["dano"],
                                 "decisoes": r["decisoes"]})
