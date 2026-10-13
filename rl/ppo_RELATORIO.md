@@ -238,3 +238,49 @@ o resultado mais provável é empate formal. Por isso também se reportam: em qu
 sementes cada algoritmo passa do Econ5 (65,2%) e o tempo de relógio de cada um.
 
 ### Desfecho
+
+Rodado de 12 a 13/10/2026 (com uma queda por falta de memória na s0 e uma pausa na s1, as
+duas retomadas do checkpoint). `python -m rl.comparar_dqn_ppo` (saída em
+`rl/logs/comparar_dqn_ppo.txt`):
+
+| alg. | semente | final (420) | melhor ckpt (420) | melhor periódica (63) | passa do Econ5? | tempo (min) |
+|---|---|---|---|---|---|---|
+| DQN | 0 | 56,2% | 63,1% | 73,0% (1,45M) | não | 145 |
+| DQN | 1 | 63,8% | 75,2% | 79,4% (0,75M) | não | 141 |
+| DQN | 2 | 44,0% | 74,8% | 82,5% (0,70M) | não | 131 |
+| PPO | 0 | 60,5% | 60,5% | 60,3% (2,00M) | não | 36 |
+| PPO | 1 | 17,1% | 17,1% | 15,9% (2,00M) | não | 34 |
+| PPO | 2 | 94,0% | 94,0% | 96,8% (2,00M) | sim | 36 |
+
+- **Final:** DQN 54,7 ± 10,0; PPO 57,2 ± 38,6. Δ (PPO − DQN) = 2,5 pontos, s_c = 28,2,
+  2 s_c = 56,3 → **empate formal**, como previsto. O sinal da diferença é o previsto (DQN
+  abaixo), mas 2,5 pontos é muito menor que o ruído entre sementes.
+- **Passam do Econ5 (65,2%):** DQN 0/3, PPO 1/3 (3/8 nas 8 sementes do PPO a 2M:
+  50,5 ± 35,2).
+- **Tempo de relógio:** DQN ~139 min por semente (~226 passos/s), PPO ~35 min: ~4× mais lento.
+- **Variância:** o DQN varia muito menos entre sementes (dp 10 contra 39). Nenhuma semente
+  do DQN fracassou como as s1, s3 e s4 do PPO (17%, 4%, 12%), e nenhuma chegou perto da s2
+  do PPO (94%).
+- **O DQN atinge o pico cedo e depois piora.** Curva (63 partidas, a cada 250k):
+
+  | passos | 250k | 500k | 750k | 1M | 1,25M | 1,5M | 1,75M | 2M |
+  |---|---|---|---|---|---|---|---|---|
+  | s0 | 6% | 70% | 41% | 46% | 51% | 68% | 51% | 56% |
+  | s1 | 24% | 52% | 79% | 60% | 65% | 62% | 63% | 63% |
+  | s2 | 48% | 41% | 63% | 65% | 60% | 49% | 48% | 51% |
+
+  O melhor checkpoint fica, em média, 16 pontos acima do final (71,0 ± 6,9 contra 54,7).
+  Ressalva: o `melhor.pt` é escolhido pelas sementes 300–302, que estão dentro das 300–319
+  da avaliação de 420 partidas, então esse número é otimista. Para valer como resultado,
+  é preciso reavaliar o `melhor.pt` em sementes que não entraram na escolha. No PPO, a
+  melhor periódica é a do fim nas três sementes.
+- **Ações** (`python -m rl.acoes`, modelo final, 63 partidas; `rl/logs/acoes-dqn-2M.txt`):
+  "esperar" 53–63%, girassol 12–15%. Para comparar, o `ppo-fases-s0` (81,7%, a execução da seção
+  "Resultado") espera 49% e planta 19% de girassóis. O DQN também joga partidas mais curtas
+  (120–169 decisões contra 200).
+
+  | execução | vitórias (63) | decisões/partida | esperar | girassol | ervilha | repetidora | batata | mina |
+  |---|---|---|---|---|---|---|---|---|
+  | dqn-cnn1d-k20-2M-s0 | 55,6% | 134 | 53,4% | 15,0% | 10,8% | 6,4% | 6,1% | 8,3% |
+  | dqn-cnn1d-k20-2M-s1 | 60,3% | 169 | 62,6% | 11,5% | 7,0% | 4,7% | 6,6% | 7,8% |
+  | dqn-cnn1d-k20-2M-s2 | 50,8% | 120 | 59,4% | 14,1% | 7,4% | 4,4% | 6,7% | 7,9% |

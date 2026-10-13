@@ -1,0 +1,18 @@
+=== dqn-cnn1d-k20-2M-s0 início 2026-10-12 21:12:08
+=== dqn-cnn1d-k20-2M-s0 fim 2026-10-12 21:55:04 código morto (memória; retoma do ckpt no passo 629179)
+=== dqn-cnn1d-k20-2M-s0 2026-10-12 22:16:59 retomada autorizada pelo Gustavo (janela própria, com supervisor)
+=== dqn-cnn1d-k20-2M-s0 início 2026-10-12 22:17:00
+=== dqn-cnn1d-k20-2M-s0 fim 2026-10-12 23:58:47 código 0
+=== dqn-cnn1d-k20-2M-s1 início 2026-10-12 23:58:47
+=== dqn-cnn1d-k20-2M-s1 2026-10-13 00:01:14 pausa pedida pelo Gustavo (rl/PARAR)
+=== dqn-cnn1d-k20-2M-s1 fim 2026-10-13 00:01:15 código 3
+=== dqn-cnn1d-k20-2M-s0 2026-10-13 00:01:15 supervisor: parado por rl/PARAR; esperando o Gustavo
+=== dqn-cnn1d-k20-2M-s1 2026-10-13 00:01:29 nota: a linha anterior do supervisor diz s0, mas a parada foi na s1 (passo 50856); supervisor corrigido
+=== dqn-cnn1d-k20-2M-s1 2026-10-13 14:36:39 retomada pedida pelo Gustavo (janela própria, com supervisor)
+=== dqn-cnn1d-k20-2M-s1 início 2026-10-13 14:36:41
+=== dqn-cnn1d-k20-2M-s1 fim 2026-10-13 16:55:26 código 0
+=== dqn-cnn1d-k20-2M-s2 início 2026-10-13 16:55:26
+=== dqn-cnn1d-k20-2M-s2 fim 2026-10-13 19:06:49 código 0
+===  2026-10-13 19:06:49 supervisor: queda (código 1, sem erro de código), 1 ª no trecho a partir do ckpt 0
+===  2026-10-13 19:07:49 supervisor: retomando do ckpt 0
+=== supervisor 2026-10-13 19:07:49 fim: as 3 sementes terminaram

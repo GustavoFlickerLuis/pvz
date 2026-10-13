@@ -1,0 +1,246 @@
+[aval] passo 0: vitórias 0.0% (63 partidas), dano 0.000
+episódio 100 passo 4226 ε 0.995 vitórias(100) 0.00
+episódio 200 passo 8411 ε 0.990 vitórias(100) 0.00
+episódio 300 passo 12584 ε 0.985 vitórias(100) 0.00
+episódio 400 passo 16636 ε 0.980 vitórias(100) 0.00
+episódio 500 passo 20979 ε 0.975 vitórias(100) 0.00
+episódio 600 passo 25231 ε 0.970 vitórias(100) 0.00
+episódio 700 passo 29481 ε 0.965 vitórias(100) 0.00
+episódio 800 passo 33858 ε 0.960 vitórias(100) 0.00
+episódio 900 passo 38150 ε 0.955 vitórias(100) 0.00
+episódio 1000 passo 42337 ε 0.950 vitórias(100) 0.00
+episódio 1100 passo 46455 ε 0.945 vitórias(100) 0.00
+[aval] passo 50000: vitórias 0.0% (63 partidas), dano 0.105
+episódio 1200 passo 50789 ε 0.940 vitórias(100) 0.00
+[ckpt] passo 50856 (0.4 s)
+rl/PARAR encontrado: checkpoint no passo 50856; saindo
+[retomada] passo 50856, 10215 atualizações, 1202 episódios
+episódio 1300 passo 55205 ε 0.934 vitórias(100) 0.00
+episódio 1400 passo 59305 ε 0.930 vitórias(100) 0.00
+episódio 1500 passo 63703 ε 0.924 vitórias(100) 0.00
+episódio 1600 passo 68293 ε 0.919 vitórias(100) 0.00
+episódio 1700 passo 72559 ε 0.914 vitórias(100) 0.00
+episódio 1800 passo 77096 ε 0.908 vitórias(100) 0.00
+episódio 1900 passo 81529 ε 0.903 vitórias(100) 0.00
+episódio 2000 passo 85981 ε 0.898 vitórias(100) 0.00
+episódio 2100 passo 90419 ε 0.893 vitórias(100) 0.00
+episódio 2200 passo 94880 ε 0.887 vitórias(100) 0.00
+episódio 2300 passo 99442 ε 0.882 vitórias(100) 0.00
+[aval] passo 100000: vitórias 1.6% (63 partidas), dano 0.168
+episódio 2400 passo 104276 ε 0.876 vitórias(100) 0.00
+episódio 2500 passo 108926 ε 0.871 vitórias(100) 0.00
+episódio 2600 passo 113720 ε 0.865 vitórias(100) 0.00
+episódio 2700 passo 118379 ε 0.859 vitórias(100) 0.00
+episódio 2800 passo 123743 ε 0.853 vitórias(100) 0.00
+episódio 2900 passo 128678 ε 0.847 vitórias(100) 0.00
+episódio 3000 passo 133512 ε 0.841 vitórias(100) 0.00
+episódio 3100 passo 138767 ε 0.835 vitórias(100) 0.00
+episódio 3200 passo 143852 ε 0.829 vitórias(100) 0.00
+episódio 3300 passo 148902 ε 0.823 vitórias(100) 0.00
+[aval] passo 150000: vitórias 6.3% (63 partidas), dano 0.235
+episódio 3400 passo 153752 ε 0.817 vitórias(100) 0.00
+episódio 3500 passo 158944 ε 0.811 vitórias(100) 0.00
+episódio 3600 passo 164294 ε 0.805 vitórias(100) 0.00
+episódio 3700 passo 169420 ε 0.799 vitórias(100) 0.00
+episódio 3800 passo 174831 ε 0.792 vitórias(100) 0.00
+episódio 3900 passo 180764 ε 0.785 vitórias(100) 0.00
+episódio 4000 passo 185944 ε 0.779 vitórias(100) 0.00
+episódio 4100 passo 191380 ε 0.773 vitórias(100) 0.00
+episódio 4200 passo 196604 ε 0.767 vitórias(100) 0.00
+[aval] passo 200000: vitórias 3.2% (63 partidas), dano 0.160
+episódio 4300 passo 202016 ε 0.760 vitórias(100) 0.00
+episódio 4400 passo 208068 ε 0.753 vitórias(100) 0.01
+episódio 4500 passo 213807 ε 0.746 vitórias(100) 0.01
+episódio 4600 passo 219200 ε 0.740 vitórias(100) 0.00
+episódio 4700 passo 224929 ε 0.733 vitórias(100) 0.00
+episódio 4800 passo 230284 ε 0.727 vitórias(100) 0.00
+episódio 4900 passo 236281 ε 0.719 vitórias(100) 0.00
+episódio 5000 passo 241668 ε 0.713 vitórias(100) 0.00
+episódio 5100 passo 247742 ε 0.706 vitórias(100) 0.01
+[aval] passo 250000: vitórias 23.8% (63 partidas), dano 0.396
+episódio 5200 passo 253733 ε 0.699 vitórias(100) 0.00
+episódio 5300 passo 259608 ε 0.692 vitórias(100) 0.01
+episódio 5400 passo 265752 ε 0.684 vitórias(100) 0.01
+episódio 5500 passo 272096 ε 0.677 vitórias(100) 0.02
+episódio 5600 passo 278123 ε 0.670 vitórias(100) 0.00
+episódio 5700 passo 284192 ε 0.663 vitórias(100) 0.00
+episódio 5800 passo 290590 ε 0.655 vitórias(100) 0.01
+episódio 5900 passo 296603 ε 0.648 vitórias(100) 0.00
+[aval] passo 300000: vitórias 14.3% (63 partidas), dano 0.366
+episódio 6000 passo 303528 ε 0.640 vitórias(100) 0.01
+episódio 6100 passo 310609 ε 0.631 vitórias(100) 0.03
+episódio 6200 passo 316918 ε 0.624 vitórias(100) 0.01
+episódio 6300 passo 323392 ε 0.616 vitórias(100) 0.02
+episódio 6400 passo 330243 ε 0.608 vitórias(100) 0.04
+episódio 6500 passo 337721 ε 0.599 vitórias(100) 0.06
+episódio 6600 passo 345292 ε 0.590 vitórias(100) 0.03
+[aval] passo 350000: vitórias 39.7% (63 partidas), dano 0.591
+episódio 6700 passo 352308 ε 0.582 vitórias(100) 0.03
+episódio 6800 passo 359443 ε 0.573 vitórias(100) 0.05
+episódio 6900 passo 366406 ε 0.565 vitórias(100) 0.04
+episódio 7000 passo 373630 ε 0.556 vitórias(100) 0.04
+episódio 7100 passo 380480 ε 0.548 vitórias(100) 0.06
+[ckpt] passo 387102 (1.0 s)
+episódio 7200 passo 388615 ε 0.539 vitórias(100) 0.10
+episódio 7300 passo 396265 ε 0.529 vitórias(100) 0.06
+[aval] passo 400000: vitórias 46.0% (63 partidas), dano 0.664
+episódio 7400 passo 403824 ε 0.520 vitórias(100) 0.06
+episódio 7500 passo 412605 ε 0.510 vitórias(100) 0.12
+episódio 7600 passo 421372 ε 0.500 vitórias(100) 0.05
+episódio 7700 passo 429297 ε 0.490 vitórias(100) 0.09
+episódio 7800 passo 438315 ε 0.480 vitórias(100) 0.10
+episódio 7900 passo 447578 ε 0.469 vitórias(100) 0.15
+[aval] passo 450000: vitórias 65.1% (63 partidas), dano 0.764
+episódio 8000 passo 457940 ε 0.456 vitórias(100) 0.17
+episódio 8100 passo 467402 ε 0.445 vitórias(100) 0.13
+episódio 8200 passo 476413 ε 0.434 vitórias(100) 0.14
+episódio 8300 passo 485584 ε 0.423 vitórias(100) 0.14
+episódio 8400 passo 494660 ε 0.413 vitórias(100) 0.09
+[aval] passo 500000: vitórias 52.4% (63 partidas), dano 0.677
+episódio 8500 passo 504338 ε 0.401 vitórias(100) 0.18
+episódio 8600 passo 513485 ε 0.390 vitórias(100) 0.14
+episódio 8700 passo 524146 ε 0.378 vitórias(100) 0.26
+episódio 8800 passo 533216 ε 0.367 vitórias(100) 0.21
+episódio 8900 passo 542943 ε 0.355 vitórias(100) 0.18
+[aval] passo 550000: vitórias 65.1% (63 partidas), dano 0.724
+episódio 9000 passo 554002 ε 0.342 vitórias(100) 0.24
+episódio 9100 passo 565683 ε 0.328 vitórias(100) 0.25
+episódio 9200 passo 576552 ε 0.315 vitórias(100) 0.21
+episódio 9300 passo 587612 ε 0.302 vitórias(100) 0.26
+episódio 9400 passo 599325 ε 0.288 vitórias(100) 0.27
+[aval] passo 600000: vitórias 66.7% (63 partidas), dano 0.772
+episódio 9500 passo 611415 ε 0.274 vitórias(100) 0.32
+episódio 9600 passo 622366 ε 0.261 vitórias(100) 0.25
+episódio 9700 passo 636090 ε 0.245 vitórias(100) 0.31
+episódio 9800 passo 647780 ε 0.231 vitórias(100) 0.32
+[aval] passo 650000: vitórias 61.9% (63 partidas), dano 0.772
+episódio 9900 passo 658803 ε 0.218 vitórias(100) 0.31
+episódio 10000 passo 672226 ε 0.202 vitórias(100) 0.40
+[ckpt] passo 679285 (1.0 s)
+episódio 10100 passo 684024 ε 0.188 vitórias(100) 0.32
+episódio 10200 passo 696717 ε 0.173 vitórias(100) 0.43
+[aval] passo 700000: vitórias 60.3% (63 partidas), dano 0.732
+episódio 10300 passo 709237 ε 0.158 vitórias(100) 0.30
+episódio 10400 passo 721837 ε 0.143 vitórias(100) 0.41
+episódio 10500 passo 735451 ε 0.127 vitórias(100) 0.45
+episódio 10600 passo 749559 ε 0.110 vitórias(100) 0.53
+[aval] passo 750000: vitórias 79.4% (63 partidas), dano 0.889
+episódio 10700 passo 765515 ε 0.091 vitórias(100) 0.59
+episódio 10800 passo 780746 ε 0.073 vitórias(100) 0.64
+episódio 10900 passo 796533 ε 0.054 vitórias(100) 0.56
+[aval] passo 800000: vitórias 50.8% (63 partidas), dano 0.688
+episódio 11000 passo 811876 ε 0.050 vitórias(100) 0.51
+episódio 11100 passo 829428 ε 0.050 vitórias(100) 0.55
+episódio 11200 passo 842439 ε 0.050 vitórias(100) 0.32
+[aval] passo 850000: vitórias 49.2% (63 partidas), dano 0.640
+episódio 11300 passo 855914 ε 0.050 vitórias(100) 0.39
+episódio 11400 passo 869546 ε 0.050 vitórias(100) 0.58
+episódio 11500 passo 885234 ε 0.050 vitórias(100) 0.62
+[aval] passo 900000: vitórias 66.7% (63 partidas), dano 0.734
+episódio 11600 passo 900934 ε 0.050 vitórias(100) 0.58
+episódio 11700 passo 915688 ε 0.050 vitórias(100) 0.53
+episódio 11800 passo 930275 ε 0.050 vitórias(100) 0.62
+episódio 11900 passo 944000 ε 0.050 vitórias(100) 0.58
+[aval] passo 950000: vitórias 68.3% (63 partidas), dano 0.727
+[ckpt] passo 950184 (1.1 s)
+episódio 12000 passo 958356 ε 0.050 vitórias(100) 0.48
+episódio 12100 passo 973008 ε 0.050 vitórias(100) 0.57
+episódio 12200 passo 989007 ε 0.050 vitórias(100) 0.52
+[aval] passo 1000000: vitórias 60.3% (63 partidas), dano 0.724
+episódio 12300 passo 1003557 ε 0.050 vitórias(100) 0.56
+episódio 12400 passo 1018635 ε 0.050 vitórias(100) 0.51
+episódio 12500 passo 1034350 ε 0.050 vitórias(100) 0.61
+episódio 12600 passo 1048650 ε 0.050 vitórias(100) 0.56
+[aval] passo 1050000: vitórias 54.0% (63 partidas), dano 0.681
+episódio 12700 passo 1064315 ε 0.050 vitórias(100) 0.58
+episódio 12800 passo 1079214 ε 0.050 vitórias(100) 0.48
+episódio 12900 passo 1095061 ε 0.050 vitórias(100) 0.54
+[aval] passo 1100000: vitórias 47.6% (63 partidas), dano 0.607
+episódio 13000 passo 1108560 ε 0.050 vitórias(100) 0.48
+episódio 13100 passo 1122298 ε 0.050 vitórias(100) 0.58
+episódio 13200 passo 1137894 ε 0.050 vitórias(100) 0.51
+[aval] passo 1150000: vitórias 54.0% (63 partidas), dano 0.657
+episódio 13300 passo 1151630 ε 0.050 vitórias(100) 0.55
+episódio 13400 passo 1165607 ε 0.050 vitórias(100) 0.53
+episódio 13500 passo 1178842 ε 0.050 vitórias(100) 0.46
+episódio 13600 passo 1192843 ε 0.050 vitórias(100) 0.57
+[aval] passo 1200000: vitórias 60.3% (63 partidas), dano 0.713
+episódio 13700 passo 1208339 ε 0.050 vitórias(100) 0.67
+[ckpt] passo 1222167 (1.2 s)
+episódio 13800 passo 1223393 ε 0.050 vitórias(100) 0.57
+episódio 13900 passo 1236758 ε 0.050 vitórias(100) 0.60
+[aval] passo 1250000: vitórias 65.1% (63 partidas), dano 0.725
+episódio 14000 passo 1252406 ε 0.050 vitórias(100) 0.55
+episódio 14100 passo 1265911 ε 0.050 vitórias(100) 0.54
+episódio 14200 passo 1278331 ε 0.050 vitórias(100) 0.49
+episódio 14300 passo 1294118 ε 0.050 vitórias(100) 0.67
+[aval] passo 1300000: vitórias 77.8% (63 partidas), dano 0.850
+episódio 14400 passo 1309915 ε 0.050 vitórias(100) 0.58
+episódio 14500 passo 1325906 ε 0.050 vitórias(100) 0.50
+episódio 14600 passo 1340887 ε 0.050 vitórias(100) 0.58
+[aval] passo 1350000: vitórias 58.7% (63 partidas), dano 0.695
+episódio 14700 passo 1355511 ε 0.050 vitórias(100) 0.46
+episódio 14800 passo 1368800 ε 0.050 vitórias(100) 0.54
+episódio 14900 passo 1382385 ε 0.050 vitórias(100) 0.44
+episódio 15000 passo 1397669 ε 0.050 vitórias(100) 0.55
+[aval] passo 1400000: vitórias 55.6% (63 partidas), dano 0.666
+episódio 15100 passo 1412868 ε 0.050 vitórias(100) 0.49
+episódio 15200 passo 1426916 ε 0.050 vitórias(100) 0.56
+episódio 15300 passo 1440222 ε 0.050 vitórias(100) 0.57
+[aval] passo 1450000: vitórias 66.7% (63 partidas), dano 0.742
+episódio 15400 passo 1454372 ε 0.050 vitórias(100) 0.60
+episódio 15500 passo 1470495 ε 0.050 vitórias(100) 0.52
+episódio 15600 passo 1485264 ε 0.050 vitórias(100) 0.50
+[ckpt] passo 1492047 (1.4 s)
+episódio 15700 passo 1499993 ε 0.050 vitórias(100) 0.52
+[aval] passo 1500000: vitórias 61.9% (63 partidas), dano 0.706
+episódio 15800 passo 1511634 ε 0.050 vitórias(100) 0.39
+episódio 15900 passo 1525726 ε 0.050 vitórias(100) 0.61
+episódio 16000 passo 1540395 ε 0.050 vitórias(100) 0.47
+[aval] passo 1550000: vitórias 65.1% (63 partidas), dano 0.708
+episódio 16100 passo 1554343 ε 0.050 vitórias(100) 0.50
+episódio 16200 passo 1568022 ε 0.050 vitórias(100) 0.52
+episódio 16300 passo 1581743 ε 0.050 vitórias(100) 0.55
+episódio 16400 passo 1596404 ε 0.050 vitórias(100) 0.48
+[aval] passo 1600000: vitórias 73.0% (63 partidas), dano 0.784
+episódio 16500 passo 1609007 ε 0.050 vitórias(100) 0.48
+episódio 16600 passo 1623170 ε 0.050 vitórias(100) 0.55
+episódio 16700 passo 1637057 ε 0.050 vitórias(100) 0.51
+episódio 16800 passo 1649532 ε 0.050 vitórias(100) 0.42
+[aval] passo 1650000: vitórias 54.0% (63 partidas), dano 0.669
+episódio 16900 passo 1662717 ε 0.050 vitórias(100) 0.31
+episódio 17000 passo 1675443 ε 0.050 vitórias(100) 0.43
+episódio 17100 passo 1687110 ε 0.050 vitórias(100) 0.41
+episódio 17200 passo 1699259 ε 0.050 vitórias(100) 0.47
+[aval] passo 1700000: vitórias 52.4% (63 partidas), dano 0.672
+episódio 17300 passo 1713912 ε 0.050 vitórias(100) 0.41
+episódio 17400 passo 1725716 ε 0.050 vitórias(100) 0.43
+episódio 17500 passo 1739938 ε 0.050 vitórias(100) 0.56
+[aval] passo 1750000: vitórias 63.5% (63 partidas), dano 0.671
+episódio 17600 passo 1751996 ε 0.050 vitórias(100) 0.39
+[ckpt] passo 1761750 (1.5 s)
+episódio 17700 passo 1765165 ε 0.050 vitórias(100) 0.44
+episódio 17800 passo 1779906 ε 0.050 vitórias(100) 0.57
+episódio 17900 passo 1793357 ε 0.050 vitórias(100) 0.47
+[aval] passo 1800000: vitórias 61.9% (63 partidas), dano 0.707
+episódio 18000 passo 1806574 ε 0.050 vitórias(100) 0.51
+episódio 18100 passo 1819825 ε 0.050 vitórias(100) 0.52
+episódio 18200 passo 1834579 ε 0.050 vitórias(100) 0.68
+episódio 18300 passo 1848314 ε 0.050 vitórias(100) 0.63
+[aval] passo 1850000: vitórias 52.4% (63 partidas), dano 0.629
+episódio 18400 passo 1860447 ε 0.050 vitórias(100) 0.48
+episódio 18500 passo 1872824 ε 0.050 vitórias(100) 0.53
+episódio 18600 passo 1886414 ε 0.050 vitórias(100) 0.54
+episódio 18700 passo 1899467 ε 0.050 vitórias(100) 0.52
+[aval] passo 1900000: vitórias 79.4% (63 partidas), dano 0.862
+episódio 18800 passo 1911459 ε 0.050 vitórias(100) 0.54
+episódio 18900 passo 1927493 ε 0.050 vitórias(100) 0.60
+episódio 19000 passo 1941661 ε 0.050 vitórias(100) 0.37
+[aval] passo 1950000: vitórias 76.2% (63 partidas), dano 0.806
+episódio 19100 passo 1955640 ε 0.050 vitórias(100) 0.62
+episódio 19200 passo 1968858 ε 0.050 vitórias(100) 0.45
+episódio 19300 passo 1981263 ε 0.050 vitórias(100) 0.41
+episódio 19400 passo 1994193 ε 0.050 vitórias(100) 0.51
+[aval] passo 2000000: vitórias 63.5% (63 partidas), dano 0.744
+[final] vitórias 63.8% em 420 partidas
+[ckpt] passo 2000000 (1.6 s)
