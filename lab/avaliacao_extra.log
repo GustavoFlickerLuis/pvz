@@ -1,0 +1,130 @@
+[aval] estresse Econ5 econ5  dif 1.0 300-319: 67.1% (22.7 s)
+[aval] estresse Econ5 econ5  dif 1.25 300-319: 41.0% (19.9 s)
+[aval] estresse Econ5 econ5  dif 1.5 300-319: 16.4% (18.5 s)
+[aval] estresse Guloso guloso  dif 1.0 300-319: 41.2% (15.1 s)
+[aval] estresse Guloso guloso  dif 1.25 300-319: 31.4% (14.5 s)
+[aval] estresse Guloso guloso  dif 1.5 300-319: 17.1% (11.3 s)
+[aval] estresse A cnn1d lab-f1-v2a-s1 modelo.pt dif 1.0 300-319: 97.4% (bate com o final) (31.9 s)
+[aval] estresse A cnn1d lab-f1-v2a-s1 modelo.pt dif 1.25 300-319: 83.3% (36.1 s)
+[aval] estresse A cnn1d lab-f1-v2a-s1 modelo.pt dif 1.5 300-319: 48.3% (36.3 s)
+[aval] pico_final A cnn1d lab-f1-v2a-s1 melhor.pt dif 1.0 320-339: 94.3% (28.8 s)
+[aval] pico_final A cnn1d lab-f1-v2a-s1 modelo.pt dif 1.0 320-339: 96.4% (29.1 s)
+[aval] estresse A cnn1d lab-f1-v2a-s2 modelo.pt dif 1.0 300-319: 95.2% (bate com o final) (28.8 s)
+[aval] estresse A cnn1d lab-f1-v2a-s2 modelo.pt dif 1.25 300-319: 76.4% (29.9 s)
+[aval] estresse A cnn1d lab-f1-v2a-s2 modelo.pt dif 1.5 300-319: 47.6% (27.7 s)
+[aval] pico_final A cnn1d lab-f1-v2a-s2 melhor.pt dif 1.0 320-339: 95.5% (30.5 s)
+[aval] pico_final A cnn1d lab-f1-v2a-s2 modelo.pt dif 1.0 320-339: 95.5% (31.9 s)
+[aval] estresse A cnn1d lab-f1-v2a-s3 modelo.pt dif 1.0 300-319: 97.1% (bate com o final) (39.9 s)
+[aval] estresse A cnn1d lab-f1-v2a-s3 modelo.pt dif 1.25 300-319: 81.7% (38.4 s)
+[aval] estresse A cnn1d lab-f1-v2a-s3 modelo.pt dif 1.5 300-319: 43.6% (39.0 s)
+[aval] pico_final A cnn1d lab-f1-v2a-s3 melhor.pt dif 1.0 320-339: 94.0% (32.0 s)
+[aval] pico_final A cnn1d lab-f1-v2a-s3 modelo.pt dif 1.0 320-339: 95.5% (36.9 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s1 modelo.pt dif 1.0 300-319: 93.6% (bate com o final) (37.2 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s1 modelo.pt dif 1.25 300-319: 74.0% (39.1 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s1 modelo.pt dif 1.5 300-319: 41.0% (32.2 s)
+[aval] pico_final B atenção antes lab-f2-atencao_antes-s1 melhor.pt dif 1.0 320-339: 96.4% (32.9 s)
+[aval] pico_final B atenção antes lab-f2-atencao_antes-s1 modelo.pt dif 1.0 320-339: 94.0% (34.8 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s2 modelo.pt dif 1.0 300-319: 92.9% (bate com o final) (28.3 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s2 modelo.pt dif 1.25 300-319: 74.8% (23.5 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s2 modelo.pt dif 1.5 300-319: 46.2% (26.1 s)
+[aval] pico_final B atenção antes lab-f2-atencao_antes-s2 melhor.pt dif 1.0 320-339: 93.1% (33.8 s)
+[aval] pico_final B atenção antes lab-f2-atencao_antes-s2 modelo.pt dif 1.0 320-339: 93.3% (30.5 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s3 modelo.pt dif 1.0 300-319: 92.4% (bate com o final) (30.4 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s3 modelo.pt dif 1.25 300-319: 76.7% (33.0 s)
+[aval] estresse B atenção antes lab-f2-atencao_antes-s3 modelo.pt dif 1.5 300-319: 37.9% (30.6 s)
+[aval] pico_final B atenção antes lab-f2-atencao_antes-s3 melhor.pt dif 1.0 320-339: 92.4% (29.7 s)
+[aval] pico_final B atenção antes lab-f2-atencao_antes-s3 modelo.pt dif 1.0 320-339: 92.4% (29.7 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s1 modelo.pt dif 1.0 300-319: 94.3% (bate com o final) (31.3 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s1 modelo.pt dif 1.25 300-319: 71.2% (33.0 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s1 modelo.pt dif 1.5 300-319: 38.6% (29.3 s)
+[aval] pico_final C atenção depois lab-f2-atencao_depois-s1 melhor.pt dif 1.0 320-339: 92.9% (31.2 s)
+[aval] pico_final C atenção depois lab-f2-atencao_depois-s1 modelo.pt dif 1.0 320-339: 92.9% (31.6 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s2 modelo.pt dif 1.0 300-319: 92.1% (bate com o final) (25.6 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s2 modelo.pt dif 1.25 300-319: 74.3% (22.0 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s2 modelo.pt dif 1.5 300-319: 45.7% (19.0 s)
+[aval] pico_final C atenção depois lab-f2-atencao_depois-s2 melhor.pt dif 1.0 320-339: 93.3% (20.2 s)
+[aval] pico_final C atenção depois lab-f2-atencao_depois-s2 modelo.pt dif 1.0 320-339: 93.6% (20.7 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s3 modelo.pt dif 1.0 300-319: 90.0% (bate com o final) (25.5 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s3 modelo.pt dif 1.25 300-319: 69.8% (25.4 s)
+[aval] estresse C atenção depois lab-f2-atencao_depois-s3 modelo.pt dif 1.5 300-319: 32.6% (24.1 s)
+[aval] pico_final C atenção depois lab-f2-atencao_depois-s3 melhor.pt dif 1.0 320-339: 95.2% (25.6 s)
+[aval] pico_final C atenção depois lab-f2-atencao_depois-s3 modelo.pt dif 1.0 320-339: 89.3% (25.2 s)
+[aval] estresse D transformer lab-f2-transformer-s1 modelo.pt dif 1.0 300-319: 88.8% (bate com o final) (23.8 s)
+[aval] estresse D transformer lab-f2-transformer-s1 modelo.pt dif 1.25 300-319: 70.7% (22.9 s)
+[aval] estresse D transformer lab-f2-transformer-s1 modelo.pt dif 1.5 300-319: 37.1% (19.2 s)
+[aval] pico_final D transformer lab-f2-transformer-s1 melhor.pt dif 1.0 320-339: 98.8% (20.7 s)
+[aval] pico_final D transformer lab-f2-transformer-s1 modelo.pt dif 1.0 320-339: 90.2% (25.9 s)
+[aval] estresse D transformer lab-f2-transformer-s2 modelo.pt dif 1.0 300-319: 91.4% (bate com o final) (22.5 s)
+[aval] estresse D transformer lab-f2-transformer-s2 modelo.pt dif 1.25 300-319: 70.0% (23.6 s)
+[aval] estresse D transformer lab-f2-transformer-s2 modelo.pt dif 1.5 300-319: 35.7% (21.2 s)
+[aval] pico_final D transformer lab-f2-transformer-s2 melhor.pt dif 1.0 320-339: 94.0% (21.8 s)
+[aval] pico_final D transformer lab-f2-transformer-s2 modelo.pt dif 1.0 320-339: 93.8% (23.3 s)
+[aval] estresse D transformer lab-f2-transformer-s3 modelo.pt dif 1.0 300-319: 88.1% (bate com o final) (29.7 s)
+[aval] estresse D transformer lab-f2-transformer-s3 modelo.pt dif 1.25 300-319: 56.2% (40.2 s)
+[aval] estresse D transformer lab-f2-transformer-s3 modelo.pt dif 1.5 300-319: 28.8% (36.2 s)
+[aval] pico_final D transformer lab-f2-transformer-s3 melhor.pt dif 1.0 320-339: 93.6% (36.5 s)
+[aval] pico_final D transformer lab-f2-transformer-s3 modelo.pt dif 1.0 320-339: 90.0% (43.7 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s1 modelo.pt dif 1.0 300-319: 89.0% (bate com o final) (43.8 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s1 modelo.pt dif 1.25 300-319: 64.3% (44.3 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s1 modelo.pt dif 1.5 300-319: 28.1% (32.0 s)
+[aval] pico_final D2 transformer d128 lab-f2-transformer_d128-s1 melhor.pt dif 1.0 320-339: 89.0% (32.8 s)
+[aval] pico_final D2 transformer d128 lab-f2-transformer_d128-s1 modelo.pt dif 1.0 320-339: 86.2% (42.0 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s2 modelo.pt dif 1.0 300-319: 89.5% (bate com o final) (33.9 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s2 modelo.pt dif 1.25 300-319: 65.0% (31.2 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s2 modelo.pt dif 1.5 300-319: 36.4% (29.2 s)
+[aval] pico_final D2 transformer d128 lab-f2-transformer_d128-s2 melhor.pt dif 1.0 320-339: 98.6% (42.7 s)
+[aval] pico_final D2 transformer d128 lab-f2-transformer_d128-s2 modelo.pt dif 1.0 320-339: 86.0% (31.8 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s3 modelo.pt dif 1.0 300-319: 80.5% (bate com o final) (33.3 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s3 modelo.pt dif 1.25 300-319: 54.3% (34.1 s)
+[aval] estresse D2 transformer d128 lab-f2-transformer_d128-s3 modelo.pt dif 1.5 300-319: 26.4% (23.8 s)
+[aval] pico_final D2 transformer d128 lab-f2-transformer_d128-s3 melhor.pt dif 1.0 320-339: 84.0% (36.7 s)
+[aval] pico_final D2 transformer d128 lab-f2-transformer_d128-s3 modelo.pt dif 1.0 320-339: 83.8% (32.8 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s1 modelo.pt dif 1.0 300-319: 95.2% (bate com o final) (28.4 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s1 modelo.pt dif 1.25 300-319: 76.2% (27.4 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s1 modelo.pt dif 1.5 300-319: 48.6% (27.5 s)
+[aval] pico_final E dilatada lab-f2-cnn1d_dilatada-s1 melhor.pt dif 1.0 320-339: 98.1% (33.7 s)
+[aval] pico_final E dilatada lab-f2-cnn1d_dilatada-s1 modelo.pt dif 1.0 320-339: 95.5% (28.1 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s2 modelo.pt dif 1.0 300-319: 90.7% (bate com o final) (32.5 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s2 modelo.pt dif 1.25 300-319: 68.8% (32.1 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s2 modelo.pt dif 1.5 300-319: 33.6% (28.1 s)
+[aval] pico_final E dilatada lab-f2-cnn1d_dilatada-s2 melhor.pt dif 1.0 320-339: 94.3% (27.6 s)
+[aval] pico_final E dilatada lab-f2-cnn1d_dilatada-s2 modelo.pt dif 1.0 320-339: 89.5% (32.1 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s3 modelo.pt dif 1.0 300-319: 97.4% (bate com o final) (25.8 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s3 modelo.pt dif 1.25 300-319: 86.7% (27.1 s)
+[aval] estresse E dilatada lab-f2-cnn1d_dilatada-s3 modelo.pt dif 1.5 300-319: 63.6% (28.9 s)
+[aval] pico_final E dilatada lab-f2-cnn1d_dilatada-s3 melhor.pt dif 1.0 320-339: 93.8% (26.5 s)
+[aval] pico_final E dilatada lab-f2-cnn1d_dilatada-s3 modelo.pt dif 1.0 320-339: 93.8% (26.5 s)
+[fim] avaliação extra completa
+**Estresse** (modelo.pt, FASES_TREINO × 300–319, 420 partidas; média ± dp entre sementes)
+
+| braço | dif 1,0 | dif 1,25 | dif 1,5 | queda 1,0→1,5 | Δ queda vs cnn1d | 2·s_c | veredito (queda) |
+|---|---|---|---|---|---|---|---|
+| Econ5 | 67.1 | 41.0 | 16.4 | 50.7 |  |  |  |
+| Guloso | 41.2 | 31.4 | 17.1 | 24.0 |  |  |  |
+| A cnn1d | 96.6 ± 1.2 | 80.5 ± 3.6 | 46.5 ± 2.6 | 50.1 ± 3.1 |  |  |  |
+| B atenção antes | 92.9 ± 0.6 | 75.2 ± 1.4 | 41.7 ± 4.2 | 51.3 ± 4.1 | -1.2 | 7.3 | empate |
+| C atenção depois | 92.1 ± 2.1 | 71.7 ± 2.3 | 39.0 ± 6.6 | 53.2 ± 5.9 | -3.1 | 9.4 | empate |
+| D transformer | 89.4 ± 1.8 | 65.6 ± 8.2 | 33.9 ± 4.5 | 55.6 ± 3.8 | -5.5 | 7.0 | empate |
+| D2 transformer d128 | 86.3 ± 5.1 | 61.2 ± 6.0 | 30.3 ± 5.4 | 56.0 ± 4.3 | -6.0 | 7.5 | empate |
+| E dilatada | 94.4 ± 3.4 | 77.2 ± 9.0 | 48.6 ± 15.0 | 45.9 ± 11.7 | +4.2 | 17.1 | empate |
+
+Nível por dificuldade, braço × cnn1d (Δ / 2·s_c / veredito):
+
+| braço | dif 1,0 | dif 1,25 | dif 1,5 |
+|---|---|---|---|
+| B atenção antes | -3.7 / 1.9 / perdeu | -5.3 / 5.4 / empate | -4.8 / 7.0 / empate |
+| C atenção depois | -4.4 / 3.5 / perdeu | -8.7 / 6.1 / perdeu | -7.5 / 10.0 / empate |
+| D transformer | -7.1 / 3.0 / perdeu | -14.8 / 12.6 / perdeu | -12.6 / 7.3 / perdeu |
+| D2 transformer d128 | -10.2 / 7.4 / perdeu | -19.3 / 9.9 / perdeu | -16.2 / 8.4 / perdeu |
+| E dilatada | -2.1 / 5.1 / empate | -3.3 / 13.7 / empate | +2.1 / 21.5 / empate |
+
+**Pico × final** (FASES_TREINO × 320–339, 420 partidas, dificuldade 1,0)
+
+| braço | melhor.pt s1 / s2 / s3 | passo do melhor | pico | final (mesmas partidas) | pico − final | pico: Δ vs cnn1d | 2·s_c | veredito |
+|---|---|---|---|---|---|---|---|---|
+| A cnn1d | 94.3 / 95.5 / 94.0 | 1.3M / 2.0M / 1.1M | 94.6 ± 0.8 | 95.8 ± 0.5 | -1.2 ± 1.1 |  |  |  |
+| B atenção antes | 96.4 / 93.1 / 92.4 | 1.6M / 1.6M / 2.0M | 94.0 ± 2.2 | 93.3 ± 0.8 | 0.7 ± 1.4 | -0.6 | 3.2 | empate |
+| C atenção depois | 92.9 / 93.3 / 95.2 | 1.8M / 1.8M / 1.8M | 93.8 ± 1.3 | 91.9 ± 2.3 | 1.9 ± 3.5 | -0.8 | 2.1 | empate |
+| D transformer | 98.8 / 94.0 / 93.6 | 1.7M / 1.6M / 1.6M | 95.5 ± 2.9 | 91.3 ± 2.1 | 4.1 ± 4.2 | +0.9 | 4.2 | empate |
+| D2 transformer d128 | 89.0 / 98.6 / 84.0 | 0.7M / 1.7M / 1.9M | 90.6 ± 7.4 | 85.3 ± 1.3 | 5.2 ± 6.5 | -4.0 | 10.5 | empate |
+| E dilatada | 98.1 / 94.3 / 93.8 | 1.7M / 1.7M / 2.0M | 95.4 ± 2.3 | 92.9 ± 3.1 | 2.5 ± 2.4 | +0.8 | 3.5 | empate |

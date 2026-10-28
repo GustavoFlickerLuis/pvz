@@ -1,0 +1,34 @@
+{
+  "copias_conferidas": 1197,
+  "original_preservado": true,
+  "hashes_protocolo": 70,
+  "modelos": 5,
+  "carga_pesos": "weights_only=True, strict=True, CPU, todos finitos",
+  "sqlite": "ok",
+  "partidas": 9450,
+  "chaves_unicas": 9450,
+  "erros": 0,
+  "csv_banco_chaves_iguais": true,
+  "retomada_com_wal": 10,
+  "segredos_detectados": [],
+  "treino_executado": false,
+  "avaliacao_reservada_executada": false,
+  "testes": {
+    "passaram": 100,
+    "desselecionados": 4,
+    "segundos": 15.38,
+    "suite_completa": false,
+    "observacao": "Testes unitarios do ambiente incluem fase reservada/semente 3; sem avaliacao de desempenho dos modelos."
+  },
+  "arquivos_indexados": 1204,
+  "bytes_indexados_conferidos": true,
+  "maior_arquivo_bytes": 10192548,
+  "pesos_novos": 5,
+  "pesos_historicos_herdados": 2,
+  "branches_protegidas": {
+    "main": "7e174064bc30ba7c61e552e128f99eabac095825",
+    "rl": "73279e871aa270e52099c6028c13c15f2d562910",
+    "diag": "3901deb2884b83ae973ffc9912d8f3859a13b72e",
+    "ppo": "2a1c80d015dae813ba45a379070cf3fde652f5c7"
+  }
+}

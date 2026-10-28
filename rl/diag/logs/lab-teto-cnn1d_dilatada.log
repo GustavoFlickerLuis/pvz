@@ -1,0 +1,4 @@
+C:\Users\gului\Desktop\pvz-lab\lab\teto.py:122: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:837.)
+  linhas.append({"atualizacao": t, "huber_treino": float(l), "huber_fora": h})
+[lab-teto-cnn1d_dilatada-s0] parada em 2500 (huber fora 0.10771); nota 73.0% (ii 72.0); longe 59.8% (82 pares), perto 73.9% (1173)

@@ -1,0 +1,40 @@
+{
+  "id": "lab-teste-parada-b",
+  "config": {
+    "semente": 7,
+    "passos": 61440,
+    "k_ticks": 20,
+    "gamma": 0.994,
+    "lam": 0.95,
+    "envs": 16,
+    "rollout": 128,
+    "epocas": 4,
+    "minilote": 512,
+    "lr": 0.00025,
+    "clip": 0.2,
+    "coef_v": 0.5,
+    "coef_ent": 0.01,
+    "max_norma": 0.5,
+    "fases": "calmo",
+    "dificuldade": 0.5,
+    "sementes_treino": [
+      1000,
+      10000
+    ],
+    "aval_cada": 1000000000,
+    "aval_sementes": [
+      300,
+      301
+    ],
+    "aval_final_sementes": [
+      300,
+      320
+    ],
+    "ate": "",
+    "aval_sorteio": false,
+    "continuar": true,
+    "receita": "atual",
+    "arquitetura": "cnn1d",
+    "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR"
+  }
+}

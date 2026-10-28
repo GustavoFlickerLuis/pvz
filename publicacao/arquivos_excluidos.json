@@ -1,0 +1,1409 @@
+[
+  {
+    "path": ".pytest_cache/.gitignore",
+    "bytes": 37,
+    "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": ".pytest_cache/CACHEDIR.TAG",
+    "bytes": 191,
+    "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": ".pytest_cache/README.md",
+    "bytes": 302,
+    "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": ".pytest_cache/v/cache/lastfailed",
+    "bytes": 2,
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": ".pytest_cache/v/cache/nodeids",
+    "bytes": 11267,
+    "sha256": "e263eb95fb459aed9080f601411361812a65318ec1f0a37d6470d078a1c1ce0e",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "desafio3/__pycache__/__init__.cpython-311.pyc",
+    "bytes": 264,
+    "sha256": "1af518cf4529b3092ca337a224b327fd778564a50043615d376de0ead51522f1",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "desafio3/__pycache__/dados.cpython-311.pyc",
+    "bytes": 15602,
+    "sha256": "ecfba03c682a060442c2dc8e0ea5279af7a0390e6961e4f9437e844188b2d74f",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "desafio3/__pycache__/modelo.cpython-311.pyc",
+    "bytes": 33565,
+    "sha256": "dd0e31f49b043eeec445f54114067953daa5ccb0db0acf9ade2a3f5e7886128b",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "desafio3/__pycache__/muon.cpython-311.pyc",
+    "bytes": 6593,
+    "sha256": "2ad18747d2cae22fd8ef7bcc022bd329d4a3a665379763535b373d78a40d5246",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "desafio3/__pycache__/treino.cpython-311.pyc",
+    "bytes": 39099,
+    "sha256": "efb016954e7547fa4533fd6277b21d0e3f81feebbf0622080678c2206db2ece4",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/__init__.cpython-311.pyc",
+    "bytes": 539,
+    "sha256": "4fb20ef1d128770aaa1c6699500b0580ddbb8236b5091672efef6c4221e78958",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/avaliacao_extra.cpython-311.pyc",
+    "bytes": 19899,
+    "sha256": "83f3a86631da2423a8c3271ac436fa308bb3037b3d84d99ea05bd4a5b0940c1d",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/fila.cpython-311.pyc",
+    "bytes": 10592,
+    "sha256": "d2a9b107056af5d2c9e497c1fe724ec52109250414b618159affb56ce6a4d431",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/medir.cpython-311.pyc",
+    "bytes": 4901,
+    "sha256": "ef41bffbcd575bdaf24afffcbaf2149c1927e9c78eede6c330fb4d7c206a8035",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/monitor.cpython-311.pyc",
+    "bytes": 12000,
+    "sha256": "6b4dcc21135ebaa2a56d87652c83d67bd5cde03f47966651c5be37f0164bc201",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/parte0.cpython-311.pyc",
+    "bytes": 10971,
+    "sha256": "df98060d882bf2affc47f4bc5706574f8afa9977ae73cc24ac62cd7f33c2581c",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/parte1.cpython-311.pyc",
+    "bytes": 17238,
+    "sha256": "c0f71a891cfcde93bfda19ec307a4f96e90876e4fb5531308c8c56ced4f17889",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/processos.cpython-311.pyc",
+    "bytes": 4599,
+    "sha256": "a76478931801119c546d587df04475c0414907dfc738847ab514753f594cc19d",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/relatorio.cpython-311.pyc",
+    "bytes": 37779,
+    "sha256": "e57a8d99eddb26d01d86639e6b8e8867dba7273cbcd92d37fae099be0956a58a",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/teste_ckpt.cpython-311.pyc",
+    "bytes": 8954,
+    "sha256": "be792841f34ddd3cfa1849e2ba4c8028f7cebb355cf84bc905ef216825ebe3c7",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/teste_monitor.cpython-311.pyc",
+    "bytes": 11827,
+    "sha256": "21720453ad0d4da671d05da463a1596ad3b07a427eaac7dc98e3ea9cdd0448ab",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/teste_parada.cpython-311.pyc",
+    "bytes": 8091,
+    "sha256": "3b61c9f696fca7033b3869ab4d9aa2fc7abfd84c1d1b65026af460a96fb26780",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/__pycache__/teto.cpython-311.pyc",
+    "bytes": 13109,
+    "sha256": "cf7c88ee939f72c0fcbbb89d7d46ab31229affade92da7f38c752491afb68974",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/generalizacao_final/execucao_20261027/monitor.lock",
+    "bytes": 1,
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "motivo": "controle operacional local",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/generalizacao_final/execucao_20261027/probe_monitor.lock",
+    "bytes": 1,
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "motivo": "controle operacional local",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/generalizacao_final/execucao_20261027/resultados.sqlite-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+    "motivo": "indice transitorio SQLite; WAL preservado",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/generalizacao_final/execucao_20261027/retomada.sqlite-shm",
+    "bytes": 32768,
+    "sha256": "36baa178c19232cd62cc597121702aa2db90288c80954fcd99a5f0213265f2d6",
+    "motivo": "indice transitorio SQLite; WAL preservado",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/generalizacao_final/execucao_20261027/worker.lock",
+    "bytes": 1,
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "motivo": "controle operacional local",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "lab/generalizacao_final/execucao_20261027/worker_pid.json",
+    "bytes": 63,
+    "sha256": "99984a3712d55ba6628a0ac76dff472ec10e3e28c3e14a36baa176b0528657f1",
+    "motivo": "controle operacional local",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "pvz/__pycache__/__init__.cpython-311.pyc",
+    "bytes": 485,
+    "sha256": "6963e7b81d1f7e47bc91c4e57cfacc50ba661efef3a42b17afa9b24589e10bd9",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "pvz/__pycache__/agentes.cpython-311.pyc",
+    "bytes": 8876,
+    "sha256": "f24e394b37987bd3dc188271b5f0e4fe497ed9f20528c36c7ed90f5138fd798d",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "pvz/__pycache__/ambiente.cpython-311.pyc",
+    "bytes": 20860,
+    "sha256": "680c651b67094e6bf4dd0d6fdab7c6baaa6eff05505bece636d73b3dce5f536a",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "pvz/__pycache__/config.cpython-311.pyc",
+    "bytes": 2512,
+    "sha256": "ce63a6526979094bd6229decd8c0ea4b784f19d2a4b47219c1b44ab2587c25a6",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "pvz/__pycache__/divisao.cpython-311.pyc",
+    "bytes": 1598,
+    "sha256": "530e7347f2f1af2995cd5de439ae6729a48bfe6bb15de0f52406fa45cd4c704a",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "pvz/__pycache__/hordas.cpython-311.pyc",
+    "bytes": 11135,
+    "sha256": "1d6190e93bc80dc8f88b5fc88f394e2caa44388b3d92972168474ff54c19e85d",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/__pycache__/__init__.cpython-311.pyc",
+    "bytes": 261,
+    "sha256": "d07ffac057c6cca750860aba241bad6763252354201946043f079f5dbfaa15a2",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/__pycache__/avaliar.cpython-311.pyc",
+    "bytes": 9299,
+    "sha256": "3282c563c01324f8ebc19cb6fd8bef00ab5838e786c988eb603e1b28ce124206",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/__pycache__/dqn.cpython-311.pyc",
+    "bytes": 66841,
+    "sha256": "fdf9864e3c195baf4375f113f22ab958d6171a180324c0a4cb5fcce085fdc2a2",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/__pycache__/ppo.cpython-311.pyc",
+    "bytes": 45087,
+    "sha256": "6072acf53e6d8c2c85e072ccf8fdb273cf3c63a4223692bfbe08d94e5f86cd99",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/__pycache__/rodar.cpython-311.pyc",
+    "bytes": 7704,
+    "sha256": "90509ccfd4271f8a12b0c7d6a29c3a4ac1b6334ce31872d1364ab9fca6adb951",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/__pycache__/status.cpython-311.pyc",
+    "bytes": 6679,
+    "sha256": "8be00891add92197d501e68d68a679e2d6c25fb2584baa299080c65b039908e2",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/diag/__pycache__/__init__.cpython-311.pyc",
+    "bytes": 255,
+    "sha256": "f0dd9b7bc0bae94b01aa5b0cae48e13faf004295cdd944ef77357ac58bfeb78b",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/diag/__pycache__/comum.cpython-311.pyc",
+    "bytes": 3628,
+    "sha256": "2d3e2270199c570d20af32330ffb16f84b4d44db648a988208dde06a450e8493",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/diag/__pycache__/dados_td.cpython-311.pyc",
+    "bytes": 8557,
+    "sha256": "0a783fb5bba8e6f9fd048853e67bca8750f6cb31c517247b1332c3244ea103e7",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/diag/__pycache__/prova.cpython-311.pyc",
+    "bytes": 22147,
+    "sha256": "075e673680b56458729777e1aa8939255d6da66bd6e63228bd3652e50448cf82",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/diag/__pycache__/td.cpython-311.pyc",
+    "bytes": 15677,
+    "sha256": "8bba45e253d212ff3ed87808227dcfc79ccfa8c231bbe04a6301e456f977aba0",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/diag/__pycache__/teto.cpython-311.pyc",
+    "bytes": 9880,
+    "sha256": "ef0ba0f0bce2aa4f47644eb315c33fd8524162052a9c0f41c0586b67e0105dc2",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/diag/dados/prova_avaliacao_k20.npz",
+    "bytes": 1305864,
+    "sha256": "3c56a560c996b9faed8a0bfee58e847da57bd3f3b09c3cf2dfbb81b0ac82a90c",
+    "motivo": "dataset diagnostico regeneravel",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/diag/dados/prova_treino_k20.npz",
+    "bytes": 4342320,
+    "sha256": "aac2b21de566b78ddb6bdcc17ed4f2609297670455ede4422920206ca8bf4fd7",
+    "motivo": "dataset diagnostico regeneravel",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/dqn-cnn1d-k20-2M-s0/melhor.pt",
+    "bytes": 359277,
+    "sha256": "c80f7e0ac81ddf600eca4e1c04f099fb139d36f741e41bc22e5c0833b77754b6",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/dqn-cnn1d-k20-2M-s0/modelo.pt",
+    "bytes": 359277,
+    "sha256": "c13bfb34e406150ba9fac6589916c43fffe9df1da7b13c7f693c4625c434a3ce",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/dqn-cnn1d-k20-2M-s1/melhor.pt",
+    "bytes": 359277,
+    "sha256": "601321e28cd066d328e9182f601edde86435048cac51a3a3c34ba12a0bb8b4ed",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/dqn-cnn1d-k20-2M-s1/modelo.pt",
+    "bytes": 359277,
+    "sha256": "7bfe51de19caf16ca74a1ff2272028f520904aadaec9999fa40333b9e98c21c8",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/dqn-cnn1d-k20-2M-s2/melhor.pt",
+    "bytes": 359277,
+    "sha256": "38968ee3ec2e38209cfd375c5d6d384c43002b7cde9ece4923e4220b5c50b1a1",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/dqn-cnn1d-k20-2M-s2/modelo.pt",
+    "bytes": 359277,
+    "sha256": "6ddac383cb0efae7da57ddfa78b0380161d8a53016d2f6eb9a5a6a5a5f464378",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s1/ckpt.pt",
+    "bytes": 1404639,
+    "sha256": "884c4fbccbd427a8ddd3a898f8ce2c9905e0fe92b09fc67eaaf96f83d7bf24f7",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s1/melhor.pt",
+    "bytes": 359405,
+    "sha256": "5ed9006d40185ca0212c597c4085a1013fba8e9b08baeab3583545461c52b4f7",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s1/modelo.pt",
+    "bytes": 359405,
+    "sha256": "2180b7e8781da1c7de9bab02cabba91a2c1be663e4129172d70c820d62eea8a4",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s2/ckpt.pt",
+    "bytes": 1404127,
+    "sha256": "c36942f75f36991187f45eacbc3bc15ea26b4552f3feffe30d84bdab96119ded",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s2/melhor.pt",
+    "bytes": 359405,
+    "sha256": "d52d4a7b98e4f2161f697fe3bdf620188e1a1da207a3902940735ad11def3c14",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s2/modelo.pt",
+    "bytes": 359405,
+    "sha256": "be8f03f35df7aeee543e46e1ce7f87297439a9d4334ea89c20733f0b0b0fc239",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s3/ckpt.pt",
+    "bytes": 1404511,
+    "sha256": "8bd8932fe1f362cd2fb46f58b0fb0542b58e20d443dc808af9762d10f4261f0c",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s3/melhor.pt",
+    "bytes": 359405,
+    "sha256": "a176b1cbd4287f3743a1b8f9f98c1f7bc66c1e06c8444e37c1128bf82638da14",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s3/modelo.pt",
+    "bytes": 359405,
+    "sha256": "ed5f19e2d04139cf417c023da492d124306c91ac9acbf5b57239bbb671026d8a",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s4/ckpt.pt",
+    "bytes": 1398431,
+    "sha256": "414a6947a8789fb11dfb445e2e1d1cd2c8acc76ede1245b64c053991cd2d0c15",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s4/melhor.pt",
+    "bytes": 359405,
+    "sha256": "fe51f92ab2861413d3654cfff8cf0c6d34ad6d2dfafe9de96bb3d6694a2a7222",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s4/modelo.pt",
+    "bytes": 359405,
+    "sha256": "f6f50cb7b88c4c17ea4ad5d66ae9dbe3f41abb845bcaf2f2690b3a6673456e97",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s6/ckpt.pt",
+    "bytes": 1407263,
+    "sha256": "bc713bd36a76486d1088c207e39c4c28d20ca67823d5b8307b4df6a29cbee6b7",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s6/melhor.pt",
+    "bytes": 359405,
+    "sha256": "765887b65d4714c799b131ac4f397f3bc150c1f839e8c8f94708f60c1e62cc25",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-atual-s6/modelo.pt",
+    "bytes": 359405,
+    "sha256": "63d0dedf7edd4a68143a9ce6cfe01be5de589d9d0fae0fd5761843a87243fb27",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s1/ckpt.pt",
+    "bytes": 1393311,
+    "sha256": "4cba2d98342052f2b2199b068b0739bc4c748faa91ded2532ef35e9b8008dd75",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s1/melhor.pt",
+    "bytes": 359405,
+    "sha256": "a2ca8a94b657e0c5c98cc1e115a723d50812e31c1d4134428c2baa013517f298",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s2/ckpt.pt",
+    "bytes": 1394399,
+    "sha256": "262c31445d5e15de4f686147cbefe31656576ec29d87f75f3969f0669f66233c",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s2/melhor.pt",
+    "bytes": 359405,
+    "sha256": "01366b6371a0cb2e0dfea74cfeeb46721dac089e61c17c3c6892615e5356b129",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s3/ckpt.pt",
+    "bytes": 1408223,
+    "sha256": "7e6c4906c584f39fcabdeac19876d6b2e089de53cc164e0d2400ecf9a4bd7849",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s3/melhor.pt",
+    "bytes": 359405,
+    "sha256": "77287dbaa7581aa532b9157884e36520a8b82ebfeef1f9de69f6e891162d1ef8",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s4/ckpt.pt",
+    "bytes": 1395935,
+    "sha256": "96acd25288b147ccf06455c908117f80315983194089e920d0fdffca2ef6e306",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s4/melhor.pt",
+    "bytes": 359405,
+    "sha256": "128b2ebae8a7fb1dcef08331907139be5782c966569dc972912dcc7b6d53d645",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s6/ckpt.pt",
+    "bytes": 1401375,
+    "sha256": "42d9037097cecf44e9652b9563cb9764505d2db77be9ea223dd923e4bf8393b7",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2a-s6/melhor.pt",
+    "bytes": 359405,
+    "sha256": "be4d17ca272fb5d044d25ead8f31238cf287bfc17e651d5bc7845475b4042c73",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s1/ckpt.pt",
+    "bytes": 1409567,
+    "sha256": "ffa7b960a5c8c3c0be9eebaca1d58fcde603740b5d120a6ccbc781453b4e868a",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s1/melhor.pt",
+    "bytes": 359405,
+    "sha256": "fc096a99db1e82bef94a98a90e2c5e2163347a8d9068df041398bb0060a2871d",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s1/modelo.pt",
+    "bytes": 359405,
+    "sha256": "b94dcbaf2303c56ed5429ccaa0d5db822dd28daa95d06926ae88440aed599a2c",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s2/ckpt.pt",
+    "bytes": 1404895,
+    "sha256": "6fad587293b55da6238bdbc102861e37306ef732b16a6496103a68d479ecf385",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s2/melhor.pt",
+    "bytes": 359405,
+    "sha256": "920c2e097d0f6e0c70d2f60e068213c8c9626c81e9d16d7e73bca94fc22377b4",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s2/modelo.pt",
+    "bytes": 359405,
+    "sha256": "462392f20e97611c7435e75e7d726773d9671fdea3571d1aba661ec655884d0d",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s3/ckpt.pt",
+    "bytes": 1404511,
+    "sha256": "9e5a1869ff40ff241a2217c634b0c1da66abb31bdbacfcb37468d6e336a72997",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s3/melhor.pt",
+    "bytes": 359405,
+    "sha256": "b701b720163a41620d08740151aed1b9a4c54f2a66a11a275864bc2cd6823258",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s3/modelo.pt",
+    "bytes": 359405,
+    "sha256": "591e3f5118e75758b52ae1a57780b039e82f377a2d2865537f911dc785754126",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s4/ckpt.pt",
+    "bytes": 1411039,
+    "sha256": "4617f4bc21a6b527b7de80497b5e154720c6cfbf91a47976ab2c858261d0b896",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s4/melhor.pt",
+    "bytes": 359405,
+    "sha256": "993450a14af28016829b3a347f105e1e20d28b8f97e119b8cd6fe0c51a690623",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s4/modelo.pt",
+    "bytes": 359405,
+    "sha256": "cf58df338555669bacbfdeea91e6ad70db6d32f76f8d56a86ceb10c638a0d486",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s6/ckpt.pt",
+    "bytes": 1398303,
+    "sha256": "ddf34120ad469f82360772e2ec417b98907ad299932a65975071df8df976e748",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s6/melhor.pt",
+    "bytes": 359405,
+    "sha256": "02135fba003031d74589de5a3ebe14cfdf48ad98afe498c029836273b345a791",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f1-v2b-s6/modelo.pt",
+    "bytes": 359405,
+    "sha256": "29980a4d1641305995690b98fbed79946fec7bb6613af4b7b4ccc9b37511c91a",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s1/ckpt.pt",
+    "bytes": 1912367,
+    "sha256": "a62cc6d8cad23a140789e01b314cb097886246254553f0b5c04df1c04bc63680",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s1/melhor.pt",
+    "bytes": 528901,
+    "sha256": "0a86da32ac373329a5db02e8228a9c1548727f11f7fd6e3195381f1ba3e12131",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s1/modelo.pt",
+    "bytes": 528901,
+    "sha256": "697aa41586581c2fa2c9150b3efd6faeb0c49be698921e6175b609159903272e",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s2/ckpt.pt",
+    "bytes": 1907375,
+    "sha256": "bc58e48875eeedb9dd223cf7c54b30e3b258b7124b104070efd7752ea07aee66",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s2/melhor.pt",
+    "bytes": 528901,
+    "sha256": "990a14021dc21df609697db4cbe8102e206398d5b16070bbd1b5fcdb58de51f0",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s2/modelo.pt",
+    "bytes": 528901,
+    "sha256": "53de698638747d8b65ffd09f7e337bc502c6192ed737169686315f671ac0e382",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s3/ckpt.pt",
+    "bytes": 1908015,
+    "sha256": "db7cec287a880b457d29a719c900278052cd2366875fa585ae379e56a70c3b56",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s3/melhor.pt",
+    "bytes": 528901,
+    "sha256": "61cc0d036121a7da4013a63325d1e604cf1f76b145fdea77677df88e894f1037",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_antes-s3/modelo.pt",
+    "bytes": 528901,
+    "sha256": "e8c574888285370b814c1dafb6f2641113364e327ca67689617fbe68f61a2e5b",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s1/ckpt.pt",
+    "bytes": 1626591,
+    "sha256": "0a8871d1e16591379da5f1fe1c0d42ba482c8a615bb2ee70c666fb7010dffcd7",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s1/melhor.pt",
+    "bytes": 431949,
+    "sha256": "30535f6df8b5bd0a0f43199ef09adcfaab961b2bcf6a10501d672e59e1c122ab",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s1/modelo.pt",
+    "bytes": 431949,
+    "sha256": "d5b481b15803571e96e78f82dcf45d70f37d926be9d7ea50fee09e1fe3062318",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s2/ckpt.pt",
+    "bytes": 1614047,
+    "sha256": "f173307f9b5bda8764a0620d389234ceebc0046ec615f92e52d59decfb84241d",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s2/melhor.pt",
+    "bytes": 431949,
+    "sha256": "4a6023ac56e6223a80fc5b6e9d21fb5f58163f6177556eb7c2e7d2d7d6e5d678",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s2/modelo.pt",
+    "bytes": 431949,
+    "sha256": "b8b7e58a6a1450097891ddcc17a5e451059aa4f2b1800194c4bb4f257263cd0f",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s3/ckpt.pt",
+    "bytes": 1628959,
+    "sha256": "d1c1162f31858f586bf89353c3437516e937917ba914f797e32e8b68c9a687ee",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s3/melhor.pt",
+    "bytes": 431949,
+    "sha256": "0c55f2b398b8a361be49eaddd55242ffa4a410be7b3e1205e2e0c9c58a01344b",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-atencao_depois-s3/modelo.pt",
+    "bytes": 431949,
+    "sha256": "c8e305c7937b5244defb906fa8f58d8739d6020db9da83bda8f56aad0e928799",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s1/ckpt.pt",
+    "bytes": 1403487,
+    "sha256": "19995a08cf14f626aa22c68292f82632b8fdc1bd6c225cd673545e6007e9cfa3",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s1/melhor.pt",
+    "bytes": 359405,
+    "sha256": "331d7cf5f7f719b94cac32acb7b3cf7180c8547425be964b28813eb6465a409d",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s1/modelo.pt",
+    "bytes": 359405,
+    "sha256": "e2423877f0b51781b418231e7158ae4ce65e758eab5a2322b8356ceae8f44cb5",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s2/ckpt.pt",
+    "bytes": 1395231,
+    "sha256": "37b520707bf6db263ed80daf320be3f91b693c3f2f327860bfddb659dbdc0f95",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s2/melhor.pt",
+    "bytes": 359405,
+    "sha256": "e28801d18e74e4cd4bc4dc5bcddf85dde0ad41fb7f7912064231181b4d8ca4bf",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s2/modelo.pt",
+    "bytes": 359405,
+    "sha256": "910c2dd3390a271da1cc8fef7cb38e1c670fb2839b46cbcbaa83fa397106e6d2",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s3/ckpt.pt",
+    "bytes": 1394399,
+    "sha256": "36122463a530d652e2049ab88c02e85003f4993228e951b5804a5d81c41072f0",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s3/melhor.pt",
+    "bytes": 359405,
+    "sha256": "042f052603937915d1d1186d4a4c54d83aa107ac8d9f348ab440365ff95df5e6",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-cnn1d_dilatada-s3/modelo.pt",
+    "bytes": 359405,
+    "sha256": "09670c2b325001fddef64fab039de3da90f749f284aa792493367b443662ff05",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s1/ckpt.pt",
+    "bytes": 1595578,
+    "sha256": "70d1acc3d5b8ea0e646d3682f8cf2e3d65d5600074bc16c92c4dc11582bf30e8",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s1/melhor.pt",
+    "bytes": 423625,
+    "sha256": "d2c6f7fd36a6804a9669d804f651d5e55fd7c267f66ef15e702d686fab8c6249",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s1/modelo.pt",
+    "bytes": 423625,
+    "sha256": "b364a984bf8a44f22bb2f51cc1fe0a5470c5939fac9953a3c1b486afbaeff905",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s2/ckpt.pt",
+    "bytes": 1593082,
+    "sha256": "1a1d15fc89e4299f86a91e55e3b5b85803d50dc89be3fb30e09806342df03f7c",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s2/melhor.pt",
+    "bytes": 423625,
+    "sha256": "919a6e4f1bf6cac2d72cafe3ca00b815a024d8fb0f5ccc9a7c405af55910f55d",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s2/modelo.pt",
+    "bytes": 423625,
+    "sha256": "b0dafa634e5c5842360f50cb6068294a57ebdff2f31bf83fa695fcca2a0be088",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s3/ckpt.pt",
+    "bytes": 1607034,
+    "sha256": "2a6098d6464161fcb5ea00dbb50987f628f81dea6457af0128be35e7b4595bc3",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s3/melhor.pt",
+    "bytes": 423625,
+    "sha256": "55d7db4e02458154c3334ff58f0273329dcef2f3b347e5609665444f353c8fdf",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer-s3/modelo.pt",
+    "bytes": 423625,
+    "sha256": "f90ad9b24101c96163bcbc4adb39308f72faf2b9eee3be6a30e489d595eb558f",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s1/ckpt.pt",
+    "bytes": 5190202,
+    "sha256": "02dfeeab808bc11e14b89b9f07d800fc70e6a3bac2e3a8ae118e8395202c3d24",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s1/melhor.pt",
+    "bytes": 1622729,
+    "sha256": "c05ef746cf0fd10516a1bbe4d97fd39b786ef8838d7f329e0a9db50c09a8fdcf",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s1/modelo.pt",
+    "bytes": 1622729,
+    "sha256": "d120ce25445779696766f0af5e7a771b3c94a901fdeca049439c0aa482aa00f4",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s2/ckpt.pt",
+    "bytes": 5202746,
+    "sha256": "08e7255603357775cc8a9fdd844c6718a515365d918283daff7bd69d3f61f88c",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s2/melhor.pt",
+    "bytes": 1622729,
+    "sha256": "d056741c4f6e31e1aba814dab7872e1f8ff966418ab7a32857af4bf428c293fb",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s2/modelo.pt",
+    "bytes": 1622729,
+    "sha256": "2925f742d2508fd730137465e306fc4c65e789ea2fbb4fd00e5a641d6551c88a",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s3/ckpt.pt",
+    "bytes": 5181946,
+    "sha256": "5a8d4a9ac99f7f219a1f214582d37b087879aaca0fb1b30c598248918c3274f5",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s3/melhor.pt",
+    "bytes": 1622729,
+    "sha256": "f3ca122e668d060089f7dd5e5f2159561d68c2508b93b447c711837f24ae883b",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f2-transformer_d128-s3/modelo.pt",
+    "bytes": 1622729,
+    "sha256": "daca33592a9ef9b16f46e4a65bc7894062ba708de2e8ea5696e762ebb387f4f0",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s1/ckpt.pt",
+    "bytes": 1613882,
+    "sha256": "0db1895ab18a026ffe58dae09b8424bdb745228ba0d861e878657bbd310c8803",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s1/melhor.pt",
+    "bytes": 423625,
+    "sha256": "14becdea93a433d16d21fa42588adcc034484bb313048a22ac7cbb823de2c38f",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s1/modelo.pt",
+    "bytes": 423625,
+    "sha256": "9db0873eb67c51c69cd40a4143d81a862398e2e2aa2a52a184d5c02bba7de42e",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s2/ckpt.pt",
+    "bytes": 1601530,
+    "sha256": "a499321d05c1f9d3528447e8aa039ce6d96bdbb159bfbe98b45514619b239079",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s2/melhor.pt",
+    "bytes": 423625,
+    "sha256": "deda383aa982e68c1314134d32e835a8780f7d25cd5055606780240309d08757",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s2/modelo.pt",
+    "bytes": 423625,
+    "sha256": "fd4a2fa5e6979045b869a931bb0fe2e325fe5034bbd139f3513041373210c0b6",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s3/ckpt.pt",
+    "bytes": 1614458,
+    "sha256": "04a979e6d74fbc3373e1059e9d9aa5e1063e4f29b4edfd629aa6b7bf146aca47",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s3/melhor.pt",
+    "bytes": 423625,
+    "sha256": "f9939d0c4456fe032ca8a05314de2b33a513603968e3460b536cb2f7845249c8",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-ent01-s3/modelo.pt",
+    "bytes": 423625,
+    "sha256": "f164149b15d4eba95b7050a33fe1eb4564f18033eb610688a5ed1255782a95be",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s1/ckpt.pt",
+    "bytes": 1604410,
+    "sha256": "f741bee18221b624b5700407eea65a824797c88f590b40d165050fc228b235e2",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s1/melhor.pt",
+    "bytes": 423625,
+    "sha256": "d913a6c5a748aed08069b664aaff925a88689b2c162c444a482fc13ed777d782",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s1/modelo.pt",
+    "bytes": 423625,
+    "sha256": "b4c02e1f5929aa90e1d218a6e5c63956922990c1ccbf5321e5fa24d3c56bc6b5",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s2/ckpt.pt",
+    "bytes": 1602490,
+    "sha256": "5057f76e29986e350fe8c7fd27af2f17ff14d5e7d7acca37fe1c03d2d63bae78",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s2/melhor.pt",
+    "bytes": 423625,
+    "sha256": "f6700fc172ef9bb01ac2414e68a3e8b07b1da2e5a7c4afaed61f418da3f2f0ed",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s2/modelo.pt",
+    "bytes": 423625,
+    "sha256": "8d7ed944871a47383d5e8128e913f47ebcea34aed61748ea26112eb538a18562",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s3/ckpt.pt",
+    "bytes": 1607290,
+    "sha256": "3a6b819b9d8085b86ff30040a12b86dbd7d563c3d2dbe26f2572f67bf003f4f9",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s3/melhor.pt",
+    "bytes": 423625,
+    "sha256": "fe730f8dd31c31907d2417ccf19694ad3bf0a4156a38dade0cdb302ece98a4ef",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-f3-D-v2b-s3/modelo.pt",
+    "bytes": 423625,
+    "sha256": "b65adcff50610bc73ce7540cb3e7ad96678f16bd96942ee739a5c6072640230b",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-atencao_antes/ckpt.pt",
+    "bytes": 1713839,
+    "sha256": "a957c46091f66283c62bcabf442f2aaf54e6b9d8eca4e5b05886af2593fee2f3",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-atencao_antes/melhor.pt",
+    "bytes": 528901,
+    "sha256": "56f4dac2142ae464d536303fc8ac9a3fbe17b8200f3a82a11fd2b594887da74f",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-atencao_antes/modelo.pt",
+    "bytes": 528901,
+    "sha256": "12e47abc75d5f4d6ae5e9adbb376b0f2d3a8a4da8782e572f0ea78d94882b8fe",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-atencao_depois/ckpt.pt",
+    "bytes": 1421791,
+    "sha256": "0c4b8624b72789e1fc6bb552650417977a115d4bf32f99f4a2fc223418508790",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-atencao_depois/melhor.pt",
+    "bytes": 431949,
+    "sha256": "4834ef42a6ebb017bfc6c29ab685dd63c83d18dd88642e3035da4c933104769f",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-atencao_depois/modelo.pt",
+    "bytes": 431949,
+    "sha256": "c778c3aa50a51ca4935438f918feff2a053229b1f40a19d2b7adc4fe96201c22",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-cnn1d/ckpt.pt",
+    "bytes": 1212895,
+    "sha256": "a76f15b0f158f05bbae5097562943969674542a73ebbcd6711d7044c819ac163",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-cnn1d/melhor.pt",
+    "bytes": 359405,
+    "sha256": "ee2a3b9bf43677447478f4e873914d8fcb5eae55803b8c18eb09f7d8b7b81352",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-cnn1d/modelo.pt",
+    "bytes": 359405,
+    "sha256": "de872a1b81af2e365f9ee08a5cb0fd0f8e80f4305f8ba0c42a800f4d87f8a907",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-cnn1d_dilatada/ckpt.pt",
+    "bytes": 1215583,
+    "sha256": "bba2aec993ea5787dfb88fe2fbbb65dfa5611ee10fb914d092159d22a39b236e",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-cnn1d_dilatada/melhor.pt",
+    "bytes": 359405,
+    "sha256": "6fda925086ad9a0f7ec8dcc9233fa6eff3ac22d4f417d7626855cc12a1ca0f78",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-cnn1d_dilatada/modelo.pt",
+    "bytes": 359405,
+    "sha256": "cf0774d59359aadb9595ba9a50fc2b1e9a18933e76b04f5bdec972305e723214",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-transformer/ckpt.pt",
+    "bytes": 1400250,
+    "sha256": "9aaa51aca134f4a178fb31d9ca7eb8ef47842b044b4fd472115310ff850ed4da",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-transformer/melhor.pt",
+    "bytes": 423625,
+    "sha256": "a56a6e9b39ecd316032ca89928e0f27361c907a1fa09378c3267eabac416f57d",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-transformer/modelo.pt",
+    "bytes": 423625,
+    "sha256": "206190a854e1acf178dc82369a2186be915adaffa8e946920a7e97f32e06e6ca",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-transformer_d128/ckpt.pt",
+    "bytes": 4998650,
+    "sha256": "d144aa4d4d2fe4e8899396795456ed7b57e74e0ec5f9eacaf17d930c4a36c7d5",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-transformer_d128/melhor.pt",
+    "bytes": 1622729,
+    "sha256": "c33f3e1b5e9e00a140b3be933dde6c7be4a184bc8efe3abb43e3c7c57f81e50a",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-san-transformer_d128/modelo.pt",
+    "bytes": 1622729,
+    "sha256": "874e2e4a19ffb0f1f962540acc4a0f25c20826e1c875c49424faab53f3a62ebd",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-ckpt-b/ckpt.pt",
+    "bytes": 1236511,
+    "sha256": "5ef63c99171e9c3173ea3dbbdeb5c423385935846d09b0c023ebcff33007a6f3",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-ckpt-b/melhor.pt",
+    "bytes": 359405,
+    "sha256": "234209ea235fb1a2f0aad345831f3b7ec97d1fcae36ab7c334fd19e784f15063",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-ckpt-b/modelo.pt",
+    "bytes": 359405,
+    "sha256": "2e705cf324933801d15553f3639a8dc2a1212b71dc91aceca4268280ec73e184",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-ckpt-ref/ckpt.pt",
+    "bytes": 1236127,
+    "sha256": "8ebdebc2369127f7af370ab7e2ae43fe78a8197c326757319e94a33455535f89",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-ckpt-ref/melhor.pt",
+    "bytes": 359405,
+    "sha256": "234209ea235fb1a2f0aad345831f3b7ec97d1fcae36ab7c334fd19e784f15063",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-ckpt-ref/modelo.pt",
+    "bytes": 359405,
+    "sha256": "2e705cf324933801d15553f3639a8dc2a1212b71dc91aceca4268280ec73e184",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-a/ckpt.pt",
+    "bytes": 1190175,
+    "sha256": "91d533c0a9a98538d2522723edffc0ab5e41c05b1aeff15300ce8d27a0543020",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-a/melhor.pt",
+    "bytes": 359405,
+    "sha256": "564cb6a18c413c313c43bd3118caa0f08393d6d4e1efe019d5aa99640c4aa9ae",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-a/modelo.pt",
+    "bytes": 359405,
+    "sha256": "fa739ab73ed19b0442d72d6cc68449c945cba8986f5f08a3b5c770ef2b1a34ce",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-b/ckpt.pt",
+    "bytes": 1189791,
+    "sha256": "9631bb96775ff99e975529ed8b7ea19d3d922ac9a80ff90d3da7fed21d8db517",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-b/melhor.pt",
+    "bytes": 359405,
+    "sha256": "564cb6a18c413c313c43bd3118caa0f08393d6d4e1efe019d5aa99640c4aa9ae",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-b/modelo.pt",
+    "bytes": 359405,
+    "sha256": "fa739ab73ed19b0442d72d6cc68449c945cba8986f5f08a3b5c770ef2b1a34ce",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-ref/ckpt.pt",
+    "bytes": 1189791,
+    "sha256": "e4e81629495f1b2ed8cbce1ba8b20c972ba6f32956ef5ce422fffef115e9114b",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-ref/melhor.pt",
+    "bytes": 359405,
+    "sha256": "564cb6a18c413c313c43bd3118caa0f08393d6d4e1efe019d5aa99640c4aa9ae",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/lab-teste-parada-ref/modelo.pt",
+    "bytes": 359405,
+    "sha256": "fa739ab73ed19b0442d72d6cc68449c945cba8986f5f08a3b5c770ef2b1a34ce",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "rl/logs/ppo-fases-s0/modelo.pt",
+    "bytes": 359405,
+    "sha256": "f2aad8cc0a3b369bd0fdb4d99d0abd1898f913cc49d0d781c3198e7c18f02e89",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": true
+  },
+  {
+    "path": "rl/logs/ppo-sanidade/modelo.pt",
+    "bytes": 359405,
+    "sha256": "de872a1b81af2e365f9ee08a5cb0fd0f8e80f4305f8ba0c42a800f4d87f8a907",
+    "motivo": "peso intermediario/retomada ou modelo fora dos cinco finais",
+    "publicado_por_heranca_ppo": true
+  },
+  {
+    "path": "tests/__pycache__/__init__.cpython-311.pyc",
+    "bytes": 157,
+    "sha256": "68ca13159678356cee1b45ee21d520df6ed8bf88e82cc7e0879ed738fc0c0213",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "tests/__pycache__/test_ambiente.cpython-311-pytest-9.1.1.pyc",
+    "bytes": 48028,
+    "sha256": "6e2a8caebd8fc71ef94b8e1214dc35b81c369b4dc03d95d5856c57232b6f9fd3",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "tests/__pycache__/test_arquiteturas.cpython-311-pytest-9.1.1.pyc",
+    "bytes": 58985,
+    "sha256": "1f5be8e441f2c3b5cc834d2999ec1f3ed847a1dd066f8583f513ddf6e4bea86a",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "tests/__pycache__/test_desafio3.cpython-311-pytest-9.1.1.pyc",
+    "bytes": 16560,
+    "sha256": "c5a08cb24b1dc8b625ae1eea6a13e7610cd0e52dfcc6a3e6834b111e9df1e5a5",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "tests/__pycache__/test_diag.cpython-311-pytest-9.1.1.pyc",
+    "bytes": 19780,
+    "sha256": "47f2a5355ce3a6b4fc35c61980e0f86d4d8ddc222eb07e5137678b87a83944a7",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "tests/__pycache__/test_lab.cpython-311-pytest-9.1.1.pyc",
+    "bytes": 51475,
+    "sha256": "6c12976ace39729e9d257e5577ec09a13f21791b905fb40f5e33f006b57e30eb",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "tests/__pycache__/test_ppo.cpython-311-pytest-9.1.1.pyc",
+    "bytes": 23612,
+    "sha256": "25a1d3254d002c1816f631e67da49052a76e73fc37e5bd1e483e11312389279e",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  },
+  {
+    "path": "tests/__pycache__/test_rl.cpython-311-pytest-9.1.1.pyc",
+    "bytes": 153193,
+    "sha256": "b92d2a98d58e83a532ce927ee6fe472dd65346683ae163ed1ae016ea75d50957",
+    "motivo": "cache/ambiente/IDE",
+    "publicado_por_heranca_ppo": false
+  }
+]

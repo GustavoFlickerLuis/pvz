@@ -35,9 +35,10 @@ def _uma_thread():
 
 class TestRegistry:
     def test_nomes_classes_e_formatos(self):
-        assert list(ARQUITETURAS) == ["cnn1", "cnn1d", "cnn2", "cnn3"]
-        assert [type(criar(n)) for n in ARQUITETURAS] == [CNN, CNN1D, CNN2, CNN3]
-        assert [formato(n) for n in ARQUITETURAS] == ["v1", "v2", "v2", "v2"]
+        # lab: os braços novos vêm depois das quatro de sempre (tests/test_lab.py)
+        assert list(ARQUITETURAS)[:4] == ["cnn1", "cnn1d", "cnn2", "cnn3"]
+        assert [type(criar(n)) for n in list(ARQUITETURAS)[:4]] == [CNN, CNN1D, CNN2, CNN3]
+        assert [formato(n) for n in ARQUITETURAS] == ["v1"] + ["v2"] * (len(ARQUITETURAS) - 1)
         assert all(formato_do_modelo(criar(n)) == formato(n) for n in ARQUITETURAS)
 
     @pytest.mark.parametrize("nome", list(ARQUITETURAS))

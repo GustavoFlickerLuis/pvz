@@ -1,0 +1,70 @@
+[aval] estresse D v2b lab-f3-D-v2b-s1 modelo.pt dif 1.0 300-319: 95.7% (bate com o final) (21.9 s)
+[aval] estresse D v2b lab-f3-D-v2b-s1 modelo.pt dif 1.25 300-319: 71.4% (24.3 s)
+[aval] estresse D v2b lab-f3-D-v2b-s1 modelo.pt dif 1.5 300-319: 38.1% (20.6 s)
+[aval] pico_final D v2b lab-f3-D-v2b-s1 melhor.pt dif 1.0 320-339: 94.8% (20.5 s)
+[aval] pico_final D v2b lab-f3-D-v2b-s1 modelo.pt dif 1.0 320-339: 95.5% (24.4 s)
+[aval] estresse D v2b lab-f3-D-v2b-s2 modelo.pt dif 1.0 300-319: 98.6% (bate com o final) (26.7 s)
+[aval] estresse D v2b lab-f3-D-v2b-s2 modelo.pt dif 1.25 300-319: 74.5% (28.3 s)
+[aval] estresse D v2b lab-f3-D-v2b-s2 modelo.pt dif 1.5 300-319: 36.9% (24.4 s)
+[aval] pico_final D v2b lab-f3-D-v2b-s2 melhor.pt dif 1.0 320-339: 95.2% (29.7 s)
+[aval] pico_final D v2b lab-f3-D-v2b-s2 modelo.pt dif 1.0 320-339: 98.1% (26.4 s)
+[aval] estresse D v2b lab-f3-D-v2b-s3 modelo.pt dif 1.0 300-319: 89.8% (bate com o final) (31.2 s)
+[aval] estresse D v2b lab-f3-D-v2b-s3 modelo.pt dif 1.25 300-319: 66.9% (33.2 s)
+[aval] estresse D v2b lab-f3-D-v2b-s3 modelo.pt dif 1.5 300-319: 33.6% (26.1 s)
+[aval] pico_final D v2b lab-f3-D-v2b-s3 melhor.pt dif 1.0 320-339: 87.9% (32.1 s)
+[aval] pico_final D v2b lab-f3-D-v2b-s3 modelo.pt dif 1.0 320-339: 91.4% (30.1 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s1 modelo.pt dif 1.0 300-319: 78.3% (bate com o final) (28.7 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s1 modelo.pt dif 1.25 300-319: 44.5% (26.2 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s1 modelo.pt dif 1.5 300-319: 12.4% (17.6 s)
+[aval] pico_final D coef_ent 0,01 lab-f3-D-ent01-s1 melhor.pt dif 1.0 320-339: 89.3% (26.9 s)
+[aval] pico_final D coef_ent 0,01 lab-f3-D-ent01-s1 modelo.pt dif 1.0 320-339: 81.4% (30.9 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s2 modelo.pt dif 1.0 300-319: 82.1% (bate com o final) (28.0 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s2 modelo.pt dif 1.25 300-319: 51.9% (23.6 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s2 modelo.pt dif 1.5 300-319: 22.1% (19.9 s)
+[aval] pico_final D coef_ent 0,01 lab-f3-D-ent01-s2 melhor.pt dif 1.0 320-339: 87.9% (27.0 s)
+[aval] pico_final D coef_ent 0,01 lab-f3-D-ent01-s2 modelo.pt dif 1.0 320-339: 82.4% (25.9 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s3 modelo.pt dif 1.0 300-319: 78.8% (bate com o final) (34.3 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s3 modelo.pt dif 1.25 300-319: 47.4% (30.7 s)
+[aval] estresse D coef_ent 0,01 lab-f3-D-ent01-s3 modelo.pt dif 1.5 300-319: 17.9% (24.1 s)
+[aval] pico_final D coef_ent 0,01 lab-f3-D-ent01-s3 melhor.pt dif 1.0 320-339: 89.0% (27.0 s)
+[aval] pico_final D coef_ent 0,01 lab-f3-D-ent01-s3 modelo.pt dif 1.0 320-339: 78.1% (34.2 s)
+[fim] avaliação extra completa
+**Estresse** (modelo.pt, FASES_TREINO × 300–319, 420 partidas; média ± dp entre sementes)
+
+| braço | dif 1,0 | dif 1,25 | dif 1,5 | queda 1,0→1,5 | Δ queda vs cnn1d | 2·s_c | veredito (queda) |
+|---|---|---|---|---|---|---|---|
+| Econ5 (k=20) | 65.2 | 38.3 | 13.8 | 51.4 |  |  |  |
+| Guloso (k=20) | 51.7 | 38.6 | 21.4 | 30.2 |  |  |  |
+| A cnn1d | 96.6 ± 1.2 | 80.5 ± 3.6 | 46.5 ± 2.6 | 50.1 ± 3.1 |  |  |  |
+| B atenção antes | 92.9 ± 0.6 | 75.2 ± 1.4 | 41.7 ± 4.2 | 51.3 ± 4.1 | -1.2 | 7.3 | empate |
+| C atenção depois | 92.1 ± 2.1 | 71.7 ± 2.3 | 39.0 ± 6.6 | 53.2 ± 5.9 | -3.1 | 9.4 | empate |
+| D transformer | 89.4 ± 1.8 | 65.6 ± 8.2 | 33.9 ± 4.5 | 55.6 ± 3.8 | -5.5 | 7.0 | empate |
+| D2 transformer d128 | 86.3 ± 5.1 | 61.2 ± 6.0 | 30.3 ± 5.4 | 56.0 ± 4.3 | -6.0 | 7.5 | empate |
+| E dilatada | 94.4 ± 3.4 | 77.2 ± 9.0 | 48.6 ± 15.0 | 45.9 ± 11.7 | +4.2 | 17.1 | empate |
+| D v2b | 94.7 ± 4.5 | 71.0 ± 3.8 | 36.2 ± 2.3 | 58.5 ± 2.8 | -8.4 | 6.0 | cai mais |
+| D coef_ent 0,01 | 79.8 ± 2.1 | 47.9 ± 3.7 | 17.5 ± 4.9 | 62.3 ± 3.2 | -12.2 | 6.3 | cai mais |
+
+Nível por dificuldade, braço × cnn1d (Δ / 2·s_c / veredito):
+
+| braço | dif 1,0 | dif 1,25 | dif 1,5 |
+|---|---|---|---|
+| B atenção antes | -3.7 / 1.9 / perdeu | -5.3 / 5.4 / empate | -4.8 / 7.0 / empate |
+| C atenção depois | -4.4 / 3.5 / perdeu | -8.7 / 6.1 / perdeu | -7.5 / 10.0 / empate |
+| D transformer | -7.1 / 3.0 / perdeu | -14.8 / 12.6 / perdeu | -12.6 / 7.3 / perdeu |
+| D2 transformer d128 | -10.2 / 7.4 / perdeu | -19.3 / 9.9 / perdeu | -16.2 / 8.4 / perdeu |
+| E dilatada | -2.1 / 5.1 / empate | -3.3 / 13.7 / empate | +2.1 / 21.5 / empate |
+| D v2b | -1.9 / 6.6 / empate | -9.5 / 7.4 / perdeu | -10.3 / 4.9 / perdeu |
+| D coef_ent 0,01 | -16.8 / 3.4 / perdeu | -32.5 / 7.3 / perdeu | -29.0 / 7.8 / perdeu |
+
+**Pico × final** (FASES_TREINO × 320–339, 420 partidas, dificuldade 1,0)
+
+| braço | melhor.pt s1 / s2 / s3 | passo do melhor | pico | final (mesmas partidas) | pico − final | pico: Δ vs cnn1d | 2·s_c | veredito |
+|---|---|---|---|---|---|---|---|---|
+| A cnn1d | 94.3 / 95.5 / 94.0 | 1.3M / 2.0M / 1.1M | 94.6 ± 0.8 | 95.8 ± 0.5 | -1.2 ± 1.1 |  |  |  |
+| B atenção antes | 96.4 / 93.1 / 92.4 | 1.6M / 1.6M / 2.0M | 94.0 ± 2.2 | 93.3 ± 0.8 | 0.7 ± 1.4 | -0.6 | 3.2 | empate |
+| C atenção depois | 92.9 / 93.3 / 95.2 | 1.8M / 1.8M / 1.8M | 93.8 ± 1.3 | 91.9 ± 2.3 | 1.9 ± 3.5 | -0.8 | 2.1 | empate |
+| D transformer | 98.8 / 94.0 / 93.6 | 1.7M / 1.6M / 1.6M | 95.5 ± 2.9 | 91.3 ± 2.1 | 4.1 ± 4.2 | +0.9 | 4.2 | empate |
+| D2 transformer d128 | 89.0 / 98.6 / 84.0 | 0.7M / 1.7M / 1.9M | 90.6 ± 7.4 | 85.3 ± 1.3 | 5.2 ± 6.5 | -4.0 | 10.5 | empate |
+| E dilatada | 98.1 / 94.3 / 93.8 | 1.7M / 1.7M / 2.0M | 95.4 ± 2.3 | 92.9 ± 3.1 | 2.5 ± 2.4 | +0.8 | 3.5 | empate |
+| D v2b | 94.8 / 95.2 / 87.9 | 0.9M / 1.5M / 1.7M | 92.6 ± 4.1 | 95.0 ± 3.4 | -2.4 ± 1.5 | -2.0 | 5.9 | empate |
+| D coef_ent 0,01 | 89.3 / 87.9 / 89.0 | 1.3M / 1.8M / 1.6M | 88.7 ± 0.8 | 80.6 ± 2.3 | 8.1 ± 2.7 | -5.9 | 1.5 | perdeu |

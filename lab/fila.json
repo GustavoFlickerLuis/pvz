@@ -1,0 +1,470 @@
+[
+  {
+    "id": "lab-san-cnn1d",
+    "config": {
+      "semente": 0,
+      "passos": 300000,
+      "fases": "calmo",
+      "dificuldade": 0.5,
+      "aval_cada": 20000,
+      "aval_sementes": [
+        300,
+        400
+      ],
+      "aval_final_sementes": [
+        300,
+        500
+      ],
+      "arquitetura": "cnn1d"
+    }
+  },
+  {
+    "id": "lab-san-atencao_antes",
+    "config": {
+      "semente": 0,
+      "passos": 300000,
+      "fases": "calmo",
+      "dificuldade": 0.5,
+      "aval_cada": 20000,
+      "aval_sementes": [
+        300,
+        400
+      ],
+      "aval_final_sementes": [
+        300,
+        500
+      ],
+      "arquitetura": "atencao_antes"
+    }
+  },
+  {
+    "id": "lab-san-atencao_depois",
+    "config": {
+      "semente": 0,
+      "passos": 300000,
+      "fases": "calmo",
+      "dificuldade": 0.5,
+      "aval_cada": 20000,
+      "aval_sementes": [
+        300,
+        400
+      ],
+      "aval_final_sementes": [
+        300,
+        500
+      ],
+      "arquitetura": "atencao_depois"
+    }
+  },
+  {
+    "id": "lab-san-transformer",
+    "config": {
+      "semente": 0,
+      "passos": 300000,
+      "fases": "calmo",
+      "dificuldade": 0.5,
+      "aval_cada": 20000,
+      "aval_sementes": [
+        300,
+        400
+      ],
+      "aval_final_sementes": [
+        300,
+        500
+      ],
+      "arquitetura": "transformer"
+    }
+  },
+  {
+    "id": "lab-san-transformer_d128",
+    "config": {
+      "semente": 0,
+      "passos": 300000,
+      "fases": "calmo",
+      "dificuldade": 0.5,
+      "aval_cada": 20000,
+      "aval_sementes": [
+        300,
+        400
+      ],
+      "aval_final_sementes": [
+        300,
+        500
+      ],
+      "arquitetura": "transformer_d128"
+    }
+  },
+  {
+    "id": "lab-san-cnn1d_dilatada",
+    "config": {
+      "semente": 0,
+      "passos": 300000,
+      "fases": "calmo",
+      "dificuldade": 0.5,
+      "aval_cada": 20000,
+      "aval_sementes": [
+        300,
+        400
+      ],
+      "aval_final_sementes": [
+        300,
+        500
+      ],
+      "arquitetura": "cnn1d_dilatada"
+    }
+  },
+  {
+    "id": "lab-f1-atual-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 1
+    }
+  },
+  {
+    "id": "lab-f1-v2a-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 1,
+      "coef_ent": 0.03
+    }
+  },
+  {
+    "id": "lab-f1-v2b-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 1,
+      "coef_ent": 0.03,
+      "receita": "atual_linear"
+    }
+  },
+  {
+    "id": "lab-f1-atual-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 3
+    }
+  },
+  {
+    "id": "lab-f1-v2a-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 3,
+      "coef_ent": 0.03
+    }
+  },
+  {
+    "id": "lab-f1-v2b-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 3,
+      "coef_ent": 0.03,
+      "receita": "atual_linear"
+    }
+  },
+  {
+    "id": "lab-f1-atual-s4",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 4
+    }
+  },
+  {
+    "id": "lab-f1-v2a-s4",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 4,
+      "coef_ent": 0.03
+    }
+  },
+  {
+    "id": "lab-f1-v2b-s4",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 4,
+      "coef_ent": 0.03,
+      "receita": "atual_linear"
+    }
+  },
+  {
+    "id": "lab-f1-atual-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 2
+    }
+  },
+  {
+    "id": "lab-f1-v2a-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 2,
+      "coef_ent": 0.03
+    }
+  },
+  {
+    "id": "lab-f1-v2b-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 2,
+      "coef_ent": 0.03,
+      "receita": "atual_linear"
+    }
+  },
+  {
+    "id": "lab-f1-atual-s6",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 6
+    }
+  },
+  {
+    "id": "lab-f1-v2a-s6",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 6,
+      "coef_ent": 0.03
+    }
+  },
+  {
+    "id": "lab-f1-v2b-s6",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 6,
+      "coef_ent": 0.03,
+      "receita": "atual_linear"
+    }
+  },
+  {
+    "id": "lab-f2-atencao_antes-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 1,
+      "coef_ent": 0.03,
+      "arquitetura": "atencao_antes"
+    }
+  },
+  {
+    "id": "lab-f2-atencao_depois-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 1,
+      "coef_ent": 0.03,
+      "arquitetura": "atencao_depois"
+    }
+  },
+  {
+    "id": "lab-f2-transformer-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 1,
+      "coef_ent": 0.03,
+      "arquitetura": "transformer"
+    }
+  },
+  {
+    "id": "lab-f2-cnn1d_dilatada-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 1,
+      "coef_ent": 0.03,
+      "arquitetura": "cnn1d_dilatada"
+    }
+  },
+  {
+    "id": "lab-f2-transformer_d128-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 1,
+      "coef_ent": 0.03,
+      "arquitetura": "transformer_d128"
+    }
+  },
+  {
+    "id": "lab-f2-atencao_antes-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 2,
+      "coef_ent": 0.03,
+      "arquitetura": "atencao_antes"
+    }
+  },
+  {
+    "id": "lab-f2-atencao_depois-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 2,
+      "coef_ent": 0.03,
+      "arquitetura": "atencao_depois"
+    }
+  },
+  {
+    "id": "lab-f2-transformer-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 2,
+      "coef_ent": 0.03,
+      "arquitetura": "transformer"
+    }
+  },
+  {
+    "id": "lab-f2-cnn1d_dilatada-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 2,
+      "coef_ent": 0.03,
+      "arquitetura": "cnn1d_dilatada"
+    }
+  },
+  {
+    "id": "lab-f2-transformer_d128-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 2,
+      "coef_ent": 0.03,
+      "arquitetura": "transformer_d128"
+    }
+  },
+  {
+    "id": "lab-f2-atencao_antes-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 3,
+      "coef_ent": 0.03,
+      "arquitetura": "atencao_antes"
+    }
+  },
+  {
+    "id": "lab-f2-atencao_depois-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 3,
+      "coef_ent": 0.03,
+      "arquitetura": "atencao_depois"
+    }
+  },
+  {
+    "id": "lab-f2-transformer-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 3,
+      "coef_ent": 0.03,
+      "arquitetura": "transformer"
+    }
+  },
+  {
+    "id": "lab-f2-cnn1d_dilatada-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 3,
+      "coef_ent": 0.03,
+      "arquitetura": "cnn1d_dilatada"
+    }
+  },
+  {
+    "id": "lab-f2-transformer_d128-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "semente": 3,
+      "coef_ent": 0.03,
+      "arquitetura": "transformer_d128"
+    }
+  },
+  {
+    "id": "lab-f3-D-v2b-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "arquitetura": "transformer",
+      "aval_sorteio": true,
+      "semente": 1,
+      "coef_ent": 0.03,
+      "receita": "atual_linear"
+    }
+  },
+  {
+    "id": "lab-f3-D-ent01-s1",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "arquitetura": "transformer",
+      "aval_sorteio": true,
+      "semente": 1,
+      "coef_ent": 0.01
+    }
+  },
+  {
+    "id": "lab-f3-D-v2b-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "arquitetura": "transformer",
+      "aval_sorteio": true,
+      "semente": 2,
+      "coef_ent": 0.03,
+      "receita": "atual_linear"
+    }
+  },
+  {
+    "id": "lab-f3-D-ent01-s2",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "arquitetura": "transformer",
+      "aval_sorteio": true,
+      "semente": 2,
+      "coef_ent": 0.01
+    }
+  },
+  {
+    "id": "lab-f3-D-v2b-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "arquitetura": "transformer",
+      "aval_sorteio": true,
+      "semente": 3,
+      "coef_ent": 0.03,
+      "receita": "atual_linear"
+    }
+  },
+  {
+    "id": "lab-f3-D-ent01-s3",
+    "config": {
+      "passos": 2000000,
+      "aval_cada": 100000,
+      "arquitetura": "transformer",
+      "aval_sorteio": true,
+      "semente": 3,
+      "coef_ent": 0.01
+    }
+  }
+]

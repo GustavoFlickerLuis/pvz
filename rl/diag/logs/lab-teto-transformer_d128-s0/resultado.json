@@ -1,0 +1,33 @@
+{
+  "args": {
+    "arquitetura": "transformer_d128",
+    "semente": 0,
+    "atualizacoes": 20000,
+    "lote": 128,
+    "medir_cada": 500,
+    "so_contar": false
+  },
+  "parada": 1000,
+  "huber_fora": 0.10519032925367355,
+  "nota": {
+    "nota": 69.00398406374502,
+    "pares": 1255,
+    "nota_i": 73.87640449438202,
+    "pares_i": 356,
+    "nota_ii": 67.07452725250278,
+    "pares_ii": 899,
+    "arrependimento": 0.10912223905324936,
+    "arrependimento_econ5": 0.08915751427412033
+  },
+  "grupos": {
+    "nota_longe": 65.85365853658537,
+    "nota_perto": 54.09356725146199,
+    "nota_sem_zumbi": 75.45126353790613,
+    "pares_longe": 82,
+    "pares_perto": 342,
+    "pares_sem_zumbi": 831,
+    "nota_perto_total": 69.22421142369991,
+    "pares_perto_total": 1173
+  },
+  "minutos": 5.6
+}

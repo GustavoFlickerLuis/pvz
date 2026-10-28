@@ -184,12 +184,230 @@ class CNN3(_Dueling):
         return tuple(saidas)
 
 
+# ---------------------------------------------------------------- braços do lab (LAB.md)
+# Todas: entrada v2 (B, 25, 5, 9); partes(x) → (mapa A dos plantios (B, 5, 5, 9) na ordem
+# (planta, faixa, coluna) de codificar_acao, A(esperar) (B, 1), V (B, 1)). forward(x) é o
+# Q dueling (para o teto do diagnóstico); o PPO lê as partes direto (logits = A, crítico = V).
+N_CEL = C.FAIXAS * C.COLUNAS
+
+
+class _Partes(nn.Module):
+    def forward(self, x, mascara=None):
+        if mascara is None:
+            mascara = mascara_da_entrada(x)
+        mapa, esperar, v = self.partes(x)
+        a = torch.cat([mapa.flatten(1), esperar], dim=1)
+        m = mascara.to(a.dtype)
+        media = (a * m).sum(dim=1, keepdim=True) / m.sum(dim=1, keepdim=True)
+        return v + a - media
+
+
+class Posicoes(nn.Module):
+    """Embeddings aprendidos de faixa e de coluna, somados: (45, d) na ordem faixa × coluna."""
+
+    def __init__(self, d):
+        super().__init__()
+        self.faixa = nn.Parameter(torch.randn(C.FAIXAS, d) * 0.02)
+        self.coluna = nn.Parameter(torch.randn(C.COLUNAS, d) * 0.02)
+
+    def forward(self):
+        return (self.faixa[:, None, :] + self.coluna[None, :, :]).reshape(N_CEL, -1)
+
+
+class Atencao(nn.Module):
+    """Self-attention pre-LN, residual, sem MLP: t ← t + Wo · MHA(LN(t + pos)).
+
+    A posição entra só na entrada do ramo (q, k, v), não no resíduo: com Wo = 0 a camada
+    é exatamente a identidade (é o que faz o braço C começar igual à cnn1d)."""
+
+    def __init__(self, d, cabecas, zerar_saida=False):
+        super().__init__()
+        self.ln = nn.LayerNorm(d)
+        self.mha = nn.MultiheadAttention(d, cabecas, batch_first=True)
+        if zerar_saida:
+            nn.init.zeros_(self.mha.out_proj.weight)
+            nn.init.zeros_(self.mha.out_proj.bias)
+
+    def forward(self, t, pos):
+        u = self.ln(t + pos)
+        return t + self.mha(u, u, u, need_weights=False)[0]
+
+
+def _grade_para_tokens(h):
+    """(B, d, 5, 9) → (B, 45, d), células na ordem faixa × coluna."""
+    return h.flatten(2).transpose(1, 2)
+
+
+def _tokens_para_grade(t):
+    return t.transpose(1, 2).reshape(len(t), -1, C.FAIXAS, C.COLUNAS)
+
+
+class _CabecaCNN1D(nn.Module):
+    """As cabeças da cnn1d: mapa = conv 1×1; esperar e V = Linear na média global."""
+
+    def _criar_cabeca(self, canais):
+        self.cabeca_q = nn.Conv2d(canais, N_PLANTAS, 1)
+        self.cabeca_esperar = nn.Linear(canais, 1)
+        self.cabeca_v = nn.Linear(canais, 1)
+
+    def _cabecas(self, h):
+        g = h.mean(dim=(2, 3))
+        return self.cabeca_q(h), self.cabeca_esperar(g), self.cabeca_v(g)
+
+
+class AtencaoAntes(_CabecaCNN1D, _Partes):
+    """B: projeção por célula 25 → 64 + posições, 1 camada de atenção (4 × 16), depois o
+    tronco da cnn1d (conv1 com 64 canais de entrada, não 25) e as cabeças dela."""
+
+    CAMADAS = ("proj", "pos", "atencao", "conv1", "conv2", "conv3") + CABECA
+
+    def __init__(self, canais=CANAIS, cabecas=4):
+        super().__init__()
+        self.proj = nn.Linear(N_CANAIS_V2, canais)
+        self.pos = Posicoes(canais)
+        self.atencao = Atencao(canais, cabecas)
+        self.conv1 = nn.Conv2d(canais, canais, 3, padding=1)
+        self.conv2 = nn.Conv2d(canais, canais, 3, padding=1)
+        self.conv3 = nn.Conv2d(canais, canais, 3, padding=1)
+        self._criar_cabeca(canais)
+
+    def partes(self, x):
+        t = self.atencao(self.proj(_grade_para_tokens(x)), self.pos())
+        h = torch.relu(self.conv1(_tokens_para_grade(t)))
+        h = torch.relu(self.conv2(h))
+        h = torch.relu(self.conv3(h))
+        return self._cabecas(h)
+
+
+class AtencaoDepois(_CabecaCNN1D, _Partes):
+    """C: o tronco da cnn1d (mesmos nomes de camada), posições e 1 camada de atenção igual à
+    do B com a projeção de saída zerada (começa igual à cnn1d), depois as cabeças."""
+
+    CAMADAS = ("conv1", "conv2", "conv3", "pos", "atencao") + CABECA
+
+    def __init__(self, canais=CANAIS, cabecas=4):
+        super().__init__()
+        self.conv1 = nn.Conv2d(N_CANAIS_V2, canais, 3, padding=1)
+        self.conv2 = nn.Conv2d(canais, canais, 3, padding=1)
+        self.conv3 = nn.Conv2d(canais, canais, 3, padding=1)
+        self.pos = Posicoes(canais)
+        self.atencao = Atencao(canais, cabecas, zerar_saida=True)
+        self._criar_cabeca(canais)
+
+    def partes(self, x):
+        h = torch.relu(self.conv1(x))
+        h = torch.relu(self.conv2(h))
+        h = torch.relu(self.conv3(h))
+        h = _tokens_para_grade(self.atencao(_grade_para_tokens(h), self.pos()))
+        return self._cabecas(h)
+
+
+class Token(nn.Module):
+    """Um vetor aprendido (o CLS), como módulo para entrar nas CAMADAS."""
+
+    def __init__(self, d):
+        super().__init__()
+        self.valor = nn.Parameter(torch.randn(1, 1, d) * 0.02)
+
+
+class Bloco(nn.Module):
+    """Bloco pre-LN do encoder: t ← t + MHA(LN(t)); t ← t + MLP(LN(t)), MLP 4× com GELU."""
+
+    def __init__(self, d, cabecas):
+        super().__init__()
+        self.ln1, self.ln2 = nn.LayerNorm(d), nn.LayerNorm(d)
+        self.mha = nn.MultiheadAttention(d, cabecas, batch_first=True)
+        self.mlp = nn.Sequential(nn.Linear(d, 4 * d), nn.GELU(), nn.Linear(4 * d, d))
+
+    def forward(self, t):
+        u = self.ln1(t)
+        t = t + self.mha(u, u, u, need_weights=False)[0]
+        return t + self.mlp(self.ln2(t))
+
+
+class Transformer(_Partes):
+    """D (d = 64) e D2 (d = 128): encoder sem máscara causal. 45 tokens (célula 25 → d +
+    posições) + um token CLS; 2 blocos pre-LN; LN final. Plantios = Linear d → 5 em cada
+    token de célula; esperar e V a partir do CLS."""
+
+    CAMADAS = ("proj", "pos", "cls", "blocos", "ln", "cabeca_plantio", "cabeca_esperar", "cabeca_v")
+
+    def __init__(self, d=64, cabecas=4, blocos=2):
+        super().__init__()
+        self.proj = nn.Linear(N_CANAIS_V2, d)
+        self.pos = Posicoes(d)
+        self.cls = Token(d)
+        self.blocos = nn.ModuleList(Bloco(d, cabecas) for _ in range(blocos))
+        self.ln = nn.LayerNorm(d)
+        self.cabeca_plantio = nn.Linear(d, N_PLANTAS)
+        self.cabeca_esperar = nn.Linear(d, 1)
+        self.cabeca_v = nn.Linear(d, 1)
+
+    def tokens(self, x):
+        """(B, 45, d): conteúdo da célula + posição (o teste de permutação entra aqui)."""
+        return self.proj(_grade_para_tokens(x)) + self.pos()
+
+    def codificar(self, t):
+        """tokens de célula (B, n, d) → (células (B, n, d), CLS (B, d)) depois do encoder."""
+        t = torch.cat([self.cls.valor.expand(len(t), -1, -1), t], dim=1)
+        for b in self.blocos:
+            t = b(t)
+        t = self.ln(t)
+        return t[:, 1:], t[:, 0]
+
+    def saidas(self, celulas, cls):
+        """(plantios (B, n, 5), esperar (B, 1), V (B, 1))."""
+        return self.cabeca_plantio(celulas), self.cabeca_esperar(cls), self.cabeca_v(cls)
+
+    def partes(self, x):
+        plantio, esperar, v = self.saidas(*self.codificar(self.tokens(x)))
+        mapa = plantio.transpose(1, 2).reshape(len(x), N_PLANTAS, C.FAIXAS, C.COLUNAS)
+        return mapa, esperar, v
+
+
+class TransformerD128(Transformer):
+    def __init__(self):
+        super().__init__(d=128, cabecas=4)
+
+
+# Só nas colunas. Com padding de zeros, um caminho que passa por uma coluna fora do
+# tabuleiro não conta: (1, 2, 5) alcança −8..8 em tese, mas a célula 4 não chega às
+# colunas 0 e 8. (1, 5, 2) é a única com a 1ª camada local (d = 1) em que toda célula
+# alcança as 9 colunas da faixa por caminhos dentro do tabuleiro (tests/test_lab.py).
+DILATACOES = (1, 5, 2)
+
+
+class CNN1DDilatada(_CabecaCNN1D, _Partes):
+    """E: a cnn1d com dilatação (1, d) nas colunas, d = 1, 5, 2. Mesmos parâmetros exatos."""
+
+    CAMADAS = CNN1D.CAMADAS
+
+    def __init__(self, canais=CANAIS):
+        super().__init__()
+        d1, d2, d3 = DILATACOES
+        self.conv1 = nn.Conv2d(N_CANAIS_V2, canais, 3, padding=(1, d1), dilation=(1, d1))
+        self.conv2 = nn.Conv2d(canais, canais, 3, padding=(1, d2), dilation=(1, d2))
+        self.conv3 = nn.Conv2d(canais, canais, 3, padding=(1, d3), dilation=(1, d3))
+        self._criar_cabeca(canais)
+
+    def partes(self, x):
+        h = torch.relu(self.conv1(x))
+        h = torch.relu(self.conv2(h))
+        h = torch.relu(self.conv3(h))
+        return self._cabecas(h)
+
+
 # Registry, como OTIMIZADORES e AGENDAS: nome → (classe, formato da observação).
 ARQUITETURAS = {
     "cnn1": (CNN, "v1"),      # a de ontem, intacta
     "cnn1d": (CNN1D, "v2"),
     "cnn2": (CNN2, "v2"),
     "cnn3": (CNN3, "v2"),
+    "atencao_antes": (AtencaoAntes, "v2"),        # B
+    "atencao_depois": (AtencaoDepois, "v2"),      # C
+    "transformer": (Transformer, "v2"),           # D
+    "transformer_d128": (TransformerD128, "v2"),  # D2
+    "cnn1d_dilatada": (CNN1DDilatada, "v2"),      # E
 }
 
 

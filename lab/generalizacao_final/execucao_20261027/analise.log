@@ -1,0 +1,109 @@
+{
+  "cnn": [
+    {
+      "metrica": "conhecida",
+      "media": 0.9554285714285713,
+      "dp_treinos": 0.01582787231279406,
+      "ic_t95_inf": 0.9357756722110089,
+      "ic_t95_sup": 0.9750814706461337,
+      "n_treinos": 5
+    },
+    {
+      "metrica": "inedita",
+      "media": 0.962,
+      "dp_treinos": 0.012823589374447556,
+      "ic_t95_inf": 0.9460774107471345,
+      "ic_t95_sup": 0.9779225892528655,
+      "n_treinos": 5
+    },
+    {
+      "metrica": "inedita_menos_conhecida",
+      "media": 0.006571428571428606,
+      "dp_treinos": 0.00899987402280184,
+      "ic_t95_inf": -0.004603390990257629,
+      "ic_t95_sup": 0.01774624813311484,
+      "n_treinos": 5
+    }
+  ],
+  "baselines": [
+    {
+      "agente": "econ5",
+      "grupo": "conhecida",
+      "fases": 21,
+      "partidas": 1050,
+      "vitorias": 661,
+      "taxa": 0.6295238095238095,
+      "wilson95_inf": 0.5998905892601882,
+      "wilson95_sup": 0.6582127504057067,
+      "dano": 0.7396269042569537,
+      "decisoes": 126.6647619047619,
+      "dp_entre_fases": 0.1710694651443147
+    },
+    {
+      "agente": "econ5",
+      "grupo": "inedita",
+      "fases": 6,
+      "partidas": 300,
+      "vitorias": 181,
+      "taxa": 0.6033333333333334,
+      "wilson95_inf": 0.5470046178899679,
+      "wilson95_sup": 0.6570491680569592,
+      "dano": 0.7335264826006318,
+      "decisoes": 127.61333333333333,
+      "dp_entre_fases": 0.2163022576550385
+    },
+    {
+      "agente": "guloso",
+      "grupo": "conhecida",
+      "fases": 21,
+      "partidas": 1050,
+      "vitorias": 511,
+      "taxa": 0.4866666666666667,
+      "wilson95_inf": 0.4565382355805013,
+      "wilson95_sup": 0.5168923029833037,
+      "dano": 0.5102394671020352,
+      "decisoes": 93.84190476190476,
+      "dp_entre_fases": 0.35317606562921744
+    },
+    {
+      "agente": "guloso",
+      "grupo": "inedita",
+      "fases": 6,
+      "partidas": 300,
+      "vitorias": 148,
+      "taxa": 0.49333333333333335,
+      "wilson95_inf": 0.43720207035328285,
+      "wilson95_sup": 0.5496331692630444,
+      "dano": 0.5104544256007073,
+      "decisoes": 94.85,
+      "dp_entre_fases": 0.3850541087518307
+    }
+  ],
+  "diferencas": [
+    {
+      "grupo": "conhecida",
+      "comparacao": "cnn1d_menos_econ5",
+      "media": 0.3259047619047619,
+      "dp_treinos": 0.01582787231279406
+    },
+    {
+      "grupo": "conhecida",
+      "comparacao": "cnn1d_menos_guloso",
+      "media": 0.4687619047619047,
+      "dp_treinos": 0.01582787231279406
+    },
+    {
+      "grupo": "inedita",
+      "comparacao": "cnn1d_menos_econ5",
+      "media": 0.35866666666666663,
+      "dp_treinos": 0.012823589374447556
+    },
+    {
+      "grupo": "inedita",
+      "comparacao": "cnn1d_menos_guloso",
+      "media": 0.4686666666666667,
+      "dp_treinos": 0.012823589374447556
+    }
+  ],
+  "partidas": 9450
+}

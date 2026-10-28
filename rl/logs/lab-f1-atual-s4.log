@@ -1,0 +1,129 @@
+
+===== 2026-10-17 02:00:48 C:\Users\gului\Desktop\PythonProject1\.venv\Scripts\python.exe -u -m rl.ppo --id lab-f1-atual-s4 --continuar --json {"passos": 2000000, "aval_cada": 100000, "semente": 4, "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR"}
+[aval] passo 0 gulosa: vitórias 0.0% (63 partidas), dano 0.011
+atualização 10 passo 20480 vitórias(coleta) 0.0 entropia 0.858 kl 0.0001 cortada 0.000 perda_v 0.0011 2089 passos/s, RAM 1628 MB
+atualização 20 passo 40960 vitórias(coleta) 0.0 entropia 0.961 kl 0.0004 cortada 0.003 perda_v 0.0016 2382 passos/s, RAM 1628 MB
+atualização 30 passo 61440 vitórias(coleta) 0.0 entropia 1.179 kl 0.0020 cortada 0.023 perda_v 0.0022 2476 passos/s, RAM 1628 MB
+atualização 40 passo 81920 vitórias(coleta) 0.0 entropia 1.083 kl 0.0013 cortada 0.012 perda_v 0.0016 2502 passos/s, RAM 1629 MB
+[aval] passo 100352 gulosa: vitórias 0.0% (63 partidas), dano 0.000
+atualização 50 passo 102400 vitórias(coleta) 0.0 entropia 1.029 kl 0.0018 cortada 0.022 perda_v 0.0013 2470 passos/s, RAM 1630 MB
+atualização 60 passo 122880 vitórias(coleta) 0.0 entropia 0.971 kl 0.0013 cortada 0.017 perda_v 0.0019 2502 passos/s, RAM 1630 MB
+atualização 70 passo 143360 vitórias(coleta) 0.0 entropia 0.970 kl 0.0018 cortada 0.024 perda_v 0.0014 2530 passos/s, RAM 1630 MB
+atualização 80 passo 163840 vitórias(coleta) 0.0 entropia 1.012 kl 0.0018 cortada 0.025 perda_v 0.0019 2529 passos/s, RAM 1630 MB
+atualização 90 passo 184320 vitórias(coleta) 0.0 entropia 1.106 kl 0.0013 cortada 0.013 perda_v 0.0014 2543 passos/s, RAM 1630 MB
+[aval] passo 200704 gulosa: vitórias 0.0% (63 partidas), dano 0.001
+atualização 100 passo 204800 vitórias(coleta) 0.0 entropia 0.910 kl 0.0021 cortada 0.025 perda_v 0.0009 2530 passos/s, RAM 1631 MB
+atualização 110 passo 225280 vitórias(coleta) 0.0 entropia 0.969 kl 0.0025 cortada 0.032 perda_v 0.0012 2548 passos/s, RAM 1631 MB
+atualização 120 passo 245760 vitórias(coleta) 0.0 entropia 0.907 kl 0.0017 cortada 0.019 perda_v 0.0010 2554 passos/s, RAM 1631 MB
+[ckpt] checkpoint automático no passo 251904
+atualização 130 passo 266240 vitórias(coleta) 0.05 entropia 0.889 kl 0.0041 cortada 0.036 perda_v 0.0078 2565 passos/s, RAM 1632 MB
+atualização 140 passo 286720 vitórias(coleta) 0.0 entropia 0.879 kl 0.0022 cortada 0.031 perda_v 0.0021 2553 passos/s, RAM 1632 MB
+[aval] passo 301056 gulosa: vitórias 0.0% (63 partidas), dano 0.080
+atualização 150 passo 307200 vitórias(coleta) 0.027777777777777776 entropia 0.769 kl 0.0016 cortada 0.021 perda_v 0.0082 2536 passos/s, RAM 1632 MB
+atualização 160 passo 327680 vitórias(coleta) 0.0 entropia 0.903 kl 0.0023 cortada 0.025 perda_v 0.0044 2528 passos/s, RAM 1632 MB
+atualização 170 passo 348160 vitórias(coleta) 0.0 entropia 0.825 kl 0.0043 cortada 0.046 perda_v 0.0035 2530 passos/s, RAM 1632 MB
+atualização 180 passo 368640 vitórias(coleta) 0.0 entropia 0.733 kl 0.0012 cortada 0.016 perda_v 0.0026 2517 passos/s, RAM 1632 MB
+atualização 190 passo 389120 vitórias(coleta) 0.0 entropia 0.714 kl 0.0035 cortada 0.034 perda_v 0.0066 2514 passos/s, RAM 1632 MB
+[aval] passo 401408 gulosa: vitórias 0.0% (63 partidas), dano 0.101
+atualização 200 passo 409600 vitórias(coleta) 0.0 entropia 0.716 kl 0.0020 cortada 0.025 perda_v 0.0037 2493 passos/s, RAM 1632 MB
+atualização 210 passo 430080 vitórias(coleta) 0.02702702702702703 entropia 0.677 kl 0.0026 cortada 0.033 perda_v 0.0060 2491 passos/s, RAM 1632 MB
+atualização 220 passo 450560 vitórias(coleta) 0.0 entropia 0.683 kl 0.0025 cortada 0.023 perda_v 0.0034 2478 passos/s, RAM 1632 MB
+atualização 230 passo 471040 vitórias(coleta) 0.0 entropia 0.571 kl 0.0028 cortada 0.037 perda_v 0.0047 2472 passos/s, RAM 1632 MB
+atualização 240 passo 491520 vitórias(coleta) 0.0 entropia 0.534 kl 0.0026 cortada 0.031 perda_v 0.0068 2468 passos/s, RAM 1632 MB
+[aval] passo 501760 gulosa: vitórias 3.2% (63 partidas), dano 0.182
+[ckpt] checkpoint automático no passo 501760
+atualização 250 passo 512000 vitórias(coleta) 0.0 entropia 0.553 kl 0.0031 cortada 0.035 perda_v 0.0094 2447 passos/s, RAM 1633 MB
+atualização 260 passo 532480 vitórias(coleta) 0.02564102564102564 entropia 0.538 kl 0.0018 cortada 0.021 perda_v 0.0082 2436 passos/s, RAM 1633 MB
+atualização 270 passo 552960 vitórias(coleta) 0.0 entropia 0.527 kl 0.0018 cortada 0.023 perda_v 0.0129 2422 passos/s, RAM 1633 MB
+atualização 280 passo 573440 vitórias(coleta) 0.06060606060606061 entropia 0.515 kl 0.0020 cortada 0.024 perda_v 0.0137 2408 passos/s, RAM 1632 MB
+atualização 290 passo 593920 vitórias(coleta) 0.045454545454545456 entropia 0.580 kl 0.0034 cortada 0.040 perda_v 0.0216 2395 passos/s, RAM 1632 MB
+[aval] passo 600064 gulosa: vitórias 14.3% (63 partidas), dano 0.192
+atualização 300 passo 614400 vitórias(coleta) 0.14285714285714285 entropia 0.515 kl 0.0040 cortada 0.046 perda_v 0.0277 2375 passos/s, RAM 1632 MB
+atualização 310 passo 634880 vitórias(coleta) 0.10526315789473684 entropia 0.552 kl 0.0038 cortada 0.040 perda_v 0.0249 2371 passos/s, RAM 1632 MB
+atualização 320 passo 655360 vitórias(coleta) 0.09090909090909091 entropia 0.565 kl 0.0037 cortada 0.042 perda_v 0.0246 2360 passos/s, RAM 1632 MB
+atualização 330 passo 675840 vitórias(coleta) 0.2222222222222222 entropia 0.580 kl 0.0032 cortada 0.035 perda_v 0.0238 2349 passos/s, RAM 1632 MB
+atualização 340 passo 696320 vitórias(coleta) 0.13636363636363635 entropia 0.594 kl 0.0052 cortada 0.055 perda_v 0.0344 2341 passos/s, RAM 1632 MB
+[aval] passo 700416 gulosa: vitórias 23.8% (63 partidas), dano 0.407
+atualização 350 passo 716800 vitórias(coleta) 0.16666666666666666 entropia 0.619 kl 0.0041 cortada 0.042 perda_v 0.0254 2314 passos/s, RAM 1632 MB
+atualização 360 passo 737280 vitórias(coleta) 0.26666666666666666 entropia 0.584 kl 0.0036 cortada 0.045 perda_v 0.0344 2303 passos/s, RAM 1632 MB
+[ckpt] checkpoint automático no passo 751616
+atualização 370 passo 757760 vitórias(coleta) 0.125 entropia 0.576 kl 0.0025 cortada 0.026 perda_v 0.0427 2299 passos/s, RAM 1633 MB
+atualização 380 passo 778240 vitórias(coleta) 0.23809523809523808 entropia 0.523 kl 0.0023 cortada 0.027 perda_v 0.0389 2293 passos/s, RAM 1633 MB
+atualização 390 passo 798720 vitórias(coleta) 0.17391304347826086 entropia 0.466 kl 0.0033 cortada 0.038 perda_v 0.0337 2288 passos/s, RAM 1633 MB
+[aval] passo 800768 gulosa: vitórias 38.1% (63 partidas), dano 0.531
+atualização 400 passo 819200 vitórias(coleta) 0.5 entropia 0.419 kl 0.0055 cortada 0.050 perda_v 0.0426 2260 passos/s, RAM 1633 MB
+atualização 410 passo 839680 vitórias(coleta) 0.5 entropia 0.399 kl 0.0060 cortada 0.058 perda_v 0.0317 2251 passos/s, RAM 1633 MB
+atualização 420 passo 860160 vitórias(coleta) 0.23529411764705882 entropia 0.480 kl 0.0045 cortada 0.043 perda_v 0.0403 2245 passos/s, RAM 1633 MB
+atualização 430 passo 880640 vitórias(coleta) 0.46153846153846156 entropia 0.445 kl 0.0040 cortada 0.043 perda_v 0.0272 2238 passos/s, RAM 1633 MB
+atualização 440 passo 901120 vitórias(coleta) 0.2857142857142857 entropia 0.441 kl 0.0033 cortada 0.039 perda_v 0.0539 2231 passos/s, RAM 1633 MB
+[aval] passo 901120 gulosa: vitórias 52.4% (63 partidas), dano 0.576
+atualização 450 passo 921600 vitórias(coleta) 0.25 entropia 0.425 kl 0.0023 cortada 0.031 perda_v 0.0362 2210 passos/s, RAM 1633 MB
+atualização 460 passo 942080 vitórias(coleta) 0.35 entropia 0.451 kl 0.0026 cortada 0.032 perda_v 0.0331 2204 passos/s, RAM 1633 MB
+atualização 470 passo 962560 vitórias(coleta) 0.3333333333333333 entropia 0.417 kl 0.0023 cortada 0.026 perda_v 0.0329 2198 passos/s, RAM 1633 MB
+atualização 480 passo 983040 vitórias(coleta) 0.5263157894736842 entropia 0.442 kl 0.0027 cortada 0.035 perda_v 0.0436 2193 passos/s, RAM 1633 MB
+[aval] passo 1001472 gulosa: vitórias 55.6% (63 partidas), dano 0.631
+[ckpt] checkpoint automático no passo 1001472
+atualização 490 passo 1003520 vitórias(coleta) 0.4666666666666667 entropia 0.394 kl 0.0031 cortada 0.029 perda_v 0.0253 2170 passos/s, RAM 1633 MB
+atualização 500 passo 1024000 vitórias(coleta) 0.7142857142857143 entropia 0.435 kl 0.0038 cortada 0.045 perda_v 0.0290 2161 passos/s, RAM 1633 MB
+atualização 510 passo 1044480 vitórias(coleta) 0.5882352941176471 entropia 0.473 kl 0.0030 cortada 0.037 perda_v 0.0296 2157 passos/s, RAM 1633 MB
+atualização 520 passo 1064960 vitórias(coleta) 0.45 entropia 0.488 kl 0.0039 cortada 0.041 perda_v 0.0519 2153 passos/s, RAM 1633 MB
+atualização 530 passo 1085440 vitórias(coleta) 0.42857142857142855 entropia 0.503 kl 0.0047 cortada 0.047 perda_v 0.0296 2149 passos/s, RAM 1633 MB
+[aval] passo 1101824 gulosa: vitórias 66.7% (63 partidas), dano 0.753
+atualização 540 passo 1105920 vitórias(coleta) 0.6470588235294118 entropia 0.426 kl 0.0034 cortada 0.039 perda_v 0.0304 2131 passos/s, RAM 1633 MB
+atualização 550 passo 1126400 vitórias(coleta) 0.6666666666666666 entropia 0.442 kl 0.0038 cortada 0.044 perda_v 0.0264 2125 passos/s, RAM 1633 MB
+atualização 560 passo 1146880 vitórias(coleta) 0.7272727272727273 entropia 0.496 kl 0.0029 cortada 0.033 perda_v 0.0163 2121 passos/s, RAM 1633 MB
+atualização 570 passo 1167360 vitórias(coleta) 0.5714285714285714 entropia 0.481 kl 0.0067 cortada 0.059 perda_v 0.0410 2117 passos/s, RAM 1633 MB
+atualização 580 passo 1187840 vitórias(coleta) 0.75 entropia 0.543 kl 0.0036 cortada 0.042 perda_v 0.0253 2114 passos/s, RAM 1633 MB
+[aval] passo 1200128 gulosa: vitórias 71.4% (63 partidas), dano 0.749
+atualização 590 passo 1208320 vitórias(coleta) 0.8571428571428571 entropia 0.561 kl 0.0043 cortada 0.049 perda_v 0.0210 2099 passos/s, RAM 1633 MB
+atualização 600 passo 1228800 vitórias(coleta) 0.5833333333333334 entropia 0.582 kl 0.0026 cortada 0.029 perda_v 0.0214 2098 passos/s, RAM 1633 MB
+atualização 610 passo 1249280 vitórias(coleta) 0.7142857142857143 entropia 0.640 kl 0.0043 cortada 0.050 perda_v 0.0301 2093 passos/s, RAM 1633 MB
+[ckpt] checkpoint automático no passo 1251328
+atualização 620 passo 1269760 vitórias(coleta) 0.9090909090909091 entropia 0.568 kl 0.0023 cortada 0.029 perda_v 0.0111 2089 passos/s, RAM 1633 MB
+atualização 630 passo 1290240 vitórias(coleta) 0.5294117647058824 entropia 0.546 kl 0.0033 cortada 0.029 perda_v 0.0403 2087 passos/s, RAM 1633 MB
+[aval] passo 1300480 gulosa: vitórias 66.7% (63 partidas), dano 0.705
+atualização 640 passo 1310720 vitórias(coleta) 0.8235294117647058 entropia 0.616 kl 0.0025 cortada 0.026 perda_v 0.0188 2073 passos/s, RAM 1633 MB
+atualização 650 passo 1331200 vitórias(coleta) 0.7058823529411765 entropia 0.528 kl 0.0042 cortada 0.048 perda_v 0.0325 2067 passos/s, RAM 1633 MB
+atualização 660 passo 1351680 vitórias(coleta) 0.75 entropia 0.588 kl 0.0028 cortada 0.031 perda_v 0.0212 2064 passos/s, RAM 1633 MB
+atualização 670 passo 1372160 vitórias(coleta) 0.9285714285714286 entropia 0.569 kl 0.0038 cortada 0.031 perda_v 0.0095 2059 passos/s, RAM 1633 MB
+atualização 680 passo 1392640 vitórias(coleta) 0.9166666666666666 entropia 0.508 kl 0.0049 cortada 0.034 perda_v 0.0117 2058 passos/s, RAM 1633 MB
+[aval] passo 1400832 gulosa: vitórias 76.2% (63 partidas), dano 0.827
+atualização 690 passo 1413120 vitórias(coleta) 0.5384615384615384 entropia 0.514 kl 0.0019 cortada 0.018 perda_v 0.0291 2047 passos/s, RAM 1633 MB
+atualização 700 passo 1433600 vitórias(coleta) 0.875 entropia 0.645 kl 0.0024 cortada 0.025 perda_v 0.0134 2043 passos/s, RAM 1633 MB
+atualização 710 passo 1454080 vitórias(coleta) 0.7 entropia 0.617 kl 0.0026 cortada 0.026 perda_v 0.0185 2042 passos/s, RAM 1633 MB
+atualização 720 passo 1474560 vitórias(coleta) 1.0 entropia 0.601 kl 0.0040 cortada 0.043 perda_v 0.0094 2040 passos/s, RAM 1633 MB
+atualização 730 passo 1495040 vitórias(coleta) 0.5 entropia 0.537 kl 0.0027 cortada 0.032 perda_v 0.0232 2036 passos/s, RAM 1480 MB
+[aval] passo 1501184 gulosa: vitórias 73.0% (63 partidas), dano 0.791
+[ckpt] checkpoint automático no passo 1501184
+atualização 740 passo 1515520 vitórias(coleta) 0.875 entropia 0.555 kl 0.0040 cortada 0.041 perda_v 0.0126 2025 passos/s, RAM 1480 MB
+atualização 750 passo 1536000 vitórias(coleta) 0.5833333333333334 entropia 0.552 kl 0.0041 cortada 0.034 perda_v 0.0380 2023 passos/s, RAM 1480 MB
+atualização 760 passo 1556480 vitórias(coleta) 0.5714285714285714 entropia 0.590 kl 0.0058 cortada 0.054 perda_v 0.0343 2021 passos/s, RAM 1480 MB
+atualização 770 passo 1576960 vitórias(coleta) 0.875 entropia 0.542 kl 0.0027 cortada 0.030 perda_v 0.0143 2021 passos/s, RAM 1480 MB
+atualização 780 passo 1597440 vitórias(coleta) 0.8181818181818182 entropia 0.565 kl 0.0029 cortada 0.032 perda_v 0.0174 2019 passos/s, RAM 1480 MB
+[aval] passo 1601536 gulosa: vitórias 82.5% (63 partidas), dano 0.849
+atualização 790 passo 1617920 vitórias(coleta) 0.7272727272727273 entropia 0.643 kl 0.0028 cortada 0.034 perda_v 0.0258 2008 passos/s, RAM 1480 MB
+atualização 800 passo 1638400 vitórias(coleta) 0.7692307692307693 entropia 0.680 kl 0.0022 cortada 0.024 perda_v 0.0184 2007 passos/s, RAM 1480 MB
+atualização 810 passo 1658880 vitórias(coleta) 0.7692307692307693 entropia 0.629 kl 0.0044 cortada 0.038 perda_v 0.0229 2006 passos/s, RAM 1480 MB
+atualização 820 passo 1679360 vitórias(coleta) 0.6923076923076923 entropia 0.662 kl 0.0035 cortada 0.029 perda_v 0.0235 2004 passos/s, RAM 1480 MB
+atualização 830 passo 1699840 vitórias(coleta) 0.8235294117647058 entropia 0.676 kl 0.0038 cortada 0.039 perda_v 0.0219 2004 passos/s, RAM 1480 MB
+[aval] passo 1701888 gulosa: vitórias 85.7% (63 partidas), dano 0.884
+atualização 840 passo 1720320 vitórias(coleta) 0.7222222222222222 entropia 0.575 kl 0.0041 cortada 0.034 perda_v 0.0346 1995 passos/s, RAM 1480 MB
+atualização 850 passo 1740800 vitórias(coleta) 0.9230769230769231 entropia 0.634 kl 0.0048 cortada 0.040 perda_v 0.0140 1993 passos/s, RAM 1480 MB
+[ckpt] checkpoint automático no passo 1751040
+atualização 860 passo 1761280 vitórias(coleta) 0.8 entropia 0.641 kl 0.0058 cortada 0.040 perda_v 0.0181 1993 passos/s, RAM 1480 MB
+atualização 870 passo 1781760 vitórias(coleta) 0.7647058823529411 entropia 0.564 kl 0.0029 cortada 0.033 perda_v 0.0245 1993 passos/s, RAM 1480 MB
+[aval] passo 1800192 gulosa: vitórias 77.8% (63 partidas), dano 0.804
+atualização 880 passo 1802240 vitórias(coleta) 0.9166666666666666 entropia 0.626 kl 0.0043 cortada 0.044 perda_v 0.0072 1980 passos/s, RAM 1480 MB
+atualização 890 passo 1822720 vitórias(coleta) 0.7857142857142857 entropia 0.666 kl 0.0039 cortada 0.050 perda_v 0.0151 1980 passos/s, RAM 1480 MB
+atualização 900 passo 1843200 vitórias(coleta) 0.7857142857142857 entropia 0.789 kl 0.0047 cortada 0.043 perda_v 0.0186 1980 passos/s, RAM 1480 MB
+atualização 910 passo 1863680 vitórias(coleta) 0.8888888888888888 entropia 0.975 kl 0.0030 cortada 0.032 perda_v 0.0097 1978 passos/s, RAM 1480 MB
+atualização 920 passo 1884160 vitórias(coleta) 0.6666666666666666 entropia 0.718 kl 0.0031 cortada 0.038 perda_v 0.0210 1977 passos/s, RAM 1480 MB
+[aval] passo 1900544 gulosa: vitórias 68.3% (63 partidas), dano 0.719
+atualização 930 passo 1904640 vitórias(coleta) 0.6666666666666666 entropia 0.654 kl 0.0032 cortada 0.037 perda_v 0.0274 1972 passos/s, RAM 1480 MB
+atualização 940 passo 1925120 vitórias(coleta) 0.8333333333333334 entropia 0.710 kl 0.0022 cortada 0.025 perda_v 0.0122 1971 passos/s, RAM 1480 MB
+atualização 950 passo 1945600 vitórias(coleta) 0.7692307692307693 entropia 0.795 kl 0.0039 cortada 0.038 perda_v 0.0145 1971 passos/s, RAM 1480 MB
+atualização 960 passo 1966080 vitórias(coleta) 0.7647058823529411 entropia 0.588 kl 0.0035 cortada 0.036 perda_v 0.0211 1971 passos/s, RAM 1480 MB
+atualização 970 passo 1986560 vitórias(coleta) 0.75 entropia 0.742 kl 0.0026 cortada 0.029 perda_v 0.0209 1970 passos/s, RAM 1480 MB
+[aval] passo 2000896 gulosa: vitórias 85.7% (63 partidas), dano 0.893
+[ckpt] checkpoint automático no passo 2000896
+[final] gulosa: vitórias 83.8% em 420 partidas (parou por orçamento, passo 2000896)

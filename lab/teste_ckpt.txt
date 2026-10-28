@@ -1,0 +1,7 @@
+referência: 44 s
+morto à força logo depois do checkpoint automático do passo 51200 (código 1)
+registro.csv: 49 atualizações; linhas diferentes: nenhuma
+avaliacoes.csv: linhas diferentes: nenhuma
+vitórias finais: ref 0.0, retomada 0.0; pesos idênticos: True
+RSS do treino (MB) ref: 1052.7→1655.4 (pico 1655.4); retomada: 667.4→1641.4
+OK: bit a bit igual à referência

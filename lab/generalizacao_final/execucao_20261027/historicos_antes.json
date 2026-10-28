@@ -1,0 +1,5202 @@
+{
+  ".gitignore": [
+    588,
+    1791570143000000000
+  ],
+  "AGENTS.md": [
+    7535,
+    1792429230888621800
+  ],
+  "CLAUDE.md": [
+    19926,
+    1791570143000000000
+  ],
+  "LAB.md": [
+    76869,
+    1792261880387382000
+  ],
+  "main.py": [
+    286,
+    1791570143000000000
+  ],
+  "PASSAGEM.md": [
+    12139,
+    1791850247000000000
+  ],
+  "requirements.txt": [
+    193,
+    1791570143000000000
+  ],
+  "ver.sh": [
+    569,
+    1791850247000000000
+  ],
+  "desafio3\\analise.py": [
+    14962,
+    1791570143000000000
+  ],
+  "desafio3\\avaliar_teste.py": [
+    4921,
+    1791570143000000000
+  ],
+  "desafio3\\dados.py": [
+    7360,
+    1791570143000000000
+  ],
+  "desafio3\\enunciado.pdf": [
+    75466,
+    1791570143000000000
+  ],
+  "desafio3\\experimentos.csv": [
+    17610,
+    1791570143000000000
+  ],
+  "desafio3\\graficos.py": [
+    2872,
+    1791570143000000000
+  ],
+  "desafio3\\hipoteses.md": [
+    7042,
+    1791570143000000000
+  ],
+  "desafio3\\jogar.py": [
+    4468,
+    1791570143000000000
+  ],
+  "desafio3\\modelo.py": [
+    16963,
+    1792177392949096100
+  ],
+  "desafio3\\muon.py": [
+    3676,
+    1791570143000000000
+  ],
+  "desafio3\\painel.pdf": [
+    153491,
+    1791570143000000000
+  ],
+  "desafio3\\painel.py": [
+    7191,
+    1791570143000000000
+  ],
+  "desafio3\\rede_joga.md": [
+    790,
+    1791570143000000000
+  ],
+  "desafio3\\tabelas.md": [
+    4235,
+    1791570143000000000
+  ],
+  "desafio3\\teste.csv": [
+    2833,
+    1791570143000000000
+  ],
+  "desafio3\\treino.py": [
+    20071,
+    1791570143000000000
+  ],
+  "desafio3\\__init__.py": [
+    95,
+    1791570143000000000
+  ],
+  "desafio3\\dados\\meta.json": [
+    2647,
+    1791570143000000000
+  ],
+  "desafio3\\figuras\\rho_muon_adamw.png": [
+    204395,
+    1791570143000000000
+  ],
+  "desafio3\\figuras\\sinais_baseline_s0.png": [
+    304746,
+    1791570143000000000
+  ],
+  "desafio3\\figuras\\sinais_instavel_muon_lr0.1.png": [
+    235251,
+    1791570143000000000
+  ],
+  "desafio3\\figuras\\sinais_maior_pico_g_baseline_s4.png": [
+    299288,
+    1791570143000000000
+  ],
+  "desafio3\\figuras\\sinais_melhor_muon_s0.png": [
+    239238,
+    1791570143000000000
+  ],
+  "desafio3\\figuras\\sinais_melhor_sgd_cosseno_s0.png": [
+    255154,
+    1791570143000000000
+  ],
+  "desafio3\\figuras\\varredura_eta.png": [
+    82590,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132108-adam-lr0.0001-constante-s0\\config.json": [
+    925,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132108-adam-lr0.0001-constante-s0\\graficos.png": [
+    304746,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132108-adam-lr0.0001-constante-s0\\registro.csv": [
+    166187,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132152-adam-lr0.0001-constante-s1\\config.json": [
+    926,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132152-adam-lr0.0001-constante-s1\\graficos.png": [
+    312650,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132152-adam-lr0.0001-constante-s1\\registro.csv": [
+    165987,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132236-adam-lr0.0001-constante-s2\\config.json": [
+    924,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132236-adam-lr0.0001-constante-s2\\graficos.png": [
+    311019,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-132236-adam-lr0.0001-constante-s2\\registro.csv": [
+    166069,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-135814-sgd-lr0.001-warmup_cosseno-s0\\config.json": [
+    1041,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-135814-sgd-lr0.001-warmup_cosseno-s0\\registro.csv": [
+    174771,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-135855-sgd-lr0.003-warmup_cosseno-s0\\config.json": [
+    1039,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-135855-sgd-lr0.003-warmup_cosseno-s0\\registro.csv": [
+    174449,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-135936-sgd-lr0.01-warmup_cosseno-s0\\config.json": [
+    1035,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-135936-sgd-lr0.01-warmup_cosseno-s0\\registro.csv": [
+    173765,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140016-sgd-lr0.03-warmup_cosseno-s0\\config.json": [
+    1037,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140016-sgd-lr0.03-warmup_cosseno-s0\\registro.csv": [
+    173475,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140102-sgd-lr0.1-warmup_cosseno-s0\\config.json": [
+    1036,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140102-sgd-lr0.1-warmup_cosseno-s0\\registro.csv": [
+    173261,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140143-nesterov-lr0.001-warmup_cosseno-s0\\config.json": [
+    1048,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140143-nesterov-lr0.001-warmup_cosseno-s0\\registro.csv": [
+    173590,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140228-nesterov-lr0.003-warmup_cosseno-s0\\config.json": [
+    1048,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140228-nesterov-lr0.003-warmup_cosseno-s0\\registro.csv": [
+    173690,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140311-nesterov-lr0.01-warmup_cosseno-s0\\config.json": [
+    1047,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140311-nesterov-lr0.01-warmup_cosseno-s0\\registro.csv": [
+    172813,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140352-nesterov-lr0.03-warmup_cosseno-s0\\config.json": [
+    1046,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140352-nesterov-lr0.03-warmup_cosseno-s0\\registro.csv": [
+    172566,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140435-nesterov-lr0.1-warmup_cosseno-s0\\config.json": [
+    1043,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140435-nesterov-lr0.1-warmup_cosseno-s0\\registro.csv": [
+    172299,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140523-adam-lr3e-05-warmup_cosseno-s0\\config.json": [
+    1042,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140523-adam-lr3e-05-warmup_cosseno-s0\\registro.csv": [
+    174515,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140610-adam-lr0.0001-warmup_cosseno-s0\\config.json": [
+    1042,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140610-adam-lr0.0001-warmup_cosseno-s0\\registro.csv": [
+    174537,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140657-adam-lr0.0003-warmup_cosseno-s0\\config.json": [
+    1044,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140657-adam-lr0.0003-warmup_cosseno-s0\\registro.csv": [
+    174321,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140744-adam-lr0.001-warmup_cosseno-s0\\config.json": [
+    1042,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140744-adam-lr0.001-warmup_cosseno-s0\\registro.csv": [
+    174909,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140831-adam-lr0.003-warmup_cosseno-s0\\config.json": [
+    1042,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140831-adam-lr0.003-warmup_cosseno-s0\\registro.csv": [
+    174563,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140920-adamw-lr3e-05-warmup_cosseno-s0\\config.json": [
+    1043,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-140920-adamw-lr3e-05-warmup_cosseno-s0\\registro.csv": [
+    174582,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141008-adamw-lr0.0001-warmup_cosseno-s0\\config.json": [
+    1046,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141008-adamw-lr0.0001-warmup_cosseno-s0\\registro.csv": [
+    174530,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141055-adamw-lr0.0003-warmup_cosseno-s0\\config.json": [
+    1046,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141055-adamw-lr0.0003-warmup_cosseno-s0\\registro.csv": [
+    174312,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141142-adamw-lr0.001-warmup_cosseno-s0\\config.json": [
+    1044,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141142-adamw-lr0.001-warmup_cosseno-s0\\registro.csv": [
+    174844,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141229-adamw-lr0.003-warmup_cosseno-s0\\config.json": [
+    1043,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141229-adamw-lr0.003-warmup_cosseno-s0\\registro.csv": [
+    174714,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141316-rmsprop-lr3e-05-warmup_cosseno-s0\\config.json": [
+    1047,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141316-rmsprop-lr3e-05-warmup_cosseno-s0\\registro.csv": [
+    174380,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141403-rmsprop-lr0.0001-warmup_cosseno-s0\\config.json": [
+    1050,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141403-rmsprop-lr0.0001-warmup_cosseno-s0\\registro.csv": [
+    173742,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141452-rmsprop-lr0.0003-warmup_cosseno-s0\\config.json": [
+    1049,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141452-rmsprop-lr0.0003-warmup_cosseno-s0\\registro.csv": [
+    173470,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141539-rmsprop-lr0.001-warmup_cosseno-s0\\config.json": [
+    1046,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141539-rmsprop-lr0.001-warmup_cosseno-s0\\registro.csv": [
+    173763,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141627-rmsprop-lr0.003-warmup_cosseno-s0\\config.json": [
+    1048,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141627-rmsprop-lr0.003-warmup_cosseno-s0\\registro.csv": [
+    173229,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141740-muon-lr0.001-aw0.0003-warmup_cosseno-s0\\config.json": [
+    1052,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141740-muon-lr0.001-aw0.0003-warmup_cosseno-s0\\registro.csv": [
+    182603,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141907-muon-lr0.003-aw0.0003-warmup_cosseno-s0\\config.json": [
+    1051,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-141907-muon-lr0.003-aw0.0003-warmup_cosseno-s0\\registro.csv": [
+    183061,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142034-muon-lr0.01-aw0.0003-warmup_cosseno-s0\\config.json": [
+    1050,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142034-muon-lr0.01-aw0.0003-warmup_cosseno-s0\\registro.csv": [
+    183047,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142203-muon-lr0.03-aw0.0003-warmup_cosseno-s0\\config.json": [
+    1051,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142203-muon-lr0.03-aw0.0003-warmup_cosseno-s0\\registro.csv": [
+    182330,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142331-muon-lr0.1-aw0.0003-warmup_cosseno-s0\\config.json": [
+    1048,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142331-muon-lr0.1-aw0.0003-warmup_cosseno-s0\\graficos.png": [
+    235251,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142331-muon-lr0.1-aw0.0003-warmup_cosseno-s0\\registro.csv": [
+    181433,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142511-muon-lr0.0003-aw0.0003-warmup_cosseno-s0\\config.json": [
+    1055,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142511-muon-lr0.0003-aw0.0003-warmup_cosseno-s0\\registro.csv": [
+    183402,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142710-sgd-lr0.03-constante-s0\\config.json": [
+    1024,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142710-sgd-lr0.03-constante-s0\\registro.csv": [
+    166596,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142754-rmsprop-lr0.0003-constante-s0\\config.json": [
+    1035,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142754-rmsprop-lr0.0003-constante-s0\\registro.csv": [
+    166755,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142842-muon-lr0.001-aw0.0003-constante-s0\\config.json": [
+    1038,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-142842-muon-lr0.001-aw0.0003-constante-s0\\registro.csv": [
+    169935,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143009-sgd-lr0.03-cosseno-s0\\config.json": [
+    1019,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143009-sgd-lr0.03-cosseno-s0\\registro.csv": [
+    173793,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143054-rmsprop-lr0.0003-cosseno-s0\\config.json": [
+    1028,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143054-rmsprop-lr0.0003-cosseno-s0\\registro.csv": [
+    173596,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143141-muon-lr0.001-aw0.0003-cosseno-s0\\config.json": [
+    1034,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143141-muon-lr0.001-aw0.0003-cosseno-s0\\registro.csv": [
+    182954,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143308-sgd-lr0.03-wsd-s0\\config.json": [
+    1010,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143308-sgd-lr0.03-wsd-s0\\registro.csv": [
+    167269,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143352-rmsprop-lr0.0003-wsd-s0\\config.json": [
+    1020,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143352-rmsprop-lr0.0003-wsd-s0\\registro.csv": [
+    167819,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143441-muon-lr0.001-aw0.0003-wsd-s0\\config.json": [
+    1026,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143441-muon-lr0.001-aw0.0003-wsd-s0\\registro.csv": [
+    171829,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143640-adam-lr0.0001-constante-s0\\config.json": [
+    1029,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143640-adam-lr0.0001-constante-s0\\registro.csv": [
+    168557,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143727-adam-lr0.0001-constante-s1\\config.json": [
+    1030,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143727-adam-lr0.0001-constante-s1\\registro.csv": [
+    168360,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143813-adam-lr0.0001-constante-s2\\config.json": [
+    1029,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-143813-adam-lr0.0001-constante-s2\\registro.csv": [
+    168452,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144429-adam-lr0.0001-constante-s3\\config.json": [
+    1029,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144429-adam-lr0.0001-constante-s3\\registro.csv": [
+    168399,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144524-adam-lr0.0001-constante-s4\\config.json": [
+    1030,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144524-adam-lr0.0001-constante-s4\\graficos.png": [
+    299288,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144524-adam-lr0.0001-constante-s4\\registro.csv": [
+    168399,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144632-sgd-lr0.03-warmup_cosseno-s0\\config.json": [
+    1036,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144632-sgd-lr0.03-warmup_cosseno-s0\\registro.csv": [
+    173475,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144713-sgd-lr0.03-warmup_cosseno-s1\\config.json": [
+    1036,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144713-sgd-lr0.03-warmup_cosseno-s1\\registro.csv": [
+    173613,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144754-sgd-lr0.03-warmup_cosseno-s2\\config.json": [
+    1037,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144754-sgd-lr0.03-warmup_cosseno-s2\\registro.csv": [
+    173439,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144836-sgd-lr0.03-warmup_cosseno-s3\\config.json": [
+    1036,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144836-sgd-lr0.03-warmup_cosseno-s3\\registro.csv": [
+    173494,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144917-sgd-lr0.03-warmup_cosseno-s4\\config.json": [
+    1035,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-144917-sgd-lr0.03-warmup_cosseno-s4\\registro.csv": [
+    173442,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145005-sgd-lr0.03-cosseno-s0\\config.json": [
+    1023,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145005-sgd-lr0.03-cosseno-s0\\graficos.png": [
+    255154,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145005-sgd-lr0.03-cosseno-s0\\registro.csv": [
+    173793,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145047-sgd-lr0.03-cosseno-s1\\config.json": [
+    1022,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145047-sgd-lr0.03-cosseno-s1\\registro.csv": [
+    173772,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145129-sgd-lr0.03-cosseno-s2\\config.json": [
+    1023,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145129-sgd-lr0.03-cosseno-s2\\registro.csv": [
+    173700,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145211-sgd-lr0.03-cosseno-s3\\config.json": [
+    1022,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145211-sgd-lr0.03-cosseno-s3\\registro.csv": [
+    173727,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145254-sgd-lr0.03-cosseno-s4\\config.json": [
+    1020,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145254-sgd-lr0.03-cosseno-s4\\registro.csv": [
+    173713,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145336-rmsprop-lr0.0003-warmup_cosseno-s0\\config.json": [
+    1048,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145336-rmsprop-lr0.0003-warmup_cosseno-s0\\registro.csv": [
+    173470,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145420-rmsprop-lr0.0003-warmup_cosseno-s1\\config.json": [
+    1048,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145420-rmsprop-lr0.0003-warmup_cosseno-s1\\registro.csv": [
+    173529,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145505-rmsprop-lr0.0003-warmup_cosseno-s2\\config.json": [
+    1049,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145505-rmsprop-lr0.0003-warmup_cosseno-s2\\registro.csv": [
+    173461,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145550-rmsprop-lr0.0003-warmup_cosseno-s3\\config.json": [
+    1047,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145550-rmsprop-lr0.0003-warmup_cosseno-s3\\registro.csv": [
+    173410,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145633-rmsprop-lr0.0003-warmup_cosseno-s4\\config.json": [
+    1047,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145633-rmsprop-lr0.0003-warmup_cosseno-s4\\registro.csv": [
+    173208,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145724-muon-lr0.001-aw0.0003-warmup_cosseno-s0\\config.json": [
+    1051,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145724-muon-lr0.001-aw0.0003-warmup_cosseno-s0\\graficos.png": [
+    239238,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145724-muon-lr0.001-aw0.0003-warmup_cosseno-s0\\registro.csv": [
+    182603,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145842-muon-lr0.001-aw0.0003-warmup_cosseno-s1\\config.json": [
+    1052,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-145842-muon-lr0.001-aw0.0003-warmup_cosseno-s1\\registro.csv": [
+    182665,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-150001-muon-lr0.001-aw0.0003-warmup_cosseno-s2\\config.json": [
+    1051,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-150001-muon-lr0.001-aw0.0003-warmup_cosseno-s2\\registro.csv": [
+    182897,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-150120-muon-lr0.001-aw0.0003-warmup_cosseno-s3\\config.json": [
+    1052,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-150120-muon-lr0.001-aw0.0003-warmup_cosseno-s3\\registro.csv": [
+    182743,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-150239-muon-lr0.001-aw0.0003-warmup_cosseno-s4\\config.json": [
+    1051,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-150239-muon-lr0.001-aw0.0003-warmup_cosseno-s4\\registro.csv": [
+    182652,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154207-sgd-lr0.3-warmup_cosseno-s0\\config.json": [
+    1056,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154207-sgd-lr0.3-warmup_cosseno-s0\\registro.csv": [
+    173272,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154248-adam-lr0.0003-warmup_cosseno-s0\\config.json": [
+    1065,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154248-adam-lr0.0003-warmup_cosseno-s0\\registro.csv": [
+    174321,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154331-adam-lr0.0003-warmup_cosseno-s1\\config.json": [
+    1065,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154331-adam-lr0.0003-warmup_cosseno-s1\\registro.csv": [
+    174364,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154415-adam-lr0.0003-warmup_cosseno-s2\\config.json": [
+    1064,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154415-adam-lr0.0003-warmup_cosseno-s2\\registro.csv": [
+    174247,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154459-adam-lr0.0003-warmup_cosseno-s3\\config.json": [
+    1063,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154459-adam-lr0.0003-warmup_cosseno-s3\\registro.csv": [
+    174406,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154544-adam-lr0.0003-warmup_cosseno-s4\\config.json": [
+    1065,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154544-adam-lr0.0003-warmup_cosseno-s4\\registro.csv": [
+    174285,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154629-adamw-lr0.0003-warmup_cosseno-s0\\config.json": [
+    1067,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154629-adamw-lr0.0003-warmup_cosseno-s0\\registro.csv": [
+    174312,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154714-adamw-lr0.0003-warmup_cosseno-s1\\config.json": [
+    1068,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154714-adamw-lr0.0003-warmup_cosseno-s1\\registro.csv": [
+    174501,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154759-adamw-lr0.0003-warmup_cosseno-s2\\config.json": [
+    1063,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154759-adamw-lr0.0003-warmup_cosseno-s2\\registro.csv": [
+    174314,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154845-adamw-lr0.0003-warmup_cosseno-s3\\config.json": [
+    1068,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154845-adamw-lr0.0003-warmup_cosseno-s3\\registro.csv": [
+    174338,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154930-adamw-lr0.0003-warmup_cosseno-s4\\config.json": [
+    1067,
+    1791570143000000000
+  ],
+  "desafio3\\logs\\20261008-154930-adamw-lr0.0003-warmup_cosseno-s4\\registro.csv": [
+    174368,
+    1791570143000000000
+  ],
+  "docs\\CONCEITO.md": [
+    33911,
+    1791570143000000000
+  ],
+  "lab\\avaliacao_extra.csv": [
+    18439,
+    1792261820772568700
+  ],
+  "lab\\avaliacao_extra.log": [
+    12062,
+    1792250885879967200
+  ],
+  "lab\\avaliacao_extra.py": [
+    9682,
+    1792249434336464800
+  ],
+  "lab\\avaliacao_extra_f3.log": [
+    5907,
+    1792261820792591900
+  ],
+  "lab\\avaliacao_extra_k20.log": [
+    3043,
+    1792250971487860200
+  ],
+  "lab\\fila.json": [
+    9345,
+    1792249955775813600
+  ],
+  "lab\\fila.log": [
+    1781,
+    1792180362266908100
+  ],
+  "lab\\fila.py": [
+    5939,
+    1792190764155182900
+  ],
+  "lab\\fila_saida.log": [
+    11948,
+    1792260991440210700
+  ],
+  "lab\\medidas.json": [
+    1412,
+    1792177790341850500
+  ],
+  "lab\\medir.py": [
+    2383,
+    1792177673948943000
+  ],
+  "lab\\memoria.csv": [
+    5471,
+    1792260989664463900
+  ],
+  "lab\\monitor.log": [
+    685,
+    1792260991460210600
+  ],
+  "lab\\monitor.py": [
+    6779,
+    1792188052925051600
+  ],
+  "lab\\parte0.py": [
+    4881,
+    1792249408627296900
+  ],
+  "lab\\parte1.py": [
+    5092,
+    1792260053895251200
+  ],
+  "lab\\processos.py": [
+    2580,
+    1792187840445582200
+  ],
+  "lab\\receita_f2.txt": [
+    4,
+    1792223296367809000
+  ],
+  "lab\\relatorio.py": [
+    16500,
+    1792187448754210300
+  ],
+  "lab\\teste_ckpt.py": [
+    4010,
+    1792187516130799800
+  ],
+  "lab\\teste_ckpt.txt": [
+    388,
+    1792187618583047600
+  ],
+  "lab\\teste_monitor.py": [
+    5812,
+    1792187867899314100
+  ],
+  "lab\\teste_monitor.txt": [
+    3981,
+    1792188207876529200
+  ],
+  "lab\\teste_parada.py": [
+    3721,
+    1792177537317936500
+  ],
+  "lab\\teste_parada.txt": [
+    914,
+    1792177646301896700
+  ],
+  "lab\\teto.py": [
+    6107,
+    1792177842302501600
+  ],
+  "lab\\__init__.py": [
+    282,
+    1792177090757207000
+  ],
+  "lab\\figuras\\curvas_f1.png": [
+    106106,
+    1792261879854505900
+  ],
+  "lab\\figuras\\curvas_f2.png": [
+    179724,
+    1792261880366740800
+  ],
+  "pvz\\agentes.py": [
+    3325,
+    1791570143000000000
+  ],
+  "pvz\\ambiente.py": [
+    12146,
+    1791570143000000000
+  ],
+  "pvz\\config.py": [
+    1990,
+    1791570143000000000
+  ],
+  "pvz\\divisao.py": [
+    1340,
+    1791570143000000000
+  ],
+  "pvz\\hordas.py": [
+    6169,
+    1791570143000000000
+  ],
+  "pvz\\render.py": [
+    1815,
+    1791570143000000000
+  ],
+  "pvz\\__init__.py": [
+    162,
+    1791570143000000000
+  ],
+  "pvz\\__main__.py": [
+    8102,
+    1791570143000000000
+  ],
+  "rl\\acoes.py": [
+    2429,
+    1791570143000000000
+  ],
+  "rl\\avaliar.py": [
+    4073,
+    1791570190000000000
+  ],
+  "rl\\comparar_dqn_ppo.py": [
+    5091,
+    1791854274000000000
+  ],
+  "rl\\dqn.py": [
+    39360,
+    1791850276000000000
+  ],
+  "rl\\NOTAS_STATUS.md": [
+    543,
+    1791570143000000000
+  ],
+  "rl\\ppo.py": [
+    24149,
+    1792187630989669700
+  ],
+  "rl\\ppo_RELATORIO.md": [
+    15399,
+    1791930220000000000
+  ],
+  "rl\\referencias.csv": [
+    176,
+    1791570144000000000
+  ],
+  "rl\\RELATORIO.md": [
+    14653,
+    1791570143000000000
+  ],
+  "rl\\relatorio.py": [
+    6855,
+    1791570144000000000
+  ],
+  "rl\\rodar.log": [
+    25829,
+    1791570144000000000
+  ],
+  "rl\\rodar.py": [
+    4927,
+    1791570144000000000
+  ],
+  "rl\\rodar_inicio.log": [
+    450,
+    1791570144000000000
+  ],
+  "rl\\STATUS.md": [
+    2085,
+    1791929206000000000
+  ],
+  "rl\\status.py": [
+    3593,
+    1791570144000000000
+  ],
+  "rl\\tabelas.md": [
+    2040,
+    1791570144000000000
+  ],
+  "rl\\teste_retomada.py": [
+    3970,
+    1791570144000000000
+  ],
+  "rl\\__init__.py": [
+    98,
+    1791570143000000000
+  ],
+  "rl\\diag\\comum.py": [
+    1767,
+    1791570143000000000
+  ],
+  "rl\\diag\\dados_td.py": [
+    3448,
+    1791570143000000000
+  ],
+  "rl\\diag\\PLANO.md": [
+    1591,
+    1791570143000000000
+  ],
+  "rl\\diag\\prova.py": [
+    9513,
+    1791570143000000000
+  ],
+  "rl\\diag\\RELATORIO.md": [
+    9888,
+    1791570143000000000
+  ],
+  "rl\\diag\\relatorio.py": [
+    5422,
+    1791570143000000000
+  ],
+  "rl\\diag\\td.py": [
+    6953,
+    1791570143000000000
+  ],
+  "rl\\diag\\teto.py": [
+    4359,
+    1791570143000000000
+  ],
+  "rl\\diag\\__init__.py": [
+    87,
+    1791570143000000000
+  ],
+  "rl\\diag\\dados\\prova_avaliacao_k20.json": [
+    724,
+    1792177915635379900
+  ],
+  "rl\\diag\\dados\\prova_avaliacao_k20.npz": [
+    1305864,
+    1792177915585447100
+  ],
+  "rl\\diag\\dados\\prova_treino_k20.json": [
+    1439,
+    1792178084471001300
+  ],
+  "rl\\diag\\dados\\prova_treino_k20.npz": [
+    4342320,
+    1792178084423741400
+  ],
+  "rl\\diag\\dados\\td_k20.json": [
+    720,
+    1791570143000000000
+  ],
+  "rl\\diag\\figuras\\vies_ini.png": [
+    87527,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\lab-prova.log": [
+    1354,
+    1792178084471001300
+  ],
+  "rl\\diag\\logs\\lab-teto-atencao_antes.log": [
+    538,
+    1792178431940398600
+  ],
+  "rl\\diag\\logs\\lab-teto-atencao_depois.log": [
+    538,
+    1792178599507628000
+  ],
+  "rl\\diag\\logs\\lab-teto-cnn1d.log": [
+    530,
+    1792178256434981900
+  ],
+  "rl\\diag\\logs\\lab-teto-cnn1d_dilatada.log": [
+    539,
+    1792179303671883800
+  ],
+  "rl\\diag\\logs\\lab-teto-transformer.log": [
+    536,
+    1792178846477139700
+  ],
+  "rl\\diag\\logs\\lab-teto-transformer_d128.log": [
+    541,
+    1792179187905289700
+  ],
+  "rl\\diag\\logs\\saida-modomcarquiteturacnn1.log": [
+    501,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\saida-modotdalvocada2000arquiteturacnn1.log": [
+    525,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\saida-modotdalvocada2000arquiteturacnn1d.log": [
+    531,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\saida-modotdalvocada500arquiteturacnn1.log": [
+    519,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\saida-teto-cnn1.log": [
+    547,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\saida-teto-cnn1d.log": [
+    548,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\lab-teto-atencao_antes-s0\\curva.csv": [
+    1904,
+    1792178431941398300
+  ],
+  "rl\\diag\\logs\\lab-teto-atencao_antes-s0\\resultado.json": [
+    814,
+    1792178431941905400
+  ],
+  "rl\\diag\\logs\\lab-teto-atencao_depois-s0\\curva.csv": [
+    1909,
+    1792178599507628000
+  ],
+  "rl\\diag\\logs\\lab-teto-atencao_depois-s0\\resultado.json": [
+    816,
+    1792178599508628700
+  ],
+  "rl\\diag\\logs\\lab-teto-cnn1d-s0\\curva.csv": [
+    1894,
+    1792178256435982500
+  ],
+  "rl\\diag\\logs\\lab-teto-cnn1d-s0\\resultado.json": [
+    805,
+    1792178256435982500
+  ],
+  "rl\\diag\\logs\\lab-teto-cnn1d_dilatada-s0\\curva.csv": [
+    1900,
+    1792179303671883800
+  ],
+  "rl\\diag\\logs\\lab-teto-cnn1d_dilatada-s0\\resultado.json": [
+    818,
+    1792179303673388100
+  ],
+  "rl\\diag\\logs\\lab-teto-transformer-s0\\curva.csv": [
+    1906,
+    1792178846478170900
+  ],
+  "rl\\diag\\logs\\lab-teto-transformer-s0\\resultado.json": [
+    813,
+    1792178846478170900
+  ],
+  "rl\\diag\\logs\\lab-teto-transformer_d128-s0\\curva.csv": [
+    1915,
+    1792179187906289500
+  ],
+  "rl\\diag\\logs\\lab-teto-transformer_d128-s0\\resultado.json": [
+    819,
+    1792179187906289500
+  ],
+  "rl\\diag\\logs\\mc-cnn1-s0\\metricas.csv": [
+    3956,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\mc-cnn1-s0\\notas.csv": [
+    774,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\mc-cnn1-s0\\resultado.json": [
+    964,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td2000-cnn1-s0\\metricas.csv": [
+    3985,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td2000-cnn1-s0\\notas.csv": [
+    772,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td2000-cnn1-s0\\resultado.json": [
+    967,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td2000-cnn1d-s0\\metricas.csv": [
+    3963,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td2000-cnn1d-s0\\notas.csv": [
+    756,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td2000-cnn1d-s0\\resultado.json": [
+    971,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td500-cnn1-s0\\metricas.csv": [
+    3957,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td500-cnn1-s0\\notas.csv": [
+    771,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\td500-cnn1-s0\\resultado.json": [
+    968,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\teto-cnn1-s0\\curva.csv": [
+    1883,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\teto-cnn1-s0\\resultado.json": [
+    789,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\teto-cnn1d-s0\\curva.csv": [
+    1894,
+    1791570143000000000
+  ],
+  "rl\\diag\\logs\\teto-cnn1d-s0\\resultado.json": [
+    789,
+    1791570143000000000
+  ],
+  "rl\\figuras\\curvas_vitoria.png": [
+    73937,
+    1791570143000000000
+  ],
+  "rl\\figuras\\sinais_baseline.png": [
+    449183,
+    1791570143000000000
+  ],
+  "rl\\figuras\\sinais_muon.png": [
+    329545,
+    1791570143000000000
+  ],
+  "rl\\figuras\\sinais_vencedora.png": [
+    293941,
+    1791570143000000000
+  ],
+  "rl\\logs\\acoes-dqn-2M.txt": [
+    397,
+    1791930144000000000
+  ],
+  "rl\\logs\\comparar_dqn_ppo.txt": [
+    832,
+    1791930097000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0.log": [
+    14959,
+    1791860326000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1.log": [
+    14414,
+    1791921325000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2.log": [
+    14271,
+    1791929208000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0.log": [
+    26835,
+    1791850247000000000
+  ],
+  "rl\\logs\\fila-dqn-2M.log": [
+    1374,
+    1791929269000000000
+  ],
+  "rl\\logs\\lab-f1-atual-s1.log": [
+    15937,
+    1792189759766076000
+  ],
+  "rl\\logs\\lab-f1-atual-s1.morta-17h.log": [
+    8375,
+    1792180814904840600
+  ],
+  "rl\\logs\\lab-f1-atual-s2.log": [
+    16053,
+    1792217677035807100
+  ],
+  "rl\\logs\\lab-f1-atual-s3.log": [
+    16083,
+    1792194798610581400
+  ],
+  "rl\\logs\\lab-f1-atual-s4.log": [
+    16245,
+    1792214296834881300
+  ],
+  "rl\\logs\\lab-f1-atual-s6.log": [
+    16441,
+    1792221027354565500
+  ],
+  "rl\\logs\\lab-f1-v2a-s1.log": [
+    16042,
+    1792191276998962800
+  ],
+  "rl\\logs\\lab-f1-v2a-s2.log": [
+    16106,
+    1792218793605680800
+  ],
+  "rl\\logs\\lab-f1-v2a-s3.log": [
+    16216,
+    1792212097163497600
+  ],
+  "rl\\logs\\lab-f1-v2a-s4.log": [
+    16074,
+    1792215411959369900
+  ],
+  "rl\\logs\\lab-f1-v2a-s6.log": [
+    16112,
+    1792222119615937000
+  ],
+  "rl\\logs\\lab-f1-v2b-s1.log": [
+    16085,
+    1792192952339278900
+  ],
+  "rl\\logs\\lab-f1-v2b-s2.log": [
+    16241,
+    1792219900960610900
+  ],
+  "rl\\logs\\lab-f1-v2b-s3.log": [
+    16256,
+    1792213246814472600
+  ],
+  "rl\\logs\\lab-f1-v2b-s4.log": [
+    16447,
+    1792216568025231700
+  ],
+  "rl\\logs\\lab-f1-v2b-s6.log": [
+    16205,
+    1792223243075675300
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1.log": [
+    16321,
+    1792224499485074000
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2.log": [
+    16236,
+    1792230963669744800
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3.log": [
+    16191,
+    1792237316732170300
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1.log": [
+    16337,
+    1792225694953649300
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2.log": [
+    16238,
+    1792232093577199600
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3.log": [
+    16325,
+    1792238478027437900
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1.log": [
+    16402,
+    1792228063421991200
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2.log": [
+    16073,
+    1792234440915688200
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3.log": [
+    16327,
+    1792240850129121500
+  ],
+  "rl\\logs\\lab-f2-transformer-s1.log": [
+    16477,
+    1792227160749338200
+  ],
+  "rl\\logs\\lab-f2-transformer-s2.log": [
+    16463,
+    1792233547932616200
+  ],
+  "rl\\logs\\lab-f2-transformer-s3.log": [
+    16445,
+    1792239941669230600
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1.log": [
+    16458,
+    1792229825361537200
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2.log": [
+    16315,
+    1792236206000086100
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3.log": [
+    16362,
+    1792242590209602300
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1.log": [
+    19965,
+    1792254001776168900
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2.log": [
+    20091,
+    1792257054860070800
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3.log": [
+    20072,
+    1792260988951485200
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1.log": [
+    19987,
+    1792252473430491400
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2.log": [
+    19906,
+    1792255522386032800
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3.log": [
+    19958,
+    1792259003465355500
+  ],
+  "rl\\logs\\lab-san-atencao_antes.log": [
+    3484,
+    1792179635071479200
+  ],
+  "rl\\logs\\lab-san-atencao_depois.log": [
+    3506,
+    1792179778835847300
+  ],
+  "rl\\logs\\lab-san-cnn1d.log": [
+    3498,
+    1792179475579074600
+  ],
+  "rl\\logs\\lab-san-cnn1d_dilatada.log": [
+    3476,
+    1792180360912465500
+  ],
+  "rl\\logs\\lab-san-transformer.log": [
+    3449,
+    1792179962453050800
+  ],
+  "rl\\logs\\lab-san-transformer_d128.log": [
+    3410,
+    1792180194839669900
+  ],
+  "rl\\logs\\lab-teste-ckpt-b.log": [
+    954,
+    1792187617442327000
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref.log": [
+    768,
+    1792187562811933600
+  ],
+  "rl\\logs\\lab-teste-parada-a.log": [
+    1533,
+    1792177605327661000
+  ],
+  "rl\\logs\\lab-teste-parada-b.log": [
+    931,
+    1792177645417490800
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu-4M.log": [
+    26753,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu.log": [
+    13163,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0.log": [
+    14957,
+    1791572412000000000
+  ],
+  "rl\\logs\\ppo-fases-s1-4M.log": [
+    26251,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1.log": [
+    12641,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s2.log": [
+    13388,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3-4M.log": [
+    26283,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3.log": [
+    12851,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s4.log": [
+    12556,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s5.log": [
+    12954,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s6.log": [
+    13340,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s7.log": [
+    13176,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-muon-4M-s0.log": [
+    27099,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-rmsprop-4M-s0.log": [
+    26705,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-vencedora-4M-s0.log": [
+    26597,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-sanidade.log": [
+    2989,
+    1791570395000000000
+  ],
+  "rl\\logs\\rodar-dqn-2M.sh": [
+    673,
+    1791852973000000000
+  ],
+  "rl\\logs\\supervisor-dqn-2M.sh": [
+    2115,
+    1791860530000000000
+  ],
+  "rl\\logs\\baseline-s0\\avaliacao_final.csv": [
+    27936,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s0\\avaliacoes.csv": [
+    585,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s0\\config.json": [
+    944,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s0\\episodios.csv": [
+    334612,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s0\\progresso.json": [
+    649,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s0\\registro.csv": [
+    876892,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s0\\resultado.json": [
+    246,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s0\\velocidade.csv": [
+    62479,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s1\\avaliacao_final.csv": [
+    28184,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s1\\avaliacoes.csv": [
+    563,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s1\\config.json": [
+    944,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s1\\episodios.csv": [
+    310332,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s1\\progresso.json": [
+    644,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s1\\registro.csv": [
+    874909,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s1\\resultado.json": [
+    245,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s1\\velocidade.csv": [
+    62434,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s2\\avaliacao_final.csv": [
+    28456,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s2\\avaliacoes.csv": [
+    555,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s2\\config.json": [
+    944,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s2\\episodios.csv": [
+    320921,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s2\\progresso.json": [
+    647,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s2\\registro.csv": [
+    874011,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s2\\resultado.json": [
+    244,
+    1791570143000000000
+  ],
+  "rl\\logs\\baseline-s2\\velocidade.csv": [
+    62435,
+    1791570143000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\avaliacao_final.csv": [
+    26825,
+    1791860323000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\avaliacoes.csv": [
+    2810,
+    1791860325000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\config.json": [
+    1222,
+    1791850329000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\episodios.csv": [
+    1850873,
+    1791860324000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\exploracao.csv": [
+    1425841,
+    1791860325000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\melhor.pt": [
+    359277,
+    1791858031000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\modelo.pt": [
+    359277,
+    1791860323000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\progresso.json": [
+    2607,
+    1791860324000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\registro.csv": [
+    5076488,
+    1791860324000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\resultado.json": [
+    246,
+    1791860324000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s0\\velocidade.csv": [
+    336533,
+    1791860325000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\avaliacao_final.csv": [
+    26854,
+    1791921322000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\avaliacoes.csv": [
+    2750,
+    1791921323000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\config.json": [
+    1222,
+    1791860329000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\episodios.csv": [
+    1796514,
+    1791921323000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\exploracao.csv": [
+    1384984,
+    1791921323000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\melhor.pt": [
+    359277,
+    1791915727000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\modelo.pt": [
+    359277,
+    1791921322000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\progresso.json": [
+    2608,
+    1791921322000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\registro.csv": [
+    5079246,
+    1791921323000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\resultado.json": [
+    245,
+    1791921322000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s1\\velocidade.csv": [
+    336377,
+    1791921323000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\avaliacao_final.csv": [
+    27238,
+    1791929205000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\avaliacoes.csv": [
+    2788,
+    1791929206000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\config.json": [
+    1222,
+    1791921328000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\episodios.csv": [
+    1805416,
+    1791929206000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\exploracao.csv": [
+    1387541,
+    1791929206000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\melhor.pt": [
+    359277,
+    1791923928000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\modelo.pt": [
+    359277,
+    1791929205000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\progresso.json": [
+    2611,
+    1791929206000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\registro.csv": [
+    5074358,
+    1791929206000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\resultado.json": [
+    246,
+    1791929206000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-2M-s2\\velocidade.csv": [
+    334811,
+    1791929206000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\avaliacao_final.csv": [
+    27620,
+    1791850247000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\avaliacoes.csv": [
+    1200,
+    1791850247000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\config.json": [
+    1186,
+    1791850247000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\episodios.csv": [
+    3955048,
+    1791850247000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\exploracao.csv": [
+    3037952,
+    1791850247000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\progresso.json": [
+    1274,
+    1791850247000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\registro.csv": [
+    10192548,
+    1791850247000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\resultado.json": [
+    246,
+    1791850247000000000
+  ],
+  "rl\\logs\\dqn-cnn1d-k20-4M-s0\\velocidade.csv": [
+    685687,
+    1791850247000000000
+  ],
+  "rl\\logs\\lab-f1-atual-s1\\avaliacoes.csv": [
+    1764,
+    1792189759777309700
+  ],
+  "rl\\logs\\lab-f1-atual-s1\\ckpt.json": [
+    18,
+    1792189759804906800
+  ],
+  "rl\\logs\\lab-f1-atual-s1\\ckpt.pt": [
+    1404639,
+    1792189759802019000
+  ],
+  "rl\\logs\\lab-f1-atual-s1\\config.json": [
+    806,
+    1792188323279223300
+  ],
+  "rl\\logs\\lab-f1-atual-s1\\melhor.pt": [
+    359405,
+    1792189723938711100
+  ],
+  "rl\\logs\\lab-f1-atual-s1\\modelo.pt": [
+    359405,
+    1792189759780378100
+  ],
+  "rl\\logs\\lab-f1-atual-s1\\registro.csv": [
+    158840,
+    1792189759776309600
+  ],
+  "rl\\logs\\lab-f1-atual-s1\\resultado.json": [
+    336,
+    1792189759805909500
+  ],
+  "rl\\logs\\lab-f1-atual-s2\\avaliacoes.csv": [
+    1734,
+    1792217677042790300
+  ],
+  "rl\\logs\\lab-f1-atual-s2\\ckpt.json": [
+    18,
+    1792217677067491400
+  ],
+  "rl\\logs\\lab-f1-atual-s2\\ckpt.pt": [
+    1404127,
+    1792217677065101500
+  ],
+  "rl\\logs\\lab-f1-atual-s2\\config.json": [
+    806,
+    1792216571673220400
+  ],
+  "rl\\logs\\lab-f1-atual-s2\\melhor.pt": [
+    359405,
+    1792217648967454900
+  ],
+  "rl\\logs\\lab-f1-atual-s2\\modelo.pt": [
+    359405,
+    1792217677046484200
+  ],
+  "rl\\logs\\lab-f1-atual-s2\\registro.csv": [
+    159016,
+    1792217677042790300
+  ],
+  "rl\\logs\\lab-f1-atual-s2\\resultado.json": [
+    321,
+    1792217677067491400
+  ],
+  "rl\\logs\\lab-f1-atual-s3\\avaliacoes.csv": [
+    1821,
+    1792194798628310900
+  ],
+  "rl\\logs\\lab-f1-atual-s3\\ckpt.json": [
+    18,
+    1792194798670581800
+  ],
+  "rl\\logs\\lab-f1-atual-s3\\ckpt.pt": [
+    1404511,
+    1792194798667524300
+  ],
+  "rl\\logs\\lab-f1-atual-s3\\config.json": [
+    806,
+    1792192957211577700
+  ],
+  "rl\\logs\\lab-f1-atual-s3\\melhor.pt": [
+    359405,
+    1792194752781879600
+  ],
+  "rl\\logs\\lab-f1-atual-s3\\modelo.pt": [
+    359405,
+    1792194798632342600
+  ],
+  "rl\\logs\\lab-f1-atual-s3\\registro.csv": [
+    160293,
+    1792194798627310200
+  ],
+  "rl\\logs\\lab-f1-atual-s3\\resultado.json": [
+    337,
+    1792194798672104600
+  ],
+  "rl\\logs\\lab-f1-atual-s4\\avaliacoes.csv": [
+    1808,
+    1792214296851743100
+  ],
+  "rl\\logs\\lab-f1-atual-s4\\ckpt.json": [
+    18,
+    1792214296880292200
+  ],
+  "rl\\logs\\lab-f1-atual-s4\\ckpt.pt": [
+    1398431,
+    1792214296878891900
+  ],
+  "rl\\logs\\lab-f1-atual-s4\\config.json": [
+    806,
+    1792213250384122200
+  ],
+  "rl\\logs\\lab-f1-atual-s4\\melhor.pt": [
+    359405,
+    1792214104326825200
+  ],
+  "rl\\logs\\lab-f1-atual-s4\\modelo.pt": [
+    359405,
+    1792214296855768000
+  ],
+  "rl\\logs\\lab-f1-atual-s4\\registro.csv": [
+    160488,
+    1792214296850084800
+  ],
+  "rl\\logs\\lab-f1-atual-s4\\resultado.json": [
+    336,
+    1792214296881296100
+  ],
+  "rl\\logs\\lab-f1-atual-s6\\avaliacoes.csv": [
+    1814,
+    1792221027362393300
+  ],
+  "rl\\logs\\lab-f1-atual-s6\\ckpt.json": [
+    18,
+    1792221027384664200
+  ],
+  "rl\\logs\\lab-f1-atual-s6\\ckpt.pt": [
+    1407263,
+    1792221027383663200
+  ],
+  "rl\\logs\\lab-f1-atual-s6\\config.json": [
+    806,
+    1792219904606194800
+  ],
+  "rl\\logs\\lab-f1-atual-s6\\melhor.pt": [
+    359405,
+    1792220999906056000
+  ],
+  "rl\\logs\\lab-f1-atual-s6\\modelo.pt": [
+    359405,
+    1792221027365397900
+  ],
+  "rl\\logs\\lab-f1-atual-s6\\registro.csv": [
+    161724,
+    1792221027362393300
+  ],
+  "rl\\logs\\lab-f1-atual-s6\\resultado.json": [
+    337,
+    1792221027385666900
+  ],
+  "rl\\logs\\lab-f1-v2a-s1\\avaliacoes.csv": [
+    1736,
+    1792191277013510400
+  ],
+  "rl\\logs\\lab-f1-v2a-s1\\ckpt.json": [
+    18,
+    1792191277049832300
+  ],
+  "rl\\logs\\lab-f1-v2a-s1\\ckpt.pt": [
+    1393311,
+    1792191277046829900
+  ],
+  "rl\\logs\\lab-f1-v2a-s1\\config.json": [
+    804,
+    1792189763464588500
+  ],
+  "rl\\logs\\lab-f1-v2a-s1\\melhor.pt": [
+    359405,
+    1792190655331425300
+  ],
+  "rl\\logs\\lab-f1-v2a-s1\\modelo.pt": [
+    359405,
+    1792191277018029800
+  ],
+  "rl\\logs\\lab-f1-v2a-s1\\registro.csv": [
+    158143,
+    1792191277012999800
+  ],
+  "rl\\logs\\lab-f1-v2a-s1\\resultado.json": [
+    321,
+    1792191277049832300
+  ],
+  "rl\\logs\\lab-f1-v2a-s2\\avaliacoes.csv": [
+    1781,
+    1792218793613217100
+  ],
+  "rl\\logs\\lab-f1-v2a-s2\\ckpt.json": [
+    18,
+    1792218793634845700
+  ],
+  "rl\\logs\\lab-f1-v2a-s2\\ckpt.pt": [
+    1394399,
+    1792218793632843700
+  ],
+  "rl\\logs\\lab-f1-v2a-s2\\config.json": [
+    804,
+    1792217680654910400
+  ],
+  "rl\\logs\\lab-f1-v2a-s2\\melhor.pt": [
+    359405,
+    1792218769323735600
+  ],
+  "rl\\logs\\lab-f1-v2a-s2\\modelo.pt": [
+    359405,
+    1792218793615844300
+  ],
+  "rl\\logs\\lab-f1-v2a-s2\\registro.csv": [
+    158352,
+    1792218793613217100
+  ],
+  "rl\\logs\\lab-f1-v2a-s2\\resultado.json": [
+    322,
+    1792218793634845700
+  ],
+  "rl\\logs\\lab-f1-v2a-s3\\avaliacoes.csv": [
+    1697,
+    1792212097172231500
+  ],
+  "rl\\logs\\lab-f1-v2a-s3\\ckpt.json": [
+    18,
+    1792212097193624700
+  ],
+  "rl\\logs\\lab-f1-v2a-s3\\ckpt.pt": [
+    1408223,
+    1792212097191721600
+  ],
+  "rl\\logs\\lab-f1-v2a-s3\\config.json": [
+    804,
+    1792210974157292900
+  ],
+  "rl\\logs\\lab-f1-v2a-s3\\melhor.pt": [
+    359405,
+    1792211536852685600
+  ],
+  "rl\\logs\\lab-f1-v2a-s3\\modelo.pt": [
+    359405,
+    1792212097174355200
+  ],
+  "rl\\logs\\lab-f1-v2a-s3\\registro.csv": [
+    158273,
+    1792212097171324600
+  ],
+  "rl\\logs\\lab-f1-v2a-s3\\resultado.json": [
+    322,
+    1792212097193624700
+  ],
+  "rl\\logs\\lab-f1-v2a-s4\\avaliacoes.csv": [
+    1773,
+    1792215411967492000
+  ],
+  "rl\\logs\\lab-f1-v2a-s4\\ckpt.json": [
+    18,
+    1792215411987528200
+  ],
+  "rl\\logs\\lab-f1-v2a-s4\\ckpt.pt": [
+    1395935,
+    1792215411986036000
+  ],
+  "rl\\logs\\lab-f1-v2a-s4\\config.json": [
+    804,
+    1792214300386402400
+  ],
+  "rl\\logs\\lab-f1-v2a-s4\\melhor.pt": [
+    359405,
+    1792215329223057900
+  ],
+  "rl\\logs\\lab-f1-v2a-s4\\modelo.pt": [
+    359405,
+    1792215411969991100
+  ],
+  "rl\\logs\\lab-f1-v2a-s4\\registro.csv": [
+    157993,
+    1792215411967492000
+  ],
+  "rl\\logs\\lab-f1-v2a-s4\\resultado.json": [
+    322,
+    1792215411987528200
+  ],
+  "rl\\logs\\lab-f1-v2a-s6\\avaliacoes.csv": [
+    1783,
+    1792222119624259200
+  ],
+  "rl\\logs\\lab-f1-v2a-s6\\ckpt.json": [
+    18,
+    1792222119649906600
+  ],
+  "rl\\logs\\lab-f1-v2a-s6\\ckpt.pt": [
+    1401375,
+    1792222119646333600
+  ],
+  "rl\\logs\\lab-f1-v2a-s6\\config.json": [
+    804,
+    1792221030991817800
+  ],
+  "rl\\logs\\lab-f1-v2a-s6\\melhor.pt": [
+    359405,
+    1792221642996929000
+  ],
+  "rl\\logs\\lab-f1-v2a-s6\\modelo.pt": [
+    359405,
+    1792222119627497400
+  ],
+  "rl\\logs\\lab-f1-v2a-s6\\registro.csv": [
+    158171,
+    1792222119623279000
+  ],
+  "rl\\logs\\lab-f1-v2a-s6\\resultado.json": [
+    321,
+    1792222119649906600
+  ],
+  "rl\\logs\\lab-f1-v2b-s1\\avaliacoes.csv": [
+    1768,
+    1792192952352748200
+  ],
+  "rl\\logs\\lab-f1-v2b-s1\\ckpt.json": [
+    18,
+    1792192952386140400
+  ],
+  "rl\\logs\\lab-f1-v2b-s1\\ckpt.pt": [
+    1409567,
+    1792192952383770000
+  ],
+  "rl\\logs\\lab-f1-v2b-s1\\config.json": [
+    811,
+    1792191282207884300
+  ],
+  "rl\\logs\\lab-f1-v2b-s1\\melhor.pt": [
+    359405,
+    1792192728555957700
+  ],
+  "rl\\logs\\lab-f1-v2b-s1\\modelo.pt": [
+    359405,
+    1792192952357940800
+  ],
+  "rl\\logs\\lab-f1-v2b-s1\\registro.csv": [
+    159963,
+    1792192952351842200
+  ],
+  "rl\\logs\\lab-f1-v2b-s1\\resultado.json": [
+    337,
+    1792192952387149500
+  ],
+  "rl\\logs\\lab-f1-v2b-s2\\avaliacoes.csv": [
+    1722,
+    1792219900969870500
+  ],
+  "rl\\logs\\lab-f1-v2b-s2\\ckpt.json": [
+    18,
+    1792219900992670800
+  ],
+  "rl\\logs\\lab-f1-v2b-s2\\ckpt.pt": [
+    1404895,
+    1792219900990656900
+  ],
+  "rl\\logs\\lab-f1-v2b-s2\\config.json": [
+    811,
+    1792218797180870400
+  ],
+  "rl\\logs\\lab-f1-v2b-s2\\melhor.pt": [
+    359405,
+    1792219700594816600
+  ],
+  "rl\\logs\\lab-f1-v2b-s2\\modelo.pt": [
+    359405,
+    1792219900974259200
+  ],
+  "rl\\logs\\lab-f1-v2b-s2\\registro.csv": [
+    159183,
+    1792219900969870500
+  ],
+  "rl\\logs\\lab-f1-v2b-s2\\resultado.json": [
+    322,
+    1792219900992670800
+  ],
+  "rl\\logs\\lab-f1-v2b-s3\\avaliacoes.csv": [
+    1806,
+    1792213246822295400
+  ],
+  "rl\\logs\\lab-f1-v2b-s3\\ckpt.json": [
+    18,
+    1792213246841871700
+  ],
+  "rl\\logs\\lab-f1-v2b-s3\\ckpt.pt": [
+    1404511,
+    1792213246840871800
+  ],
+  "rl\\logs\\lab-f1-v2b-s3\\config.json": [
+    811,
+    1792212101561363900
+  ],
+  "rl\\logs\\lab-f1-v2b-s3\\melhor.pt": [
+    359405,
+    1792213100546402800
+  ],
+  "rl\\logs\\lab-f1-v2b-s3\\modelo.pt": [
+    359405,
+    1792213246824805400
+  ],
+  "rl\\logs\\lab-f1-v2b-s3\\registro.csv": [
+    159559,
+    1792213246821293900
+  ],
+  "rl\\logs\\lab-f1-v2b-s3\\resultado.json": [
+    322,
+    1792213246842872600
+  ],
+  "rl\\logs\\lab-f1-v2b-s4\\avaliacoes.csv": [
+    1803,
+    1792216568033122500
+  ],
+  "rl\\logs\\lab-f1-v2b-s4\\ckpt.json": [
+    18,
+    1792216568054777000
+  ],
+  "rl\\logs\\lab-f1-v2b-s4\\ckpt.pt": [
+    1411039,
+    1792216568052647500
+  ],
+  "rl\\logs\\lab-f1-v2b-s4\\config.json": [
+    811,
+    1792215415641917500
+  ],
+  "rl\\logs\\lab-f1-v2b-s4\\melhor.pt": [
+    359405,
+    1792216485295648000
+  ],
+  "rl\\logs\\lab-f1-v2b-s4\\modelo.pt": [
+    359405,
+    1792216568036121200
+  ],
+  "rl\\logs\\lab-f1-v2b-s4\\registro.csv": [
+    161302,
+    1792216568032234500
+  ],
+  "rl\\logs\\lab-f1-v2b-s4\\resultado.json": [
+    322,
+    1792216568055654200
+  ],
+  "rl\\logs\\lab-f1-v2b-s6\\avaliacoes.csv": [
+    1812,
+    1792223243083217000
+  ],
+  "rl\\logs\\lab-f1-v2b-s6\\ckpt.json": [
+    18,
+    1792223243104996300
+  ],
+  "rl\\logs\\lab-f1-v2b-s6\\ckpt.pt": [
+    1398303,
+    1792223243101694500
+  ],
+  "rl\\logs\\lab-f1-v2b-s6\\config.json": [
+    811,
+    1792222123461570200
+  ],
+  "rl\\logs\\lab-f1-v2b-s6\\melhor.pt": [
+    359405,
+    1792222920570948100
+  ],
+  "rl\\logs\\lab-f1-v2b-s6\\modelo.pt": [
+    359405,
+    1792223243086456200
+  ],
+  "rl\\logs\\lab-f1-v2b-s6\\registro.csv": [
+    158797,
+    1792223243082216400
+  ],
+  "rl\\logs\\lab-f1-v2b-s6\\resultado.json": [
+    337,
+    1792223243106542700
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1\\avaliacoes.csv": [
+    1747,
+    1792224499493621800
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1\\ckpt.json": [
+    18,
+    1792224499518215800
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1\\ckpt.pt": [
+    1912367,
+    1792224499517212600
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1\\config.json": [
+    822,
+    1792223336426298900
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1\\melhor.pt": [
+    528901,
+    1792224235673821600
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1\\modelo.pt": [
+    528901,
+    1792224499498101200
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1\\registro.csv": [
+    160091,
+    1792224499492620600
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s1\\resultado.json": [
+    322,
+    1792224499518215800
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2\\avaliacoes.csv": [
+    1746,
+    1792230963676724200
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2\\ckpt.json": [
+    18,
+    1792230963700846700
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2\\ckpt.pt": [
+    1907375,
+    1792230963698845200
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2\\config.json": [
+    822,
+    1792229829563055000
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2\\melhor.pt": [
+    528901,
+    1792230704109508100
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2\\modelo.pt": [
+    528901,
+    1792230963679853100
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2\\registro.csv": [
+    159559,
+    1792230963675739800
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s2\\resultado.json": [
+    337,
+    1792230963700846700
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3\\avaliacoes.csv": [
+    1800,
+    1792237316739697900
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3\\ckpt.json": [
+    18,
+    1792237316763246500
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3\\ckpt.pt": [
+    1908015,
+    1792237316762245000
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3\\config.json": [
+    822,
+    1792236210336623600
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3\\melhor.pt": [
+    528901,
+    1792237294198175600
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3\\modelo.pt": [
+    528901,
+    1792237316743094600
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3\\registro.csv": [
+    160160,
+    1792237316738696600
+  ],
+  "rl\\logs\\lab-f2-atencao_antes-s3\\resultado.json": [
+    337,
+    1792237316763246500
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1\\avaliacoes.csv": [
+    1827,
+    1792225694962281300
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1\\ckpt.json": [
+    18,
+    1792225694986118900
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1\\ckpt.pt": [
+    1626591,
+    1792225694985138700
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1\\config.json": [
+    824,
+    1792224503240698700
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1\\melhor.pt": [
+    431949,
+    1792225550533907500
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1\\modelo.pt": [
+    431949,
+    1792225694964909100
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1\\registro.csv": [
+    159349,
+    1792225694961283200
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s1\\resultado.json": [
+    337,
+    1792225694987138700
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2\\avaliacoes.csv": [
+    1793,
+    1792232093584706900
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2\\ckpt.json": [
+    18,
+    1792232093609332500
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2\\ckpt.pt": [
+    1614047,
+    1792232093608330800
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2\\config.json": [
+    824,
+    1792230967691357100
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2\\melhor.pt": [
+    431949,
+    1792231956511233600
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2\\modelo.pt": [
+    431949,
+    1792232093587705000
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2\\registro.csv": [
+    159269,
+    1792232093583705700
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s2\\resultado.json": [
+    337,
+    1792232093610330200
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3\\avaliacoes.csv": [
+    1802,
+    1792238478036984300
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3\\ckpt.json": [
+    18,
+    1792238478061519300
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3\\ckpt.pt": [
+    1628959,
+    1792238478059517400
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3\\config.json": [
+    824,
+    1792237320916816900
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3\\melhor.pt": [
+    431949,
+    1792238331333095500
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3\\modelo.pt": [
+    431949,
+    1792238478040499200
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3\\registro.csv": [
+    159659,
+    1792238478036063400
+  ],
+  "rl\\logs\\lab-f2-atencao_depois-s3\\resultado.json": [
+    321,
+    1792238478061519300
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1\\avaliacoes.csv": [
+    1730,
+    1792228063429481200
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1\\ckpt.json": [
+    18,
+    1792228063450543800
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1\\ckpt.pt": [
+    1403487,
+    1792228063449063100
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1\\config.json": [
+    824,
+    1792227164895073500
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1\\melhor.pt": [
+    359405,
+    1792227896240855500
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1\\modelo.pt": [
+    359405,
+    1792228063431479300
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1\\registro.csv": [
+    159360,
+    1792228063428496600
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s1\\resultado.json": [
+    321,
+    1792228063451046900
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2\\avaliacoes.csv": [
+    1746,
+    1792234440923670900
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2\\ckpt.json": [
+    18,
+    1792234440942923600
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2\\ckpt.pt": [
+    1395231,
+    1792234440941018200
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2\\config.json": [
+    824,
+    1792233552039484800
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2\\melhor.pt": [
+    359405,
+    1792234271977729300
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2\\modelo.pt": [
+    359405,
+    1792234440925672000
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2\\registro.csv": [
+    158297,
+    1792234440922669700
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s2\\resultado.json": [
+    336,
+    1792234440943431400
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3\\avaliacoes.csv": [
+    1790,
+    1792240850135610300
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3\\ckpt.json": [
+    18,
+    1792240850157337200
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3\\ckpt.pt": [
+    1394399,
+    1792240850155335100
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3\\config.json": [
+    824,
+    1792239945779991700
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3\\melhor.pt": [
+    359405,
+    1792240831369146000
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3\\modelo.pt": [
+    359405,
+    1792240850138611500
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3\\registro.csv": [
+    158879,
+    1792240850135610300
+  ],
+  "rl\\logs\\lab-f2-cnn1d_dilatada-s3\\resultado.json": [
+    322,
+    1792240850157337200
+  ],
+  "rl\\logs\\lab-f2-transformer-s1\\avaliacoes.csv": [
+    1794,
+    1792227160757888200
+  ],
+  "rl\\logs\\lab-f2-transformer-s1\\ckpt.json": [
+    18,
+    1792227160785441900
+  ],
+  "rl\\logs\\lab-f2-transformer-s1\\ckpt.pt": [
+    1595578,
+    1792227160784440000
+  ],
+  "rl\\logs\\lab-f2-transformer-s1\\config.json": [
+    818,
+    1792225698924032400
+  ],
+  "rl\\logs\\lab-f2-transformer-s1\\melhor.pt": [
+    423625,
+    1792226923933625500
+  ],
+  "rl\\logs\\lab-f2-transformer-s1\\modelo.pt": [
+    423625,
+    1792227160762888800
+  ],
+  "rl\\logs\\lab-f2-transformer-s1\\registro.csv": [
+    160890,
+    1792227160756907000
+  ],
+  "rl\\logs\\lab-f2-transformer-s1\\resultado.json": [
+    320,
+    1792227160785441900
+  ],
+  "rl\\logs\\lab-f2-transformer-s2\\avaliacoes.csv": [
+    1856,
+    1792233547940140200
+  ],
+  "rl\\logs\\lab-f2-transformer-s2\\ckpt.json": [
+    18,
+    1792233547967527900
+  ],
+  "rl\\logs\\lab-f2-transformer-s2\\ckpt.pt": [
+    1593082,
+    1792233547966588100
+  ],
+  "rl\\logs\\lab-f2-transformer-s2\\config.json": [
+    818,
+    1792232097525687400
+  ],
+  "rl\\logs\\lab-f2-transformer-s2\\melhor.pt": [
+    423625,
+    1792233240252142100
+  ],
+  "rl\\logs\\lab-f2-transformer-s2\\modelo.pt": [
+    423625,
+    1792233547945044400
+  ],
+  "rl\\logs\\lab-f2-transformer-s2\\registro.csv": [
+    160860,
+    1792233547940140200
+  ],
+  "rl\\logs\\lab-f2-transformer-s2\\resultado.json": [
+    336,
+    1792233547967527900
+  ],
+  "rl\\logs\\lab-f2-transformer-s3\\avaliacoes.csv": [
+    1838,
+    1792239941677607800
+  ],
+  "rl\\logs\\lab-f2-transformer-s3\\ckpt.json": [
+    18,
+    1792239941704529000
+  ],
+  "rl\\logs\\lab-f2-transformer-s3\\ckpt.pt": [
+    1607034,
+    1792239941703528300
+  ],
+  "rl\\logs\\lab-f2-transformer-s3\\config.json": [
+    818,
+    1792238482231992300
+  ],
+  "rl\\logs\\lab-f2-transformer-s3\\melhor.pt": [
+    423625,
+    1792239624924001900
+  ],
+  "rl\\logs\\lab-f2-transformer-s3\\modelo.pt": [
+    423625,
+    1792239941681450400
+  ],
+  "rl\\logs\\lab-f2-transformer-s3\\registro.csv": [
+    160989,
+    1792239941676606800
+  ],
+  "rl\\logs\\lab-f2-transformer-s3\\resultado.json": [
+    336,
+    1792239941705532900
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1\\avaliacoes.csv": [
+    1841,
+    1792229825368535400
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1\\ckpt.json": [
+    18,
+    1792229825400611700
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1\\ckpt.pt": [
+    5190202,
+    1792229825399609200
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1\\config.json": [
+    828,
+    1792228067401961300
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1\\melhor.pt": [
+    1622729,
+    1792228663488496600
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1\\modelo.pt": [
+    1622729,
+    1792229825374696300
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1\\registro.csv": [
+    161004,
+    1792229825368535400
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s1\\resultado.json": [
+    336,
+    1792229825401678700
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2\\avaliacoes.csv": [
+    1859,
+    1792236206008585100
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2\\ckpt.json": [
+    18,
+    1792236206043283900
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2\\ckpt.pt": [
+    5202746,
+    1792236206042282600
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2\\config.json": [
+    828,
+    1792234445048587800
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2\\melhor.pt": [
+    1622729,
+    1792235916883516600
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2\\modelo.pt": [
+    1622729,
+    1792236206015094600
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2\\registro.csv": [
+    160519,
+    1792236206007100700
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s2\\resultado.json": [
+    335,
+    1792236206044634000
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3\\avaliacoes.csv": [
+    1835,
+    1792242590218094600
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3\\ckpt.json": [
+    18,
+    1792242590249894300
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3\\ckpt.pt": [
+    5181946,
+    1792242590247884700
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3\\config.json": [
+    828,
+    1792240854326842200
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3\\melhor.pt": [
+    1622729,
+    1792242479904804400
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3\\modelo.pt": [
+    1622729,
+    1792242590224119000
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3\\registro.csv": [
+    160785,
+    1792242590217090200
+  ],
+  "rl\\logs\\lab-f2-transformer_d128-s3\\resultado.json": [
+    335,
+    1792242590249894300
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1\\avaliacoes.csv": [
+    8660,
+    1792254001783173500
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1\\ckpt.json": [
+    18,
+    1792254001816313400
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1\\ckpt.pt": [
+    1613882,
+    1792254001815314600
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1\\config.json": [
+    813,
+    1792252478560150200
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1\\melhor.pt": [
+    423625,
+    1792253422406010700
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1\\modelo.pt": [
+    423625,
+    1792254001788173700
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1\\registro.csv": [
+    160324,
+    1792254001782174400
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s1\\resultado.json": [
+    336,
+    1792254001817310700
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2\\avaliacoes.csv": [
+    8671,
+    1792257054869423900
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2\\ckpt.json": [
+    18,
+    1792257054899081000
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2\\ckpt.pt": [
+    1601530,
+    1792257054898076000
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2\\config.json": [
+    813,
+    1792255526655776200
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2\\melhor.pt": [
+    423625,
+    1792256829818615200
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2\\modelo.pt": [
+    423625,
+    1792257054874563200
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2\\registro.csv": [
+    160903,
+    1792257054867423700
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s2\\resultado.json": [
+    336,
+    1792257054900417200
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3\\avaliacoes.csv": [
+    8687,
+    1792260988960491100
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3\\ckpt.json": [
+    18,
+    1792260989016485500
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3\\ckpt.pt": [
+    1614458,
+    1792260989012973000
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3\\config.json": [
+    813,
+    1792259016060589500
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3\\melhor.pt": [
+    423625,
+    1792260500544067500
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3\\modelo.pt": [
+    423625,
+    1792260988967488400
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3\\registro.csv": [
+    160156,
+    1792260988958593400
+  ],
+  "rl\\logs\\lab-f3-D-ent01-s3\\resultado.json": [
+    337,
+    1792260989017473900
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1\\avaliacoes.csv": [
+    8614,
+    1792252473437920600
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1\\ckpt.json": [
+    18,
+    1792252473464631300
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1\\ckpt.pt": [
+    1604410,
+    1792252473463629300
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1\\config.json": [
+    818,
+    1792250991385583300
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1\\melhor.pt": [
+    423625,
+    1792251625267982400
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1\\modelo.pt": [
+    423625,
+    1792252473442217900
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1\\registro.csv": [
+    160406,
+    1792252473437920600
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s1\\resultado.json": [
+    322,
+    1792252473464631300
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2\\avaliacoes.csv": [
+    8694,
+    1792255522393343700
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2\\ckpt.json": [
+    18,
+    1792255522423343100
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2\\ckpt.pt": [
+    1602490,
+    1792255522421342200
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2\\config.json": [
+    818,
+    1792254005879068900
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2\\melhor.pt": [
+    423625,
+    1792255098198931100
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2\\modelo.pt": [
+    423625,
+    1792255522399343700
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2\\registro.csv": [
+    159861,
+    1792255522392342600
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s2\\resultado.json": [
+    337,
+    1792255522423343100
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3\\avaliacoes.csv": [
+    8662,
+    1792259003473383500
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3\\ckpt.json": [
+    18,
+    1792259003508255000
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3\\ckpt.pt": [
+    1607290,
+    1792259003506251800
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3\\config.json": [
+    818,
+    1792257059279869000
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3\\melhor.pt": [
+    423625,
+    1792258635246521700
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3\\modelo.pt": [
+    423625,
+    1792259003482922200
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3\\registro.csv": [
+    160660,
+    1792259003472491000
+  ],
+  "rl\\logs\\lab-f3-D-v2b-s3\\resultado.json": [
+    337,
+    1792259003509518300
+  ],
+  "rl\\logs\\lab-san-atencao_antes\\avaliacoes.csv": [
+    807,
+    1792179635073486100
+  ],
+  "rl\\logs\\lab-san-atencao_antes\\ckpt.pt": [
+    1713839,
+    1792179635086599400
+  ],
+  "rl\\logs\\lab-san-atencao_antes\\config.json": [
+    791,
+    1792179478689661000
+  ],
+  "rl\\logs\\lab-san-atencao_antes\\melhor.pt": [
+    528901,
+    1792179605741294500
+  ],
+  "rl\\logs\\lab-san-atencao_antes\\modelo.pt": [
+    528901,
+    1792179635076485700
+  ],
+  "rl\\logs\\lab-san-atencao_antes\\registro.csv": [
+    23933,
+    1792179635072487900
+  ],
+  "rl\\logs\\lab-san-atencao_antes\\resultado.json": [
+    211,
+    1792179635087599200
+  ],
+  "rl\\logs\\lab-san-atencao_depois\\avaliacoes.csv": [
+    816,
+    1792179778837850900
+  ],
+  "rl\\logs\\lab-san-atencao_depois\\ckpt.pt": [
+    1421791,
+    1792179778849865700
+  ],
+  "rl\\logs\\lab-san-atencao_depois\\config.json": [
+    793,
+    1792179638217920900
+  ],
+  "rl\\logs\\lab-san-atencao_depois\\melhor.pt": [
+    431949,
+    1792179680328431200
+  ],
+  "rl\\logs\\lab-san-atencao_depois\\modelo.pt": [
+    431949,
+    1792179778841357000
+  ],
+  "rl\\logs\\lab-san-atencao_depois\\registro.csv": [
+    22897,
+    1792179778837850900
+  ],
+  "rl\\logs\\lab-san-atencao_depois\\resultado.json": [
+    211,
+    1792179778850870900
+  ],
+  "rl\\logs\\lab-san-cnn1d\\avaliacoes.csv": [
+    902,
+    1792179475581060900
+  ],
+  "rl\\logs\\lab-san-cnn1d\\ckpt.pt": [
+    1212895,
+    1792179475592091000
+  ],
+  "rl\\logs\\lab-san-cnn1d\\config.json": [
+    775,
+    1792179306874389400
+  ],
+  "rl\\logs\\lab-san-cnn1d\\melhor.pt": [
+    359405,
+    1792179456462777800
+  ],
+  "rl\\logs\\lab-san-cnn1d\\modelo.pt": [
+    359405,
+    1792179475583568400
+  ],
+  "rl\\logs\\lab-san-cnn1d\\registro.csv": [
+    24125,
+    1792179475580059800
+  ],
+  "rl\\logs\\lab-san-cnn1d\\resultado.json": [
+    214,
+    1792179475592091000
+  ],
+  "rl\\logs\\lab-san-cnn1d_dilatada\\avaliacoes.csv": [
+    884,
+    1792180360914972800
+  ],
+  "rl\\logs\\lab-san-cnn1d_dilatada\\ckpt.pt": [
+    1215583,
+    1792180360925971600
+  ],
+  "rl\\logs\\lab-san-cnn1d_dilatada\\config.json": [
+    793,
+    1792180197959274100
+  ],
+  "rl\\logs\\lab-san-cnn1d_dilatada\\melhor.pt": [
+    359405,
+    1792180288619044900
+  ],
+  "rl\\logs\\lab-san-cnn1d_dilatada\\modelo.pt": [
+    359405,
+    1792180360916971700
+  ],
+  "rl\\logs\\lab-san-cnn1d_dilatada\\registro.csv": [
+    23820,
+    1792180360913968200
+  ],
+  "rl\\logs\\lab-san-cnn1d_dilatada\\resultado.json": [
+    216,
+    1792180360925971600
+  ],
+  "rl\\logs\\lab-san-transformer\\avaliacoes.csv": [
+    793,
+    1792179962455055700
+  ],
+  "rl\\logs\\lab-san-transformer\\ckpt.pt": [
+    1400250,
+    1792179962471018700
+  ],
+  "rl\\logs\\lab-san-transformer\\config.json": [
+    787,
+    1792179782031576300
+  ],
+  "rl\\logs\\lab-san-transformer\\melhor.pt": [
+    423625,
+    1792179822057723800
+  ],
+  "rl\\logs\\lab-san-transformer\\modelo.pt": [
+    423625,
+    1792179962459299800
+  ],
+  "rl\\logs\\lab-san-transformer\\registro.csv": [
+    22360,
+    1792179962455055700
+  ],
+  "rl\\logs\\lab-san-transformer\\resultado.json": [
+    210,
+    1792179962472018600
+  ],
+  "rl\\logs\\lab-san-transformer_d128\\avaliacoes.csv": [
+    793,
+    1792180194840673600
+  ],
+  "rl\\logs\\lab-san-transformer_d128\\ckpt.pt": [
+    4998650,
+    1792180194864251800
+  ],
+  "rl\\logs\\lab-san-transformer_d128\\config.json": [
+    797,
+    1792179971075297100
+  ],
+  "rl\\logs\\lab-san-transformer_d128\\melhor.pt": [
+    1622729,
+    1792180019414752800
+  ],
+  "rl\\logs\\lab-san-transformer_d128\\modelo.pt": [
+    1622729,
+    1792180194847774100
+  ],
+  "rl\\logs\\lab-san-transformer_d128\\registro.csv": [
+    22086,
+    1792180194840673600
+  ],
+  "rl\\logs\\lab-san-transformer_d128\\resultado.json": [
+    210,
+    1792180194865256100
+  ],
+  "rl\\logs\\lab-teste-ckpt-b\\avaliacoes.csv": [
+    329,
+    1792187617444327300
+  ],
+  "rl\\logs\\lab-teste-ckpt-b\\ckpt.json": [
+    17,
+    1792187617463300800
+  ],
+  "rl\\logs\\lab-teste-ckpt-b\\ckpt.pt": [
+    1236511,
+    1792187617461785100
+  ],
+  "rl\\logs\\lab-teste-ckpt-b\\config.json": [
+    765,
+    1792187589755160900
+  ],
+  "rl\\logs\\lab-teste-ckpt-b\\melhor.pt": [
+    359405,
+    1792187567713006900
+  ],
+  "rl\\logs\\lab-teste-ckpt-b\\modelo.pt": [
+    359405,
+    1792187617446848300
+  ],
+  "rl\\logs\\lab-teste-ckpt-b\\registro.csv": [
+    7562,
+    1792187617443329400
+  ],
+  "rl\\logs\\lab-teste-ckpt-b\\resultado.json": [
+    302,
+    1792187617464301000
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref\\avaliacoes.csv": [
+    329,
+    1792187562812951100
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref\\ckpt.json": [
+    17,
+    1792187562827550700
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref\\ckpt.pt": [
+    1236127,
+    1792187562826543400
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref\\config.json": [
+    763,
+    1792187521629869900
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref\\melhor.pt": [
+    359405,
+    1792187525878698200
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref\\modelo.pt": [
+    359405,
+    1792187562814936100
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref\\registro.csv": [
+    7571,
+    1792187562812951100
+  ],
+  "rl\\logs\\lab-teste-ckpt-ref\\resultado.json": [
+    304,
+    1792187562827550700
+  ],
+  "rl\\logs\\lab-teste-parada-a\\avaliacoes.csv": [
+    161,
+    1792177605329712100
+  ],
+  "rl\\logs\\lab-teste-parada-a\\ckpt.pt": [
+    1190175,
+    1792177605345611200
+  ],
+  "rl\\logs\\lab-teste-parada-a\\config.json": [
+    784,
+    1792177584225118300
+  ],
+  "rl\\logs\\lab-teste-parada-a\\melhor.pt": [
+    359405,
+    1792177574385645600
+  ],
+  "rl\\logs\\lab-teste-parada-a\\modelo.pt": [
+    359405,
+    1792177605333721000
+  ],
+  "rl\\logs\\lab-teste-parada-a\\registro.csv": [
+    4964,
+    1792177605328711800
+  ],
+  "rl\\logs\\lab-teste-parada-a\\resultado.json": [
+    211,
+    1792177605345611200
+  ],
+  "rl\\logs\\lab-teste-parada-b\\avaliacoes.csv": [
+    161,
+    1792177645420359200
+  ],
+  "rl\\logs\\lab-teste-parada-b\\ckpt.pt": [
+    1189791,
+    1792177645431511000
+  ],
+  "rl\\logs\\lab-teste-parada-b\\config.json": [
+    784,
+    1792177607948069000
+  ],
+  "rl\\logs\\lab-teste-parada-b\\melhor.pt": [
+    359405,
+    1792177609697849700
+  ],
+  "rl\\logs\\lab-teste-parada-b\\modelo.pt": [
+    359405,
+    1792177645423790400
+  ],
+  "rl\\logs\\lab-teste-parada-b\\registro.csv": [
+    4975,
+    1792177645420359200
+  ],
+  "rl\\logs\\lab-teste-parada-b\\resultado.json": [
+    210,
+    1792177645433017300
+  ],
+  "rl\\logs\\lab-teste-parada-ref\\avaliacoes.csv": [
+    161,
+    1792177570125666600
+  ],
+  "rl\\logs\\lab-teste-parada-ref\\ckpt.pt": [
+    1189791,
+    1792177570135496200
+  ],
+  "rl\\logs\\lab-teste-parada-ref\\config.json": [
+    741,
+    1792177541174915200
+  ],
+  "rl\\logs\\lab-teste-parada-ref\\melhor.pt": [
+    359405,
+    1792177543136786500
+  ],
+  "rl\\logs\\lab-teste-parada-ref\\modelo.pt": [
+    359405,
+    1792177570128389200
+  ],
+  "rl\\logs\\lab-teste-parada-ref\\registro.csv": [
+    4972,
+    1792177570125666600
+  ],
+  "rl\\logs\\lab-teste-parada-ref\\resultado.json": [
+    210,
+    1792177570137045400
+  ],
+  "rl\\logs\\muon-s0\\avaliacao_final.csv": [
+    28128,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s0\\avaliacoes.csv": [
+    585,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s0\\config.json": [
+    965,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s0\\episodios.csv": [
+    363663,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s0\\progresso.json": [
+    646,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s0\\registro.csv": [
+    951369,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s0\\resultado.json": [
+    246,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s0\\velocidade.csv": [
+    62803,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s1\\avaliacao_final.csv": [
+    27431,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s1\\avaliacoes.csv": [
+    556,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s1\\config.json": [
+    965,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s1\\episodios.csv": [
+    359488,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s1\\progresso.json": [
+    629,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s1\\registro.csv": [
+    949482,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s1\\resultado.json": [
+    230,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s1\\velocidade.csv": [
+    62857,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s2\\avaliacao_final.csv": [
+    28627,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s2\\avaliacoes.csv": [
+    503,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s2\\config.json": [
+    965,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s2\\episodios.csv": [
+    367007,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s2\\progresso.json": [
+    594,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s2\\registro.csv": [
+    950867,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s2\\resultado.json": [
+    229,
+    1791570143000000000
+  ],
+  "rl\\logs\\muon-s2\\velocidade.csv": [
+    62866,
+    1791570143000000000
+  ],
+  "rl\\logs\\ppo-fases-s0\\avaliacoes.csv": [
+    3883,
+    1791572412000000000
+  ],
+  "rl\\logs\\ppo-fases-s0\\config.json": [
+    631,
+    1791571380000000000
+  ],
+  "rl\\logs\\ppo-fases-s0\\modelo.pt": [
+    359405,
+    1791572835000000000
+  ],
+  "rl\\logs\\ppo-fases-s0\\registro.csv": [
+    158931,
+    1791572412000000000
+  ],
+  "rl\\logs\\ppo-fases-s0\\resultado.json": [
+    215,
+    1791572412000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu\\avaliacoes.csv": [
+    817,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu\\config.json": [
+    631,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu\\registro.csv": [
+    158372,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu\\resultado.json": [
+    214,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu-4M\\avaliacoes.csv": [
+    1486,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu-4M\\config.json": [
+    659,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu-4M\\registro.csv": [
+    317885,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s0-cpu-4M\\resultado.json": [
+    257,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1\\avaliacoes.csv": [
+    760,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1\\config.json": [
+    627,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1\\registro.csv": [
+    155179,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1\\resultado.json": [
+    216,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1-4M\\avaliacoes.csv": [
+    1433,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1-4M\\config.json": [
+    655,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1-4M\\registro.csv": [
+    317870,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s1-4M\\resultado.json": [
+    256,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s2\\avaliacoes.csv": [
+    816,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s2\\config.json": [
+    627,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s2\\registro.csv": [
+    159489,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s2\\resultado.json": [
+    213,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3\\avaliacoes.csv": [
+    827,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3\\config.json": [
+    627,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3\\registro.csv": [
+    155294,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3\\resultado.json": [
+    213,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3-4M\\avaliacoes.csv": [
+    1500,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3-4M\\config.json": [
+    655,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3-4M\\registro.csv": [
+    315893,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s3-4M\\resultado.json": [
+    257,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s4\\avaliacoes.csv": [
+    775,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s4\\config.json": [
+    652,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s4\\registro.csv": [
+    154481,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s4\\resultado.json": [
+    259,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s5\\avaliacoes.csv": [
+    801,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s5\\config.json": [
+    652,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s5\\registro.csv": [
+    157297,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s5\\resultado.json": [
+    257,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s6\\avaliacoes.csv": [
+    851,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s6\\config.json": [
+    652,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s6\\registro.csv": [
+    159665,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s6\\resultado.json": [
+    257,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s7\\avaliacoes.csv": [
+    855,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s7\\config.json": [
+    652,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s7\\registro.csv": [
+    158733,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-fases-s7\\resultado.json": [
+    257,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-muon-4M-s0\\avaliacoes.csv": [
+    1499,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-muon-4M-s0\\config.json": [
+    682,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-muon-4M-s0\\registro.csv": [
+    316294,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-muon-4M-s0\\resultado.json": [
+    256,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-rmsprop-4M-s0\\avaliacoes.csv": [
+    1472,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-rmsprop-4M-s0\\config.json": [
+    688,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-rmsprop-4M-s0\\registro.csv": [
+    314935,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-rmsprop-4M-s0\\resultado.json": [
+    257,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-vencedora-4M-s0\\avaliacoes.csv": [
+    1499,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-vencedora-4M-s0\\config.json": [
+    692,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-vencedora-4M-s0\\registro.csv": [
+    313092,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-rec-vencedora-4M-s0\\resultado.json": [
+    257,
+    1791850247000000000
+  ],
+  "rl\\logs\\ppo-sanidade\\avaliacoes.csv": [
+    464,
+    1791570395000000000
+  ],
+  "rl\\logs\\ppo-sanidade\\config.json": [
+    601,
+    1791570222000000000
+  ],
+  "rl\\logs\\ppo-sanidade\\modelo.pt": [
+    359405,
+    1791572835000000000
+  ],
+  "rl\\logs\\ppo-sanidade\\registro.csv": [
+    24138,
+    1791570395000000000
+  ],
+  "rl\\logs\\ppo-sanidade\\resultado.json": [
+    186,
+    1791570395000000000
+  ],
+  "rl\\logs\\teste-fumaca\\avaliacao_final.csv": [
+    25250,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca\\avaliacoes.csv": [
+    195,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca\\config.json": [
+    942,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca\\episodios.csv": [
+    20214,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca\\progresso.json": [
+    332,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca\\registro.csv": [
+    40710,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca\\resultado.json": [
+    226,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca\\velocidade.csv": [
+    2714,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-nao\\avaliacao_final.csv": [
+    25816,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-nao\\avaliacoes.csv": [
+    192,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-nao\\config.json": [
+    1134,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-nao\\episodios.csv": [
+    5199,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-nao\\progresso.json": [
+    396,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-nao\\registro.csv": [
+    9576,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-nao\\resultado.json": [
+    224,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-nao\\velocidade.csv": [
+    639,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\avaliacao_final.csv": [
+    25797,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\avaliacoes.csv": [
+    193,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\config.json": [
+    1134,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\curriculo.csv": [
+    123,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\episodios.csv": [
+    4019,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\progresso.json": [
+    392,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\registro.csv": [
+    9561,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\resultado.json": [
+    224,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1-sim\\velocidade.csv": [
+    621,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-nao\\avaliacao_final.csv": [
+    27990,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-nao\\avaliacoes.csv": [
+    192,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-nao\\config.json": [
+    1136,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-nao\\episodios.csv": [
+    5226,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-nao\\progresso.json": [
+    395,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-nao\\registro.csv": [
+    10897,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-nao\\resultado.json": [
+    241,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-nao\\velocidade.csv": [
+    639,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\avaliacao_final.csv": [
+    25786,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\avaliacoes.csv": [
+    191,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\config.json": [
+    1136,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\curriculo.csv": [
+    154,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\episodios.csv": [
+    3496,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\progresso.json": [
+    393,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\registro.csv": [
+    10895,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\resultado.json": [
+    224,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn1d-sim\\velocidade.csv": [
+    627,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-nao\\avaliacao_final.csv": [
+    26032,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-nao\\avaliacoes.csv": [
+    190,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-nao\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-nao\\episodios.csv": [
+    5293,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-nao\\progresso.json": [
+    395,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-nao\\registro.csv": [
+    12243,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-nao\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-nao\\velocidade.csv": [
+    640,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\avaliacao_final.csv": [
+    28579,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\avaliacoes.csv": [
+    190,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\curriculo.csv": [
+    122,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\episodios.csv": [
+    4202,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\progresso.json": [
+    392,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\registro.csv": [
+    12223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\resultado.json": [
+    224,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn2-sim\\velocidade.csv": [
+    630,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-nao\\avaliacao_final.csv": [
+    26826,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-nao\\avaliacoes.csv": [
+    176,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-nao\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-nao\\episodios.csv": [
+    5186,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-nao\\progresso.json": [
+    395,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-nao\\registro.csv": [
+    18762,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-nao\\resultado.json": [
+    224,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-nao\\velocidade.csv": [
+    625,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\avaliacao_final.csv": [
+    26789,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\avaliacoes.csv": [
+    190,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\curriculo.csv": [
+    106,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\episodios.csv": [
+    3845,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\progresso.json": [
+    392,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\registro.csv": [
+    18682,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-fumaca-cnn3-sim\\velocidade.csv": [
+    625,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-A\\avaliacao_final.csv": [
+    25735,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-A\\avaliacoes.csv": [
+    241,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-A\\config.json": [
+    950,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-A\\episodios.csv": [
+    3279,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-A\\progresso.json": [
+    368,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-A\\registro.csv": [
+    6008,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-A\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-A\\velocidade.csv": [
+    399,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-B\\avaliacao_final.csv": [
+    25735,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-B\\avaliacoes.csv": [
+    241,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-B\\config.json": [
+    950,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-B\\episodios.csv": [
+    3279,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-B\\progresso.json": [
+    367,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-B\\registro.csv": [
+    6008,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-B\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-B\\velocidade.csv": [
+    404,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\avaliacao_final.csv": [
+    25059,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\avaliacoes.csv": [
+    246,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\config.json": [
+    1204,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\episodios.csv": [
+    3243,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\exploracao.csv": [
+    2790,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\progresso.json": [
+    466,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\registro.csv": [
+    6030,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-A\\velocidade.csv": [
+    403,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\avaliacao_final.csv": [
+    25059,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\avaliacoes.csv": [
+    246,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\config.json": [
+    1204,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\episodios.csv": [
+    3243,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\exploracao.csv": [
+    2790,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\progresso.json": [
+    467,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\registro.csv": [
+    6030,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-baseline-int-B\\velocidade.csv": [
+    397,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-A\\avaliacao_final.csv": [
+    27797,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-A\\avaliacoes.csv": [
+    245,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-A\\config.json": [
+    1136,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-A\\episodios.csv": [
+    3377,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-A\\progresso.json": [
+    436,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-A\\registro.csv": [
+    6878,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-A\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-A\\velocidade.csv": [
+    397,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-B\\avaliacao_final.csv": [
+    27797,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-B\\avaliacoes.csv": [
+    245,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-B\\config.json": [
+    1136,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-B\\episodios.csv": [
+    3377,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-B\\progresso.json": [
+    436,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-B\\registro.csv": [
+    6878,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-B\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn1d-B\\velocidade.csv": [
+    398,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-A\\avaliacao_final.csv": [
+    28205,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-A\\avaliacoes.csv": [
+    242,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-A\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-A\\episodios.csv": [
+    2928,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-A\\progresso.json": [
+    434,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-A\\registro.csv": [
+    7694,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-A\\resultado.json": [
+    222,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-A\\velocidade.csv": [
+    402,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-B\\avaliacao_final.csv": [
+    28205,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-B\\avaliacoes.csv": [
+    242,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-B\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-B\\episodios.csv": [
+    2928,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-B\\progresso.json": [
+    435,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-B\\registro.csv": [
+    7694,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-B\\resultado.json": [
+    222,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-B\\velocidade.csv": [
+    404,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\avaliacao_final.csv": [
+    28114,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\avaliacoes.csv": [
+    245,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\curriculo.csv": [
+    154,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\episodios.csv": [
+    2398,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\progresso.json": [
+    432,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\registro.csv": [
+    7657,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-A\\velocidade.csv": [
+    406,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\avaliacao_final.csv": [
+    28114,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\avaliacoes.csv": [
+    245,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\curriculo.csv": [
+    154,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\episodios.csv": [
+    2398,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\progresso.json": [
+    431,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\registro.csv": [
+    7657,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn2-cur-B\\velocidade.csv": [
+    404,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-A\\avaliacao_final.csv": [
+    26946,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-A\\avaliacoes.csv": [
+    240,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-A\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-A\\episodios.csv": [
+    3089,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-A\\progresso.json": [
+    434,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-A\\registro.csv": [
+    11749,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-A\\resultado.json": [
+    222,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-A\\velocidade.csv": [
+    404,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-B\\avaliacao_final.csv": [
+    26946,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-B\\avaliacoes.csv": [
+    240,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-B\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-B\\episodios.csv": [
+    3089,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-B\\progresso.json": [
+    433,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-B\\registro.csv": [
+    11749,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-B\\resultado.json": [
+    222,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-B\\velocidade.csv": [
+    401,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\avaliacao_final.csv": [
+    27653,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\avaliacoes.csv": [
+    242,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\curriculo.csv": [
+    121,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\episodios.csv": [
+    2362,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\progresso.json": [
+    431,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\registro.csv": [
+    11760,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\resultado.json": [
+    222,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-A\\velocidade.csv": [
+    404,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\avaliacao_final.csv": [
+    27653,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\avaliacoes.csv": [
+    242,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\config.json": [
+    1135,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\curriculo.csv": [
+    121,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\episodios.csv": [
+    2362,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\progresso.json": [
+    431,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\registro.csv": [
+    11760,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\resultado.json": [
+    222,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-cnn3-cur-B\\velocidade.csv": [
+    404,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-A\\avaliacao_final.csv": [
+    26682,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-A\\avaliacoes.csv": [
+    246,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-A\\config.json": [
+    971,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-A\\episodios.csv": [
+    3168,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-A\\progresso.json": [
+    364,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-A\\registro.csv": [
+    6548,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-A\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-A\\velocidade.csv": [
+    403,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-B\\avaliacao_final.csv": [
+    26682,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-B\\avaliacoes.csv": [
+    246,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-B\\config.json": [
+    971,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-B\\episodios.csv": [
+    3168,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-B\\progresso.json": [
+    364,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-B\\registro.csv": [
+    6548,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-B\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-muon-B\\velocidade.csv": [
+    405,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-A\\avaliacao_final.csv": [
+    26901,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-A\\avaliacoes.csv": [
+    245,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-A\\config.json": [
+    947,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-A\\episodios.csv": [
+    3450,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-A\\progresso.json": [
+    369,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-A\\registro.csv": [
+    6257,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-A\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-A\\velocidade.csv": [
+    398,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-B\\avaliacao_final.csv": [
+    26901,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-B\\avaliacoes.csv": [
+    245,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-B\\config.json": [
+    947,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-B\\episodios.csv": [
+    3450,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-B\\progresso.json": [
+    369,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-B\\registro.csv": [
+    6257,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-B\\resultado.json": [
+    223,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-retomada-vencedora-B\\velocidade.csv": [
+    402,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade\\avaliacao_final.csv": [
+    6217,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade\\avaliacoes.csv": [
+    378,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade\\config.json": [
+    946,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade\\episodios.csv": [
+    46723,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade\\progresso.json": [
+    664,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade\\registro.csv": [
+    200058,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade\\resultado.json": [
+    217,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade\\velocidade.csv": [
+    13895,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn1d\\avaliacao_final.csv": [
+    6637,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn1d\\avaliacoes.csv": [
+    370,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn1d\\config.json": [
+    1141,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn1d\\episodios.csv": [
+    55558,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn1d\\progresso.json": [
+    729,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn1d\\registro.csv": [
+    228108,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn1d\\resultado.json": [
+    200,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn1d\\velocidade.csv": [
+    13735,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2\\avaliacao_final.csv": [
+    5994,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2\\avaliacoes.csv": [
+    401,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2\\config.json": [
+    1140,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2\\episodios.csv": [
+    46163,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2\\progresso.json": [
+    732,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2\\registro.csv": [
+    255362,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2\\resultado.json": [
+    216,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2\\velocidade.csv": [
+    13761,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s1\\avaliacao_final.csv": [
+    4768,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s1\\avaliacoes.csv": [
+    344,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s1\\config.json": [
+    1143,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s1\\episodios.csv": [
+    43887,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s1\\progresso.json": [
+    733,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s1\\registro.csv": [
+    255298,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s1\\resultado.json": [
+    205,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s1\\velocidade.csv": [
+    13965,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s2\\avaliacao_final.csv": [
+    4751,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s2\\avaliacoes.csv": [
+    383,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s2\\config.json": [
+    1143,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s2\\episodios.csv": [
+    44376,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s2\\progresso.json": [
+    729,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s2\\registro.csv": [
+    255460,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s2\\resultado.json": [
+    205,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn2-s2\\velocidade.csv": [
+    13922,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn3\\avaliacao_final.csv": [
+    6188,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn3\\avaliacoes.csv": [
+    424,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn3\\config.json": [
+    1140,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn3\\episodios.csv": [
+    51846,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn3\\progresso.json": [
+    731,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn3\\registro.csv": [
+    389558,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn3\\resultado.json": [
+    204,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-sanidade-cnn3\\velocidade.csv": [
+    13903,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps0.05\\avaliacao_final.csv": [
+    1400,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps0.05\\avaliacoes.csv": [
+    89,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps0.05\\config.json": [
+    1153,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps0.05\\episodios.csv": [
+    17092,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps0.05\\progresso.json": [
+    319,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps0.05\\registro.csv": [
+    39511,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps0.05\\resultado.json": [
+    225,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps0.05\\velocidade.csv": [
+    2694,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps1.0\\avaliacao_final.csv": [
+    1427,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps1.0\\avaliacoes.csv": [
+    89,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps1.0\\config.json": [
+    1150,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps1.0\\episodios.csv": [
+    16810,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps1.0\\progresso.json": [
+    319,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps1.0\\registro.csv": [
+    39391,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps1.0\\resultado.json": [
+    225,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1-eps1.0\\velocidade.csv": [
+    2697,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps0.05\\avaliacao_final.csv": [
+    1328,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps0.05\\avaliacoes.csv": [
+    88,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps0.05\\config.json": [
+    1155,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps0.05\\episodios.csv": [
+    16789,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps0.05\\progresso.json": [
+    321,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps0.05\\registro.csv": [
+    45046,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps0.05\\resultado.json": [
+    225,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps0.05\\velocidade.csv": [
+    2727,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps1.0\\avaliacao_final.csv": [
+    1344,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps1.0\\avaliacoes.csv": [
+    88,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps1.0\\config.json": [
+    1152,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps1.0\\episodios.csv": [
+    16810,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps1.0\\progresso.json": [
+    320,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps1.0\\registro.csv": [
+    45065,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps1.0\\resultado.json": [
+    225,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn1d-eps1.0\\velocidade.csv": [
+    2694,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps0.05\\avaliacao_final.csv": [
+    1378,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps0.05\\avaliacoes.csv": [
+    87,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps0.05\\config.json": [
+    1154,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps0.05\\episodios.csv": [
+    15865,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps0.05\\progresso.json": [
+    319,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps0.05\\registro.csv": [
+    50855,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps0.05\\resultado.json": [
+    225,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps0.05\\velocidade.csv": [
+    2762,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps1.0\\avaliacao_final.csv": [
+    1446,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps1.0\\avaliacoes.csv": [
+    87,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps1.0\\config.json": [
+    1151,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps1.0\\episodios.csv": [
+    16810,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps1.0\\progresso.json": [
+    320,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps1.0\\registro.csv": [
+    50827,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps1.0\\resultado.json": [
+    225,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn2-eps1.0\\velocidade.csv": [
+    2747,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps0.05\\avaliacao_final.csv": [
+    1398,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps0.05\\avaliacoes.csv": [
+    87,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps0.05\\config.json": [
+    1154,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps0.05\\episodios.csv": [
+    17152,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps0.05\\progresso.json": [
+    320,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps0.05\\registro.csv": [
+    78220,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps0.05\\resultado.json": [
+    226,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps0.05\\velocidade.csv": [
+    2768,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps1.0\\avaliacao_final.csv": [
+    1402,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps1.0\\avaliacoes.csv": [
+    87,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps1.0\\config.json": [
+    1151,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps1.0\\episodios.csv": [
+    16810,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps1.0\\progresso.json": [
+    320,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps1.0\\registro.csv": [
+    78144,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps1.0\\resultado.json": [
+    226,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-cnn3-eps1.0\\velocidade.csv": [
+    2749,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-muon\\avaliacao_final.csv": [
+    27904,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-muon\\avaliacoes.csv": [
+    89,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-muon\\config.json": [
+    981,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-muon\\episodios.csv": [
+    32628,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-muon\\progresso.json": [
+    249,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-muon\\registro.csv": [
+    68547,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-muon\\resultado.json": [
+    225,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-muon\\velocidade.csv": [
+    4280,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-vencedora\\avaliacao_final.csv": [
+    25091,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-vencedora\\avaliacoes.csv": [
+    89,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-vencedora\\config.json": [
+    957,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-vencedora\\episodios.csv": [
+    34169,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-vencedora\\progresso.json": [
+    253,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-vencedora\\registro.csv": [
+    65321,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-vencedora\\resultado.json": [
+    226,
+    1791570143000000000
+  ],
+  "rl\\logs\\teste-velocidade-vencedora\\velocidade.csv": [
+    4251,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s0\\avaliacao_final.csv": [
+    27944,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s0\\avaliacoes.csv": [
+    519,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s0\\config.json": [
+    941,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s0\\episodios.csv": [
+    390457,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s0\\progresso.json": [
+    582,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s0\\registro.csv": [
+    907877,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s0\\resultado.json": [
+    229,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s0\\velocidade.csv": [
+    62448,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s1\\avaliacao_final.csv": [
+    27571,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s1\\avaliacoes.csv": [
+    536,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s1\\config.json": [
+    941,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s1\\episodios.csv": [
+    359135,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s1\\progresso.json": [
+    617,
+    1791570143000000000
+  ],
+  "rl\\logs\\vencedora-s1\\registro.csv": [
+    906762,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s1\\resultado.json": [
+    230,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s1\\velocidade.csv": [
+    62412,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s2\\avaliacao_final.csv": [
+    27559,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s2\\avaliacoes.csv": [
+    484,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s2\\config.json": [
+    941,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s2\\episodios.csv": [
+    395449,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s2\\progresso.json": [
+    582,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s2\\registro.csv": [
+    910009,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s2\\resultado.json": [
+    229,
+    1791570144000000000
+  ],
+  "rl\\logs\\vencedora-s2\\velocidade.csv": [
+    62404,
+    1791570144000000000
+  ],
+  "tests\\test_ambiente.py": [
+    18940,
+    1791570144000000000
+  ],
+  "tests\\test_arquiteturas.py": [
+    8617,
+    1792177346625832000
+  ],
+  "tests\\test_desafio3.py": [
+    5908,
+    1791570144000000000
+  ],
+  "tests\\test_diag.py": [
+    3074,
+    1791570144000000000
+  ],
+  "tests\\test_lab.py": [
+    8574,
+    1792177185009144800
+  ],
+  "tests\\test_ppo.py": [
+    2913,
+    1791570206000000000
+  ],
+  "tests\\test_rl.py": [
+    21507,
+    1791570144000000000
+  ],
+  "tests\\__init__.py": [
+    0,
+    1791570144000000000
+  ],
+  "tools\\analisar.py": [
+    1773,
+    1791570144000000000
+  ],
+  "tools\\calibrar.py": [
+    4021,
+    1791570144000000000
+  ],
+  "tools\\medir_k.csv": [
+    2928,
+    1791570144000000000
+  ],
+  "tools\\medir_k.md": [
+    2092,
+    1791570144000000000
+  ],
+  "tools\\medir_k.py": [
+    5753,
+    1791570144000000000
+  ]
+}

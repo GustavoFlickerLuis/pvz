@@ -1,0 +1,41 @@
+{
+  "id": "lab-teste-ckpt-b",
+  "config": {
+    "semente": 3,
+    "passos": 100000,
+    "k_ticks": 20,
+    "gamma": 0.994,
+    "lam": 0.95,
+    "envs": 16,
+    "rollout": 128,
+    "epocas": 4,
+    "minilote": 512,
+    "lr": 0.00025,
+    "clip": 0.2,
+    "coef_v": 0.5,
+    "coef_ent": 0.03,
+    "max_norma": 0.5,
+    "fases": "treino",
+    "dificuldade": 1.0,
+    "sementes_treino": [
+      1000,
+      10000
+    ],
+    "aval_cada": 50000,
+    "aval_sementes": [
+      300,
+      302
+    ],
+    "aval_final_sementes": [
+      300,
+      302
+    ],
+    "ate": "",
+    "aval_sorteio": false,
+    "continuar": true,
+    "receita": "atual_linear",
+    "arquitetura": "cnn1d",
+    "arquivo_parar": "",
+    "ckpt_cada": 50000
+  }
+}

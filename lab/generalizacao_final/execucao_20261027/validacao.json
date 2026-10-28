@@ -1,0 +1,55 @@
+{
+  "aprovado": true,
+  "utc": "2026-10-27T15:09:53.158237+00:00",
+  "protocolo": "d9c844fd434c0ff3616181c00f3d41ef23c72aa5ba1804f04743f71dde7f680a",
+  "historicos": [
+    {
+      "agente": "cnn1d-v2a-s1",
+      "partidas": 420,
+      "vitorias": 0.9738095238095238,
+      "historico": 0.9738095238095238,
+      "dano": 0.9766666134679315,
+      "dano_historico": 0.9766666134679315,
+      "segundos": 22.21882499998901
+    },
+    {
+      "agente": "cnn1d-v2a-s2",
+      "partidas": 420,
+      "vitorias": 0.9523809523809523,
+      "historico": 0.9523809523809523,
+      "dano": 0.9581600985794166,
+      "dano_historico": 0.9581600985794166,
+      "segundos": 22.40651220001746
+    },
+    {
+      "agente": "cnn1d-v2a-s3",
+      "partidas": 420,
+      "vitorias": 0.9714285714285714,
+      "historico": 0.9714285714285714,
+      "dano": 0.9802421421083858,
+      "dano_historico": 0.9802421421083858,
+      "segundos": 27.516861199983396
+    },
+    {
+      "agente": "cnn1d-v2a-s4",
+      "partidas": 420,
+      "vitorias": 0.95,
+      "historico": 0.95,
+      "dano": 0.9536424831538444,
+      "dano_historico": 0.9536424831538444,
+      "segundos": 22.06483990000561
+    },
+    {
+      "agente": "cnn1d-v2a-s6",
+      "partidas": 420,
+      "vitorias": 0.9642857142857143,
+      "historico": 0.9642857142857143,
+      "dano": 0.968936830426945,
+      "dano_historico": 0.968936830426945,
+      "segundos": 20.574276000028476
+    }
+  ],
+  "interrupcao": "monitor retomou automaticamente após morte real em 3 commits; só 7 pendentes, igualdade exata com referência, idempotência, parada e exclusão mútua aprovadas",
+  "gradientes": false,
+  "otimizador_criado": false
+}

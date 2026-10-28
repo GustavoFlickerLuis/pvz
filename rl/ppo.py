@@ -15,6 +15,7 @@ Avaliação gulosa (a ação mais provável) com rl.avaliar, nas sementes do DQN
 import argparse
 import csv
 import json
+import os
 import time
 from dataclasses import asdict, dataclass
 from datetime import datetime
@@ -24,9 +25,10 @@ import numpy as np
 import torch
 from torch import nn
 
-from desafio3.modelo import CNN1D, mascara_da_entrada
+from desafio3.modelo import ARQUITETURAS, CNN1D, mascara_da_entrada
 from desafio3.treino import AGENDAS, OTIMIZADORES
 from desafio3.treino import Config as ConfigProxy
+from lab.processos import rss_mb
 from pvz.ambiente import Ambiente
 from pvz.divisao import FASES_TESTE, FASES_TREINO
 
@@ -41,7 +43,15 @@ RECEITAS = {
     "vencedora": dict(otimizador="sgd",     lr=3e-2,   agenda="cosseno"),
     "rmsprop":   dict(otimizador="rmsprop", lr=3e-4,   agenda="warmup_cosseno"),
     "muon":      dict(otimizador="muon",    lr=1e-3, lr_adamw=3e-4, agenda="warmup_cosseno"),
+    # lab (LAB.md, v2b): a "atual" com η decaindo linearmente até 0 no orçamento todo
+    "atual_linear": dict(otimizador="adam", lr=2.5e-4, agenda="constante"),
 }
+# lab: as execuções de referência da receita atual (ppo-fases-s0 em CUDA e as sementes 1–7
+# em CPU) rodaram ANTES do mecanismo RECEITAS, com Adam ε = 1e-5. O _adam do desafio3 usa o
+# ε padrão (1e-8), e com ele o início da ppo-fases-s0 não se reproduz. Nas receitas "atual*"
+# o lab volta ao ε = 1e-5 (reproduz a ppo-fases-s0 bit a bit; teste em lab/repro.py).
+EPS_ADAM_ATUAL = 1e-5
+AGENDA_LAB = {"atual_linear": lambda t, total: max(0.0, 1.0 - t / total)}
 
 
 @dataclass
@@ -70,6 +80,9 @@ class Config:
     aval_sorteio: bool = False     # avaliar também com sorteio (e contar as ações)
     continuar: bool = False        # retoma do ckpt.pt da mesma pasta, se existir
     receita: str = "atual"         # otimizador + agenda (RECEITAS); "atual" = Adam 2,5e-4 constante
+    arquitetura: str = "cnn1d"     # lab: braço (desafio3.modelo.ARQUITETURAS); cnn1d = Politica intacta
+    arquivo_parar: str = ""        # lab: se esse arquivo existir, para no fim da atualização (com ckpt)
+    ckpt_cada: int = 250_000       # lab: checkpoint automático a cada N passos (0 = só no PARAR e no fim)
 
     def atualizacoes(self):
         """Passos do otimizador no orçamento todo (para a agenda saber o total)."""
@@ -105,6 +118,24 @@ class Politica(nn.Module):
         logits = torch.cat([r.cabeca_q(h).flatten(1), r.cabeca_esperar(g)], dim=1)
         logits = logits.masked_fill(~mascara_da_entrada(x), -1e9)
         return logits, r.cabeca_v(g)[:, 0]
+
+
+class PoliticaArq(nn.Module):
+    """Lab: um braço novo (partes(x) → mapa A, A(esperar), V) lido como política e crítico."""
+
+    def __init__(self, nome):
+        super().__init__()
+        self.rede = ARQUITETURAS[nome][0]()
+
+    def forward(self, x):
+        mapa, esperar, v = self.rede.partes(x)
+        logits = torch.cat([mapa.flatten(1), esperar], dim=1)
+        logits = logits.masked_fill(~mascara_da_entrada(x), -1e9)
+        return logits, v[:, 0]
+
+
+def criar_politica(arquitetura):
+    return Politica() if arquitetura == "cnn1d" else PoliticaArq(arquitetura)
 
 
 class Gulosa(nn.Module):
@@ -205,12 +236,15 @@ class Treino:
         torch.manual_seed(cfg.semente)
         torch.set_num_threads(1)
         self.rng = np.random.default_rng(cfg.semente)
-        self.pol = Politica().to(self.dev)
+        self.pol = criar_politica(cfg.arquitetura).to(self.dev)
         # a receita vem do proxy; self.pol.rede tem os mesmos parâmetros de self.pol e
         # expõe conv1..conv3, que é o que o Muon precisa para separar as matrizes
         cp = cfg.proxy()
-        self.opts = OTIMIZADORES[cp.otimizador](self.pol.rede, cp)
-        agenda = AGENDAS[cp.agenda]
+        if cfg.receita.startswith("atual"):
+            self.opts = [torch.optim.Adam(self.pol.rede.parameters(), lr=cp.lr, eps=EPS_ADAM_ATUAL)]
+        else:
+            self.opts = OTIMIZADORES[cp.otimizador](self.pol.rede, cp)
+        agenda = AGENDA_LAB.get(cfg.receita, AGENDAS[cp.agenda])
         self.scheds = [torch.optim.lr_scheduler.LambdaLR(o, lambda t: agenda(t, cp.passos))
                        for o in self.opts]
         self.partidas = Partidas(cfg, self.rng)
@@ -225,8 +259,17 @@ class Treino:
                     "sched": [s.state_dict() for s in self.scheds],
                     "passo": self.passo, "melhor": self.melhor,
                     "linhas": self.linhas, "avaliacoes": self.avaliacoes,
-                    "rng": self.rng.bit_generator.state, "gen": self.gen.get_state()},
-                   self.pasta / "ckpt.pt")
+                    "rng": self.rng.bit_generator.state, "gen": self.gen.get_state(),
+                    # lab: retomada exata (partidas em voo e geradores globais do torch)
+                    "partidas": {"ambs": self.partidas.ambs, "obs": self.partidas.obs,
+                                 "ret": self.partidas.ret},
+                    "torch_cpu": torch.get_rng_state(),
+                    "torch_cuda": torch.cuda.get_rng_state() if self.dev.type == "cuda" else None,
+                    "segundos": time.time() - self.t0},
+                   self.pasta / "ckpt.tmp")
+        # lab: troca atômica, para uma morte no meio da gravação não estragar o ckpt anterior
+        os.replace(self.pasta / "ckpt.tmp", self.pasta / "ckpt.pt")
+        (self.pasta / "ckpt.json").write_text(json.dumps({"passo": self.passo}), encoding="utf-8")
 
     def carregar_ckpt(self):
         """Retoma de onde parou. Devolve False se não houver checkpoint."""
@@ -240,8 +283,16 @@ class Treino:
         self.passo, self.melhor = c["passo"], c["melhor"]
         self.linhas, self.avaliacoes = c["linhas"], c["avaliacoes"]
         self.rng.bit_generator.state = c["rng"]
-        self.gen.set_state(c["gen"])
-        self.partidas = Partidas(self.cfg, self.rng)   # as 16 partidas em voo recomeçam
+        self.gen.set_state(c["gen"].cpu())   # lab: o map_location leva o estado para a GPU
+        if "partidas" in c:      # lab: as partidas em voo continuam de onde estavam
+            p = c["partidas"]
+            self.partidas.ambs, self.partidas.obs, self.partidas.ret = p["ambs"], p["obs"], p["ret"]
+            torch.set_rng_state(c["torch_cpu"].cpu())
+            if c["torch_cuda"] is not None and self.dev.type == "cuda":
+                torch.cuda.set_rng_state(c["torch_cuda"].cpu())
+            self.t0 = time.time() - c["segundos"]
+        else:
+            self.partidas = Partidas(self.cfg, self.rng)   # as 16 partidas em voo recomeçam
         print(f"retomando de {caminho} no passo {self.passo}", flush=True)
         return True
 
@@ -350,11 +401,19 @@ class Treino:
         if not retomou:
             self.avaliacao()
         prox_aval = (self.passo // c.aval_cada + 1) * c.aval_cada
+        prox_ckpt = (self.passo // c.ckpt_cada + 1) * c.ckpt_cada if c.ckpt_cada else float("inf")
+        self.rss_inicio = rss_mb()
         motivo = "orçamento"
         while self.passo < c.passos:
             if self.acabou_o_tempo():
                 motivo = f"horário ({c.ate})"
                 break
+            if c.arquivo_parar and Path(c.arquivo_parar).exists():
+                self.salvar_ckpt()
+                self.gravar()
+                print(f"[parada] {c.arquivo_parar} existe: checkpoint no passo {self.passo}; "
+                      f"para retomar, apague o arquivo e chame de novo", flush=True)
+                return {"passos": self.passo, "motivo": "parada"}
             X, A, LP, adv, ret, fins = self.coletar()
             s = self.atualizar(X, A, LP, adv, ret)
             linha = {"atualizacao": len(self.linhas), "passo": self.passo,
@@ -367,10 +426,14 @@ class Treino:
                 print(f"atualização {len(self.linhas)} passo {self.passo} vitórias(coleta) "
                       f"{linha['vitorias']} entropia {s['entropia']:.3f} kl {s['kl']:.4f} "
                       f"cortada {s['cortada']:.3f} perda_v {s['perda_v']:.4f} "
-                      f"{linha['passos_por_s']:.0f} passos/s", flush=True)
+                      f"{linha['passos_por_s']:.0f} passos/s, RAM {rss_mb():.0f} MB", flush=True)
             if self.passo >= prox_aval:
                 self.avaliacao()
                 prox_aval += c.aval_cada
+            if self.passo >= prox_ckpt:    # lab: depois da avaliação do mesmo passo, se houver
+                self.salvar_ckpt()
+                print(f"[ckpt] checkpoint automático no passo {self.passo}", flush=True)
+                prox_ckpt += c.ckpt_cada
         if c.aval_sorteio:
             self.avaliacao(c.aval_final_sementes, final=True)
             r = next(a for a in self.avaliacoes if a["final"] and a["modo"] == "gulosa")
@@ -385,7 +448,9 @@ class Treino:
                "melhor_periodica": self.melhor,
                "dano_final": r["dano"], "partidas_final": r["partidas"],
                "minutos": round((time.time() - self.t0) / 60, 1),
-               "passos_por_s": self.passo / (time.time() - self.t0)}
+               "passos_por_s": self.passo / (time.time() - self.t0),
+               # lab: RAM (RSS, MB) deste processo no começo e no fim desta tentativa, e o pico
+               "rss_inicio_mb": self.rss_inicio, "rss_fim_mb": rss_mb(), "rss_pico_mb": rss_mb(pico=True)}
         (self.pasta / "resultado.json").write_text(json.dumps(res, indent=2, ensure_ascii=False),
                                                    encoding="utf-8")
         return res
@@ -402,6 +467,8 @@ def main():
         p.add_argument("--" + nome.replace("_", "-"), type=tipo)
     p.add_argument("--continuar", action="store_true", default=None,
                    help="retoma do ckpt.pt da pasta do log")
+    p.add_argument("--arquitetura", choices=list(ARQUITETURAS))
+    p.add_argument("--arquivo-parar")
     p.add_argument("--receita", choices=list(RECEITAS),
                    help="otimizador + agenda vindos do proxy (padrão: atual)")
     a = vars(p.parse_args())

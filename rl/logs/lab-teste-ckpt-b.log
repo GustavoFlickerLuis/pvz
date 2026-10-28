@@ -1,0 +1,11 @@
+[aval] passo 0 gulosa: vitórias 0.0% (42 partidas), dano 0.021
+atualização 10 passo 20480 vitórias(coleta) 0.0 entropia 0.966 kl 0.0003 cortada 0.001 perda_v 0.0014 2485 passos/s
+atualização 20 passo 40960 vitórias(coleta) 0.0 entropia 1.048 kl 0.0006 cortada 0.005 perda_v 0.0010 2669 passos/s
+[aval] passo 51200 gulosa: vitórias 0.0% (42 partidas), dano 0.010
+[ckpt] checkpoint automático no passo 51200
+retomando de C:\Users\gului\Desktop\pvz-lab\rl\logs\lab-teste-ckpt-b\ckpt.pt no passo 51200
+atualização 30 passo 61440 vitórias(coleta) 0.0 entropia 1.127 kl 0.0001 cortada 0.000 perda_v 0.0014 2511 passos/s
+atualização 40 passo 81920 vitórias(coleta) 0.0 entropia 1.163 kl 0.0000 cortada 0.000 perda_v 0.0014 2456 passos/s
+[aval] passo 100352 gulosa: vitórias 0.0% (42 partidas), dano 0.014
+[ckpt] checkpoint automático no passo 100352
+[final] gulosa: vitórias 0.0% em 42 partidas (parou por orçamento, passo 100352)

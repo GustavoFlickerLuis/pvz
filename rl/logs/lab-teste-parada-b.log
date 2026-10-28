@@ -1,0 +1,7 @@
+
+===== 2026-10-16 16:06:46 C:\Users\gului\Desktop\PythonProject1\.venv\Scripts\python.exe -u -m rl.ppo --id lab-teste-parada-b --continuar --json {"fases": "calmo", "dificuldade": 0.5, "passos": 61440, "aval_cada": 1000000000, "aval_sementes": [300, 301], "aval_final_sementes": [300, 320], "semente": 7, "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR"}
+[aval] passo 0 gulosa: vitórias 100.0% (1 partidas), dano 1.000
+atualização 10 passo 20480 vitórias(coleta) 0.30952380952380953 entropia 0.892 kl 0.0010 cortada 0.015 perda_v 0.1497 1793 passos/s
+atualização 20 passo 40960 vitórias(coleta) 0.30303030303030304 entropia 1.004 kl 0.0018 cortada 0.027 perda_v 0.1006 1761 passos/s
+atualização 30 passo 61440 vitórias(coleta) 0.5897435897435898 entropia 1.150 kl 0.0014 cortada 0.016 perda_v 0.1240 1734 passos/s
+[final] gulosa: vitórias 55.0% em 20 partidas (parou por orçamento, passo 61440)

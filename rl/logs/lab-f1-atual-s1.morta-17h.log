@@ -1,0 +1,72 @@
+
+===== 2026-10-16 16:52:42 C:\Users\gului\Desktop\PythonProject1\.venv\Scripts\python.exe -u -m rl.ppo --id lab-f1-atual-s1 --continuar --json {"passos": 2000000, "aval_cada": 100000, "semente": 1, "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR"}
+[aval] passo 0 gulosa: vitórias 0.0% (63 partidas), dano 0.000
+atualização 10 passo 20480 vitórias(coleta) 0.0 entropia 0.718 kl 0.0003 cortada 0.001 perda_v 0.0012 2813 passos/s
+atualização 20 passo 40960 vitórias(coleta) 0.0 entropia 0.794 kl 0.0014 cortada 0.021 perda_v 0.0014 2954 passos/s
+atualização 30 passo 61440 vitórias(coleta) 0.0 entropia 0.844 kl 0.0027 cortada 0.034 perda_v 0.0014 2984 passos/s
+atualização 40 passo 81920 vitórias(coleta) 0.0 entropia 0.779 kl 0.0008 cortada 0.012 perda_v 0.0010 3026 passos/s
+[aval] passo 100352 gulosa: vitórias 0.0% (63 partidas), dano 0.000
+atualização 50 passo 102400 vitórias(coleta) 0.0 entropia 0.631 kl 0.0018 cortada 0.034 perda_v 0.0010 2990 passos/s
+atualização 60 passo 122880 vitórias(coleta) 0.0 entropia 0.633 kl 0.0017 cortada 0.024 perda_v 0.0011 3010 passos/s
+atualização 70 passo 143360 vitórias(coleta) 0.0 entropia 0.649 kl 0.0031 cortada 0.037 perda_v 0.0010 3016 passos/s
+atualização 80 passo 163840 vitórias(coleta) 0.0 entropia 0.651 kl 0.0023 cortada 0.029 perda_v 0.0010 3030 passos/s
+atualização 90 passo 184320 vitórias(coleta) 0.0 entropia 0.730 kl 0.0036 cortada 0.039 perda_v 0.0011 3032 passos/s
+[aval] passo 200704 gulosa: vitórias 0.0% (63 partidas), dano 0.007
+atualização 100 passo 204800 vitórias(coleta) 0.0 entropia 0.641 kl 0.0016 cortada 0.020 perda_v 0.0006 3031 passos/s
+atualização 110 passo 225280 vitórias(coleta) 0.0 entropia 0.603 kl 0.0035 cortada 0.049 perda_v 0.0010 3044 passos/s
+atualização 120 passo 245760 vitórias(coleta) 0.0 entropia 0.521 kl 0.0014 cortada 0.019 perda_v 0.0009 3056 passos/s
+atualização 130 passo 266240 vitórias(coleta) 0.0 entropia 0.509 kl 0.0027 cortada 0.035 perda_v 0.0008 3067 passos/s
+atualização 140 passo 286720 vitórias(coleta) 0.0 entropia 0.447 kl 0.0014 cortada 0.019 perda_v 0.0009 3072 passos/s
+[aval] passo 301056 gulosa: vitórias 1.6% (63 partidas), dano 0.041
+atualização 150 passo 307200 vitórias(coleta) 0.0 entropia 0.589 kl 0.0028 cortada 0.035 perda_v 0.0012 3059 passos/s
+atualização 160 passo 327680 vitórias(coleta) 0.0 entropia 0.500 kl 0.0012 cortada 0.015 perda_v 0.0037 3060 passos/s
+atualização 170 passo 348160 vitórias(coleta) 0.0 entropia 0.516 kl 0.0031 cortada 0.034 perda_v 0.0014 3057 passos/s
+atualização 180 passo 368640 vitórias(coleta) 0.0 entropia 0.572 kl 0.0019 cortada 0.023 perda_v 0.0016 3055 passos/s
+atualização 190 passo 389120 vitórias(coleta) 0.0 entropia 0.561 kl 0.0032 cortada 0.044 perda_v 0.0030 3051 passos/s
+[aval] passo 401408 gulosa: vitórias 1.6% (63 partidas), dano 0.099
+atualização 200 passo 409600 vitórias(coleta) 0.0 entropia 0.589 kl 0.0038 cortada 0.026 perda_v 0.0085 2997 passos/s
+atualização 210 passo 430080 vitórias(coleta) 0.0 entropia 0.607 kl 0.0025 cortada 0.034 perda_v 0.0036 2997 passos/s
+atualização 220 passo 450560 vitórias(coleta) 0.0 entropia 0.570 kl 0.0043 cortada 0.054 perda_v 0.0029 2992 passos/s
+atualização 230 passo 471040 vitórias(coleta) 0.0 entropia 0.558 kl 0.0022 cortada 0.030 perda_v 0.0025 2986 passos/s
+atualização 240 passo 491520 vitórias(coleta) 0.0 entropia 0.518 kl 0.0022 cortada 0.029 perda_v 0.0031 2977 passos/s
+[aval] passo 501760 gulosa: vitórias 0.0% (63 partidas), dano 0.064
+atualização 250 passo 512000 vitórias(coleta) 0.0 entropia 0.496 kl 0.0032 cortada 0.033 perda_v 0.0042 2931 passos/s
+atualização 260 passo 532480 vitórias(coleta) 0.0 entropia 0.433 kl 0.0018 cortada 0.021 perda_v 0.0025 2923 passos/s
+atualização 270 passo 552960 vitórias(coleta) 0.0 entropia 0.418 kl 0.0021 cortada 0.021 perda_v 0.0021 2921 passos/s
+atualização 280 passo 573440 vitórias(coleta) 0.0 entropia 0.470 kl 0.0040 cortada 0.035 perda_v 0.0033 2920 passos/s
+atualização 290 passo 593920 vitórias(coleta) 0.0 entropia 0.492 kl 0.0026 cortada 0.038 perda_v 0.0025 2919 passos/s
+[aval] passo 600064 gulosa: vitórias 0.0% (63 partidas), dano 0.070
+atualização 300 passo 614400 vitórias(coleta) 0.0 entropia 0.461 kl 0.0033 cortada 0.044 perda_v 0.0021 2905 passos/s
+atualização 310 passo 634880 vitórias(coleta) 0.0 entropia 0.458 kl 0.0039 cortada 0.038 perda_v 0.0027 2902 passos/s
+atualização 320 passo 655360 vitórias(coleta) 0.0 entropia 0.424 kl 0.0033 cortada 0.036 perda_v 0.0018 2892 passos/s
+atualização 330 passo 675840 vitórias(coleta) 0.03571428571428571 entropia 0.388 kl 0.0032 cortada 0.035 perda_v 0.0096 2880 passos/s
+atualização 340 passo 696320 vitórias(coleta) 0.058823529411764705 entropia 0.444 kl 0.0011 cortada 0.013 perda_v 0.0072 2871 passos/s
+[aval] passo 700416 gulosa: vitórias 1.6% (63 partidas), dano 0.093
+atualização 350 passo 716800 vitórias(coleta) 0.0 entropia 0.474 kl 0.0040 cortada 0.034 perda_v 0.0044 2842 passos/s
+atualização 360 passo 737280 vitórias(coleta) 0.045454545454545456 entropia 0.390 kl 0.0016 cortada 0.018 perda_v 0.0103 2834 passos/s
+atualização 370 passo 757760 vitórias(coleta) 0.0 entropia 0.377 kl 0.0022 cortada 0.021 perda_v 0.0043 2830 passos/s
+atualização 380 passo 778240 vitórias(coleta) 0.0 entropia 0.456 kl 0.0027 cortada 0.032 perda_v 0.0048 2823 passos/s
+atualização 390 passo 798720 vitórias(coleta) 0.04 entropia 0.456 kl 0.0050 cortada 0.043 perda_v 0.0055 2821 passos/s
+[aval] passo 800768 gulosa: vitórias 0.0% (63 partidas), dano 0.106
+atualização 400 passo 819200 vitórias(coleta) 0.08 entropia 0.383 kl 0.0021 cortada 0.024 perda_v 0.0094 2792 passos/s
+atualização 410 passo 839680 vitórias(coleta) 0.0 entropia 0.439 kl 0.0027 cortada 0.028 perda_v 0.0066 2787 passos/s
+atualização 420 passo 860160 vitórias(coleta) 0.0 entropia 0.471 kl 0.0030 cortada 0.030 perda_v 0.0094 2787 passos/s
+atualização 430 passo 880640 vitórias(coleta) 0.03571428571428571 entropia 0.415 kl 0.0042 cortada 0.036 perda_v 0.0125 2785 passos/s
+atualização 440 passo 901120 vitórias(coleta) 0.038461538461538464 entropia 0.393 kl 0.0022 cortada 0.023 perda_v 0.0068 2786 passos/s
+[aval] passo 901120 gulosa: vitórias 3.2% (63 partidas), dano 0.121
+atualização 450 passo 921600 vitórias(coleta) 0.0 entropia 0.411 kl 0.0023 cortada 0.022 perda_v 0.0053 2766 passos/s
+atualização 460 passo 942080 vitórias(coleta) 0.0 entropia 0.475 kl 0.0040 cortada 0.043 perda_v 0.0081 2766 passos/s
+atualização 470 passo 962560 vitórias(coleta) 0.0 entropia 0.492 kl 0.0023 cortada 0.027 perda_v 0.0097 2763 passos/s
+atualização 480 passo 983040 vitórias(coleta) 0.1 entropia 0.423 kl 0.0030 cortada 0.035 perda_v 0.0103 2760 passos/s
+[aval] passo 1001472 gulosa: vitórias 6.3% (63 partidas), dano 0.180
+atualização 490 passo 1003520 vitórias(coleta) 0.0 entropia 0.449 kl 0.0022 cortada 0.023 perda_v 0.0122 2734 passos/s
+atualização 500 passo 1024000 vitórias(coleta) 0.08695652173913043 entropia 0.357 kl 0.0022 cortada 0.022 perda_v 0.0184 2726 passos/s
+atualização 510 passo 1044480 vitórias(coleta) 0.08695652173913043 entropia 0.417 kl 0.0014 cortada 0.016 perda_v 0.0149 2721 passos/s
+atualização 520 passo 1064960 vitórias(coleta) 0.07142857142857142 entropia 0.495 kl 0.0034 cortada 0.036 perda_v 0.0221 2718 passos/s
+atualização 530 passo 1085440 vitórias(coleta) 0.2222222222222222 entropia 0.433 kl 0.0019 cortada 0.019 perda_v 0.0403 2712 passos/s
+[aval] passo 1101824 gulosa: vitórias 39.7% (63 partidas), dano 0.475
+atualização 540 passo 1105920 vitórias(coleta) 0.23076923076923078 entropia 0.412 kl 0.0064 cortada 0.031 perda_v 0.0385 2684 passos/s
+atualização 550 passo 1126400 vitórias(coleta) 0.47619047619047616 entropia 0.526 kl 0.0035 cortada 0.037 perda_v 0.0382 2675 passos/s
+atualização 560 passo 1146880 vitórias(coleta) 0.6 entropia 0.450 kl 0.0036 cortada 0.029 perda_v 0.0185 2665 passos/s
+atualização 570 passo 1167360 vitórias(coleta) 0.125 entropia 0.478 kl 0.0052 cortada 0.044 perda_v 0.0381 2653 passos/s
+atualização 580 passo 1187840 vitórias(coleta) 0.7272727272727273 entropia 0.521 kl 0.0026 cortada 0.029 perda_v 0.0266 2644 passos/s

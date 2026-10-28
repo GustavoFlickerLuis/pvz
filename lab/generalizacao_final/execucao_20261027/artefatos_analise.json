@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-27T15:19:14.531956+00:00",
+  "hashes": {
+    "comparacoes_pareadas.csv": "b88d8807154881ee4bd5d48829591d17e3d0003c8cb47b95c0fb16b1a082912e",
+    "diferencas_baselines.csv": "4146b9ae9e0c8eb1507bda448d6c8f55b478fe4139f0b3bd57df99e5d3d97801",
+    "incerteza_bootstrap.csv": "8de69789b18b4d94e2ec874d88514c8d031e04a1257d2fb72460bbaae6c2aab2",
+    "partidas.csv": "489dcd8fe2396a00b31e61f9d42baa8d95f4d2c3002d432a991c4da855e6499e",
+    "relatorio.md": "38735ec14c87ad8f8ea265a162b3b5f117aa42e5465a9ce2379ab64f863ac6f1",
+    "resumo_agente_conjunto.csv": "d24e19888081859a51ced32bb4a59b06195c75e0350418de7951a1af3a1d8a8c",
+    "resumo_apresentacao.md": "dd8613a41b9dde422690a09f62034f0b6d6c5e772a753e381a6cd2f548c7e15c",
+    "resumo_cnn1d.csv": "d7b933d61dc906be035ebc0eb256e6bbfc9048197d71caf2fd0554af57b33471",
+    "resumo_por_fase.csv": "dd6f384b40fa00019a46b693476f5ea318dc7f5c30e8a9aab3b54c7abb679783",
+    "figuras\\comparacao_conjuntos.pdf": "9f33eb052ea12fbbbd0f0e2e23a5a2b07ad283567e435c65c68370b555f85e5c",
+    "figuras\\comparacao_conjuntos.png": "992e04d9626928aa51595e56413bfd003699ef96af646c7321c55e7f75786fd8",
+    "figuras\\diferenca_generalizacao.pdf": "7b1142776c97e1bf7a63646f3b6267e4b47cc09cc2ac3c13be605e57a9e457ab",
+    "figuras\\diferenca_generalizacao.png": "e86737cfa86e857c9c51dbd2e99a1574e5e377b9acbc4aa15963a25e6bc1af68",
+    "figuras\\por_fase.pdf": "39d8232d5fa8c6ceeed01a3cf62a7b9a93ec55d424a44ed8a16efa7e62dcc416",
+    "figuras\\por_fase.png": "1ffd29ba5b4dd332db931a302b55e232feb3002353b0bcb87f3e4c1500bad2ae"
+  }
+}

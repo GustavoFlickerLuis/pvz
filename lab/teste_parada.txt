@@ -1,0 +1,18 @@
+referência: 32 s
+criado C:\Users\gului\Desktop\pvz-lab\lab\PARAR
+lab-teste-parada-a                 na fila
+lab-teste-parada-b                 na fila
+[fila] 16:06 começando lab-teste-parada-a
+[fila] lab-teste-parada-a: código 0, interrompido (tem ckpt), 0.2 min
+[fila] C:\Users\gului\Desktop\pvz-lab\lab\PARAR existe: fila parada depois de lab-teste-parada-a
+
+OK: parou no passo 22528 com checkpoint; a próxima não começou
+lab-teste-parada-a                 interrompido (tem ckpt)
+lab-teste-parada-b                 na fila
+[fila] 16:06 começando lab-teste-parada-a
+[fila] lab-teste-parada-a: código 0, feito 55.0% (0 min), 0.4 min
+[fila] 16:06 começando lab-teste-parada-b
+[fila] lab-teste-parada-b: código 0, feito 55.0% (1 min), 0.7 min
+[fila] fila completa
+
+OK: retomou do passo 22528; registro, avaliação final (55.0%, 20 partidas) e pesos idênticos à referência sem parada

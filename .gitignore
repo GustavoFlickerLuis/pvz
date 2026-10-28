@@ -29,3 +29,16 @@ rl/PARAR
 rl/diag/dados/*
 !rl/diag/dados/*.json
 rl/diag/logs/*/pesos*.pt
+
+# Publicacao: somente os cinco modelos finais auditados
+!rl/logs/lab-f1-v2a-s1/modelo.pt
+!rl/logs/lab-f1-v2a-s2/modelo.pt
+!rl/logs/lab-f1-v2a-s3/modelo.pt
+!rl/logs/lab-f1-v2a-s4/modelo.pt
+!rl/logs/lab-f1-v2a-s6/modelo.pt
+*.lock
+*.sqlite-shm
+lab/filho.json
+**/worker_pid.json
+lab/PARAR
+*.npz

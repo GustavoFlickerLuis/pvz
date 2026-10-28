@@ -1,0 +1,43 @@
+2026-10-16 19:00:58 | início    | lab-teste-mon-a | passo 0 | monitor começou
+[a] treino PID 29948 morto à mão; último checkpoint no passo 20480
+2026-10-16 19:01:11 | queda     | lab-teste-mon-a | passo 20480 | a fila saiu com código 1
+2026-10-16 19:01:14 | religada  | lab-teste-mon-a | passo 20480 | tentativa 1 desde a última vez que avançou
+[a] OK: o monitor religou e a execução retomou do passo 20480 e terminou
+2026-10-16 19:01:44 | queda     | lab-teste-mon-falha | passo  | a fila saiu com código 1
+2026-10-16 19:01:47 | religada  | lab-teste-mon-falha | passo 0 | tentativa 2 desde a última vez que avançou
+2026-10-16 19:01:50 | queda     | lab-teste-mon-falha | passo  | a fila saiu com código 1
+2026-10-16 19:01:53 | religada  | lab-teste-mon-falha | passo 0 | tentativa 3 desde a última vez que avançou
+2026-10-16 19:01:55 | queda     | lab-teste-mon-falha | passo  | a fila saiu com código 1
+2026-10-16 19:01:55 | falhou    | lab-teste-mon-falha | passo  | 3 quedas seguidas sem o checkpoint avançar; marcada como falha e pulada (fim do log no LAB.md)
+[falha] OK: marcada depois de 3 quedas; fim do log guardado:
+    KeyError: 'nao_existe'
+2026-10-16 19:01:58 | religada  | lab-teste-mon-b | passo 0 | tentativa 1 desde a última vez que avançou
+[b] processo da fila PID 35428 morto à mão; o treino PID 30888 continua
+2026-10-16 19:02:10 | órfão     | lab-teste-mon-b | passo 20480 | o treino (PID 30888) continua vivo sem a fila; esperando ele terminar
+[b] OK: o monitor esperou o órfão terminar antes de religar
+2026-10-16 19:02:35 | queda     | lab-teste-mon-b | passo 20480 | a fila saiu com código 1
+2026-10-16 19:02:38 | religada  | lab-teste-mon-c | passo 0 | tentativa 1 desde a última vez que avançou
+2026-10-16 19:02:50 | parado    |  | passo  | C:\Users\gului\Desktop\pvz-lab\lab\PARAR existe; o monitor não religa e sai
+[c] OK: com PARAR a fila parou com checkpoint no passo 22528 e o monitor saiu sem religar (nada rodou nos 10 s seguintes)
+2026-10-16 19:03:00 | início    | lab-teste-mon-c | passo 22528 | monitor começou
+2026-10-16 19:03:27 | completa  |  | passo  | fila terminada; o monitor sai
+[c] OK: sem o PARAR, o monitor religou, retomou do passo 22528 e saiu com a fila completa
+
+--- log do monitor ---
+2026-10-16 19:00:58 | início    | lab-teste-mon-a | passo 0 | monitor começou
+2026-10-16 19:01:11 | queda     | lab-teste-mon-a | passo 20480 | a fila saiu com código 1
+2026-10-16 19:01:14 | religada  | lab-teste-mon-a | passo 20480 | tentativa 1 desde a última vez que avançou
+2026-10-16 19:01:44 | queda     | lab-teste-mon-falha | passo  | a fila saiu com código 1
+2026-10-16 19:01:47 | religada  | lab-teste-mon-falha | passo 0 | tentativa 2 desde a última vez que avançou
+2026-10-16 19:01:50 | queda     | lab-teste-mon-falha | passo  | a fila saiu com código 1
+2026-10-16 19:01:53 | religada  | lab-teste-mon-falha | passo 0 | tentativa 3 desde a última vez que avançou
+2026-10-16 19:01:55 | queda     | lab-teste-mon-falha | passo  | a fila saiu com código 1
+2026-10-16 19:01:55 | falhou    | lab-teste-mon-falha | passo  | 3 quedas seguidas sem o checkpoint avançar; marcada como falha e pulada (fim do log no LAB.md)
+2026-10-16 19:01:58 | religada  | lab-teste-mon-b | passo 0 | tentativa 1 desde a última vez que avançou
+2026-10-16 19:02:10 | órfão     | lab-teste-mon-b | passo 20480 | o treino (PID 30888) continua vivo sem a fila; esperando ele terminar
+2026-10-16 19:02:35 | queda     | lab-teste-mon-b | passo 20480 | a fila saiu com código 1
+2026-10-16 19:02:38 | religada  | lab-teste-mon-c | passo 0 | tentativa 1 desde a última vez que avançou
+2026-10-16 19:02:50 | parado    |  | passo  | C:\Users\gului\Desktop\pvz-lab\lab\PARAR existe; o monitor não religa e sai
+2026-10-16 19:03:00 | início    | lab-teste-mon-c | passo 22528 | monitor começou
+2026-10-16 19:03:27 | completa  |  | passo  | fila terminada; o monitor sai
+

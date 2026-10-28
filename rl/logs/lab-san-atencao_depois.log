@@ -1,0 +1,33 @@
+
+===== 2026-10-16 16:40:36 C:\Users\gului\Desktop\PythonProject1\.venv\Scripts\python.exe -u -m rl.ppo --id lab-san-atencao_depois --continuar --json {"semente": 0, "passos": 300000, "fases": "calmo", "dificuldade": 0.5, "aval_cada": 20000, "aval_sementes": [300, 400], "aval_final_sementes": [300, 500], "arquitetura": "atencao_depois", "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR"}
+[aval] passo 0 gulosa: vitórias 0.0% (100 partidas), dano 0.000
+atualização 10 passo 20480 vitórias(coleta) 0.34210526315789475 entropia 0.860 kl 0.0002 cortada 0.003 perda_v 0.1267 2111 passos/s
+[aval] passo 20480 gulosa: vitórias 18.0% (100 partidas), dano 0.355
+atualização 20 passo 40960 vitórias(coleta) 0.5151515151515151 entropia 1.117 kl 0.0014 cortada 0.017 perda_v 0.0975 2142 passos/s
+[aval] passo 40960 gulosa: vitórias 56.0% (100 partidas), dano 0.765
+atualização 30 passo 61440 vitórias(coleta) 0.5833333333333334 entropia 1.264 kl 0.0037 cortada 0.042 perda_v 0.1154 2077 passos/s
+[aval] passo 61440 gulosa: vitórias 96.0% (100 partidas), dano 0.990
+atualização 40 passo 81920 vitórias(coleta) 0.8181818181818182 entropia 1.282 kl 0.0069 cortada 0.064 perda_v 0.0841 2050 passos/s
+[aval] passo 81920 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+[aval] passo 100352 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+atualização 50 passo 102400 vitórias(coleta) 0.9117647058823529 entropia 1.189 kl 0.0075 cortada 0.058 perda_v 0.0445 2028 passos/s
+[aval] passo 120832 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+atualização 60 passo 122880 vitórias(coleta) 0.9767441860465116 entropia 1.095 kl 0.0063 cortada 0.041 perda_v 0.0195 2038 passos/s
+[aval] passo 141312 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+atualização 70 passo 143360 vitórias(coleta) 0.9148936170212766 entropia 1.026 kl 0.0039 cortada 0.036 perda_v 0.0480 2068 passos/s
+[aval] passo 161792 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+atualização 80 passo 163840 vitórias(coleta) 0.9534883720930233 entropia 0.813 kl 0.0118 cortada 0.067 perda_v 0.0269 2092 passos/s
+[aval] passo 180224 gulosa: vitórias 98.0% (100 partidas), dano 0.992
+atualização 90 passo 184320 vitórias(coleta) 0.9782608695652174 entropia 0.765 kl 0.0100 cortada 0.049 perda_v 0.0214 2104 passos/s
+[aval] passo 200704 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+atualização 100 passo 204800 vitórias(coleta) 1.0 entropia 0.676 kl 0.0097 cortada 0.045 perda_v 0.0072 2122 passos/s
+[aval] passo 221184 gulosa: vitórias 99.0% (100 partidas), dano 0.995
+atualização 110 passo 225280 vitórias(coleta) 0.9615384615384616 entropia 0.720 kl 0.0125 cortada 0.039 perda_v 0.0156 2137 passos/s
+[aval] passo 241664 gulosa: vitórias 99.0% (100 partidas), dano 0.999
+atualização 120 passo 245760 vitórias(coleta) 0.9767441860465116 entropia 0.669 kl 0.0058 cortada 0.034 perda_v 0.0106 2146 passos/s
+[aval] passo 260096 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+atualização 130 passo 266240 vitórias(coleta) 1.0 entropia 0.681 kl 0.0065 cortada 0.039 perda_v 0.0063 2159 passos/s
+[aval] passo 280576 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+atualização 140 passo 286720 vitórias(coleta) 1.0 entropia 0.578 kl 0.0079 cortada 0.045 perda_v 0.0099 2169 passos/s
+[aval] passo 301056 gulosa: vitórias 100.0% (100 partidas), dano 1.000
+[final] gulosa: vitórias 100.0% em 200 partidas (parou por orçamento, passo 301056)

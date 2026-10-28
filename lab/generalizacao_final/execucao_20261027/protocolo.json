@@ -1,0 +1,532 @@
+{
+  "versao": 1,
+  "criado_utc": "2026-10-27T15:06:55.643639+00:00",
+  "objetivo": "Generalização combinatória PPO CNN1D v2a sem treinamento",
+  "agentes": [
+    {
+      "id": "cnn1d-v2a-s1",
+      "treino": 1,
+      "checkpoint": "rl/logs/lab-f1-v2a-s1/modelo.pt",
+      "hash": "a9767850f73583462d140424bbd2652e5e1fbe71329caff6527ce9daa63616e8",
+      "config": {
+        "semente": 1,
+        "passos": 2000000,
+        "k_ticks": 20,
+        "gamma": 0.994,
+        "lam": 0.95,
+        "envs": 16,
+        "rollout": 128,
+        "epocas": 4,
+        "minilote": 512,
+        "lr": 0.00025,
+        "clip": 0.2,
+        "coef_v": 0.5,
+        "coef_ent": 0.03,
+        "max_norma": 0.5,
+        "fases": "treino",
+        "dificuldade": 1.0,
+        "sementes_treino": [
+          1000,
+          10000
+        ],
+        "aval_cada": 100000,
+        "aval_sementes": [
+          300,
+          303
+        ],
+        "aval_final_sementes": [
+          300,
+          320
+        ],
+        "ate": "",
+        "aval_sorteio": false,
+        "continuar": true,
+        "receita": "atual",
+        "arquitetura": "cnn1d",
+        "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR",
+        "ckpt_cada": 250000
+      }
+    },
+    {
+      "id": "cnn1d-v2a-s2",
+      "treino": 2,
+      "checkpoint": "rl/logs/lab-f1-v2a-s2/modelo.pt",
+      "hash": "2f8f57f66255bde96b7052bd6bf44078035ba78a790757f15fa02fd958e675b3",
+      "config": {
+        "semente": 2,
+        "passos": 2000000,
+        "k_ticks": 20,
+        "gamma": 0.994,
+        "lam": 0.95,
+        "envs": 16,
+        "rollout": 128,
+        "epocas": 4,
+        "minilote": 512,
+        "lr": 0.00025,
+        "clip": 0.2,
+        "coef_v": 0.5,
+        "coef_ent": 0.03,
+        "max_norma": 0.5,
+        "fases": "treino",
+        "dificuldade": 1.0,
+        "sementes_treino": [
+          1000,
+          10000
+        ],
+        "aval_cada": 100000,
+        "aval_sementes": [
+          300,
+          303
+        ],
+        "aval_final_sementes": [
+          300,
+          320
+        ],
+        "ate": "",
+        "aval_sorteio": false,
+        "continuar": true,
+        "receita": "atual",
+        "arquitetura": "cnn1d",
+        "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR",
+        "ckpt_cada": 250000
+      }
+    },
+    {
+      "id": "cnn1d-v2a-s3",
+      "treino": 3,
+      "checkpoint": "rl/logs/lab-f1-v2a-s3/modelo.pt",
+      "hash": "67cc68396d79ffdb3d7157876d3878f3494625cf69acb7ade6ae60ebcd7f69d3",
+      "config": {
+        "semente": 3,
+        "passos": 2000000,
+        "k_ticks": 20,
+        "gamma": 0.994,
+        "lam": 0.95,
+        "envs": 16,
+        "rollout": 128,
+        "epocas": 4,
+        "minilote": 512,
+        "lr": 0.00025,
+        "clip": 0.2,
+        "coef_v": 0.5,
+        "coef_ent": 0.03,
+        "max_norma": 0.5,
+        "fases": "treino",
+        "dificuldade": 1.0,
+        "sementes_treino": [
+          1000,
+          10000
+        ],
+        "aval_cada": 100000,
+        "aval_sementes": [
+          300,
+          303
+        ],
+        "aval_final_sementes": [
+          300,
+          320
+        ],
+        "ate": "",
+        "aval_sorteio": false,
+        "continuar": true,
+        "receita": "atual",
+        "arquitetura": "cnn1d",
+        "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR",
+        "ckpt_cada": 250000
+      }
+    },
+    {
+      "id": "cnn1d-v2a-s4",
+      "treino": 4,
+      "checkpoint": "rl/logs/lab-f1-v2a-s4/modelo.pt",
+      "hash": "b2a82c8ceb1c8d75e18b5b29bfec64ae9ea614df29b0079b245c437ca82aae80",
+      "config": {
+        "semente": 4,
+        "passos": 2000000,
+        "k_ticks": 20,
+        "gamma": 0.994,
+        "lam": 0.95,
+        "envs": 16,
+        "rollout": 128,
+        "epocas": 4,
+        "minilote": 512,
+        "lr": 0.00025,
+        "clip": 0.2,
+        "coef_v": 0.5,
+        "coef_ent": 0.03,
+        "max_norma": 0.5,
+        "fases": "treino",
+        "dificuldade": 1.0,
+        "sementes_treino": [
+          1000,
+          10000
+        ],
+        "aval_cada": 100000,
+        "aval_sementes": [
+          300,
+          303
+        ],
+        "aval_final_sementes": [
+          300,
+          320
+        ],
+        "ate": "",
+        "aval_sorteio": false,
+        "continuar": true,
+        "receita": "atual",
+        "arquitetura": "cnn1d",
+        "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR",
+        "ckpt_cada": 250000
+      }
+    },
+    {
+      "id": "cnn1d-v2a-s6",
+      "treino": 6,
+      "checkpoint": "rl/logs/lab-f1-v2a-s6/modelo.pt",
+      "hash": "2d7c8267c44aead524a35ed2394b07d8f6f51a7fb79bb2d1e5b131a84115ca27",
+      "config": {
+        "semente": 6,
+        "passos": 2000000,
+        "k_ticks": 20,
+        "gamma": 0.994,
+        "lam": 0.95,
+        "envs": 16,
+        "rollout": 128,
+        "epocas": 4,
+        "minilote": 512,
+        "lr": 0.00025,
+        "clip": 0.2,
+        "coef_v": 0.5,
+        "coef_ent": 0.03,
+        "max_norma": 0.5,
+        "fases": "treino",
+        "dificuldade": 1.0,
+        "sementes_treino": [
+          1000,
+          10000
+        ],
+        "aval_cada": 100000,
+        "aval_sementes": [
+          300,
+          303
+        ],
+        "aval_final_sementes": [
+          300,
+          320
+        ],
+        "ate": "",
+        "aval_sorteio": false,
+        "continuar": true,
+        "receita": "atual",
+        "arquitetura": "cnn1d",
+        "arquivo_parar": "C:\\Users\\gului\\Desktop\\pvz-lab\\lab\\PARAR",
+        "ckpt_cada": 250000
+      }
+    },
+    {
+      "id": "econ5",
+      "treino": null,
+      "checkpoint": "",
+      "hash": ""
+    },
+    {
+      "id": "guloso",
+      "treino": null,
+      "checkpoint": "",
+      "hash": ""
+    }
+  ],
+  "fases": {
+    "conhecida": [
+      [
+        "calmo",
+        "misto",
+        "tudo_junto"
+      ],
+      [
+        "calmo",
+        "misto",
+        "duas_ondas"
+      ],
+      [
+        "calmo",
+        "uma_faixa_pesada",
+        "blindados"
+      ],
+      [
+        "calmo",
+        "uma_faixa_pesada",
+        "tudo_junto"
+      ],
+      [
+        "calmo",
+        "uma_faixa_pesada",
+        "duas_ondas"
+      ],
+      [
+        "calmo",
+        "rapidos_em_massa",
+        "blindados"
+      ],
+      [
+        "calmo",
+        "rapidos_em_massa",
+        "tudo_junto"
+      ],
+      [
+        "cedo_apressado",
+        "misto",
+        "tudo_junto"
+      ],
+      [
+        "cedo_apressado",
+        "misto",
+        "duas_ondas"
+      ],
+      [
+        "cedo_apressado",
+        "uma_faixa_pesada",
+        "blindados"
+      ],
+      [
+        "cedo_apressado",
+        "uma_faixa_pesada",
+        "duas_ondas"
+      ],
+      [
+        "cedo_apressado",
+        "rapidos_em_massa",
+        "blindados"
+      ],
+      [
+        "cedo_apressado",
+        "rapidos_em_massa",
+        "tudo_junto"
+      ],
+      [
+        "cedo_apressado",
+        "rapidos_em_massa",
+        "duas_ondas"
+      ],
+      [
+        "so_rapidos",
+        "misto",
+        "blindados"
+      ],
+      [
+        "so_rapidos",
+        "misto",
+        "tudo_junto"
+      ],
+      [
+        "so_rapidos",
+        "misto",
+        "duas_ondas"
+      ],
+      [
+        "so_rapidos",
+        "uma_faixa_pesada",
+        "blindados"
+      ],
+      [
+        "so_rapidos",
+        "uma_faixa_pesada",
+        "duas_ondas"
+      ],
+      [
+        "so_rapidos",
+        "rapidos_em_massa",
+        "blindados"
+      ],
+      [
+        "so_rapidos",
+        "rapidos_em_massa",
+        "tudo_junto"
+      ]
+    ],
+    "inedita": [
+      [
+        "calmo",
+        "misto",
+        "blindados"
+      ],
+      [
+        "cedo_apressado",
+        "uma_faixa_pesada",
+        "tudo_junto"
+      ],
+      [
+        "so_rapidos",
+        "rapidos_em_massa",
+        "duas_ondas"
+      ],
+      [
+        "calmo",
+        "rapidos_em_massa",
+        "duas_ondas"
+      ],
+      [
+        "cedo_apressado",
+        "misto",
+        "blindados"
+      ],
+      [
+        "so_rapidos",
+        "uma_faixa_pesada",
+        "tudo_junto"
+      ]
+    ]
+  },
+  "sementes": [
+    10100,
+    10101,
+    10102,
+    10103,
+    10104,
+    10105,
+    10106,
+    10107,
+    10108,
+    10109,
+    10110,
+    10111,
+    10112,
+    10113,
+    10114,
+    10115,
+    10116,
+    10117,
+    10118,
+    10119,
+    10120,
+    10121,
+    10122,
+    10123,
+    10124,
+    10125,
+    10126,
+    10127,
+    10128,
+    10129,
+    10130,
+    10131,
+    10132,
+    10133,
+    10134,
+    10135,
+    10136,
+    10137,
+    10138,
+    10139,
+    10140,
+    10141,
+    10142,
+    10143,
+    10144,
+    10145,
+    10146,
+    10147,
+    10148,
+    10149
+  ],
+  "politica": "argmax dos logits válidos; observação v2; 226 ações",
+  "k": 20,
+  "dificuldade": 1.0,
+  "batch": 50,
+  "total": 9450,
+  "ambiente": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "executavel": "C:\\Users\\gului\\Desktop\\PythonProject1\\.venv\\Scripts\\python.exe",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.4.6",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "threads": 1,
+    "deterministic": true,
+    "tf32": false,
+    "cublas": ":4096:8"
+  },
+  "hashes": {
+    "rl/logs/lab-f1-v2a-s1/modelo.pt": "a9767850f73583462d140424bbd2652e5e1fbe71329caff6527ce9daa63616e8",
+    "rl/logs/lab-f1-v2a-s1/config.json": "dc90ece7681000d1718603554b090e26512ecfda2fa198874dca4116ee69c7eb",
+    "rl/logs/lab-f1-v2a-s1/resultado.json": "b125addec38a580eafc771bc53b5f982ce5b5387f40b7587b827fcc59bba4738",
+    "rl/logs/lab-f1-v2a-s2/modelo.pt": "2f8f57f66255bde96b7052bd6bf44078035ba78a790757f15fa02fd958e675b3",
+    "rl/logs/lab-f1-v2a-s2/config.json": "0e56b68ec245efe14536901a16809773c694dc0cac10725f92a37801aa32c2c1",
+    "rl/logs/lab-f1-v2a-s2/resultado.json": "54e6fe8cbd68ca9d4d6f562f383ff2af959f8c933bcc7367113b4609436dcbe1",
+    "rl/logs/lab-f1-v2a-s3/modelo.pt": "67cc68396d79ffdb3d7157876d3878f3494625cf69acb7ade6ae60ebcd7f69d3",
+    "rl/logs/lab-f1-v2a-s3/config.json": "c10f1c4755ab0d6687c31070c6386bbefdfa109f411b14e59df770be2fa163f5",
+    "rl/logs/lab-f1-v2a-s3/resultado.json": "3dc82195c848a307f956f11ce7df01e56ea2acef418de52d58b35ed3b689c474",
+    "rl/logs/lab-f1-v2a-s4/modelo.pt": "b2a82c8ceb1c8d75e18b5b29bfec64ae9ea614df29b0079b245c437ca82aae80",
+    "rl/logs/lab-f1-v2a-s4/config.json": "c4102ff30ebba368e9d6c1c38199450678ffa26e9fb29a5a97fac9ad795a5c6e",
+    "rl/logs/lab-f1-v2a-s4/resultado.json": "b1dff23faf4d5d52b188d09a9d1174e63bc3cb75ebe6e71fdea79ba3e9de1bdb",
+    "rl/logs/lab-f1-v2a-s6/modelo.pt": "2d7c8267c44aead524a35ed2394b07d8f6f51a7fb79bb2d1e5b131a84115ca27",
+    "rl/logs/lab-f1-v2a-s6/config.json": "39d1d9118c518dc8b52b77f0678c423bf9dd86e9783248f6131d7e59a756a883",
+    "rl/logs/lab-f1-v2a-s6/resultado.json": "9cfe8646589b7c2449ae461462b1ce94ef7316df2a6d4ee16e59eb384778b52a",
+    "pvz/agentes.py": "fa221fbd402e3ed3771b440469314b91066d88b444c268dbcc616c4750fbc1b7",
+    "pvz/ambiente.py": "65be91f1ce69438f8ad13b7607813f0fea4782969d9aa9fb41e452040d037610",
+    "pvz/config.py": "78f8d676aee6b4c6442e3d7ea62fd6c2a8aca8fb9f2275336bacb83bebe5bbeb",
+    "pvz/divisao.py": "86fe37b97c83382b4c54cf13f8be247085b41ad2678e9bbbfbb6a38c2a1cdbe1",
+    "pvz/hordas.py": "3caf2148766c612ecd396169a443546b61c565629788cc2ca5361a1f15faf4ac",
+    "pvz/render.py": "d2efedb5d1569a2210b852e1d0abeb3bac3b2ea26f79d06f480f840d3f7240d6",
+    "pvz/__init__.py": "757e6af1353532e6bcebafa22fa8f5d1589d2ef36ca4a8325c811d4c6a4314b2",
+    "pvz/__main__.py": "bf50a793b6d8e7574dbfc805f7c424fb28e067334fb6275f2cdd9d1f4e148fbc",
+    "rl/acoes.py": "a5a05b83e227e0dfc10f7b4a2b9a0a5cbd239bc60c43bbb3621856808fcd929d",
+    "rl/avaliar.py": "8fba669ba53ff24c809f4dbbbeaf980ae9c518a6dcac7018a68867c45494e2f3",
+    "rl/comparar_dqn_ppo.py": "7e260c85ab9a356a8cca4c0a6706503ab9a08a09ab384a8284d77f45144e8726",
+    "rl/dqn.py": "adcd372f494ea8a7756c44d19934ee4f0033d3e6d427f239708b742135b36750",
+    "rl/ppo.py": "f7dcd1496aa8bd02a119a5d7a7104b722e927cb93f837628fec01779081e4998",
+    "rl/relatorio.py": "4acfad6dde4dd5c50f8fb318e0027c429fbdcd959bef03438926c916055a59c1",
+    "rl/rodar.py": "c054522c0f8b20cccf4bf588701974956bb7019637b54e01ad9bbbd73ced81cd",
+    "rl/status.py": "daf39e73155a312bb782ec5420e8ca3e5803f7ab15802739bd74f3203b73ba37",
+    "rl/teste_retomada.py": "73727405742e228a5d0e950998809156d4c4c833f0d0f5e1e2f51c2d9965677a",
+    "rl/__init__.py": "70d9b44a099f3f165ace3fbb57f8427a61afd45ef67fe18fd01e48ad38e03962",
+    "rl/diag/comum.py": "01c56d30df279cab1206311091efdf81bfd9983761d81066df3814f34174ee3e",
+    "rl/diag/dados_td.py": "de95ee149655f37a24e1e70f677d3ff0ada286b4a09734c9bb960406df829aa3",
+    "rl/diag/prova.py": "9873578765c997a411bbd9c1fbffae3260336e4b072e3c30a336a78ff0944d73",
+    "rl/diag/relatorio.py": "187f9354417198312f63e98a88c485b8ffd220381e9b26b8a94161a1cc63f2f2",
+    "rl/diag/td.py": "2240b4cbd11d61e1882747cd9a4aa5b861f744fd7e993d8b5864415535fdb1d3",
+    "rl/diag/teto.py": "f36c9c91cca763281a4a03aa36fd1a6adb70ef34f2d9aa9f3663f900aa5a3fae",
+    "rl/diag/__init__.py": "c8a7b5da44cf6a1ae0092d8240886b1322c73d0a450869f95810807d5ce13b9e",
+    "desafio3/analise.py": "acc85da467f9ca5841f609d7161355b63af29202982779c5892c07ff120732e4",
+    "desafio3/avaliar_teste.py": "698ad022d48d2627f9d075c3d0ea6f99f01c11e5643e9b70b71faf263272d334",
+    "desafio3/dados.py": "0ffc228bec5062a53998817c4493ac8294df1335275dfabd34c2d638a98d1624",
+    "desafio3/graficos.py": "b866f36314305dfc4c2e3905f9050aa336b4b6e670c81a15b3db9d4a26578cce",
+    "desafio3/jogar.py": "1108ef75808c3ccbb44604446a495ec87434fc5feac2e4a7372f9456a7f8c5e0",
+    "desafio3/modelo.py": "755ccc3b0ef3f5f0b4bf214a99ea1a84c792e33d254e47fd49a0c7aa8ddf8166",
+    "desafio3/muon.py": "97faf6c58d8ba63150c8248095056e71e68bfe0710bfdc92d5bad4b9f110316e",
+    "desafio3/painel.py": "b7aaa449e9f41208d0d76728ac664a6d8664e53bf37f3398f134f4b04e47ee06",
+    "desafio3/treino.py": "62a6a1e0f6ff5e2119fecdb86a6786714e2fa933e035763f78424cd3502bee1b",
+    "desafio3/__init__.py": "c4cdf64861c1e6851d431faba522c6f7d0968494632ca6a22efcad9db72fccfe",
+    "lab/avaliacao_extra.py": "9cf6324e36e2a7a9122ed3124166c4d78dcc2749092c38dc02fb3cb1e057898a",
+    "lab/fila.py": "bdced3faa935fb7dcebcf3f0f4cd9bf4403ddaec8319797db5d65d0ad0b832ec",
+    "lab/medir.py": "97170ef7d024f949083425e519ee4bf49f48a61a35dca5bad6fccd3b102cc551",
+    "lab/monitor.py": "0f9ac78f71278824850f964380fcd2e425f8c43cf23c4c7906b4b6c963d66854",
+    "lab/parte0.py": "74b8676b5a3533b62e8ccbe78a8a539d2356510a9697a956a31dd961d95451ed",
+    "lab/parte1.py": "1d8dc0847c94e1599432461562f8c9561bb386aecc5023a3fc0b4ae5f4a00826",
+    "lab/processos.py": "b05956692c6a89140e6bc73e9ad9c3c7a6c2ff1aa4f58741a3dfd51a1c02e884",
+    "lab/relatorio.py": "dbc62589a3650e9ec3aeb870e3b649b8222138c1bd5f127385b26ced52805e96",
+    "lab/teste_ckpt.py": "db44bdd55c08c97792276582a4cdb7d233009fe096c6fc1f408ef78cedd31c20",
+    "lab/teste_monitor.py": "b0840baf069848854ebbf15347011ec4ddd378e77b378e57977bc9f0ddea36e9",
+    "lab/teste_parada.py": "42cecf9c77a6c5eb593fe72f036e76a5aae03584a57a0b106e1382007453ef4e",
+    "lab/teto.py": "060348cf0a8a680ba16ae978d61c4bb292ce52e09a9c05a441ac41154dba3de8",
+    "lab/__init__.py": "ff5654ce7c4d4b029072775bdea8bd975d3c742ed4b52b11e87d0db164b213c2",
+    "lab/generalizacao_final/analise.py": "019c39b9348542e8eeb8d7705214c3a9efe0a738d8032853692c91830f174151",
+    "lab/generalizacao_final/experimento.py": "28d1a3aef60b9162b1284d1eb4ad368cd698cc9bb7718437b87e4abd919cd281",
+    "LAB.md": "4d269c9c5fd7e9fa7252169ccab89bee7f459185c43178923dd0bbc4fd1cef50",
+    "CLAUDE.md": "123716e3c9d6cc5140381baf472e207d0960b441f5db7928388335a7e840702a",
+    "AGENTS.md": "4191bce7910c8db1b1feb09cbc7a28d52c9af779f07e59ae4ef92e48082a906d",
+    "docs/CONCEITO.md": "2118852e6941c2d74836046376c02fff6ee0e3aac7ab15a279cc9f286ade1f71",
+    "lab/avaliacao_extra.csv": "0eb04cef202bbdfb17d2bd5c2e8e61bddd57ca81f9e4eaafd573715a03bfdf26"
+  },
+  "ordem": "Todos os agentes nas conhecidas, depois todos nas inéditas; sem parada por desempenho.",
+  "estatistica": {
+    "agregacao": "Média por fase (50 partidas), depois por conjunto; fases com peso igual dentro de cada conjunto. Modelos com peso igual.",
+    "treino": "5 réplicas; média, DP amostral, IC t95 com 4 gl e fator 2.776445105; descritivo, não teste de equivalência.",
+    "partidas": "Wilson 95% por modelo/conjunto, condicional às fases fixas; heterogeneidade e dependência limitam interpretação.",
+    "fases": "DP entre médias por fase separado do DP entre treinos; apenas 6 fases inéditas, sem extrapolação a novas distribuições.",
+    "bootstrap": "10000 reamostragens hierárquicas: modelos, fases dentro de cada grupo e sementes dentro de fase. Modelos/baselines pareados nas partidas; IC percentil95 exploratório. RNG 20261027.",
+    "sucesso": "Sem limiar pós-hoc, sem alegação de equivalência/perfeição. Expor diferenças e incertezas."
+  },
+  "limites": "Combinações já usadas por baselines/proxy; reserva relativa ao desenvolvimento PPO. Estresse excluído. Não ajustar após abertura.",
+  "retomada": "SQLite FULL, PK agente/fase/semente, lock OS, até 3 falhas consecutivas sem progresso; falha de integridade bloqueia imediatamente."
+}

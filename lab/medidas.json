@@ -1,0 +1,45 @@
+{
+  "cnn1d": {
+    "parametros": 88775,
+    "passos_por_s": 1858.456192484305,
+    "s_coleta": 0.9134709040323893,
+    "s_atualizacao": 0.188519020875295,
+    "razao_cnn1d": 1.0
+  },
+  "atencao_antes": {
+    "parametros": 130567,
+    "passos_por_s": 1420.7195203069682,
+    "s_coleta": 1.1069469054539998,
+    "s_atualizacao": 0.33457618951797485,
+    "razao_cnn1d": 1.3081091418260777
+  },
+  "atencao_depois": {
+    "parametros": 106439,
+    "passos_por_s": 1529.6495788311981,
+    "s_coleta": 1.0234708587328594,
+    "s_atualizacao": 0.31539787848790485,
+    "razao_cnn1d": 1.2149555154353373
+  },
+  "transformer": {
+    "parametros": 103175,
+    "passos_por_s": 1228.4720797203886,
+    "s_coleta": 1.1638694604237874,
+    "s_atualizacao": 0.503158966700236,
+    "razao_cnn1d": 1.51281923550701
+  },
+  "transformer_d128": {
+    "parametros": 402951,
+    "passos_por_s": 1087.3797636494362,
+    "s_coleta": 1.1138944029808044,
+    "s_atualizacao": 0.7695322235425314,
+    "razao_cnn1d": 1.7091141978281825
+  },
+  "cnn1d_dilatada": {
+    "parametros": 88775,
+    "passos_por_s": 1830.4832639405956,
+    "s_coleta": 0.9223346908887228,
+    "s_atualizacao": 0.19641147057215372,
+    "razao_cnn1d": 1.0152817177270936
+  },
+  "_nota": "12 coletas (2.048 passos cada) depois de 1 de aquecimento, FASES_TREINO, semente 0, receita atual, NVIDIA GeForce RTX 3050 Laptop GPU"
+}
